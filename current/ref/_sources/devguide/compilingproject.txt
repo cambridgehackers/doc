@@ -16,8 +16,8 @@ credentials.* We do not store credentials, but pass them througth
 to github.  Next, enter a name for the project, which will be used
 for subsequent build requests through the Buildbot web interface.  The
 project must be in a publicly accessible git-hub repository, whose
-Repo location is entered beginning with git:// as follows
-git://github.com/connectal-examples/leds.git.  If the project
+Repo location is entered beginning with `git://`_ as follows
+`git://github.com/connectal-examples/leds.git`_.  If the project
 makefile is not in the root directory of the repository, enter its
 relative path in the 'Path' field of the form.  If a particular branch
 or revision number are desired, enter these as well.  Check the button
@@ -30,6 +30,7 @@ platforms are not currently supported.  Finally, don't forget to click
 'Add'. If the project name has already been used, you will be prompted
 to enter a new one at this point.
 
+
 Compiling Locally
 =================
 
@@ -40,3 +41,6 @@ connectal source tree, enter the command ``make``
 Running the Design
 ==================
 
+
+.. _git://: git://
+.. _git://github.com/connectal-examples/leds.git: git://github.com/connectal-examples/leds.git
