@@ -26,8 +26,8 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
     <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
-    <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
-    <link rel="prev" title="Connectal Developer’s Guide" href="devguide.html" /> 
+    <link rel="next" title="Compiling and Running Connectal Project" href="compilingproject.html" />
+    <link rel="prev" title="Connectal Rationale" href="design.html" /> 
   </head>
   <body>
     <div class="related">
@@ -40,10 +40,10 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="compilingproject.html" title="Compiling and Running Connectal Project"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="devguide.html" title="Connectal Developer’s Guide"
+          <a href="design.html" title="Connectal Rationale"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
           <li><a href="devguide.html" accesskey="U">Connectal Developer&#8217;s Guide</a> &raquo;</li> 
@@ -98,7 +98,7 @@ makefile can be included.  This brings in the default definitions of
 all project build parameters as well as the Connectal hardware and
 software libraries.  When running the toolchain on AWS, this varible
 is set automatically in the build environment.
-(hyperref[compiling_a_project]{Section~ref{compiling_a_project}})</p>
+(See <a class="reference internal" href="compilingproject.html#compiling-a-project"><em>Compiling and Running Connectal Project</em></a>)</p>
 </div>
 <div class="section" id="project-source">
 <h2>Project Source<a class="headerlink" href="#project-source" title="Permalink to this headline">¶</a></h2>
@@ -144,7 +144,7 @@ in <tt class="docutils literal"><span class="pre">LedControllerRequest.h</span><
 implementations of all additional interface types in
 <tt class="docutils literal"><span class="pre">GeneratedTypes.h</span></tt>. Line 9 instantiates the proxy through which
 the software invokes the hardware methods
-(hyperref[flow_control]{Section~ref{flow_control}}).</p>
+(See also <a class="reference internal" href="../design/flowcontrol.html#flow-control"><em>Flow Control</em></a>)</p>
 </div>
 </div>
 <div class="section" id="hardware">
@@ -154,7 +154,7 @@ interface declarations and module definitions.  The implementation of
 the interfaces and all supporting infrastructure is standard BSV.
 Interfaces being used as portals are subject to the type restrictions
 described earlier
-(hyperref[interface_definitions]{Section~ref{interface_definitions}}).</p>
+(See also <a class="reference internal" href="../design/interface_definitions.html#interface-definitions"><em>Interface Declarations</em></a>)</p>
 <div class="section" id="top-bsv">
 <h3>Top.bsv<a class="headerlink" href="#top-bsv" title="Permalink to this headline">¶</a></h3>
 <p>In Top.bsv
@@ -244,11 +244,11 @@ exporting a &#8216;Pins&#8217; interface
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="devguide.html"
-                        title="previous chapter">Connectal Developer&#8217;s Guide</a></p>
+  <p class="topless"><a href="design.html"
+                        title="previous chapter">Connectal Rationale</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../bsv/bsv.html"
-                        title="next chapter">Connectal BSV Libraries</a></p>
+  <p class="topless"><a href="compilingproject.html"
+                        title="next chapter">Compiling and Running Connectal Project</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/devguide/projectstructure.txt"
@@ -281,10 +281,10 @@ exporting a &#8216;Pins&#8217; interface
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="compilingproject.html" title="Compiling and Running Connectal Project"
              >next</a> |</li>
         <li class="right" >
-          <a href="devguide.html" title="Connectal Developer’s Guide"
+          <a href="design.html" title="Connectal Rationale"
              >previous</a> |</li>
         <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
           <li><a href="devguide.html" >Connectal Developer&#8217;s Guide</a> &raquo;</li> 

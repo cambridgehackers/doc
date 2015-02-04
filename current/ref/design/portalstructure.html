@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Portal Interface Structure &mdash; connectal 14.12.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '14.12.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="next" title="Connectal Developer’s Guide" href="../devguide/devguide.html" />
+    <link rel="prev" title="Welcome to connectal’s documentation!" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="../devguide/devguide.html" title="Connectal Developer’s Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to connectal’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="portal-interface-structure">
+<h1>Portal Interface Structure<a class="headerlink" href="#portal-interface-structure" title="Permalink to this headline">¶</a></h1>
+<p>Connectal connects software and hardware via portals, where each portal is
+an interface that allows one side to invoke methods on the other side.</p>
+<p>We generally call a portal from software to hardware to be a &#8220;request&#8221;
+and from hardware to software to be an &#8220;indication&#8221; interface:</p>
+<div class="highlight-python"><div class="highlight"><pre>Sequence Diagram to be drawn
+{
+  SW; HW
+  SW -&gt; HW [label = &quot;request&quot;];
+  SW &lt;- HW [label = &quot;indication&quot;];
+}
+</pre></div>
+</div>
+<p>A portal is conceptually a FIFO, where the arguments to a method are
+packaged as a message. CONNECTAL generates a &#8220;proxy&#8221; that marshalls the
+arguments to the method into a message and a &#8220;wrapper&#8221; that unpacks
+the arguments and invokes the method.</p>
+<p>Currently, connectal Includes a library that implements portals from
+software to hardware via memory mapped hardware FIFOs.</p>
+<div class="section" id="portal-device-drivers">
+<h2>Portal Device Drivers<a class="headerlink" href="#portal-device-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Connectal uses a platform-specific driver to enable user-space applications
+to memory-map each portal used by the application and to enable the
+application to wait for interrupts from the hardware.</p>
+<p>indexterm:pcieportal
+indexterm:zynqportal</p>
+<ul class="simple">
+<li>pcieportal.ko</li>
+<li>zynqportal.ko</li>
+</ul>
+<p>Connectal also uses a generic driver to enable the applications to allocate DRAM that will be shared with the hardware and to send the memory mapping of that memory to the hardware.</p>
+<ul class="simple">
+<li>portalmem.ko</li>
+</ul>
+</div>
+<div class="section" id="portal-memory-map">
+<h2>Portal Memory Map<a class="headerlink" href="#portal-memory-map" title="Permalink to this headline">¶</a></h2>
+<p>Connectal currently supports up to 16 portals connected between software and hardware, for a total of 1MB of address space.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="41%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Base address</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00000</td>
+<td>Portal 0</td>
+</tr>
+<tr class="row-odd"><td>0x10000</td>
+<td>Portal 1</td>
+</tr>
+<tr class="row-even"><td>0x20000</td>
+<td>Portal 2</td>
+</tr>
+<tr class="row-odd"><td>0x30000</td>
+<td>Portal 3</td>
+</tr>
+<tr class="row-even"><td>0x40000</td>
+<td>Portal 4</td>
+</tr>
+<tr class="row-odd"><td>0x50000</td>
+<td>Portal 5</td>
+</tr>
+<tr class="row-even"><td>0x60000</td>
+<td>Portal 6</td>
+</tr>
+<tr class="row-odd"><td>0x70000</td>
+<td>Portal 7</td>
+</tr>
+<tr class="row-even"><td>0x80000</td>
+<td>Portal 8</td>
+</tr>
+<tr class="row-odd"><td>0x90000</td>
+<td>Portal 9</td>
+</tr>
+<tr class="row-even"><td>0xa0000</td>
+<td>Portal 10</td>
+</tr>
+<tr class="row-odd"><td>0xb0000</td>
+<td>Portal 11</td>
+</tr>
+<tr class="row-even"><td>0xc0000</td>
+<td>Portal 12</td>
+</tr>
+<tr class="row-odd"><td>0xd0000</td>
+<td>Portal 13</td>
+</tr>
+<tr class="row-even"><td>0xe0000</td>
+<td>Portal 14</td>
+</tr>
+<tr class="row-odd"><td>0xf0000</td>
+<td>Portal 15</td>
+</tr>
+</tbody>
+</table>
+<p>Each portal uses 64KB of address space, consisting of a control
+register region and then per-method FIFOs.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Base address</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x0000</td>
+<td>Portal control regs</td>
+</tr>
+<tr class="row-odd"><td>0x0100</td>
+<td>Method 0 FIFO</td>
+</tr>
+<tr class="row-even"><td>0x0200</td>
+<td>Method 1 FIFO</td>
+</tr>
+<tr class="row-odd"><td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>For request portals, the FIFOs are from software to hardware, and for
+indication portals the FIFOs are from hardware to software.</p>
+<div class="section" id="portal-fifos">
+<h3>Portal FIFOs<a class="headerlink" href="#portal-fifos" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Base address</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>FIFO data (write request data, read indication data)</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>Request FIFO not full / Indication FIFO not empty</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="portal-control-registers">
+<h3>Portal Control Registers<a class="headerlink" href="#portal-control-registers" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="29%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Base address</th>
+<th class="head">Function</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0x00</td>
+<td>Interrupt status register</td>
+<td>1 if this portal has any messages ready, 0 otherwise</td>
+</tr>
+<tr class="row-odd"><td>0x04</td>
+<td>Interrupt enable register</td>
+<td>Write 1 to enable interrupts, 0 to disable</td>
+</tr>
+<tr class="row-even"><td>0x08</td>
+<td>7</td>
+<td>Fixed value</td>
+</tr>
+<tr class="row-odd"><td>0x0C</td>
+<td>Ready Channel number + 1</td>
+<td>Reads as zero if no indication channel ready</td>
+</tr>
+<tr class="row-even"><td>0x10</td>
+<td>Interface Id</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>0x14</td>
+<td>Last portal</td>
+<td>1 if this is the last portal defined</td>
+</tr>
+<tr class="row-even"><td>0x18</td>
+<td>Cycle count LSW</td>
+<td>Snapshots MSW when read</td>
+</tr>
+<tr class="row-odd"><td>0x1C</td>
+<td>Cycle count MSW</td>
+<td>MSW of cycle count when LSW was read</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Portal Interface Structure</a><ul>
+<li><a class="reference internal" href="#portal-device-drivers">Portal Device Drivers</a></li>
+<li><a class="reference internal" href="#portal-memory-map">Portal Memory Map</a><ul>
+<li><a class="reference internal" href="#portal-fifos">Portal FIFOs</a></li>
+<li><a class="reference internal" href="#portal-control-registers">Portal Control Registers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Welcome to connectal&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../devguide/devguide.html"
+                        title="next chapter">Connectal Developer&#8217;s Guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/design/portalstructure.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="../devguide/devguide.html" title="Connectal Developer’s Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Welcome to connectal’s documentation!"
+             >previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
