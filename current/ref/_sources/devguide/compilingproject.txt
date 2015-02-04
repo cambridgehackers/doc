@@ -9,11 +9,7 @@ The Connectal toolchain can be run on ConnectalBuild using the
 following Buildbot web interface:
 http://connectalbuild.qrclab.com/projects.
 
-\begin{figure}[!h]
-  \centering
- \includegraphics[width=0.75\textwidth]{connectalbuild.pdf}
-\end{figure}
-
+.. image:: connectalbuild-1.png
 
 *Before submitting a project, you must sign in using your github
 credentials.* We do not store credentials, but pass them througth
@@ -39,8 +35,8 @@ Compiling Locally
 
 Before compiling a project locally, you will need to install the
 toolchain.  After setting the ``CONNECTALDIR`` to the root of the
-connectal source tree, enter the command 'Make 
+connectal source tree, enter the command ``make``
 
-Executing The Design
-====================
+Running the Design
+==================
 
