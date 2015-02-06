@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Performance of Generated Systems &mdash; connectal 14.12.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '14.12.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="up" title="Connectal Design" href="design.html" />
+    <link rel="next" title="Related Work" href="related-work.html" />
+    <link rel="prev" title="Workflow using Connectal" href="toolchain.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="related-work.html" title="Related Work"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="toolchain.html" title="Workflow using Connectal"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="performance-of-generated-systems">
+<span id="sec-performance"></span><h1>Performance of Generated Systems<a class="headerlink" href="#performance-of-generated-systems" title="Permalink to this headline">¶</a></h1>
+<p>A framework is only useful if it reduces the effort required by
+developers to achieve the desired performance objective. Trying to gauge the
+relative effort is difficult since the authors implemented both the
+framework and the running example. On PCIE-based platforms we were
+able to reduce the time required to search for a fixed set of strings
+in a large corpus by an order of magnitude after integrating hardware
+acceleration using Connectal.  Performance improvements on the
+Zynq-based platforms was even greater due to the relative processing
+power of the ARM CPU and scaled with the number of bus master
+interfaced used for DMA.  In the Connectal framework, developing these
+applications took very little time.</p>
+<div class="section" id="performance-of-portals">
+<h2>Performance of Portals<a class="headerlink" href="#performance-of-portals" title="Permalink to this headline">¶</a></h2>
+<p>The current implementation of HW/SW textbf{portal} transfers 32 bits
+per FPGA clock cycle. Our example designs run at 100MHz to 250MHz,
+depending on the complexity of the design and the speed grade of the
+FPGA used. Due to their intended use, the important performance metric
+of Portals is latency.  These values are given in
+Figure~ref{Fig:PortalLatency}.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>begin{figure}</dt>
+<dd><p class="first">centering
+begin{tabular}{<a href="#id1"><span class="problematic" id="id2">|c|c|c|c|c|c|c|c|c|</span></a>}</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>hline</dt>
+<dd>&amp; rt{KC705} &amp; rt{VC707} &amp; rt{ZYBO} &amp; rt{Zedboard} &amp; rt{ZC702} &amp; rt{ZC706} &amp; rt{Parallel} &amp; rt{Mini-ITX} \</dd>
+</dl>
+<p>hline
+HW $rightarrow$ SW  &amp;  3  &amp;  3  &amp;  X  &amp;  0.80  &amp;  0.80  &amp;  0.65  &amp;  X  &amp;  0.65  \
+hline
+SW $rightarrow$ HW  &amp; 5  &amp;  5  &amp;  X  &amp;  1.50  &amp;  1.50 &amp;  1.10  &amp;  X  &amp;  1.10  \
+hline</p>
+</div></blockquote>
+<p>end{tabular}
+caption{Latency ($mu$s) of communication through portals on supported</p>
+<blockquote class="last">
+<div>platformslabel{Fig:PortalLatency}}</div></blockquote>
+</dd>
+</dl>
+<p>end{figure}</p>
+</div></blockquote>
+<p>The Xilinx KC705 and VC707 boards connect to x86 CPUs and system
+memory via PCIe gen1. The default FPGA clock for those boards is
+125MHz.  The other platforms use AXI to connect the programmable logic
+to the quad-core ARM Cortex A9 and system memory. The ZYBO, Zedboard
+and ZC702 use a slower speed grade part on which our designs run at
+100MHz. The ZC706 and Mini-ITX use a faster part on which many of our
+designs run at 200MHz. The lower latency measured on the ZC706
+reflects the higher clock speed of the latency performance test.</p>
+</div>
+<div class="section" id="performance-of-reads-writes-of-system-memory">
+<h2>Performance of Reads/Writes of System Memory<a class="headerlink" href="#performance-of-reads-writes-of-system-memory" title="Permalink to this headline">¶</a></h2>
+<p>For high bandwidth transfers, we assume the developer will have the
+application hardware read or write system memory directly. Direct
+access to memory enables transfers with longer bursts, reducing memory
+bus protocol overhead. The framework supports transfer widths of 32 to
+128 bits per cycle, depending on the interconnect used.</p>
+<p>Our goal in the design of the library components used to read and
+write system memory is to ensure that a developer&#8217;s application can
+use all bandwidth available to the FPGA when accessing system memory.
+DMA Bandwidth on supported platforms is listed in
+Figureref{Fig:DmaBandwidth}.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>begin{figure}</dt>
+<dd><p class="first">centering
+begin{tabular}{<a href="#id3"><span class="problematic" id="id4">|c|c|c|c|c|c|c|c|c|</span></a>}</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>hline</dt>
+<dd>&amp; rt{KC705} &amp; rt{VC707} &amp; rt{ZYBO} &amp; rt{Zedboard} &amp; rt{ZC702} &amp; rt{ZC706} &amp; rt{Parallel} &amp; rt{Mini-ITX} \</dd>
+</dl>
+<p>hline
+Read  &amp;  1.4  &amp;  1.4  &amp;  X  &amp;  0.8  &amp;  0.8  &amp;  1.6  &amp;  X  &amp;  1.6  \
+hline
+Write  &amp;  1.4  &amp;  1.4  &amp;  X  &amp;  0.8  &amp;  0.8  &amp;  1.6  &amp;  X  &amp;  1.6  \
+hline</p>
+</div></blockquote>
+<p>end{tabular}
+caption{Maximum bandwidth (GB/s) between FPGA and host memory using</p>
+<blockquote class="last">
+<div>Connectal RTL libraries on supported
+platformslabel{Fig:DmaBandwidth}}</div></blockquote>
+</dd>
+</dl>
+<p>end{figure}</p>
+</div></blockquote>
+<p>On PCIe systems, Connectal currently supports 8 lane PCIe gen1. We&#8217;ve
+measured 1.4 gigabytes per second for both reads and writes. Maximum
+throughput of 8 lane PCIe gen1 is 1.8GB/s, taking into account 1
+header transaction per 8 data transactions, where 8 is the maximum
+number of data transactions per request supported by our server&#8217;s
+chipset.  The current version of the test needs some more tuning in order to
+reach the full bandwidth available. In addition, we are
+in the process of updating to 8 lane PCIe gen2 using newer Xilinx
+cores.</p>
+<p>Zynq systems have four <em>high performance</em> ports for accessing system
+memory. Connectal enables an accelerator to use all four. In our
+experiments, we have been able to achieve 3.6x higher bandwidth using
+4 ports than using 1 port.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Performance of Generated Systems</a><ul>
+<li><a class="reference internal" href="#performance-of-portals">Performance of Portals</a></li>
+<li><a class="reference internal" href="#performance-of-reads-writes-of-system-memory">Performance of Reads/Writes of System Memory</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="toolchain.html"
+                        title="previous chapter">Workflow using Connectal</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="related-work.html"
+                        title="next chapter">Related Work</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/design/performance.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="related-work.html" title="Related Work"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="toolchain.html" title="Workflow using Connectal"
+             >previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

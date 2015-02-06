@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>[“seqdiag”,target=”request-response-1.png”] &mdash; connectal 14.12.6 documentation</title>
+    <title>What is Connectal? &mdash; connectal 14.12.6 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,7 +24,10 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" /> 
+    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="up" title="Connectal Design" href="design.html" />
+    <link rel="next" title="Interface Declarations" href="interface_definitions.html" />
+    <link rel="prev" title="Portal Interface Structure" href="portalstructure.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,7 +39,14 @@
         <li class="right" >
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="interface_definitions.html" title="Interface Declarations"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="portalstructure.html" title="Portal Interface Structure"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -45,11 +55,11 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <p>== What is CONNECTAL?</p>
-<p>[role=&#8221;lead&#8221;]
-CONNECTAL provides a hardware-software interface for applications split
+  <div class="section" id="what-is-connectal">
+<h1>What is Connectal?<a class="headerlink" href="#what-is-connectal" title="Permalink to this headline">¶</a></h1>
+<p>Connectal provides a hardware-software interface for applications split
 between user mode code and custom hardware in an FPGA or ASIC.</p>
-<p>CONNECTAL can automaticaly build the software and hardware glue for a
+<p>Connectal can automaticaly build the software and hardware glue for a
 message based interface and also provides for configuring and using
 shared memory between applications and hardware. Communications
 between hardware and software are provided by a bidirectional flow of
@@ -57,18 +67,8 @@ events and regions of memory shared between hardware and software.
 Events from software to hardware are called requests and events from
 hardware to software are called indications, but in fact they are
 symmetric.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">bsvdocumentation:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><a class="reference external" href="http://wiki.bluespec.com/Home/BSV-Documentation">http://wiki.bluespec.com/Home/BSV-Documentation</a></td>
-</tr>
-<tr class="field-even field"><th class="field-name">bluespecdotcom:</th><td class="field-body"><a class="reference external" href="http://www.bluespec.com/">http://www.bluespec.com/</a></td>
-</tr>
-</tbody>
-</table>
-<p>== Lexicon</p>
+<div class="section" id="lexicon">
+<h2>Lexicon<a class="headerlink" href="#lexicon" title="Permalink to this headline">¶</a></h2>
 <p>connectal:: The name of the project, whose goal is to ease the task of
 building applications composed of hardware and software components.
 Programmers use bsv as an IDL to specify the interface between the
@@ -87,7 +87,9 @@ portal:: a logical request/indication pair is referred to as a portal.  current 
 <p>pcieportal/zynqportal:: these two loadable kernel modules implement the minimal set of driver functionality.  Specifically, they expose portal HW registers to SW through mmap, and set up interrupts to notify SW that an indication method has been invoked by HW.</p>
 <p>portalalloc:: This loadable kernel module exposes a subset of dma-buf functionality to user-space software (though a set of ioctl commands) to allocate and manage memory regions which can be shared between SW and HW processes.   Maintaining coherence of the allocated buffers between processes is not automatic: ioctl commands for flush/invalidate are provided to be invoked explicitly by the users if necessary.</p>
 <p>connectalgen:: The name of the interface compiler which takes as input the bsv interface specification along with a description of a target platform and generates logic in both HW and SW to support this interface across the communication fabric.</p>
-<p>== Example setups:</p>
+</div>
+<div class="section" id="example-setups">
+<h2>Example setups:<a class="headerlink" href="#example-setups" title="Permalink to this headline">¶</a></h2>
 <p>A zedboard ( <a class="reference external" href="http://www.zedboard.org/">http://www.zedboard.org/</a> ),
 with Android running on the embedded ARM processors (the Processing
 System 7), an application running as a user process, and custom
@@ -97,7 +99,9 @@ application running partly as a user process on the host and partly as
 hardware configured into an FPGA connected by PCI express (such as the
 Xilinx VC707
 (<a class="reference external" href="http://www.xilinx.com/products/boards-and-kits/EK-V7-VC707-G.htm">http://www.xilinx.com/products/boards-and-kits/EK-V7-VC707-G.htm</a>).</p>
-<p>== Background</p>
+</div>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>When running part or all of an application in an FPGA, it is usually
 necessary to communicate between code running in user mode on the host
 and the hardware.  Typically this has been accomplished by custom
@@ -117,34 +121,48 @@ maximum amount of memory at boot time.</p>
 <li>support for hardware simulation by a separate user mode process</li>
 <li>support for shared memory (DMA) between hardware and software</li>
 </ul>
-<p>== Overview</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Portal is implemented as a loadable kernel module device driver for Linux/Android and a set of tools to automatically construct the hardware and software glue necessary for communications.</p>
-<p>Short messages are handled by programmed I/O.  The message interface from software to hardware (so called &#8220;requests&#8221;) is defined as a bsv interface containing a number of Action methods, each with a name and typed arguments.  The interface generator creates all the software and hardware glue so that software invocations of the interface stubs flow through to, and are turned into bsv invocations of the matching hardware.  The machinery does not have flow control. Software is responsible for not overrunning the hardware.  There is a debug mechanism which will return the request type of a failed method, but it does not tell which invocation failed.  Hardware to software interfaces (so called “indications”) are likewise defined by bsv interfaces containing Action methods. Hardware invocations of these methods flow through to and cause software calls to corresponding user-supplied functions.  In the current implementation there is flow control, in that the hardware will stall until there is room for a hardware to software message.  There is also a mechanism for software to report a failure, and there is machinery for these failures to be returned to the hardware.</p>
-<div class="section" id="seqdiag-target-request-response-1-png">
-<h1>[&#8220;seqdiag&#8221;,target=&#8221;request-response-1.png&#8221;]<a class="headerlink" href="#seqdiag-target-request-response-1-png" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
+<p>Short messages are handled by programmed I/O.  The message interface
+from software to hardware (so called &#8220;requests&#8221;) is defined as a bsv
+interface containing a number of Action methods, each with a name and
+typed arguments.  The interface generator creates all the software and
+hardware glue so that software invocations of the interface stubs flow
+through to, and are turned into bsv invocations of the matching
+hardware.  The machinery does not have flow control. Software is
+responsible for not overrunning the hardware.  There is a debug
+mechanism which will return the request type of a failed method, but
+it does not tell which invocation failed.  Hardware to software
+interfaces (so called “indications”) are likewise defined by bsv
+interfaces containing Action methods. Hardware invocations of these
+methods flow through to and cause software calls to corresponding
+user-supplied functions.  In the current implementation there is flow
+control, in that the hardware will stall until there is room for a
+hardware to software message.  There is also a mechanism for software
+to report a failure, and there is machinery for these failures to be
+returned to the hardware.</p>
+<blockquote>
+<div><dl class="docutils">
 <dt>{</dt>
 <dd>// edge label
 SW -&gt; HW [label = &#8220;request&#8221;];
 SW &lt;- HW [label = &#8220;indication&#8221;];</dd>
 </dl>
-</div>
-<div class="section" id="id1">
-<h1>}<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+</div></blockquote>
 <p>Portals do not have to be structured as request/response. Hardware can
 send messages to software without a prior request from software.</p>
-</div>
-<div class="section" id="seqdiag-target-indication-only-png">
-<h1>[&#8220;seqdiag&#8221;,target=&#8221;indication-only.png&#8221;]<a class="headerlink" href="#seqdiag-target-indication-only-png" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
+<blockquote>
+<div><dl class="docutils">
 <dt>{</dt>
 <dd>// edge label
 SW &lt;- HW [label = &#8220;indication&#8221;];</dd>
 </dl>
-</div>
-<div class="section" id="id2">
-<h1>}<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
-<p>Incoming messages can cause host interrupts, which wake up the device driver, which can wake up the user mode application by using the select(2) or poll(2) interfaces.</p>
+</div></blockquote>
+<p>Incoming messages can cause host interrupts, which wake up the device
+driver, which can wake up the user mode application by using the
+select(2) or poll(2) interfaces.</p>
 <p>Most of the time, communications between hardware and software will
 proceed without requiring use of the OS.  User code will read and
 write directly to memory mapped I/O space. Library code will poll for
@@ -172,65 +190,79 @@ covers using a translation table of scattered addresses.</p>
 initialize the dma controller, and address &#8220;handles&#8221; are provided for
 the application hardware to use.</p>
 <p>The DMA controller provides Bluespec objects that support streaming access with automatic page crossings, or random access.</p>
-<p>== An Example</p>
-<p>An application developer will typically write the hardware part of the application in Bluespec and the software part of the application in C or C++.  In a short example, there will be a bsv source file for the hardware and a cpp source file for the application.</p>
+</div>
+<div class="section" id="an-example">
+<h2>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h2>
+<p>An application developer will typically write the hardware part of the
+application in Bluespec and the software part of the application in C
+or C++.  In a short example, there will be a bsv source file for the
+hardware and a cpp source file for the application.</p>
 <p>The application developer is free to specify whatever hardware-software interface makes sense.</p>
 <p>Refer to <a class="reference external" href="https://github.com/cambridgehackers/connectal">https://github.com/cambridgehackers/connectal</a></p>
-<p>In the examples directory, see [simple](../examples/simple/).  The file [Simple.bsv](../examples/simple/Simple.bsv) defines the hardware, and testsimple.cpp supplies the software part. In this case, the software part is a test framework for the hardware.</p>
+<p>In the examples directory, see [simple](../examples/simple/).  The
+file [Simple.bsv](../examples/simple/Simple.bsv) defines the hardware,
+and testsimple.cpp supplies the software part. In this case, the
+software part is a test framework for the hardware.</p>
 <p>Simple.bsv declares a few <cite>struct</cite> and <cite>enum</cite> types:</p>
-<blockquote>
-<div><blockquote>
-<div>Bit#(32) b;
-} S1 deriving (Bits);</div></blockquote>
-<dl class="docutils">
-<dt>typedef struct{</dt>
-<dd>Bit#(32) a;
-Bit#(16) b;
-Bit#(7) c;
-} S2 deriving (Bits);</dd>
-<dt>typedef enum {</dt>
-<dd>E1Choice1,
-E1Choice2,
-E1Choice3
-} E1 deriving (Bits,Eq);</dd>
-<dt>typedef struct{</dt>
-<dd>Bit#(32) a;
-E1 e1;
-} S3 deriving (Bits);</dd>
-</dl>
-</div></blockquote>
-<hr class="docutils" />
-<p>Simple.bsv defines the actions (called Requests) that software can use to cause the hardware to act, and defines the notifications (called Indications) that the hardware can use to signal the software.</p>
-<blockquote>
-<div><blockquote>
-<div>method Action heard2(Bit#(16) a, Bit#(16) b);
-method Action heard3(S1 v);
-method Action heard4(S2 v);
-method Action heard5(Bit#(32) a, Bit#(64) b, Bit#(32) c);
-method Action heard6(Bit#(32) a, Bit#(40) b, Bit#(32) c);
-method Action heard7(Bit#(32) a, E1 e1);</div></blockquote>
-<p>endinterface</p>
-<dl class="docutils">
-<dt>interface SimpleRequest;</dt>
-<dd>method Action say1(Bit#(32) v);
-method Action say2(Bit#(16) a, Bit#(16) b);
-method Action say3(S1 v);
-method Action say4(S2 v);
-method Action say5(Bit#(32)a, Bit#(64) b, Bit#(32) c);
-method Action say6(Bit#(32)a, Bit#(40) b, Bit#(32) c);
-method Action say7(S3 v);</dd>
-</dl>
-<p>endinterface</p>
-</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>typedef struct{
+   Bit#(32) a;
+   Bit#(32) b;
+   } S1 deriving (Bits);
+
+typedef struct{
+   Bit#(32) a;
+   Bit#(16) b;
+   Bit#(7) c;
+   } S2 deriving (Bits);
+
+typedef enum {
+   E1Choice1,
+   E1Choice2,
+   E1Choice3
+   } E1 deriving (Bits,Eq);
+
+typedef struct{
+   Bit#(32) a;
+   E1 e1;
+   } S3 deriving (Bits);
+</pre></div>
+</div>
+<p>Simple.bsv defines the actions (called Requests) that software can use
+to cause the hardware to act, and defines the notifications (called
+Indications) that the hardware can use to signal the software.</p>
+<div class="highlight-python"><div class="highlight"><pre>interface SimpleIndication;
+    method Action heard1(Bit#(32) v);
+    method Action heard2(Bit#(16) a, Bit#(16) b);
+    method Action heard3(S1 v);
+    method Action heard4(S2 v);
+    method Action heard5(Bit#(32) a, Bit#(64) b, Bit#(32) c);
+    method Action heard6(Bit#(32) a, Bit#(40) b, Bit#(32) c);
+    method Action heard7(Bit#(32) a, E1 e1);
+endinterface
+
+interface SimpleRequest;
+    method Action say1(Bit#(32) v);
+    method Action say2(Bit#(16) a, Bit#(16) b);
+    method Action say3(S1 v);
+    method Action say4(S2 v);
+    method Action say5(Bit#(32)a, Bit#(64) b, Bit#(32) c);
+    method Action say6(Bit#(32)a, Bit#(40) b, Bit#(32) c);
+    method Action say7(S3 v);
+endinterface
+</pre></div>
+</div>
 <p>Software can start the hardware working via say, say2, ... Hardware
 signals back to software with heard and heard2 and so fort.  In the
 case of this example, say and say2 merely echo their arguments back to
 software.</p>
-<p>The definitions in the bsv file are used by the connectal infrastructure ( a python program)  to automatically create corresponding c++ interfaces.</p>
-<blockquote>
-<div>-h2s SimpleIndication -s testsimple.cpp -t ../../bsv/BsimTop.bsv  Simple.bsv Top.bsv</div></blockquote>
-<hr class="docutils" />
+<p>The definitions in the bsv file are used by the connectal infrastructure ( a python program)  to automatically create corresponding c++ interfaces.:</p>
+<div class="highlight-python"><div class="highlight"><pre>../../connectalgen -Bbluesim -p bluesim -x mkBsimTop \
+     -s2h SimpleRequest \
+     -h2s SimpleIndication \
+     -s testsimple.cpp \
+     -t ../../bsv/BsimTop.bsv  Simple.bsv Top.bsv
+</pre></div>
+</div>
 <p>The tools have to be told which interface records should be used for
 Software to Hardware messages and which should be used for Hardware to
 Software messages. These interfaces are given on the command line for
@@ -242,241 +274,251 @@ asynchronous.</p>
 <p>The user must also create a toplevel bsv module Top.bsv, which
 instantiates the user portals, the standard hardware environment, and
 any additional hardware modules.</p>
-<p>Rather than constructing the <cite>connectalgen</cite> command line from
+<p>Rather than constructing the <em>makefilegen</em> command line from
 scratch, the examples in connectal use include
-[Makefile.connectal] and define some <cite>make</cite>
+<em>Makefile.connectal</em> and define some <em>make</em>
 variables.</p>
 <p>Here is the Makefile for the <cite>simple</cite> example:</p>
-</div>
-<div class="section" id="source-makefile">
-<h1>[source,makefile]<a class="headerlink" href="#source-makefile" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>CONNECTALDIR?=../..
+<div class="highlight-python"><div class="highlight"><pre>CONNECTALDIR?=../..
 INTERFACES = SimpleRequest SimpleIndication
 BSVFILES = Simple.bsv Top.bsv
-CPPFILES=testsimple.cpp</p>
-<p>include $(CONNECTALDIR)/Makefile.connectal</p>
-</div></blockquote>
-<hr class="docutils" />
-<p>Designs outside the connectal directory using <cite>connectal</cite> may also include <cite>Makefile.connectal</cite>:</p>
+CPPFILES=testsimple.cpp
+
+include $(CONNECTALDIR)/Makefile.connectal
+</pre></div>
 </div>
-<div class="section" id="id3">
-<h1>[source,makefile]<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>CONNECTALDIR?=/scratch/connectal
+<p>Designs outside the connectal directory using <cite>connectal</cite> may also include <cite>Makefile.connectal</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre>CONNECTALDIR?=/scratch/connectal
 INTERFACES = ...
 BSVFILES = ...
 CPPFILES = ...
-include $(CONNECTALDIR)/Makefile.connectal</div></blockquote>
-<hr class="docutils" />
-<p>=== simple/Top.bsv</p>
+include $(CONNECTALDIR)/Makefile.connectal
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-top-bsv">
+<h2>simple/Top.bsv<a class="headerlink" href="#simple-top-bsv" title="Permalink to this headline">¶</a></h2>
 <p>Each CONNECTAL design implements [Top.bsv](../examples/simple/Top.bsv) with some standard components.</p>
 <p>It defines the <cite>IfcNames</cite> enum, for use in identifying the portals between software and hardware:</p>
-<div class="section" id="typedef-enum-simpleindication-simplerequest-ifcnames-deriving-eq-bits">
-<h2>typedef enum {SimpleIndication, SimpleRequest} IfcNames deriving (Eq,Bits);<a class="headerlink" href="#typedef-enum-simpleindication-simplerequest-ifcnames-deriving-eq-bits" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre>typedef enum {SimpleIndication, SimpleRequest} IfcNames deriving (Eq,Bits);
+</pre></div>
+</div>
 <p>It defines <cite>mkConnectalTop</cite>, which instantiates the wrappers, proxies, and the design itself:</p>
+<div class="highlight-python"><div class="highlight"><pre>module mkConnectalTop(StdConnectalTop#(addrWidth));
+</pre></div>
 </div>
-<div class="section" id="module-mkconnectaltop-stdconnectaltop-addrwidth">
-<h2>module mkConnectalTop(StdConnectalTop#(addrWidth));<a class="headerlink" href="#module-mkconnectaltop-stdconnectaltop-addrwidth" title="Permalink to this headline">¶</a></h2>
-<p><cite>StdConnectalTop</cite> is parameterized by <cite>addrWidth</cite> because Zynq and x86 have different width addressing. <cite>StdConnectalTop</cite> is a typedef:</p>
+<p>:bsv:module:StdConnectalTop is parameterized by <cite>addrWidth</cite> because Zynq and x86 have different width addressing. <cite>StdConnectalTop</cite> is a typedef:</p>
+<div class="highlight-python"><div class="highlight"><pre>typedef ConnectalTop#(addrWidth,64,Empty)     StdConnectalTop#(numeric type addrWidth);
+</pre></div>
 </div>
-<div class="section" id="typedef-connectaltop-addrwidth-64-empty-stdconnectaltop-numeric-type-addrwidth">
-<h2>typedef ConnectalTop#(addrWidth,64,Empty)     StdConnectalTop#(numeric type addrWidth);<a class="headerlink" href="#typedef-connectaltop-addrwidth-64-empty-stdconnectaltop-numeric-type-addrwidth" title="Permalink to this headline">¶</a></h2>
 <p>The &#8220;64&#8221; specifies the data width and <cite>Empty</cite> specifies the empty
 interface is exposed as pins from the design. In designs using HDMI,
 for example, <cite>Empty</cite> is replaced by <cite>HDMI</cite>.  On some platforms, the
 design may be able to use different data widths, such as 128 bits on
 x86/PCIe.</p>
 <p>Next, <cite>mkConnectalTop</cite> instantiates user portals:</p>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>// instantiate user portals
+   SimpleIndicationProxy simpleIndicationProxy &lt;- mkSimpleIndicationProxy(SimpleIndication);
+</pre></div>
+</div>
 <p>Instantiate the design:</p>
+<div class="highlight-python"><div class="highlight"><pre>SimpleRequest simpleRequest &lt;- mkSimpleRequest(simpleIndicationProxy.ifc);
+</pre></div>
 </div>
-<div class="section" id="simplerequest-simplerequest-mksimplerequest-simpleindicationproxy-ifc">
-<h2>SimpleRequest simpleRequest &lt;- mkSimpleRequest(simpleIndicationProxy.ifc);<a class="headerlink" href="#simplerequest-simplerequest-mksimplerequest-simpleindicationproxy-ifc" title="Permalink to this headline">¶</a></h2>
 <p>Instantiate the wrapper for the design:</p>
+<div class="highlight-python"><div class="highlight"><pre>SimpleRequestWrapper simpleRequestWrapper &lt;- mkSimpleRequestWrapper(SimpleRequest,simpleRequest);
+</pre></div>
 </div>
-<div class="section" id="simplerequestwrapper-simplerequestwrapper-mksimplerequestwrapper-simplerequest-simplerequest">
-<h2>SimpleRequestWrapper simpleRequestWrapper &lt;- mkSimpleRequestWrapper(SimpleRequest,simpleRequest);<a class="headerlink" href="#simplerequestwrapper-simplerequestwrapper-mksimplerequestwrapper-simplerequest-simplerequest" title="Permalink to this headline">¶</a></h2>
 <p>Collect the portals into a vector:</p>
-<blockquote>
-<div>portals[1] = simpleIndicationProxy.portalIfc;</div></blockquote>
-<hr class="docutils" />
-<p>Create an interrupt multiplexer from the vector of portals:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(2,StdPortal) portals;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpleRequestWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpleIndicationProxy</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+</pre></div>
 </div>
-<div class="section" id="let-interrupt-mux-mkinterruptmux-portals">
-<h2>let interrupt_mux &lt;- mkInterruptMux(portals);<a class="headerlink" href="#let-interrupt-mux-mkinterruptmux-portals" title="Permalink to this headline">¶</a></h2>
+<p>Create an interrupt multiplexer from the vector of portals:</p>
+<div class="highlight-python"><div class="highlight"><pre>let interrupt_mux &lt;- mkInterruptMux(portals);
+</pre></div>
+</div>
 <p>Create the system directory, which is used by software to locate each portal via the <cite>IfcNames</cite> enum:</p>
-<blockquote>
-<div>let ctrl_mux &lt;- mkAxiSlaveMux(dir,portals);</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>// instantiate system directory
+StdDirectory dir &lt;- mkStdDirectory(portals);
+let ctrl_mux &lt;- mkAxiSlaveMux(dir,portals);
+</pre></div>
+</div>
 <p>The following generic interfaces are used by the platform specific top BSV module:</p>
-<blockquote>
-<div><blockquote>
-<div>interface m_axi = null_axi_master;
-interface leds = echoRequestInternal.leds;</div></blockquote>
-<p>endmodule : mkConnectalTop</p>
-</div></blockquote>
-<hr class="docutils" />
-<p>=== simple/testsimple.cpp</p>
+<div class="highlight-python"><div class="highlight"><pre>   interface interrupt = interrupt_mux;
+   interface ctrl = ctrl_mux;
+   interface m_axi = null_axi_master;
+   interface leds = echoRequestInternal.leds;
+
+endmodule : mkConnectalTop
+</pre></div>
+</div>
+</div>
+<div class="section" id="simple-testsimple-cpp">
+<h2>simple/testsimple.cpp<a class="headerlink" href="#simple-testsimple-cpp" title="Permalink to this headline">¶</a></h2>
 <p>CONNECTAL generates header files declaring wrappers for
 hardware-to-software interfaces and proxies for software-to-hardware
 interfaces. These will be in the &#8220;jni/&#8221; subdirectory of the project directory.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#include &quot;SimpleIndication.h&quot;</span>
+<span class="c">#include &quot;SimpleRequest.h&quot;</span>
+</pre></div>
 </div>
-</div>
-<div class="section" id="source-c">
-<h1>[source,C]<a class="headerlink" href="#source-c" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>#include &#8220;SimpleIndication.h&#8221;
-#include &#8220;SimpleRequest.h&#8221;</div></blockquote>
-<hr class="docutils" />
 <p>It also declares software equivalents for structs and enums declared in the processed BSV files:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c">#include &quot;GeneratedTypes.h&quot;</span>
+</pre></div>
 </div>
-<div class="section" id="id4">
-<h1>[source,C]<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>#include &#8220;GeneratedTypes.h&#8221;</div></blockquote>
-<hr class="docutils" />
 <p>CONNECTAL generates abstract virtual base classes for each Indication interface.</p>
+<div class="highlight-python"><div class="highlight"><pre>class SimpleIndicationWrapper : public Portal {
+
+public:
+    ...
+    SimpleIndicationWrapper(int id, PortalPoller *poller = 0);
+    virtual void heard1 ( const uint32_t v )= 0;
+    ...
+};
+</pre></div>
 </div>
-<div class="section" id="id5">
-<h1>[source,C]<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>class SimpleIndicationWrapper : public Portal {</p>
-<dl class="docutils">
-<dt>public:</dt>
-<dd>...
-SimpleIndicationWrapper(int id, PortalPoller <a href="#id6"><span class="problematic" id="id7">*</span></a>poller = 0);
-virtual void heard1 ( const uint32_t v )= 0;
-...</dd>
-</dl>
-<p>};</p>
-</div></blockquote>
-<hr class="docutils" />
-<p>Implement subclasses of the wrapper in order to define the callbacks</p>
-</div>
-<div class="section" id="id8">
-<h1>[source,C]<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>class SimpleIndication : public SimpleIndicationWrapper
+<p>Implement subclasses of the wrapper in order to define the callbacks:</p>
+<div class="highlight-python"><div class="highlight"><pre>class SimpleIndication : public SimpleIndicationWrapper
 {
-public:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>...</dt>
-<dd><dl class="first last docutils">
-<dt>virtual void heard1(uint32_t a) {</dt>
-<dd>fprintf(stderr, &#8220;heard1(%d)n&#8221;, a);
-assert(a == v1a);
-incr_cnt();</dd>
-</dl>
-</dd>
-</dl>
-</div></blockquote>
-<p>};</p>
-</div></blockquote>
-<hr class="docutils" />
+public:
+  ...
+    virtual void heard1(uint32_t a) {
+      fprintf(stderr, &quot;heard1(%d)\n&quot;, a);
+      assert(a == v1a);
+      incr_cnt();
+    }
+    ...
+};
+</pre></div>
+</div>
 <p>To connect these classes to the hardware, instantiate them using the
 <cite>IfcNames</cite> enum identifiers. CONNECTAL prepends the name of the type
 because C++ does not support overloading of enum tags.</p>
+<div class="highlight-python"><div class="highlight"><pre>SimpleIndication *indication = new SimpleIndication(IfcNames_SimpleIndication);
+SimpleRequestProxy *device = new SimpleRequestProxy(IfcNames_SimpleRequest);
+</pre></div>
 </div>
-<div class="section" id="id9">
-<h1>[source,C]<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div>SimpleIndication <a href="#id10"><span class="problematic" id="id11">*</span></a>indication = new SimpleIndication(IfcNames_SimpleIndication);
-SimpleRequestProxy <a href="#id12"><span class="problematic" id="id13">*</span></a>device = new SimpleRequestProxy(IfcNames_SimpleRequest);</div></blockquote>
-<hr class="docutils" />
 <p>Create a thread for handling notifications from hardware:</p>
+<div class="highlight-python"><div class="highlight"><pre>pthread_t tid;
+if(pthread_create(&amp;tid, NULL,  portalExec, NULL)){
+  exit(1);
+}
+</pre></div>
 </div>
-<div class="section" id="id14">
-<h1>[source,C]<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>pthread_t tid;
-if(pthread_create(&amp;tid, NULL,  portalExec, NULL)){</p>
-<blockquote>
-<div>exit(1);</div></blockquote>
-<p>}</p>
-</div></blockquote>
-<hr class="docutils" />
 <p>Now the software invokes hardware methods via the proxy:</p>
+<div class="highlight-python"><div class="highlight"><pre>device-&gt;say1(v1a);
+
+device-&gt;say2(v2a,v2b);
+</pre></div>
 </div>
-<div class="section" id="id15">
-<h1>[source,C]<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><p>device-&gt;say1(v1a);</p>
-<p>device-&gt;say2(v2a,v2b);</p>
-</div></blockquote>
-<hr class="docutils" />
-<p>=== Simple Example Design Structure</p>
+</div>
+<div class="section" id="simple-example-design-structure">
+<h2>Simple Example Design Structure<a class="headerlink" href="#simple-example-design-structure" title="Permalink to this headline">¶</a></h2>
 <p>The <cite>simple</cite> example consists of the following files:</p>
-<blockquote>
-<div>Top.bsv
-testsimple.cpp</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Simple</span><span class="o">.</span><span class="n">bsv</span>
+<span class="n">Makefile</span>
+<span class="n">Top</span><span class="o">.</span><span class="n">bsv</span>
+<span class="n">testsimple</span><span class="o">.</span><span class="n">cpp</span>
+</pre></div>
+</div>
 <p>After running <cite>make BOARD=zedboard verilog</cite> in the <cite>simple</cite> directory,
 the <cite>zedboard</cite> project directory is created, populated by the generated files.</p>
 <p>A top level <cite>Makefile</cite> is created:</p>
-<div class="section" id="zedboard-makefile">
-<h2>zedboard/Makefile<a class="headerlink" href="#zedboard-makefile" title="Permalink to this headline">¶</a></h2>
-<p>connectalgen generates wrappers for software-to-hardware interfaces and proxies for hardware-to-software interfaces:</p>
-<hr class="docutils" />
-<p>CONNECTAL supports Android on Zynq platforms, so connectalgen generates <cite>jni/Android.mk</cite> for <cite>ndk-build</cite>.</p>
-<hr class="docutils" />
-<p>CONNECTAL generates <cite>jni/Makefile</cite> to compile the software for PCIe platforms (vc707 and kc705).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">Makefile</span>
+</pre></div>
 </div>
-<div class="section" id="zedboard-jni-makefile">
-<h2>zedboard/jni/Makefile<a class="headerlink" href="#zedboard-jni-makefile" title="Permalink to this headline">¶</a></h2>
+<p>makefilegen generates wrappers for software-to-hardware interfaces and proxies for hardware-to-software interfaces:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">sources</span><span class="o">/</span><span class="n">mkzynqtop</span><span class="o">/</span><span class="n">SimpleIndicationProxy</span><span class="o">.</span><span class="n">bsv</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">sources</span><span class="o">/</span><span class="n">mkzynqtop</span><span class="o">/</span><span class="n">SimpleRequestWrapper</span><span class="o">.</span><span class="n">bsv</span>
+</pre></div>
+</div>
+<p>Connectal supports Android on Zynq platforms, so connectalgen generates <cite>jni/Android.mk</cite> for <cite>ndk-build</cite>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">Android</span><span class="o">.</span><span class="n">mk</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">Application</span><span class="o">.</span><span class="n">mk</span>
+</pre></div>
+</div>
+<p>Connectal generates <cite>jni/Makefile</cite> to compile the software for PCIe platforms (vc707 and kc705):</p>
+<blockquote>
+<div>zedboard/jni/Makefile</div></blockquote>
 <p>CONNECTAL generates software proxies for software-to-hardware interfaces and software wrappers for hardware-to-software interfaces:</p>
-<blockquote>
-<div>zedboard/jni/SimpleRequest.cpp
-zedboard/jni/SimpleRequest.h</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">SimpleIndication</span><span class="o">.</span><span class="n">h</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">SimpleIndication</span><span class="o">.</span><span class="n">cpp</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">SimpleRequest</span><span class="o">.</span><span class="n">cpp</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">SimpleRequest</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
+</div>
 <p>CONNECTAL also generates <cite>GeneratedTypes.h</cite> for struct and enum types in the processed BSV source files:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">jni</span><span class="o">/</span><span class="n">GeneratedTypes</span><span class="o">.</span><span class="n">h</span>
+</pre></div>
 </div>
-<div class="section" id="zedboard-jni-generatedtypes-h">
-<h2>zedboard/jni/GeneratedTypes.h<a class="headerlink" href="#zedboard-jni-generatedtypes-h" title="Permalink to this headline">¶</a></h2>
 <p>CONNECTAL copies in standard and specified constraints files:</p>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">constraints</span><span class="o">/</span><span class="n">design_1_processing_system7_1_0</span><span class="o">.</span><span class="n">xdc</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">constraints</span><span class="o">/</span><span class="n">zedboard</span><span class="o">.</span><span class="n">xdc</span>
+</pre></div>
+</div>
 <p>CONNECTAL generates several TCL files to run <cite>vivado</cite>.</p>
-<p>The <cite>board.tcl</cite> file specifies <cite>partname</cite>, <cite>boardname</cite>, and <cite>connectaldir</cite> for the other TCL scripts.</p>
+<p>The <cite>board.tcl</cite> file specifies <cite>partname</cite>, <cite>boardname</cite>, and <cite>connectaldir</cite> for the other TCL scripts.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">board</span><span class="o">.</span><span class="n">tcl</span>
+</pre></div>
 </div>
-<div class="section" id="zedboard-board-tcl">
-<h2>zedboard/board.tcl<a class="headerlink" href="#zedboard-board-tcl" title="Permalink to this headline">¶</a></h2>
-<p>To generate an FPGA bit file, run <cite>make bits</cite>. This runs vivado with the <cite>mkzynqtop-impl.tcl</cite> script.</p>
+<p>To generate an FPGA bit file, run <cite>make bits</cite>. This runs vivado with the <cite>mkzynqtop-impl.tcl</cite> script.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">mkzynqtop</span><span class="o">-</span><span class="n">impl</span><span class="o">.</span><span class="n">tcl</span>
+</pre></div>
 </div>
-<div class="section" id="zedboard-mkzynqtop-impl-tcl">
-<h2>zedboard/mkzynqtop-impl.tcl<a class="headerlink" href="#zedboard-mkzynqtop-impl-tcl" title="Permalink to this headline">¶</a></h2>
-<p>=== make verilog</p>
+<div class="section" id="make-verilog">
+<h3>make verilog<a class="headerlink" href="#make-verilog" title="Permalink to this headline">¶</a></h3>
 <p>Compiling to verilog results in the following verilog files:</p>
-<hr class="docutils" />
-<p>Verilog library files referenced in the design are copied for use in synthesis.</p>
-<hr class="docutils" />
-<p>=== make bits</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">verilog</span><span class="o">/</span><span class="n">top</span><span class="o">/</span><span class="n">mkSimpleIndicationProxySynth</span><span class="o">.</span><span class="n">v</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">verilog</span><span class="o">/</span><span class="n">top</span><span class="o">/</span><span class="n">mkZynqTop</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>Verilog library files referenced in the design are copied for use in synthesis.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">verilog</span><span class="o">/</span><span class="n">top</span><span class="o">/</span><span class="n">FIFO1</span><span class="o">.</span><span class="n">v</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-bits">
+<h3>make bits<a class="headerlink" href="#make-bits" title="Permalink to this headline">¶</a></h3>
 <p>Running <cite>make bits</cite> in the zedboard directory results in timing reports:</p>
-<blockquote>
-<div>zedboard/hw/mkzynqtop_post_route_timing.rpt</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">mkzynqtop_post_place_timing_summary</span><span class="o">.</span><span class="n">rpt</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">mkzynqtop_post_route_timing_summary</span><span class="o">.</span><span class="n">rpt</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">mkzynqtop_post_route_timing</span><span class="o">.</span><span class="n">rpt</span>
+</pre></div>
+</div>
 <p>and some design checkpoints:</p>
-<blockquote>
-<div>zedboard/hw/mkzynqtop_post_route.dcp</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">hw</span><span class="o">/</span><span class="n">mkzynqtop_post_synth</span><span class="o">.</span><span class="n">dcp</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">hw</span><span class="o">/</span><span class="n">mkzynqtop_post_place</span><span class="o">.</span><span class="n">dcp</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">hw</span><span class="o">/</span><span class="n">mkzynqtop_post_route</span><span class="o">.</span><span class="n">dcp</span>
+</pre></div>
+</div>
 <p>and the FPGA configuration file in .bit and .bin formats:</p>
-<hr class="docutils" />
-<p>=== make android_exe</p>
-<p>CONNECTAL supports Android 4.0 on Zynq platforms. It generates
-<cite>jni/Android.mk</cite> which is used by <cite>ndk-build</cite> to create a native
-Android executable.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">zedboard</span><span class="o">/</span><span class="n">hw</span><span class="o">/</span><span class="n">mkZynqTop</span><span class="o">.</span><span class="n">bit</span>
+<span class="n">zedboard</span><span class="o">/</span><span class="n">hw</span><span class="o">/</span><span class="n">mkZynqTop</span><span class="o">.</span><span class="n">bin</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="make-android-exe">
-<h2>make android_exe<a class="headerlink" href="#make-android-exe" title="Permalink to this headline">¶</a></h2>
-<p>This produces the ARM elf executable:</p>
+<h3>make android_exe<a class="headerlink" href="#make-android-exe" title="Permalink to this headline">¶</a></h3>
+<p>CONNECTAL supports Android 4.0 on Zynq platforms. It generates
+<cite>jni/Android.mk</cite> which is used by <cite>ndk-build</cite> to create a native
+Android executable.:</p>
+<div class="highlight-python"><div class="highlight"><pre>make android_exe
+</pre></div>
 </div>
-<div class="section" id="libs-armeabi-android-exe">
-<h2>libs/armeabi/android_exe<a class="headerlink" href="#libs-armeabi-android-exe" title="Permalink to this headline">¶</a></h2>
-<p>=== make run</p>
-<p>For Zynq platforms,</p>
+<p>This produces the ARM elf executable:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">libs</span><span class="o">/</span><span class="n">armeabi</span><span class="o">/</span><span class="n">android_exe</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="make-run">
-<h2>make run<a class="headerlink" href="#make-run" title="Permalink to this headline">¶</a></h2>
+<h3>make run<a class="headerlink" href="#make-run" title="Permalink to this headline">¶</a></h3>
+<p>For Zynq platforms:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run
+</pre></div>
+</div>
 <p>will copy the Android executable and FPGA configuration file to the
 target device, program the FPGA, and run the executable. See
 [run.zedboard](../scripts/run.zedboard) for details.</p>
@@ -485,111 +527,138 @@ device via a USB console connection to the device (it is built/installed
 on the host machine from the git repo cambridgehackers/consolable). If the target is
 not connected to the build machine via USB, specify the IP address of
 the target manually:</p>
+<div class="highlight-python"><div class="highlight"><pre>make RUNPARAM=ipaddr run
+</pre></div>
 </div>
-<div class="section" id="make-runparam-ipaddr-run">
-<h2>make RUNPARAM=ipaddr run<a class="headerlink" href="#make-runparam-ipaddr-run" title="Permalink to this headline">¶</a></h2>
 <p>For PCIe platforms, <cite>make run</cite> programs the FPGA via USB and runs the software locally.</p>
 <p>For bluesim, <cite>make run</cite> invokes bluesim on the design and runs the software locally.</p>
-<p>== Shared Memory</p>
-<p>=== Shared Memory Hardware</p>
-<p>In order to use shared memory, the hardware design instantiates a DMA module in Top.bsv:</p>
 </div>
-<div class="section" id="axidmaserver-addrwidth-64-dma-mkaxidmaserver-dmaindicationproxy-ifc-readclients-writeclients">
-<h2>AxiDmaServer#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);<a class="headerlink" href="#axidmaserver-addrwidth-64-dma-mkaxidmaserver-dmaindicationproxy-ifc-readclients-writeclients" title="Permalink to this headline">¶</a></h2>
-<p>The <cite>AxiDmaServer</cite> multiplexes read and write requests from the
+</div>
+<div class="section" id="shared-memory">
+<h2>Shared Memory<a class="headerlink" href="#shared-memory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shared-memory-hardware">
+<h3>Shared Memory Hardware<a class="headerlink" href="#shared-memory-hardware" title="Permalink to this headline">¶</a></h3>
+<p>In order to use shared memory, the hardware design instantiates a DMA module in Top.bsv:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">AxiDmaServer</span><span class="c">#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);</span>
+</pre></div>
+</div>
+<p>The AxiDmaServer multiplexes read and write requests from the
 clients, translates DMA addresses to physical addresses, initiates bus
 transactions to memory, and delivers responses to the clients.</p>
 <p>DMA requests are specified with respect to &#8220;portal&#8221; memory allocated
 by software and identified by a <cite>pointer</cite>.</p>
-<p>Requests and responses are tagged in order to enable pipelining.</p>
-<blockquote>
-<div><blockquote>
-<div>Bit#(MemOffsetSize) offset;
-Bit#(8) burstLen;
-Bit#(6)  tag;
-} MemRequest deriving (Bits);</div></blockquote>
-<dl class="docutils">
-<dt>typedef struct {</dt>
-<dd>Bit#(dsz) data;
-Bit#(6) tag;
-} MemData#(numeric type dsz) deriving (Bits);</dd>
-</dl>
-</div></blockquote>
-<hr class="docutils" />
+<p>Requests and responses are tagged in order to enable pipelining:</p>
+<div class="highlight-python"><div class="highlight"><pre>typedef struct {
+   SGLId pointer;
+   Bit#(MemOffsetSize) offset;
+   Bit#(8) burstLen;
+   Bit#(6)  tag;
+   } MemRequest deriving (Bits);
+
+typedef struct {
+   Bit#(dsz) data;
+   Bit#(6) tag;
+   } MemData#(numeric type dsz) deriving (Bits);
+</pre></div>
+</div>
 <p>Read clients implement the <cite>MemReadClient</cite> interface. On response to
 the read, <cite>burstLen</cite> <cite>MemData</cite> items will be put to the <cite>readData</cite>
 interface. The design must be ready to consume the data when it is
-delivered from the memory bus or the system may hang.</p>
-<blockquote>
-<div><blockquote>
-<div>interface PutF#(MemData#(dsz)) readData;</div></blockquote>
-<p>endinterface</p>
-</div></blockquote>
-<hr class="docutils" />
+delivered from the memory bus or the system may hang:</p>
+<div class="highlight-python"><div class="highlight"><pre>interface MemReadClient#(numeric type dsz);
+   interface GetF#(MemRequest)    readReq;
+   interface PutF#(MemData#(dsz)) readData;
+endinterface
+</pre></div>
+</div>
 <p>Write clients implement <cite>MemWriteClient</cite>. To complete the transaction,
 <cite>burstLen</cite> data items will be consumed from the <cite>writeData</cite>
 interace. Upon completion of the request, the specified tag will be
 put to the <cite>writeDone</cite> interface. The data must be available when the
-write request is issued to the memory bus or the system may hang.</p>
-<blockquote>
-<div><blockquote>
-<div>interface GetF#(MemData#(dsz)) writeData;
-interface PutF#(Bit#(6))       writeDone;</div></blockquote>
-<p>endinterface</p>
-</div></blockquote>
-<hr class="docutils" />
+write request is issued to the memory bus or the system may hang:</p>
+<div class="highlight-python"><div class="highlight"><pre>interface MemWriteClient#(numeric type dsz);
+   interface GetF#(MemRequest)    writeReq;
+   interface GetF#(MemData#(dsz)) writeData;
+   interface PutF#(Bit#(6))       writeDone;
+endinterface
+</pre></div>
+</div>
 <p>A design may implement <cite>MemReadClient</cite> and <cite>MemWriteClient</cite> interfaces directly, or it may instantiate DmaReadBuffer or DmaWriteBuffer.</p>
-<blockquote>
-<div>The <cite>AxiDmaServer</cite> is configured with physical address translations</div></blockquote>
-<p>for each region of memory identified by a <cite>pointer</cite>. A design using
+<p>The <cite>AxiDmaServer</cite> is configured with physical address translations
+for each region of memory identified by a <cite>pointer</cite>. A design using
 DMA must export the <cite>DmaConfig</cite> and <cite>DmaIndication</cite> interfaces of the
 DMA server.</p>
 <p>Here are the DMA components of [memread_nobuff/Top.bsv](../examples/memread_nobuff/Top.bsv):</p>
 <p>Instantiate the design and its interface wrappers and proxies:</p>
-<blockquote>
-<div>MemreadRequestWrapper memreadRequestWrapper &lt;- mkMemreadRequestWrapper(MemreadRequest,memread.request);</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>MemreadIndicationProxy memreadIndicationProxy &lt;- mkMemreadIndicationProxy(MemreadIndication);
+Memread memread &lt;- mkMemread(memreadIndicationProxy.ifc);
+MemreadRequestWrapper memreadRequestWrapper &lt;- mkMemreadRequestWrapper(MemreadRequest,memread.request);
+</pre></div>
+</div>
 <p>Collect the read and write clients:</p>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(1, MemReadClient#(64)) readClients = cons(memread.dmaClient, nil);</span>
+<span class="n">Vector</span><span class="c">#(0, MemReadClient#(64)) writeClients = nil;</span>
+</pre></div>
+</div>
 <p>Instantiate the DMA server and its wrapper and proxy:</p>
-<blockquote>
-<div>DmaConfigWrapper dmaConfigWrapper &lt;- mkDmaConfigWrapper(DmaConfig,dma.request);</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>DmaIndicationProxy dmaIndicationProxy &lt;- mkDmaIndicationProxy(DmaIndication);
+AxiDmaServer#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);
+DmaConfigWrapper dmaConfigWrapper &lt;- mkDmaConfigWrapper(DmaConfig,dma.request);
+</pre></div>
+</div>
 <p>Include <cite>DmaConfig</cite> and <cite>DmaIndication</cite> in the portals of the design:</p>
-<blockquote>
-<div>portals[1] = memreadIndicationProxy.portalIfc;
-portals[2] = dmaConfigWrapper.portalIfc;
-portals[3] = dmaIndicationProxy.portalIfc;</div></blockquote>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(4,StdPortal) portals;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">memreadRequestWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">memreadIndicationProxy</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dmaConfigWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+<span class="n">portals</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">dmaIndicationProxy</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+</pre></div>
+</div>
 <p>The code generation tools will then produce the software glue necessary for the shared memory support libraries to initialize the DMA &#8220;library module&#8221; included in the hardware.</p>
-<p>=== Shared Memory Software</p>
+</div>
+<div class="section" id="shared-memory-software">
+<h3>Shared Memory Software<a class="headerlink" href="#shared-memory-software" title="Permalink to this headline">¶</a></h3>
 <p>The software side instantiates the DmaConfig proxy and the DmaIndication wrapper:</p>
-<hr class="docutils" />
+<div class="highlight-python"><div class="highlight"><pre>dma = new DmaConfigProxy(IfcNames_DmaConfig);
+dmaIndication = new DmaIndication(dma, IfcNames_DmaIndication);
+</pre></div>
+</div>
 <p>Call <cite>dma-&gt;alloc()</cite> to allocate DMA memory. Each chunk of portal
 memory is identified by a file descriptor. Portal memory may be shared
 with other processes. Portal memory is reference counted according to
-the number of file descriptors associated with it.</p>
-<hr class="docutils" />
+the number of file descriptors associated with it:</p>
+<div class="highlight-python"><div class="highlight"><pre>PortalAlloc *srcAlloc;
+dma-&gt;alloc(alloc_sz, &amp;srcAlloc);
+</pre></div>
+</div>
 <p>Memory map it to make it accessible to software:</p>
+<div class="highlight-python"><div class="highlight"><pre>srcBuffer = (unsigned int *)mmap(0, alloc_sz, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_SHARED, srcAlloc-&gt;header.fd, 0);
+</pre></div>
 </div>
-<div class="section" id="srcbuffer-unsigned-int-mmap-0-alloc-sz-prot-read-prot-write-prot-exec-map-shared-srcalloc-header-fd-0">
-<h2>srcBuffer = (unsigned int <a href="#id16"><span class="problematic" id="id17">*</span></a>)mmap(0, alloc_sz, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_SHARED, srcAlloc-&gt;header.fd, 0);<a class="headerlink" href="#srcbuffer-unsigned-int-mmap-0-alloc-sz-prot-read-prot-write-prot-exec-map-shared-srcalloc-header-fd-0" title="Permalink to this headline">¶</a></h2>
-<p>CONNECTAL is currently using non-snooped interfaces, so the cache must be flushed and invalidated before hardware accesses portal memory:</p>
+<p>Connectal is currently using non-snooped interfaces, so the cache must be flushed and invalidated before hardware accesses portal memory:</p>
+<div class="highlight-python"><div class="highlight"><pre>dma-&gt;dCacheFlushInval(srcAlloc, srcBuffer);
+</pre></div>
 </div>
-<div class="section" id="dma-dcacheflushinval-srcalloc-srcbuffer">
-<h2>dma-&gt;dCacheFlushInval(srcAlloc, srcBuffer);<a class="headerlink" href="#dma-dcacheflushinval-srcalloc-srcbuffer" title="Permalink to this headline">¶</a></h2>
 <p>Call <cite>dma-&gt;reference()</cite> to get a pointer that may be passed to hardware:</p>
+<div class="highlight-python"><div class="highlight"><pre>unsigned int ref_srcAlloc = dma-&gt;reference(srcAlloc);
+</pre></div>
 </div>
-<div class="section" id="unsigned-int-ref-srcalloc-dma-reference-srcalloc">
-<h2>unsigned int ref_srcAlloc = dma-&gt;reference(srcAlloc);<a class="headerlink" href="#unsigned-int-ref-srcalloc-dma-reference-srcalloc" title="Permalink to this headline">¶</a></h2>
-<p>This also transfers the DMA-to-physical address translation information to the hardware via the <cite>DmaConfig</cite> interface.</p>
+<p>This also transfers the DMA-to-physical address translation information to the hardware via the <cite>DmaConfig</cite> interface:</p>
+<div class="highlight-python"><div class="highlight"><pre>device-&gt;startRead(ref_srcAlloc, numWords, burstLen, iterCnt);
+</pre></div>
 </div>
-<div class="section" id="device-startread-ref-srcalloc-numwords-burstlen-itercnt">
-<h2>device-&gt;startRead(ref_srcAlloc, numWords, burstLen, iterCnt);<a class="headerlink" href="#device-startread-ref-srcalloc-numwords-burstlen-itercnt" title="Permalink to this headline">¶</a></h2>
-<p>== Notes</p>
-<p>Currently there are no valid bits and no protections against bursts crossing page boundaries]</p>
-<div class="section" id="there-needs-to-be-a-way-to-synchronize-request-actions-and-dma-reads-and-to-synchronize-dma-writes-with-indications-so-that-the-writes-complete-to-the-coherence-point-before-the-indication-is-delivered-to-software-one-could-imagine-an-absurdly-buffered-memory-interface-and-a-rather-direct-path-for-i-o-reads-that-could-get-out-of-order">
-<h3>There needs to be a way to synchronize Request actions and DMA reads, and to synchronize DMA writes with Indications, so that the writes complete to the coherence point before the indication is delivered to software. One could imagine an absurdly buffered memory interface and a rather direct path for I/O reads that could get out of order.<a class="headerlink" href="#there-needs-to-be-a-way-to-synchronize-request-actions-and-dma-reads-and-to-synchronize-dma-writes-with-indications-so-that-the-writes-complete-to-the-coherence-point-before-the-indication-is-delivered-to-software-one-could-imagine-an-absurdly-buffered-memory-interface-and-a-rather-direct-path-for-i-o-reads-that-could-get-out-of-order" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stewart-notes">
+<h3>stewart notes<a class="headerlink" href="#stewart-notes" title="Permalink to this headline">¶</a></h3>
+<p>Currently there are no valid bits and no protections against bursts crossing page boundaries</p>
+<p>There needs to be a way to synchronize Request actions and DMA reads,
+and to synchronize DMA writes with Indications, so that the writes
+complete to the coherence point before the indication is delivered to
+software. One could imagine an absurdly buffered memory interface and
+a rather direct path for I/O reads that could get out of order.</p>
 </div>
 </div>
 </div>
@@ -602,48 +671,40 @@ the number of file descriptors associated with it.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">[&#8220;seqdiag&#8221;,target=&#8221;request-response-1.png&#8221;]</a></li>
-<li><a class="reference internal" href="#id1">}</a></li>
-<li><a class="reference internal" href="#seqdiag-target-indication-only-png">[&#8220;seqdiag&#8221;,target=&#8221;indication-only.png&#8221;]</a></li>
-<li><a class="reference internal" href="#id2">}</a></li>
-<li><a class="reference internal" href="#source-makefile">[source,makefile]</a></li>
-<li><a class="reference internal" href="#id3">[source,makefile]</a><ul>
-<li><a class="reference internal" href="#typedef-enum-simpleindication-simplerequest-ifcnames-deriving-eq-bits">typedef enum {SimpleIndication, SimpleRequest} IfcNames deriving (Eq,Bits);</a></li>
-<li><a class="reference internal" href="#module-mkconnectaltop-stdconnectaltop-addrwidth">module mkConnectalTop(StdConnectalTop#(addrWidth));</a></li>
-<li><a class="reference internal" href="#typedef-connectaltop-addrwidth-64-empty-stdconnectaltop-numeric-type-addrwidth">typedef ConnectalTop#(addrWidth,64,Empty)     StdConnectalTop#(numeric type addrWidth);</a></li>
-<li><a class="reference internal" href="#simplerequest-simplerequest-mksimplerequest-simpleindicationproxy-ifc">SimpleRequest simpleRequest &lt;- mkSimpleRequest(simpleIndicationProxy.ifc);</a></li>
-<li><a class="reference internal" href="#simplerequestwrapper-simplerequestwrapper-mksimplerequestwrapper-simplerequest-simplerequest">SimpleRequestWrapper simpleRequestWrapper &lt;- mkSimpleRequestWrapper(SimpleRequest,simpleRequest);</a></li>
-<li><a class="reference internal" href="#let-interrupt-mux-mkinterruptmux-portals">let interrupt_mux &lt;- mkInterruptMux(portals);</a></li>
+<li><a class="reference internal" href="#">What is Connectal?</a><ul>
+<li><a class="reference internal" href="#lexicon">Lexicon</a></li>
+<li><a class="reference internal" href="#example-setups">Example setups:</a></li>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#an-example">An Example</a></li>
+<li><a class="reference internal" href="#simple-top-bsv">simple/Top.bsv</a></li>
+<li><a class="reference internal" href="#simple-testsimple-cpp">simple/testsimple.cpp</a></li>
+<li><a class="reference internal" href="#simple-example-design-structure">Simple Example Design Structure</a><ul>
+<li><a class="reference internal" href="#make-verilog">make verilog</a></li>
+<li><a class="reference internal" href="#make-bits">make bits</a></li>
+<li><a class="reference internal" href="#make-android-exe">make android_exe</a></li>
+<li><a class="reference internal" href="#make-run">make run</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#source-c">[source,C]</a></li>
-<li><a class="reference internal" href="#id4">[source,C]</a></li>
-<li><a class="reference internal" href="#id5">[source,C]</a></li>
-<li><a class="reference internal" href="#id8">[source,C]</a></li>
-<li><a class="reference internal" href="#id9">[source,C]</a></li>
-<li><a class="reference internal" href="#id14">[source,C]</a></li>
-<li><a class="reference internal" href="#id15">[source,C]</a><ul>
-<li><a class="reference internal" href="#zedboard-makefile">zedboard/Makefile</a></li>
-<li><a class="reference internal" href="#zedboard-jni-makefile">zedboard/jni/Makefile</a></li>
-<li><a class="reference internal" href="#zedboard-jni-generatedtypes-h">zedboard/jni/GeneratedTypes.h</a></li>
-<li><a class="reference internal" href="#zedboard-board-tcl">zedboard/board.tcl</a></li>
-<li><a class="reference internal" href="#zedboard-mkzynqtop-impl-tcl">zedboard/mkzynqtop-impl.tcl</a></li>
-<li><a class="reference internal" href="#make-android-exe">make android_exe</a></li>
-<li><a class="reference internal" href="#libs-armeabi-android-exe">libs/armeabi/android_exe</a></li>
-<li><a class="reference internal" href="#make-run">make run</a></li>
-<li><a class="reference internal" href="#make-runparam-ipaddr-run">make RUNPARAM=ipaddr run</a></li>
-<li><a class="reference internal" href="#axidmaserver-addrwidth-64-dma-mkaxidmaserver-dmaindicationproxy-ifc-readclients-writeclients">AxiDmaServer#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);</a></li>
-<li><a class="reference internal" href="#srcbuffer-unsigned-int-mmap-0-alloc-sz-prot-read-prot-write-prot-exec-map-shared-srcalloc-header-fd-0">srcBuffer = (unsigned int *)mmap(0, alloc_sz, PROT_READ|PROT_WRITE|PROT_EXEC, MAP_SHARED, srcAlloc-&gt;header.fd, 0);</a></li>
-<li><a class="reference internal" href="#dma-dcacheflushinval-srcalloc-srcbuffer">dma-&gt;dCacheFlushInval(srcAlloc, srcBuffer);</a></li>
-<li><a class="reference internal" href="#unsigned-int-ref-srcalloc-dma-reference-srcalloc">unsigned int ref_srcAlloc = dma-&gt;reference(srcAlloc);</a></li>
-<li><a class="reference internal" href="#device-startread-ref-srcalloc-numwords-burstlen-itercnt">device-&gt;startRead(ref_srcAlloc, numWords, burstLen, iterCnt);</a><ul>
-<li><a class="reference internal" href="#there-needs-to-be-a-way-to-synchronize-request-actions-and-dma-reads-and-to-synchronize-dma-writes-with-indications-so-that-the-writes-complete-to-the-coherence-point-before-the-indication-is-delivered-to-software-one-could-imagine-an-absurdly-buffered-memory-interface-and-a-rather-direct-path-for-i-o-reads-that-could-get-out-of-order">There needs to be a way to synchronize Request actions and DMA reads, and to synchronize DMA writes with Indications, so that the writes complete to the coherence point before the indication is delivered to software. One could imagine an absurdly buffered memory interface and a rather direct path for I/O reads that could get out of order.</a></li>
+<li><a class="reference internal" href="#shared-memory">Shared Memory</a><ul>
+<li><a class="reference internal" href="#shared-memory-hardware">Shared Memory Hardware</a></li>
+<li><a class="reference internal" href="#shared-memory-software">Shared Memory Software</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notes">Notes</a><ul>
+<li><a class="reference internal" href="#stewart-notes">stewart notes</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="portalstructure.html"
+                        title="previous chapter">Portal Interface Structure</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="interface_definitions.html"
+                        title="next chapter">Interface Declarations</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/design/portal.txt"
@@ -675,7 +736,14 @@ the number of file descriptors associated with it.</p>
         <li class="right" >
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="interface_definitions.html" title="Interface Declarations"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="portalstructure.html" title="Portal Interface Structure"
+             >previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

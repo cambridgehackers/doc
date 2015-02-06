@@ -62,15 +62,15 @@ referred to as a project.  A collection of out-of-tree example
 projects is available at <a class="reference external" href="https://github.com/connectal-examples">https://github.com/connectal-examples</a>.
 To illustrate the structure of a project, this chapter uses the
 example <a class="reference external" href="https://github.com/connectal-examples/leds">https://github.com/connectal-examples/leds</a>, which can be
-executed using the Bluesim or Zynq target platforms.</p>
+executed on the Bluesim or Zynq target platforms.</p>
 <div class="section" id="project-makefile">
 <h2>Project Makefile<a class="headerlink" href="#project-makefile" title="Permalink to this headline">¶</a></h2>
-<p>The top-level Makefile
-(<a class="reference external" href="https://github.com/connectal-examples/leds/blob/master/Makefile">https://github.com/connectal-examples/leds/blob/master/Makefile</a>)
+<p>The top-level Makefile in the project
+(in our example, <a class="reference external" href="https://github.com/connectal-examples/leds/blob/master/Makefile">https://github.com/connectal-examples/leds/blob/master/Makefile</a>)
 defines parameters building and executing the project.  In its
-simplest form, it specifies which Bluespec interfaces to use as
-portals, the hardware and software source files, and the libraries to
-use for the hardware and software compilation:</p>
+simplest form, it specifies the hardware and software source files,
+which Bluespec interfaces to use as interfaces (portals) between them,
+and the libraries to use for the hardware and software compilation:</p>
 <div class="highlight-python"><div class="highlight"><pre>INTERFACES = LedControllerRequest
 BSVFILES = LedController.bsv Top.bsv
 CPPFILES= testleds.cpp
@@ -78,10 +78,6 @@ NUMBER_OF_MASTERS =0
 include \$(CONNECTALDIR)/Makefile.connectal
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">INTERFACES</span></tt> is a list of names of BSV interfaces which may be
-used to communicate between the HW and SW componentsy.  In addition to
-user-defined interfaces, there are a wide variety of interfaces
-defined in Connectal libraries which may be included in this list.</p>
 <p><tt class="docutils literal"><span class="pre">BSVFILES</span></tt> is a list of bsv files containing interface
 definitions used to generate portals and module definitions used to
 generate HW components.  Connectal bsv libraries can be used without
@@ -89,12 +85,17 @@ being listed explicitly.</p>
 <p><tt class="docutils literal"><span class="pre">CPPFILES</span></tt> is a list of C/C++ files containing software
 components and <tt class="docutils literal"><span class="pre">main</span></tt>.  The Connectal C/C++ libraries can be
 used without being listed explicitly.</p>
+<p><tt class="docutils literal"><span class="pre">INTERFACES</span></tt> is a list of names of BSV interfaces which may be
+used to communicate between the HW and SW componentsy.  In addition to
+user-defined interfaces, there are a wide variety of interfaces
+defined in Connectal libraries which may be included in this list.</p>
 <p><tt class="docutils literal"><span class="pre">NUMBER_OF_MASTERS</span></tt> is used to designate the number of host
 bus masters the hardware components will instantiate.  For PCIe-based
 platforms, this value can be set to 0 or 1, while on Zynq-based
 platforms values from 0 to 4 are valid.</p>
 <p><tt class="docutils literal"><span class="pre">CONNECTALDIR</span></tt> must be set so that the top-level Connectal
-makefile can be included.  This brings in the default definitions of
+makefile can be included, defining the makefile build targets for the project.
+This brings in the default definitions of
 all project build parameters as well as the Connectal hardware and
 software libraries.  When running the toolchain on AWS, this varible
 is set automatically in the build environment.
@@ -107,9 +108,9 @@ is set automatically in the build environment.
 <p>label{interface_definitions}</p>
 <p>When generating portals, the Connectal interface compiler searches the
 Connectal bsv libraries and the files listed in <tt class="docutils literal"><span class="pre">BSVFILES</span></tt> for
-definitions of all the interfaces listed in <tt class="docutils literal"><span class="pre">INTERFACES</span></tt>.  If
-an the definition of a listed interfaces is not found, an error is
-reported the the compilation aborts.  The interfaces in this list must
+definitions of the interfaces listed in <tt class="docutils literal"><span class="pre">INTERFACES</span></tt>.  If
+the definition of a listed interfaces is not found, an error is
+reported and the compilation aborts.  The interfaces in this list must
 be composed exclusively of <tt class="docutils literal"><span class="pre">Action</span></tt> methods.  Supported method
 argument types are <tt class="docutils literal"><span class="pre">Bit\#(n)</span></tt>, <tt class="docutils literal"><span class="pre">Bool</span></tt>,
 <tt class="docutils literal"><span class="pre">Int\#(32)</span></tt>, <tt class="docutils literal"><span class="pre">UInt\#(32)</span></tt>, <tt class="docutils literal"><span class="pre">Float</span></tt>,
@@ -145,6 +146,9 @@ implementations of all additional interface types in
 <tt class="docutils literal"><span class="pre">GeneratedTypes.h</span></tt>. Line 9 instantiates the proxy through which
 the software invokes the hardware methods
 (See also <a class="reference internal" href="../design/flowcontrol.html#flow-control"><em>Flow Control</em></a>)</p>
+<p>To support projects that will execute software inside the linux kernel
+(for example, to work in conjunction with filesystems or the network stack),
+connectal project software can also be written in C.</p>
 </div>
 </div>
 <div class="section" id="hardware">
@@ -203,19 +207,20 @@ library module <tt class="docutils literal"><span class="pre">mkSlaveMux</span><
 from the software.  At the end of the module definition, the top-level
 interface elements must be connected.  A board-specific top-level
 module will include this file, instantiate <tt class="docutils literal"><span class="pre">mkConnectalTop</span></tt> and
-connect the interfaces to the actual peripherals. The name of the file
-must be <tt class="docutils literal"><span class="pre">Top.bsv</span></tt> and the name of the module must be
-<tt class="docutils literal"><span class="pre">mkConnectalTop</span></tt>.</p>
+connect the interfaces to the actual peripherals. The module
+<tt class="docutils literal"><span class="pre">mkConnectalTop</span></tt> must be defined in a file named
+<tt class="docutils literal"><span class="pre">Top.bsv</span></tt> in the user project.</p>
 <p>The Bluespec compiler generates a Verilog module from the top level
 BSV module, in which the methods of exposed interfaces are implemented
-as Verilog ports. Those ports are associated to physical pins on the
+as Verilog ports. Those ports are bound to physical pins on the
 FPGA using a physical constraints file. If CPU specific interface
 signals are needed by the design (for example, extra clocks that are
-generated by the PCIe core), then an optional CPU-specific interface
-can also be used.  If the design uses multiple clock domains or
-additional pins on the FPGA, those connections are also made here by
+generated by the PCIe core), then an optional CPU-specific HostInterface
+parameter to <tt class="docutils literal"><span class="pre">mkConnectalTop</span></tt> can also be used.  If the design uses
+external pins on the FPGA, those connections are also made here by
 exporting a &#8216;Pins&#8217; interface
-(hyperref[host_interface]{Section~ref{host_interface}}).</p>
+(hyperref[host_interface]{Section~ref{host_interface}})
+and providing bindings in the constraints file.</p>
 </div>
 </div>
 </div>

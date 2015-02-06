@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Connectal Developer’s Guide &mdash; connectal 14.12.6 documentation</title>
+    <title>Conclusion &mdash; connectal 14.12.6 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
-    <link rel="next" title="Connectal Rationale" href="design.html" />
-    <link rel="prev" title="Host Interface" href="../design/host_interface.html" /> 
+    <link rel="up" title="Connectal Design" href="design.html" />
+    <link rel="next" title="Portal Interface Structure" href="portalstructure.html" />
+    <link rel="prev" title="Related Work" href="related-work.html" /> 
   </head>
   <body>
     <div class="related">
@@ -39,12 +40,13 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="design.html" title="Connectal Rationale"
+          <a href="portalstructure.html" title="Portal Interface Structure"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../design/host_interface.html" title="Host Interface"
+          <a href="related-work.html" title="Related Work"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,25 +55,28 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="connectal-developer-s-guide">
-<h1>Connectal Developer&#8217;s Guide<a class="headerlink" href="#connectal-developer-s-guide" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="design.html">Connectal Rationale</a></li>
-<li class="toctree-l1"><a class="reference internal" href="projectstructure.html">Connectal Project Structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="projectstructure.html#project-makefile">Project Makefile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="projectstructure.html#project-source">Project Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="projectstructure.html#hardware">Hardware</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="compilingproject.html">Compiling and Running Connectal Project</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="compilingproject.html#compiling-on-connectalbuild">Compiling on ConnectalBuild</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compilingproject.html#compiling-locally">Compiling Locally</a></li>
-<li class="toctree-l2"><a class="reference internal" href="compilingproject.html#running-the-design">Running the Design</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="conclusion">
+<span id="sec-conclusion"></span><h1>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://www.connectal.org/">Connectal</a> bridges the gap between software and hardware development,
+enabling developers to create integrated solutions rapidly. With
+Connectal, we take a pragmatic approach to software and hardware
+development in which we try to avoid any dependence on proposed
+solutions to open research problems.</p>
+<p>Use of Connectal&#8217;s interface compiler ensures that software and
+hardware remain consistent and make it easy to update the
+hardware/software boundary as needed in a variety of execution
+contexts. The generated portals permit concurrent and low-latency
+access to the accelerator and enable different processes or the kernel
+to have safe isolated access through dedicated interfaces.  Support
+for sharing memory between software and hardware makes it easy to
+achieve high transfer speeds between the two environments.</p>
+<p>Connectal supports Linux and Android operating systems running on x86
+and ARM CPUs. It currently supports Xilinx FPGAs and runs on the full
+range of Xilinx Series 7 devices. Our fully-scripted development
+process enables the use of continuous integration of software and
+hardware development. Integrating software development early makes it
+easier to ensure that the complete solution actually meets design
+targets and customer requirements.</p>
 </div>
 
 
@@ -81,14 +86,14 @@
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../design/host_interface.html"
-                        title="previous chapter">Host Interface</a></p>
+  <p class="topless"><a href="related-work.html"
+                        title="previous chapter">Related Work</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="design.html"
-                        title="next chapter">Connectal Rationale</a></p>
+  <p class="topless"><a href="portalstructure.html"
+                        title="next chapter">Portal Interface Structure</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/devguide/devguide.txt"
+    <li><a href="../_sources/design/conclusion.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -118,12 +123,13 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="design.html" title="Connectal Rationale"
+          <a href="portalstructure.html" title="Portal Interface Structure"
              >next</a> |</li>
         <li class="right" >
-          <a href="../design/host_interface.html" title="Host Interface"
+          <a href="related-work.html" title="Related Work"
              >previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

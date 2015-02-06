@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1. C/C++ Portal &mdash; connectal 14.12.6 documentation</title>
+    <title>Related Work &mdash; connectal 14.12.6 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,9 +25,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
-    <link rel="up" title="Connectal C/C++ Libraries" href="c.html" />
-    <link rel="next" title="Connectal Examples" href="../examples/index.html" />
-    <link rel="prev" title="Connectal C/C++ Libraries" href="c.html" /> 
+    <link rel="up" title="Connectal Design" href="design.html" />
+    <link rel="next" title="Conclusion" href="conclusion.html" />
+    <link rel="prev" title="Performance of Generated Systems" href="performance.html" /> 
   </head>
   <body>
     <div class="related">
@@ -40,13 +40,13 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../examples/index.html" title="Connectal Examples"
+          <a href="conclusion.html" title="Conclusion"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="c.html" title="Connectal C/C++ Libraries"
+          <a href="performance.html" title="Performance of Generated Systems"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="c.html" accesskey="U">Connectal C/C++ Libraries</a> &raquo;</li> 
+          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -55,30 +55,47 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="c-c-portal">
-<h1>1. C/C++ Portal<a class="headerlink" href="#c-c-portal" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="c.portalExec">
-void *<tt class="descname">portalExec</tt><big>(</big>void<em>&nbsp;*__x</em><big>)</big><a class="headerlink" href="#c.portalExec" title="Permalink to this definition">¶</a></dt>
-<dt id="c.handlers.">
-Polls the registered portals and invokes their callback <tt class="descname">handlers.</tt><big>(</big><big>)</big><a class="headerlink" href="#c.handlers." title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="c.portalExec_start">
-void <tt class="descname">portalExec_start</tt><big>(</big><big>)</big><a class="headerlink" href="#c.portalExec_start" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="c.portalExec_poll">
-void <tt class="descname">portalExec_poll</tt><big>(</big><big>)</big><a class="headerlink" href="#c.portalExec_poll" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="c.portalAlloc">
-int <tt class="descname">portalAlloc</tt><big>(</big>args<big>)</big><a class="headerlink" href="#c.portalAlloc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+  <div class="section" id="related-work">
+<h1>Related Work<a class="headerlink" href="#related-work" title="Permalink to this headline">¶</a></h1>
+<p>A number of research projects, such as Lime~cite{REL:Lime},
+BCL~cite{King:2012:AGH:2150976.2151011},
+HThreads~cite{DBLP:conf/fpl/PeckAASBA06}, and
+CatapaultC~cite{CatC:www} (to name just a few) bridge the
+software/hardware development gap by providing a single language for
+developing both the software and hardware components of the design.
+In addition, Altera and Xilinx have both implemented
+OpenCL~cite{Opencl} on FPGAs~cite{AlteraOpencl,XilinxOpencl} in an
+attempt to attract GPU programmers.</p>
+<p>The computation model of software differs significantly from that of
+hardware, and so far none of the unified language approaches deliver
+the same performance as languages designed specifically for hardware
+or software. Connectal is intended to be used for the design of
+performance-critical systems.  In this context we think that designers
+prefer a mix of languages specifically designed for their respective
+implementation contexts.</p>
+<p>Infrastructures such as LEAP~cite{DBLP:conf/fpl/FlemingYAE14},
+Rainbow~cite{DBLP:journals/ijrc/JozwikHETT13}, and
+OmpSs~cite{DBLP:conf/fpga/FilguerasGJAMLNV14} (to name just a
+few) use resource abstraction to enable FPGA development.  We found
+that in their intended context, these tools were easy to use but that
+performance tuning in applications not foreseen by the infrastructure
+developers was problematic.</p>
+<p>Some projects such as
+TMD-MPI~cite{DBLP:journals/trets/SaldanaPMNWCWSP10},
+VFORCE/ \VSIPL++~cite{DBLP:journals/jpdc/MooreLK12}, and
+GASNet/GAScore~cite{DBLP:conf/fpga/WillenbergC13} target only the
+hardware software interface.  These tools provide message passing
+capabilities, but rely on purely operational semantics to describe the
+HW/SW interface.  Apart from the implementation details, Connectal
+distinguishes itself by using an IDL to enforce denotational interface
+semantics.</p>
+<p>UIO~cite{UIO:Howto} is a user-space device driver framework for
+Linux. It is very similar to the Connectal&#8217;s portal device driver, but
+it does not provide a solution to multiple device nodes per hardware
+device. The portal driver provides this so that different interfaces
+of a design may be accessed independently, providing process boundary
+protection, thread safety, and the ability for user processes and the
+kernel both to access the hardware device.</p>
 </div>
 
 
@@ -88,14 +105,14 @@ int <tt class="descname">portalAlloc</tt><big>(</big>args<big>)</big><a class="h
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="c.html"
-                        title="previous chapter">Connectal C/C++ Libraries</a></p>
+  <p class="topless"><a href="performance.html"
+                        title="previous chapter">Performance of Generated Systems</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../examples/index.html"
-                        title="next chapter">Connectal Examples</a></p>
+  <p class="topless"><a href="conclusion.html"
+                        title="next chapter">Conclusion</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/c/portal.txt"
+    <li><a href="../_sources/design/related-work.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -125,13 +142,13 @@ int <tt class="descname">portalAlloc</tt><big>(</big>args<big>)</big><a class="h
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../examples/index.html" title="Connectal Examples"
+          <a href="conclusion.html" title="Conclusion"
              >next</a> |</li>
         <li class="right" >
-          <a href="c.html" title="Connectal C/C++ Libraries"
+          <a href="performance.html" title="Performance of Generated Systems"
              >previous</a> |</li>
         <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="c.html" >Connectal C/C++ Libraries</a> &raquo;</li> 
+          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Connectal Design &mdash; connectal 14.12.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '14.12.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="next" title="Abstract" href="abstract.html" />
+    <link rel="prev" title="Introduction" href="../intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="abstract.html" title="Abstract"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="connectal-design">
+<h1>Connectal Design<a class="headerlink" href="#connectal-design" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#document-organization">Document Organization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="string-search.html">Accelerating String Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="string-search.html#initial-implementation">Initial Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-search.html#multithreading-the-software">Multithreading the Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-search.html#refining-the-interfaces">Refining the Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="string-search.html#shared-access-to-host-memory">Shared Access to Host Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="connectal-framework.html">The Connectal Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="connectal-framework.html#portals">Portals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectal-framework.html#direct-user-mode-access-to-hardware">Direct user-mode access to hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectal-framework.html#shared-access-to-host-memory">Shared Access to Host Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectal-framework.html#distributed-access-to-memory-ports">Distributed Access to Memory Ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connectal-framework.html#platform-portability">Platform Portability</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="implementing-string-search.html">Implementing String Search</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="implementing-string-search.html#initial-implementation">Initial Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-string-search.html#multithreading-the-software">Multithreading The Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-string-search.html#shared-access-to-host-memory">Shared Access to Host Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="implementing-string-search.html#alternate-portal-implementations">Alternate Portal Implementations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toolchain.html">Workflow using Connectal</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#top-level-structure-of-connectal-applications">Top level structure of Connectal applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#development-cycle">Development cycle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolchain.html#continuous-integration-and-debug-support">Continuous Integration and Debug Support</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Performance of Generated Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#performance-of-portals">Performance of Portals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html#performance-of-reads-writes-of-system-memory">Performance of Reads/Writes of System Memory</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="related-work.html">Related Work</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="portalstructure.html">Portal Interface Structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portalstructure.html#portal-device-drivers">Portal Device Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portalstructure.html#portal-memory-map">Portal Memory Map</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portal.html">What is Connectal?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#lexicon">Lexicon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#example-setups">Example setups:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#background">Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#an-example">An Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#simple-top-bsv">simple/Top.bsv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#simple-testsimple-cpp">simple/testsimple.cpp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#simple-example-design-structure">Simple Example Design Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#shared-memory">Shared Memory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal.html#notes">Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interface_definitions.html">Interface Declarations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flowcontrol.html">Flow Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="host_interface.html">Host Interface</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="abstract.html"
+                        title="next chapter">Abstract</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/design/design.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="abstract.html" title="Abstract"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

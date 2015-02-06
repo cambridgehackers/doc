@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The Connectal Framework &mdash; connectal 14.12.6 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '14.12.6',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="up" title="Connectal Design" href="design.html" />
+    <link rel="next" title="Implementing String Search" href="implementing-string-search.html" />
+    <link rel="prev" title="Accelerating String Search" href="string-search.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="implementing-string-search.html" title="Implementing String Search"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="string-search.html" title="Accelerating String Search"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="the-connectal-framework">
+<span id="sec-framework"></span><h1>The Connectal Framework<a class="headerlink" href="#the-connectal-framework" title="Permalink to this headline">¶</a></h1>
+<p>In and of themselves, none of the HW/SW interfaces considered in
+Section <a class="reference internal" href="string-search.html#sec-strstr"><em>Accelerating String Search</em></a> are particularly complex.  On the other hand,
+implementing the complete set and maintaining correctness as the
+application evolves is a considerable amount of care, requiring deep
+understanding of both the application and the platform.  The Connectal
+framework is a collection of tools and library components which was
+designed to address these challenges with the following features:</p>
+<ul class="simple">
+<li>Easy declaration and invocation of remote methods between
+application components running on the host or in the FPGA.</li>
+<li>Direct user-mode access to hardware accelerators from software.</li>
+<li>High performance read and write bus master access to system
+memory from the FPGA</li>
+<li>Infrastructure for sharing full speed memory port access between
+an arbitrary number of clients in the FPGA fabric</li>
+<li>Portability across platforms using different CPUs, buses,
+operating systems, and FPGAs</li>
+<li>Fully integrated tool-chain support for dependency builds and
+device configuration.</li>
+</ul>
+<p>In this section, we introduce the Connectal framework through a
+discussion of its prominent features.</p>
+<div class="section" id="portals">
+<h2>Portals<a class="headerlink" href="#portals" title="Permalink to this headline">¶</a></h2>
+<p>Connectal implements remote method invocation between application
+components using asynchronous messaging. The message and channel types
+are application specific, requiring the user to define the HW/SW
+interface using BSV interfaces as the interface definition language
+(IDL).  These interfaces declare logical groups of unidirectional
+<a href="#id1"><span class="problematic" id="id2">``</span></a>send&#8217;&#8217; methods, each of which is implemented as a FIFO channel by
+the Connectal interface compiler; all channels corresponding to a
+single BSV interface are grouped together into a single
+<em>portal</em>.</p>
+<p>From the interface specification, the Connectal interface compiler
+generates code for marshalling the arguments of a method into a
+message to be sent and unmarshaling values from a received
+message. It generates a textit{proxy} to be invoked on the sending
+side and a textit{wrapper} that invokes the appropriate method on the
+receiving side.  Platform specific libraries are used to connect the
+proxies and wrappers to the communication fabric.</p>
+<p>In the hardware, each portal is assigned a disjoint address range.  On
+the host, Connectal assigns each portal a unique Linux device
+(/dev/portal*n*$) which is accessed by the application
+software using the generated wrappers and proxies.  An application can
+partition methods across several portals, to control access to the
+interfaces by specific hardware or software modules.  To support
+bi-directional communication, at least two portals are required: one
+which allows software to <a href="#id3"><span class="problematic" id="id4">``</span></a>invoke&#8217;&#8217; hardware, and another for hardware
+to <a href="#id5"><span class="problematic" id="id6">``</span></a>invoke&#8217;&#8217; software.  Each portal may be accessed by different
+threads, processes, or directly from the kernel.</p>
+</div>
+<div class="section" id="direct-user-mode-access-to-hardware">
+<h2>Direct user-mode access to hardware<a class="headerlink" href="#direct-user-mode-access-to-hardware" title="Permalink to this headline">¶</a></h2>
+<p>We designed Connectal to provide direct access to accelerators from
+user-mode programs in order to eliminate the need for device-drivers
+specific to each accelerator.  We have implemented a kernel module for
+both X86 and ARM architectures with a minimal set of functionality:
+the driver implements textbf{mmap} to map hardware registers into
+user space and textbf{poll} to enable applications to suspend a thread waiting for
+interrupts originating from the hardware accelerators.  These two
+pieces of functionality have been defined to be completely generic; no
+modification is required to kernel drivers as the HW/SW interface
+evolves.  All knowledge of the interface register semantics (and
+corresponding changes) is encoded by the interface compiler in the
+generated proxies and wrappers which are compiled as part of the
+application and executed in user-mode.</p>
+<p>This approach is known as user-space device
+drivers~cite{Khalidi:1995:EZI:974947,UIO:Howto} and has a number of
+distinct advantages over traditional kernel modules.  To begin with,
+it reduces the number of components that need to be modified if the
+HW/SW interface changes, and eliminates the need for device-driver
+development expertise in many cases.  Secondly, after the hardware
+registers have been mapped into user address space, the need for
+software to switch between user and kernel mode is all but eliminated
+since all <a href="#id7"><span class="problematic" id="id8">``</span></a>driver&#8217;&#8217; functionality is being executed in user-space.</p>
+</div>
+<div class="section" id="shared-access-to-host-memory">
+<h2>Shared Access to Host Memory<a class="headerlink" href="#shared-access-to-host-memory" title="Permalink to this headline">¶</a></h2>
+<p>Connectal generates a hardware FIFO corresponding to each method in
+the portal interface, and the software reads and writes these FIFOs
+under certain conditions. To improve throughput, Connectal libraries
+also support credit-based flow-control. Though credit-based
+flow-control with interrupts is more efficient than polling status
+registers from software, there is often the need for much higher
+bandwidth communication between the hardware and software.</p>
+<p>Hardware accelerators often communicate with the application through
+direct access to shared memory. An important feature of Connectal is a
+flexible, high performance API for allocating and sharing such memory,
+and support for reading and writing this memory from hardware and
+software. The Connectal framework implements this through the
+combination of a Linux kernel driver, C++ libraries, and BSV modules
+for the FPGA.  We implemented a custom kernel memory allocator for
+Connectal, textbf{portalmem}, using the kernel dmabuf support.  Any
+solution which allocates and shares memory between hardware and
+software must meet two high-level requirements:</p>
+<ul>
+<li><dl class="first docutils">
+<dt>Allocated buffers must have reference counts to prevent memory</dt>
+<dd><p class="first last">leaks.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Efficient mechanisms must be provided to share the location of</dt>
+<dd><p class="first last">allocated regions.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Using the portalmem driver, programs can allocate regions of system
+memory (DRAM) and map it into their own virtual address space.
+Reference-counted access to shared memory regions allocated using
+portalmem can be granted to other SW processes by transmitting the
+file descriptor for the allocated region.
+Reference counting has been implemented in the driver so that
+once an allocated memory region has been dereferenced by all SW and HW
+processes, it will be deallocated and returned to the kernel free
+memory pool.</p>
+<p>Simple hardware accelerators often require contiguous physical
+addresses.  Unfortunately, when allocating memory from a shared pool
+in a running system, obtaining large areas of contiguous
+memory is often problematic, limiting the size of the region that can
+be allocated. To support indexed access to non-contiguous memory
+aggregates, Connectal provides address translation support to hardware
+accelerators in the FPGA, similar to the MMU functionality on the CPU
+side.</p>
+</div>
+<div class="section" id="distributed-access-to-memory-ports">
+<span id="sec-memreadengine"></span><h2>Distributed Access to Memory Ports<a class="headerlink" href="#distributed-access-to-memory-ports" title="Permalink to this headline">¶</a></h2>
+<p>When building accelerators for an algorithm, multiple parameters are
+often accessed directly from system memory using DMA. As the hardware
+implementation is parallelized, multiple accesses to each parameter
+may be required.  In these cases, the number of memory clients in the
+application hardware usually exceeds the number of host memory ports.
+Sharing these ports requires substantial effort, and scaling up a
+memory interconnect while maximizing throughput and clock speed is
+extremely challenging.</p>
+<p>To support this common design pattern, the Connectal framework
+provides provides a portable, scalable, high performance library that
+applications can use to to facilitate the efficient sharing of host
+memory ports.  This library is implemented as parameterized Bluespec
+modules which allow the user to easily configure high-performance
+memory access trees, supporting both reading and writing.</p>
+</div>
+<div class="section" id="platform-portability">
+<h2>Platform Portability<a class="headerlink" href="#platform-portability" title="Permalink to this headline">¶</a></h2>
+<p>We structured Connectal to improve the portability of applications
+across CPU types, operating systems, FPGAs, and how the CPU and FPGA
+are connected.  The software and hardware libraries are largely
+platform independent.  As a result, applications implemented in the
+framework can be compiled to run on the range of different platforms.</p>
+<p>Supported platforms are shown in Figure <em class="xref std std-ref">Fig-platforms</em>.
+Application software can be executed on x86 and ARM CPUs running
+either Ubuntu or Android operating systems. A range of different
+Xilinx FPGAs can be connected to the CPU and system memory via PCI
+Express or AXI. The BSV simulator (Bluesim) can be used in place of
+actual FPGA hardware for debugging purposes.</p>
+<p>When the target application needs to interact with other Linux kernel
+resources (for example, a block device or a network interface), the
+application may run in kernel mode with the logic run either in an
+FPGA or in Bluesim.</p>
+<img alt="../_images/platforms.png" src="../_images/platforms.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">The Connectal Framework</a><ul>
+<li><a class="reference internal" href="#portals">Portals</a></li>
+<li><a class="reference internal" href="#direct-user-mode-access-to-hardware">Direct user-mode access to hardware</a></li>
+<li><a class="reference internal" href="#shared-access-to-host-memory">Shared Access to Host Memory</a></li>
+<li><a class="reference internal" href="#distributed-access-to-memory-ports">Distributed Access to Memory Ports</a></li>
+<li><a class="reference internal" href="#platform-portability">Platform Portability</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="string-search.html"
+                        title="previous chapter">Accelerating String Search</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="implementing-string-search.html"
+                        title="next chapter">Implementing String Search</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/design/connectal-framework.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="implementing-string-search.html" title="Implementing String Search"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="string-search.html" title="Accelerating String Search"
+             >previous</a> |</li>
+        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
