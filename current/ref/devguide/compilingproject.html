@@ -26,7 +26,7 @@
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
     <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
-    <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
+    <link rel="next" title="Connectal Makefile Variables" href="../make.html" />
     <link rel="prev" title="Connectal Project Structure" href="projectstructure.html" /> 
   </head>
   <body>
@@ -40,7 +40,7 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="../make.html" title="Connectal Makefile Variables"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="projectstructure.html" title="Connectal Project Structure"
@@ -90,6 +90,23 @@ connectal source tree, enter the command <tt class="docutils literal"><span clas
 </div>
 <div class="section" id="running-the-design">
 <h2>Running the Design<a class="headerlink" href="#running-the-design" title="Permalink to this headline">¶</a></h2>
+<p>When preparing a zedboard:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Following the directions in the zynq-boot git repo, create an Android boot SD card files.</li>
+<li>Write the SD card files into the first partition of an SD card (FAT format).</li>
+<li>Verify that the boot mode jumpers on the board are JP8/9/10 (MIO3/4/5) == 110 for booting from SD card.</li>
+<li>Verify that the PS_MIO0 pull-down jumper on the board JP6 is shorted.</li>
+<li>Connect a USB cable to the &#8216;UART&#8217; connector.  Use the &#8216;connectable&#8217; program from the connectable git repo to display linux console output.</li>
+<li>Connect an ethernet cable (linux uses DHCP to get an IP address during boot).</li>
+</ul>
+</div></blockquote>
+<p>When preparing a PCIe board:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Attach a USB cable to the JTAG port</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
@@ -113,8 +130,8 @@ connectal source tree, enter the command <tt class="docutils literal"><span clas
   <p class="topless"><a href="projectstructure.html"
                         title="previous chapter">Connectal Project Structure</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../bsv/bsv.html"
-                        title="next chapter">Connectal BSV Libraries</a></p>
+  <p class="topless"><a href="../make.html"
+                        title="next chapter">Connectal Makefile Variables</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/devguide/compilingproject.txt"
@@ -147,7 +164,7 @@ connectal source tree, enter the command <tt class="docutils literal"><span clas
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="../make.html" title="Connectal Makefile Variables"
              >next</a> |</li>
         <li class="right" >
           <a href="projectstructure.html" title="Connectal Project Structure"
