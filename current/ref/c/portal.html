@@ -57,6 +57,15 @@
             
   <div class="section" id="c-c-portal">
 <h1>1. C/C++ Portal<a class="headerlink" href="#c-c-portal" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="c.setClockFrequency">
+void <code class="descname">setClockFrequency</code><span class="sig-paren">(</span>int<em>&nbsp;clkNum</em>, long<em>&nbsp;requestedFrequency</em>, long<em>&nbsp;*actualFrequency</em><span class="sig-paren">)</span><a class="headerlink" href="#c.setClockFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the frequency of Zynq FPGA Clock clkNum to the closest
+frequency to requestedFrequency available from the PLL. If the
+actualFrequency pointer is non-null, stores the actual freqency
+before returning.</p>
+</dd></dl>
+
 <p><strong>**deprecated***</strong></p>
 <dl class="function">
 <dt id="c.portalExec">
