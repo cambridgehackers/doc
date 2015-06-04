@@ -8,7 +8,7 @@
     
     <title>Implementing String Search &mdash; connectal 14.12.6 documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
     <link rel="up" title="Connectal Design" href="design.html" />
     <link rel="next" title="Workflow using Connectal" href="toolchain.html" />
     <link rel="prev" title="The Connectal Framework" href="connectal-framework.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,21 +45,21 @@
         <li class="right" >
           <a href="connectal-framework.html" title="The Connectal Framework"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="implementing-string-search">
 <h1>Implementing String Search<a class="headerlink" href="#implementing-string-search" title="Permalink to this headline">¶</a></h1>
 <p>Having covered the features of the Connectal at a high level, we now
 explain more specifically how the framework can be applied to
-implement the refinements outlined in Section <a class="reference internal" href="string-search.html#sec-strstr"><em>Accelerating String Search</em></a>.</p>
+implement the refinements outlined in Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a>.</p>
 <div class="section" id="initial-implementation">
 <h2>Initial Implementation<a class="headerlink" href="#initial-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The FPGA is connected to the host system with a PCIe bus, and to the
@@ -132,9 +132,9 @@ is invoked remotely from software.  Direct access to the memory mapped
 hardware FIFOs by the generated proxy running in user-mode is key to
 the efficiency of our implementation strategy.</p>
 <img alt="../_images/msc1.png" src="../_images/msc1.png" />
-<div class="figure" id="fig-msc1">
-<img alt="../_images/msc1.png" src="../_images/msc1.png" />
-<p class="caption">SW invokes HW: <em>main</em> and <em>app HW</em> are implemented by the user.</p>
+<div class="figure" id="id19">
+<span id="fig-msc1"></span><img alt="../_images/msc1.png" src="../_images/msc1.png" />
+<p class="caption"><span class="caption-text">SW invokes HW: <em>main</em> and <em>app HW</em> are implemented by the user.</span></p>
 </div>
 </div>
 <div class="section" id="invoking-software-from-hardware">
@@ -177,9 +177,9 @@ StrStrRequest strStr &lt;-
 collaborate when software functionality is being invoked from
 hardware.</p>
 <img alt="../_images/msc0.png" src="../_images/msc0.png" />
-<div class="figure" id="fig-msc0">
-<img alt="../_images/msc0.png" src="../_images/msc0.png" />
-<p class="caption">HW invokes SW: <a href="#id5"><span class="problematic" id="id6">`</span></a>main&#8217;, <a href="#id7"><span class="problematic" id="id8">`</span></a>ind::wrapper&#8217;, and <a href="#id9"><span class="problematic" id="id10">`</span></a>app HW&#8217; are implemented by the user.</p>
+<div class="figure" id="id20">
+<span id="fig-msc0"></span><img alt="../_images/msc0.png" src="../_images/msc0.png" />
+<p class="caption"><span class="caption-text">HW invokes SW: <a href="#id5"><span class="problematic" id="id6">`</span></a>main&#8217;, <a href="#id7"><span class="problematic" id="id8">`</span></a>ind::wrapper&#8217;, and <a href="#id9"><span class="problematic" id="id10">`</span></a>app HW&#8217; are implemented by the user.</span></p>
 <div class="legend">
 </div>
 </div>
@@ -266,7 +266,7 @@ hardware proxy, an interrupt is raised, waking the indication thread.
 A register is read which indicates which method is being called and
 the corresponding wrapper method is invoked to read/marshal the
 arguments and invoke the actual user-defined methods.
-Figure <em class="xref std std-ref">Fig-msc2</em> shows this process.</p>
+Figure <span class="xref std std-ref">Fig-msc2</span> shows this process.</p>
 <img alt="../_images/msc2.png" src="../_images/msc2.png" />
 <p>Multithreading often leads to simultaneous access to shared
 hardware resources.  If a software solution to protect
@@ -281,10 +281,10 @@ pieces of hardware functionality.</p>
 </div>
 <div class="section" id="shared-access-to-host-memory">
 <h2>Shared Access to Host Memory<a class="headerlink" href="#shared-access-to-host-memory" title="Permalink to this headline">¶</a></h2>
-<p>In the first three refinements presented in Section <a class="reference internal" href="string-search.html#sec-strstr"><em>Accelerating String Search</em></a>,
+<p>In the first three refinements presented in Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a>,
 all communication between hardware and software takes place through
 register-mapped IO.  The final refinement in
-Section <em class="xref std std-ref">Sec-StrStrDma</em> is to grant hardware and software shared
+Section <span class="xref std std-ref">Sec-StrStrDma</span> is to grant hardware and software shared
 access to host memory.  The interface to the search accelerator shown
 below has been updated to use direct access to system memory for the
 search strings:</p>
@@ -307,7 +307,7 @@ allocated using :c:func:portalAlloc(). Here is the search function updated
 accordingly:</p>
 <div class="highlight-python"><div class="highlight"><pre>int search(char *str){
   int size = strlen(str)+1;
-  int fd = portalAlloc(size);
+  int fd = portalAlloc(size, 0);
   char *sharedStr = portalMmap(fd, size);
   strcpy(sharedStr, str);
   // send a DMA reference to the search pattern
@@ -337,7 +337,7 @@ taking care of address translation transparently.</p>
 <p>To fully exploit the data parallelism, {tt mkStrStr} partitions the
 search space into $p$ partitions. It instantiates two memory read
 trees from the Connectal library ({tt MemreadEngineV}, discussed in
-Section <a class="reference internal" href="connectal-framework.html#sec-memreadengine"><em>Distributed Access to Memory Ports</em></a>, each with $p$ read servers.  One set
+Section <a class="reference internal" href="connectal-framework.html#sec-memreadengine"><span>Distributed Access to Memory Ports</span></a>, each with $p$ read servers.  One set
 is used by the search kernels to read the configuration data from the
 host memory, while the other is used to read the <a href="#id15"><span class="problematic" id="id16">``</span></a>haystack&#8217;&#8217; from
 flash.</p>
@@ -354,7 +354,7 @@ transmit the messages. This separation enables <a href="#id17"><span class="prob
 application-specific transport libraries.  In light of this, a large
 number of transport mechanism can be considered. Switching between
 mechanism requires a simple directive in the project Makefile (more
-details are given in Section <em class="xref std std-ref">Sec-ToolChain</em>).</p>
+details are given in Section <span class="xref std std-ref">Sec-ToolChain</span>).</p>
 <p>By default, each portal is mapped to a region of address space and a
 memory-mapped FIFO channel is generated for each method. Though
 software access to all FIFO channels in a design may occur through
@@ -390,7 +390,7 @@ per second transceivers.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -414,12 +414,14 @@ per second transceivers.</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="toolchain.html"
                         title="next chapter">Workflow using Connectal</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/design/implementing-string-search.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/design/implementing-string-search.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -436,7 +438,7 @@ per second transceivers.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -451,13 +453,13 @@ per second transceivers.</p>
         <li class="right" >
           <a href="connectal-framework.html" title="The Connectal Framework"
              >previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="design.html" >Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

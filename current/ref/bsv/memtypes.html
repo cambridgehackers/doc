@@ -8,7 +8,7 @@
     
     <title>8. MemTypes Package &mdash; connectal 14.12.6 documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
     <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
     <link rel="next" title="9. MMU Package" href="mmu.html" />
     <link rel="prev" title="7. MemreadEngine Package" href="memreadengine.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -45,15 +45,15 @@
         <li class="right" >
           <a href="memreadengine.html" title="7. MemreadEngine Package"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="package-MemTypes">
 <span id="memtypes-package"></span><h1>8. MemTypes Package<a class="headerlink" href="#package-MemTypes" title="Permalink to this headline">¶</a></h1>
@@ -61,27 +61,27 @@
 <h2>8.1. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <dl class="typedef">
 <dt id="MemTypes::Bit#(32) SGLId">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">Bit#(32) SGLId</tt><a class="headerlink" href="#MemTypes::Bit#(32) SGLId" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">Bit#(32) SGLId</code><a class="headerlink" href="#MemTypes::Bit#(32) SGLId" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typedef">
 <dt id="MemTypes::44 MemOffsetSize">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">44 MemOffsetSize</tt><a class="headerlink" href="#MemTypes::44 MemOffsetSize" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">44 MemOffsetSize</code><a class="headerlink" href="#MemTypes::44 MemOffsetSize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typedef">
 <dt id="MemTypes::6 MemTagSize">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">6 MemTagSize</tt><a class="headerlink" href="#MemTypes::6 MemTagSize" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">6 MemTagSize</code><a class="headerlink" href="#MemTypes::6 MemTagSize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typedef">
 <dt id="MemTypes::8 BurstLenSize">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">8 BurstLenSize</tt><a class="headerlink" href="#MemTypes::8 BurstLenSize" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">8 BurstLenSize</code><a class="headerlink" href="#MemTypes::8 BurstLenSize" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typedef">
 <dt id="MemTypes::32 MemServerTags">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">32 MemServerTags</tt><a class="headerlink" href="#MemTypes::32 MemServerTags" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">32 MemServerTags</code><a class="headerlink" href="#MemTypes::32 MemServerTags" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -89,75 +89,75 @@
 <h2>8.2. Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <dl class="struct">
 <dt id="MemTypes::PhysMemRequest#(numeric type addrWidth)">
-<em class="property">struct </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemRequest#(numeric type addrWidth)</tt><a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth)" title="Permalink to this definition">¶</a></dt>
+<em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemRequest#(numeric type addrWidth)</code><a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth)" title="Permalink to this definition">¶</a></dt>
 <dd><p>A memory request containing a physical memory address</p>
 <dl class="field">
 <dt id="MemTypes::PhysMemRequest#(numeric type addrWidth).addr">
-<tt class="descname">addr</tt> &rarr; Bit#(addrWidth)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).addr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">addr</code> &rarr; Bit#(addrWidth)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).addr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Physical address to read or write</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::PhysMemRequest#(numeric type addrWidth).burstLen">
-<tt class="descname">burstLen</tt> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).burstLen" title="Permalink to this definition">¶</a></dt>
+<code class="descname">burstLen</code> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).burstLen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length of read or write burst, in bytes.  The number of beats of the request will be the burst length divided by the physical width of the memory interface.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::PhysMemRequest#(numeric type addrWidth).tag">
-<tt class="descname">tag</tt> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth).tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="struct">
 <dt id="MemTypes::MemRequest">
-<em class="property">struct </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemRequest</tt><a class="headerlink" href="#MemTypes::MemRequest" title="Permalink to this definition">¶</a></dt>
+<em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">MemRequest</code><a class="headerlink" href="#MemTypes::MemRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>A logical memory read or write request. The linear offset of the request will be translated by an MMU according to the specified scatter-gather list.</p>
 <dl class="field">
 <dt id="MemTypes::MemRequest.sglId">
-<tt class="descname">sglId</tt> &rarr; SGLId<a class="headerlink" href="#MemTypes::MemRequest.sglId" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sglId</code> &rarr; SGLId<a class="headerlink" href="#MemTypes::MemRequest.sglId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates which scatter-gather list the MMU should use when translating the address</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemRequest.offset">
-<tt class="descname">offset</tt> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MemTypes::MemRequest.offset" title="Permalink to this definition">¶</a></dt>
+<code class="descname">offset</code> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MemTypes::MemRequest.offset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear byte offset to read or write.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemRequest.burstLen">
-<tt class="descname">burstLen</tt> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::MemRequest.burstLen" title="Permalink to this definition">¶</a></dt>
+<code class="descname">burstLen</code> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::MemRequest.burstLen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Length of read or write burst, in bytes. The number of beats of the request will be the burst length divided by the physical width of the memory interface.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemRequest.tag">
-<tt class="descname">tag</tt> &rarr; Bit#(MemTagSize) <a class="headerlink" href="#MemTypes::MemRequest.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code> &rarr; Bit#(MemTagSize) <a class="headerlink" href="#MemTypes::MemRequest.tag" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="struct">
 <dt id="MemTypes::MemData#(numeric type dsz)">
-<em class="property">struct </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemData#(numeric type dsz)</tt><a class="headerlink" href="#MemTypes::MemData#(numeric type dsz)" title="Permalink to this definition">¶</a></dt>
+<em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">MemData#(numeric type dsz)</code><a class="headerlink" href="#MemTypes::MemData#(numeric type dsz)" title="Permalink to this definition">¶</a></dt>
 <dd><p>One beat of the payload of a physical or logical memory read or write request.</p>
 <dl class="field">
 <dt id="MemTypes::MemData#(numeric type dsz).data">
-<tt class="descname">data</tt> &rarr; Bit#(dsz)<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).data" title="Permalink to this definition">¶</a></dt>
+<code class="descname">data</code> &rarr; Bit#(dsz)<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).data" title="Permalink to this definition">¶</a></dt>
 <dd><p>One data beat worth of data.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemData#(numeric type dsz).tag">
-<tt class="descname">tag</tt> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates to which request this beat belongs.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemData#(numeric type dsz).last">
-<tt class="descname">last</tt> &rarr; Bool<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).last" title="Permalink to this definition">¶</a></dt>
+<code class="descname">last</code> &rarr; Bool<a class="headerlink" href="#MemTypes::MemData#(numeric type dsz).last" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates that this is the last beat of a burst.</p>
 </dd></dl>
 
@@ -168,100 +168,100 @@
 <h2>8.3. Physical Memory Clients and Servers<a class="headerlink" href="#physical-memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::PhysMemSlave">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemSlave</tt><big>(</big><em>numeric type addrWidth</em>, <em>numeric type dataWidth</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemSlave" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemSlave</code><span class="sig-paren">(</span><em>numeric type addrWidth</em>, <em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemSlave" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemSlave.read_server">
-<tt class="descname">read_server</tt> &rarr; PhysMemReadServer#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemSlave.read_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_server</code> &rarr; PhysMemReadServer#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemSlave.read_server" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemSlave.write_server">
-<tt class="descname">write_server</tt> &rarr; PhysMemWriteServer#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemSlave.write_server" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_server</code> &rarr; PhysMemWriteServer#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemSlave.write_server" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::PhysMemMaster">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemMaster</tt><big>(</big><em>numeric type addrWidth</em>, <em>numeric type dataWidth</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemMaster" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemMaster</code><span class="sig-paren">(</span><em>numeric type addrWidth</em>, <em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemMaster" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemMaster.read_client">
-<tt class="descname">read_client</tt> &rarr; PhysMemReadClient#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemMaster.read_client" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_client</code> &rarr; PhysMemReadClient#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemMaster.read_client" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemMaster.write_client">
-<tt class="descname">write_client</tt> &rarr; PhysMemWriteClient#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemMaster.write_client" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_client</code> &rarr; PhysMemWriteClient#(addrWidth, dataWidth)<a class="headerlink" href="#MemTypes::PhysMemMaster.write_client" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::PhysMemReadClient">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemReadClient</tt><big>(</big><em>numeric type asz</em>, <em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemReadClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemReadClient</code><span class="sig-paren">(</span><em>numeric type asz</em>, <em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemReadClient" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemReadClient.readReq">
-<tt class="descname">readReq</tt> &rarr; Get#(PhysMemRequest#(asz))   <a class="headerlink" href="#MemTypes::PhysMemReadClient.readReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readReq</code> &rarr; Get#(PhysMemRequest#(asz))   <a class="headerlink" href="#MemTypes::PhysMemReadClient.readReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemReadClient.readData">
-<tt class="descname">readData</tt> &rarr; Put#(MemData#(dsz))<a class="headerlink" href="#MemTypes::PhysMemReadClient.readData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readData</code> &rarr; Put#(MemData#(dsz))<a class="headerlink" href="#MemTypes::PhysMemReadClient.readData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::PhysMemWriteClient">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemWriteClient</tt><big>(</big><em>numeric type asz</em>, <em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemWriteClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemWriteClient</code><span class="sig-paren">(</span><em>numeric type asz</em>, <em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemWriteClient" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteClient.writeReq">
-<tt class="descname">writeReq</tt> &rarr; Get#(PhysMemRequest#(asz))   <a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeReq</code> &rarr; Get#(PhysMemRequest#(asz))   <a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteClient.writeData">
-<tt class="descname">writeData</tt> &rarr; Get#(MemData#(dsz))<a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeData</code> &rarr; Get#(MemData#(dsz))<a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteClient.writeDone">
-<tt class="descname">writeDone</tt> &rarr; Put#(Bit#(MemTagSize))      <a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeDone" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDone</code> &rarr; Put#(Bit#(MemTagSize))      <a class="headerlink" href="#MemTypes::PhysMemWriteClient.writeDone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::PhysMemReadServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemReadServer</tt><big>(</big><em>numeric type asz</em>, <em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemReadServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemReadServer</code><span class="sig-paren">(</span><em>numeric type asz</em>, <em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemReadServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemReadServer.readReq">
-<tt class="descname">readReq</tt> &rarr; Put#(PhysMemRequest#(asz))<a class="headerlink" href="#MemTypes::PhysMemReadServer.readReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readReq</code> &rarr; Put#(PhysMemRequest#(asz))<a class="headerlink" href="#MemTypes::PhysMemReadServer.readReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemReadServer.readData">
-<tt class="descname">readData</tt> &rarr; Get#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::PhysMemReadServer.readData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readData</code> &rarr; Get#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::PhysMemReadServer.readData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::PhysMemWriteServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">PhysMemWriteServer</tt><big>(</big><em>numeric type asz</em>, <em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::PhysMemWriteServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemWriteServer</code><span class="sig-paren">(</span><em>numeric type asz</em>, <em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemWriteServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteServer.writeReq">
-<tt class="descname">writeReq</tt> &rarr; Put#(PhysMemRequest#(asz))<a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeReq</code> &rarr; Put#(PhysMemRequest#(asz))<a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteServer.writeData">
-<tt class="descname">writeData</tt> &rarr; Put#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeData</code> &rarr; Put#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::PhysMemWriteServer.writeDone">
-<tt class="descname">writeDone</tt> &rarr; Get#(Bit#(MemTagSize))          <a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeDone" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDone</code> &rarr; Get#(Bit#(MemTagSize))          <a class="headerlink" href="#MemTypes::PhysMemWriteServer.writeDone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -271,70 +271,70 @@
 <h2>8.4. Memory Clients and Servers<a class="headerlink" href="#memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::MemReadClient">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemReadClient</tt><big>(</big><em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::MemReadClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemReadClient</code><span class="sig-paren">(</span><em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemReadClient" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemReadClient.readReq">
-<tt class="descname">readReq</tt> &rarr; Get#(MemRequest)   <a class="headerlink" href="#MemTypes::MemReadClient.readReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readReq</code> &rarr; Get#(MemRequest)   <a class="headerlink" href="#MemTypes::MemReadClient.readReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemReadClient.readData">
-<tt class="descname">readData</tt> &rarr; Put#(MemData#(dsz))<a class="headerlink" href="#MemTypes::MemReadClient.readData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readData</code> &rarr; Put#(MemData#(dsz))<a class="headerlink" href="#MemTypes::MemReadClient.readData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::MemWriteClient">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemWriteClient</tt><big>(</big><em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::MemWriteClient" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemWriteClient</code><span class="sig-paren">(</span><em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemWriteClient" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemWriteClient.writeReq">
-<tt class="descname">writeReq</tt> &rarr; Get#(MemRequest)   <a class="headerlink" href="#MemTypes::MemWriteClient.writeReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeReq</code> &rarr; Get#(MemRequest)   <a class="headerlink" href="#MemTypes::MemWriteClient.writeReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemWriteClient.writeData">
-<tt class="descname">writeData</tt> &rarr; Get#(MemData#(dsz))<a class="headerlink" href="#MemTypes::MemWriteClient.writeData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeData</code> &rarr; Get#(MemData#(dsz))<a class="headerlink" href="#MemTypes::MemWriteClient.writeData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemWriteClient.writeDone">
-<tt class="descname">writeDone</tt> &rarr; Put#(Bit#(MemTagSize))      <a class="headerlink" href="#MemTypes::MemWriteClient.writeDone" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDone</code> &rarr; Put#(Bit#(MemTagSize))      <a class="headerlink" href="#MemTypes::MemWriteClient.writeDone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::MemReadServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemReadServer</tt><big>(</big><em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::MemReadServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemReadServer</code><span class="sig-paren">(</span><em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemReadServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemReadServer.readReq">
-<tt class="descname">readReq</tt> &rarr; Put#(MemRequest)<a class="headerlink" href="#MemTypes::MemReadServer.readReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readReq</code> &rarr; Put#(MemRequest)<a class="headerlink" href="#MemTypes::MemReadServer.readReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemReadServer.readData">
-<tt class="descname">readData</tt> &rarr; Get#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::MemReadServer.readData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readData</code> &rarr; Get#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::MemReadServer.readData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::MemWriteServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemWriteServer</tt><big>(</big><em>numeric type dsz</em><big>)</big><a class="headerlink" href="#MemTypes::MemWriteServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemWriteServer</code><span class="sig-paren">(</span><em>numeric type dsz</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemWriteServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemWriteServer.writeReq">
-<tt class="descname">writeReq</tt> &rarr; Put#(MemRequest)<a class="headerlink" href="#MemTypes::MemWriteServer.writeReq" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeReq</code> &rarr; Put#(MemRequest)<a class="headerlink" href="#MemTypes::MemWriteServer.writeReq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemWriteServer.writeData">
-<tt class="descname">writeData</tt> &rarr; Put#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::MemWriteServer.writeData" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeData</code> &rarr; Put#(MemData#(dsz))    <a class="headerlink" href="#MemTypes::MemWriteServer.writeData" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemWriteServer.writeDone">
-<tt class="descname">writeDone</tt> &rarr; Get#(Bit#(MemTagSize))<a class="headerlink" href="#MemTypes::MemWriteServer.writeDone" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeDone</code> &rarr; Get#(Bit#(MemTagSize))<a class="headerlink" href="#MemTypes::MemWriteServer.writeDone" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -344,35 +344,35 @@
 <h2>8.5. Memory Engine Types<a class="headerlink" href="#memory-engine-types" title="Permalink to this headline">¶</a></h2>
 <dl class="struct">
 <dt id="MemTypes::MemengineCmd">
-<em class="property">struct </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemengineCmd</tt><a class="headerlink" href="#MemTypes::MemengineCmd" title="Permalink to this definition">¶</a></dt>
+<em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">MemengineCmd</code><a class="headerlink" href="#MemTypes::MemengineCmd" title="Permalink to this definition">¶</a></dt>
 <dd><p>A read or write request for a MemreadEngine or a MemwriteEngine. Memread and Memwrite engines will issue one or more burst requests to satisfy the overall length of the request.</p>
 <dl class="field">
 <dt id="MemTypes::MemengineCmd.sglId">
-<tt class="descname">sglId</tt> &rarr; SGLId<a class="headerlink" href="#MemTypes::MemengineCmd.sglId" title="Permalink to this definition">¶</a></dt>
+<code class="descname">sglId</code> &rarr; SGLId<a class="headerlink" href="#MemTypes::MemengineCmd.sglId" title="Permalink to this definition">¶</a></dt>
 <dd><p>Which scatter gather list the MMU should use to translate the addresses</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemengineCmd.base">
-<tt class="descname">base</tt> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MemTypes::MemengineCmd.base" title="Permalink to this definition">¶</a></dt>
+<code class="descname">base</code> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MemTypes::MemengineCmd.base" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logical base address of the request, as a byte offset</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemengineCmd.burstLen">
-<tt class="descname">burstLen</tt> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::MemengineCmd.burstLen" title="Permalink to this definition">¶</a></dt>
+<code class="descname">burstLen</code> &rarr; Bit#(BurstLenSize)<a class="headerlink" href="#MemTypes::MemengineCmd.burstLen" title="Permalink to this definition">¶</a></dt>
 <dd><p>Maximum burst length, in bytes.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemengineCmd.len">
-<tt class="descname">len</tt> &rarr; Bit#(32)<a class="headerlink" href="#MemTypes::MemengineCmd.len" title="Permalink to this definition">¶</a></dt>
+<code class="descname">len</code> &rarr; Bit#(32)<a class="headerlink" href="#MemTypes::MemengineCmd.len" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of bytes to transfer. Must be a multiple of the data bus width.</p>
 </dd></dl>
 
 <dl class="field">
 <dt id="MemTypes::MemengineCmd.tag">
-<tt class="descname">tag</tt> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::MemengineCmd.tag" title="Permalink to this definition">¶</a></dt>
+<code class="descname">tag</code> &rarr; Bit#(MemTagSize)<a class="headerlink" href="#MemTypes::MemengineCmd.tag" title="Permalink to this definition">¶</a></dt>
 <dd><p>Identifier for this request.</p>
 </dd></dl>
 
@@ -383,108 +383,98 @@
 <h2>8.6. Memory Engine Interfaces<a class="headerlink" href="#memory-engine-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::MemwriteServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemwriteServer</tt><big>(</big><em>numeric type dataWidth</em><big>)</big><a class="headerlink" href="#MemTypes::MemwriteServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemwriteServer</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemwriteServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemwriteServer.cmdServer">
-<tt class="descname">cmdServer</tt> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemwriteServer.cmdServer" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cmdServer</code> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemwriteServer.cmdServer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemwriteServer.dataPipe">
-<tt class="descname">dataPipe</tt> &rarr; PipeIn#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteServer.dataPipe" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dataPipe</code> &rarr; PipeIn#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteServer.dataPipe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::MemwriteEngineV">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemwriteEngineV</tt><big>(</big><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><big>)</big><a class="headerlink" href="#MemTypes::MemwriteEngineV" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemwriteEngineV</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemwriteEngineV" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemwriteEngineV.dmaClient">
-<tt class="descname">dmaClient</tt> &rarr; MemWriteClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemwriteEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dmaClient</code> &rarr; MemWriteClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemwriteEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemwriteEngineV.writeServers">
-<tt class="descname">writeServers</tt> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemwriteEngineV.writeServers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">writeServers</code> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemwriteEngineV.writeServers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemwriteEngineV.dataPipes">
-<tt class="descname">dataPipes</tt> &rarr; Vector#(numServers, PipeIn#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemwriteEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dataPipes</code> &rarr; Vector#(numServers, PipeIn#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemwriteEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemwriteEngineV.write_servers">
-<tt class="descname">write_servers</tt> &rarr; Vector#(numServers, MemwriteServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteEngineV.write_servers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">write_servers</code> &rarr; Vector#(numServers, MemwriteServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteEngineV.write_servers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
-<dl class="typedef">
-<dt id="MemTypes::MemwriteEngineV#(dataWidth,cmdQDepth,1) MemwriteEngine#(numeric type dataWidth, numeric type cmdQDepth)">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemwriteEngineV#(dataWidth,cmdQDepth,1) MemwriteEngine#(numeric type dataWidth, numeric type cmdQDepth)</tt><a class="headerlink" href="#MemTypes::MemwriteEngineV#(dataWidth,cmdQDepth,1) MemwriteEngine#(numeric type dataWidth, numeric type cmdQDepth)" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 <dl class="interface">
 <dt id="MemTypes::MemreadServer">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemreadServer</tt><big>(</big><em>numeric type dataWidth</em><big>)</big><a class="headerlink" href="#MemTypes::MemreadServer" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemreadServer</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemreadServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemreadServer.cmdServer">
-<tt class="descname">cmdServer</tt> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemreadServer.cmdServer" title="Permalink to this definition">¶</a></dt>
+<code class="descname">cmdServer</code> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemreadServer.cmdServer" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemreadServer.dataPipe">
-<tt class="descname">dataPipe</tt> &rarr; PipeOut#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadServer.dataPipe" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dataPipe</code> &rarr; PipeOut#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadServer.dataPipe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="MemTypes::MemreadEngineV">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemreadEngineV</tt><big>(</big><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><big>)</big><a class="headerlink" href="#MemTypes::MemreadEngineV" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemreadEngineV</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemreadEngineV" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="MemTypes::MemreadEngineV.dmaClient">
-<tt class="descname">dmaClient</tt> &rarr; MemReadClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemreadEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dmaClient</code> &rarr; MemReadClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemreadEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemreadEngineV.readServers">
-<tt class="descname">readServers</tt> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemreadEngineV.readServers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">readServers</code> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemreadEngineV.readServers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemreadEngineV.dataPipes">
-<tt class="descname">dataPipes</tt> &rarr; Vector#(numServers, PipeOut#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemreadEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dataPipes</code> &rarr; Vector#(numServers, PipeOut#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemreadEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
 <dt id="MemTypes::MemreadEngineV.read_servers">
-<tt class="descname">read_servers</tt> &rarr; Vector#(numServers, MemreadServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadEngineV.read_servers" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_servers</code> &rarr; Vector#(numServers, MemreadServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadEngineV.read_servers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
-
-<dl class="typedef">
-<dt id="MemTypes::MemreadEngineV#(dataWidth,cmdQDepth,1) MemreadEngine#(numeric type dataWidth, numeric type cmdQDepth)">
-<em class="property">typedef </em><tt class="descclassname">MemTypes::</tt><tt class="descname">MemreadEngineV#(dataWidth,cmdQDepth,1) MemreadEngine#(numeric type dataWidth, numeric type cmdQDepth)</tt><a class="headerlink" href="#MemTypes::MemreadEngineV#(dataWidth,cmdQDepth,1) MemreadEngine#(numeric type dataWidth, numeric type cmdQDepth)" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
 
 </div>
 <div class="section" id="memory-traffic-interfaces">
 <h2>8.7. Memory Traffic Interfaces<a class="headerlink" href="#memory-traffic-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::DmaDbg">
-<em class="property">interface </em><tt class="descclassname">MemTypes::</tt><tt class="descname">DmaDbg</tt><a class="headerlink" href="#MemTypes::DmaDbg" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">DmaDbg</code><a class="headerlink" href="#MemTypes::DmaDbg" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
 <dt id="MemTypes::DmaDbg.getMemoryTraffic">
-<tt class="descname">getMemoryTraffic</tt> &rarr; ActionValue#(Bit#(64))<a class="headerlink" href="#MemTypes::DmaDbg.getMemoryTraffic" title="Permalink to this definition">¶</a></dt>
+<code class="descname">getMemoryTraffic</code> &rarr; ActionValue#(Bit#(64))<a class="headerlink" href="#MemTypes::DmaDbg.getMemoryTraffic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="MemTypes::DmaDbg.dbg">
-<tt class="descname">dbg</tt> &rarr; ActionValue#(DmaDbgRec)<a class="headerlink" href="#MemTypes::DmaDbg.dbg" title="Permalink to this definition">¶</a></dt>
+<code class="descname">dbg</code> &rarr; ActionValue#(DmaDbgRec)<a class="headerlink" href="#MemTypes::DmaDbg.dbg" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -494,22 +484,22 @@
 <h2>8.8. Connectable Instances<a class="headerlink" href="#connectable-instances" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="MemTypes::Connectable">
-<em class="property">instance </em><tt class="descclassname">MemTypes::</tt><tt class="descname">Connectable</tt><big>(</big><em>MemReadClient#(dsz)</em>, <em>MemReadServer#(dsz)</em><big>)</big><a class="headerlink" href="#MemTypes::Connectable" title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="descclassname">MemTypes::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>MemReadClient#(dsz)</em>, <em>MemReadServer#(dsz)</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::Connectable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><tt class="descclassname">MemTypes::</tt><tt class="descname">Connectable</tt><big>(</big><em>MemWriteClient#(dsz)</em>, <em>MemWriteServer#(dsz)</em><big>)</big></dt>
+<em class="property">instance </em><code class="descclassname">MemTypes::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>MemWriteClient#(dsz)</em>, <em>MemWriteServer#(dsz)</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><tt class="descclassname">MemTypes::</tt><tt class="descname">Connectable</tt><big>(</big><em>PhysMemMaster#(addrWidth</em>, <em>busWidth)</em>, <em>PhysMemSlave#(addrWidth</em>, <em>busWidth)</em><big>)</big></dt>
+<em class="property">instance </em><code class="descclassname">MemTypes::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>PhysMemMaster#(addrWidth</em>, <em>busWidth)</em>, <em>PhysMemSlave#(addrWidth</em>, <em>busWidth)</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><tt class="descclassname">MemTypes::</tt><tt class="descname">Connectable</tt><big>(</big><em>PhysMemMaster#(32</em>, <em>busWidth)</em>, <em>PhysMemSlave#(40</em>, <em>busWidth)</em><big>)</big></dt>
+<em class="property">instance </em><code class="descclassname">MemTypes::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>PhysMemMaster#(32</em>, <em>busWidth)</em>, <em>PhysMemSlave#(40</em>, <em>busWidth)</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 </div>
@@ -519,7 +509,7 @@
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
@@ -542,12 +532,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="mmu.html"
                         title="next chapter">9. MMU Package</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/bsv/memtypes.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/bsv/memtypes.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -564,7 +556,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -579,13 +571,13 @@
         <li class="right" >
           <a href="memreadengine.html" title="7. MemreadEngine Package"
              >previous</a> |</li>
-        <li><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

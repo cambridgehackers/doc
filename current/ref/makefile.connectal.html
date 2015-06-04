@@ -8,7 +8,7 @@
     
     <title>1. Makefile.connectal &mdash; connectal 14.12.6 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 14.12.6 documentation" href="index.html" />
     <link rel="up" title="Connectal Makefile Variables" href="make.html" />
-    <link rel="next" title="Connectal BSV Libraries" href="bsv/bsv.html" />
+    <link rel="next" title="2. Makefile.connectal.build" href="makefile.connectal.build.html" />
     <link rel="prev" title="Connectal Makefile Variables" href="make.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,20 +40,20 @@
           <a href="bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="makefile.connectal.build.html" title="2. Makefile.connectal.build"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="make.html" title="Connectal Makefile Variables"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="make.html" accesskey="U">Connectal Makefile Variables</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="make.html" accesskey="U">Connectal Makefile Variables</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="makefile-connectal">
 <h1>1. Makefile.connectal<a class="headerlink" href="#makefile-connectal" title="Permalink to this headline">¶</a></h1>
@@ -63,7 +63,7 @@
 <h2>1.1. Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
 <dl class="envvar">
 <dt id="envvar-CONNECTALDIR">
-<tt class="descname">CONNECTALDIR</tt><a class="headerlink" href="#envvar-CONNECTALDIR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CONNECTALDIR</code><a class="headerlink" href="#envvar-CONNECTALDIR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Points to the location where Makefile.connectal and the connectal tools are installed.</p>
 </dd></dl>
 
@@ -72,49 +72,49 @@
 <h2>1.2. Make Variables Defining the Application<a class="headerlink" href="#make-variables-defining-the-application" title="Permalink to this headline">¶</a></h2>
 <dl class="var">
 <dt id="var-BOARD">
-<tt class="descname">BOARD</tt><a class="headerlink" href="#var-BOARD" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BOARD</code><a class="headerlink" href="#var-BOARD" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is typically set from the suffix of the build target, e.g., make build.zedbard defines BOARD=zedboard.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-INTERFACES">
-<tt class="descname">INTERFACES</tt><a class="headerlink" href="#var-INTERFACES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">INTERFACES</code><a class="headerlink" href="#var-INTERFACES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies for which interfaces to generate c/c++/bsv proxies and wrappers.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-NUMBER_OF_MASTERS">
-<tt class="descname">NUMBER_OF_MASTERS</tt><a class="headerlink" href="#var-NUMBER_OF_MASTERS" title="Permalink to this definition">¶</a></dt>
+<code class="descname">NUMBER_OF_MASTERS</code><a class="headerlink" href="#var-NUMBER_OF_MASTERS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of DMA masters in the design. Defaults to 1.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-PIN_TYPE">
-<tt class="descname">PIN_TYPE</tt><a class="headerlink" href="#var-PIN_TYPE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PIN_TYPE</code><a class="headerlink" href="#var-PIN_TYPE" title="Permalink to this definition">¶</a></dt>
 <dd><p>BSV interface of exported pins. Defaults to Empty.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-BSVFILES">
-<tt class="descname">BSVFILES</tt><a class="headerlink" href="#var-BSVFILES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BSVFILES</code><a class="headerlink" href="#var-BSVFILES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the BSV files to scan when processing INTERFACES.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-CPPFILES">
-<tt class="descname">CPPFILES</tt><a class="headerlink" href="#var-CPPFILES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CPPFILES</code><a class="headerlink" href="#var-CPPFILES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the C/C++ files that implement the application.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-CPPFILES2">
-<tt class="descname">CPPFILES2</tt><a class="headerlink" href="#var-CPPFILES2" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CPPFILES2</code><a class="headerlink" href="#var-CPPFILES2" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lists the C/C++ files that implement the (optional) second executable of an application. For example, a daemon that coordinates access to the hardware.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-PORTAL_DUMP_MAP">
-<tt class="descname">PORTAL_DUMP_MAP</tt><a class="headerlink" href="#var-PORTAL_DUMP_MAP" title="Permalink to this definition">¶</a></dt>
+<code class="descname">PORTAL_DUMP_MAP</code><a class="headerlink" href="#var-PORTAL_DUMP_MAP" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the option to provide to pcieflat to annotate PCIe traces with portal numbers and method names. Uses generatedDesignInterfaceFile.json.</p>
 </dd></dl>
 
@@ -123,17 +123,17 @@
 <h2>1.3. Auto Top<a class="headerlink" href="#auto-top" title="Permalink to this headline">¶</a></h2>
 <dl class="var">
 <dt id="var-S2H_INTERFACES">
-<tt class="descname">S2H_INTERFACES</tt><a class="headerlink" href="#var-S2H_INTERFACES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">S2H_INTERFACES</code><a class="headerlink" href="#var-S2H_INTERFACES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="var">
 <dt id="var-H2S_INTERFACES">
-<tt class="descname">H2S_INTERFACES</tt><a class="headerlink" href="#var-H2S_INTERFACES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">H2S_INTERFACES</code><a class="headerlink" href="#var-H2S_INTERFACES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="var">
 <dt id="var-MEM_INTERFACES">
-<tt class="descname">MEM_INTERFACES</tt><a class="headerlink" href="#var-MEM_INTERFACES" title="Permalink to this definition">¶</a></dt>
+<code class="descname">MEM_INTERFACES</code><a class="headerlink" href="#var-MEM_INTERFACES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
@@ -141,43 +141,43 @@
 <h2>1.4. Controlling the Build<a class="headerlink" href="#controlling-the-build" title="Permalink to this headline">¶</a></h2>
 <dl class="var">
 <dt id="var-CONNECTALFLAGS">
-<tt class="descname">CONNECTALFLAGS</tt><a class="headerlink" href="#var-CONNECTALFLAGS" title="Permalink to this definition">¶</a></dt>
+<code class="descname">CONNECTALFLAGS</code><a class="headerlink" href="#var-CONNECTALFLAGS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags to pass to makefilegen.py</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-V">
-<tt class="descname">V</tt><a class="headerlink" href="#var-V" title="Permalink to this definition">¶</a></dt>
+<code class="descname">V</code><a class="headerlink" href="#var-V" title="Permalink to this definition">¶</a></dt>
 <dd><p>Controls verbosity of the build. V=1 for verbose.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-USE_BUILDCACHE">
-<tt class="descname">USE_BUILDCACHE</tt><a class="headerlink" href="#var-USE_BUILDCACHE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">USE_BUILDCACHE</code><a class="headerlink" href="#var-USE_BUILDCACHE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define USE_BUILDCACHE=1 to use buildcache. Except fpgamake seems to use buildcache anyway.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-BUILDCACHE">
-<tt class="descname">BUILDCACHE</tt><a class="headerlink" href="#var-BUILDCACHE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BUILDCACHE</code><a class="headerlink" href="#var-BUILDCACHE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Location of buildcache script.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-BUILDCACHE_CACHEDIR">
-<tt class="descname">BUILDCACHE_CACHEDIR</tt><a class="headerlink" href="#var-BUILDCACHE_CACHEDIR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BUILDCACHE_CACHEDIR</code><a class="headerlink" href="#var-BUILDCACHE_CACHEDIR" title="Permalink to this definition">¶</a></dt>
 <dd><p>To specify an alternate location for the buildcache cache files.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-IPDIR">
-<tt class="descname">IPDIR</tt><a class="headerlink" href="#var-IPDIR" title="Permalink to this definition">¶</a></dt>
+<code class="descname">IPDIR</code><a class="headerlink" href="#var-IPDIR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies into which directory to generate IP cores. This allows generated cores to be shared between designs when the FPGA part and core parameters match.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-MAIN_CLOCK_PERIOD">
-<tt class="descname">MAIN_CLOCK_PERIOD</tt><a class="headerlink" href="#var-MAIN_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
+<code class="descname">MAIN_CLOCK_PERIOD</code><a class="headerlink" href="#var-MAIN_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bound to the clock period, in nanoseconds, of the clock domain of mkConnectalTop.</p>
 <p>Defaults to 8ns for vc707 and kc705.</p>
 <p>Defaults to 10ns for zedboard.</p>
@@ -186,7 +186,7 @@
 
 <dl class="var">
 <dt id="var-DEFAULT_DERIVED_CLOCK_PERIOD">
-<tt class="descname">DEFAULT_DERIVED_CLOCK_PERIOD</tt><a class="headerlink" href="#var-DEFAULT_DERIVED_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DEFAULT_DERIVED_CLOCK_PERIOD</code><a class="headerlink" href="#var-DEFAULT_DERIVED_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bound to the default clock period, in nanoseconds, of the derived
 clock provided via HostInterface to mkConnectalTop. Defaults to
 half the period, twice the frequency of the main clock.</p>
@@ -194,21 +194,21 @@ half the period, twice the frequency of the main clock.</p>
 
 <dl class="var">
 <dt id="var-DERIVED_CLOCK_PERIOD">
-<tt class="descname">DERIVED_CLOCK_PERIOD</tt><a class="headerlink" href="#var-DERIVED_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
+<code class="descname">DERIVED_CLOCK_PERIOD</code><a class="headerlink" href="#var-DERIVED_CLOCK_PERIOD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bound to the clock period, in nanoseconds, of the derived clock provided via HostInterface to mkConnectalTop. Defaults to DEFAULT_DERIVED_CLOCK_PERIOD.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-BURST_LEN_SIZE">
-<tt class="descname">BURST_LEN_SIZE</tt><a class="headerlink" href="#var-BURST_LEN_SIZE" title="Permalink to this definition">¶</a></dt>
+<code class="descname">BURST_LEN_SIZE</code><a class="headerlink" href="#var-BURST_LEN_SIZE" title="Permalink to this definition">¶</a></dt>
 <dd><p>Controls width of fields specifying memory request burst lengths. Defaults to 8.</p>
 </dd></dl>
 
 <dl class="var">
 <dt id="var-RUNPARAM">
-<tt class="descname">RUNPARAM</tt><a class="headerlink" href="#var-RUNPARAM" title="Permalink to this definition">¶</a></dt>
+<code class="descname">RUNPARAM</code><a class="headerlink" href="#var-RUNPARAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the name or IP address of the machine on which to run the application, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre>make RUNPARAM=192.168.168.100 run.zedboard
+<div class="highlight-python"><div class="highlight"><pre>make RUNPARAM=192.168.168.100 run.android
 </pre></div>
 </div>
 </dd></dl>
@@ -218,7 +218,7 @@ half the period, twice the frequency of the main clock.</p>
 <h2>1.5. Top Level Make Targets<a class="headerlink" href="#top-level-make-targets" title="Permalink to this headline">¶</a></h2>
 <dl class="target">
 <dt id="target-build.%">
-<tt class="descname">build.%</tt><a class="headerlink" href="#target-build.%" title="Permalink to this definition">¶</a></dt>
+<code class="descname">build.%</code><a class="headerlink" href="#target-build.%" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds software and bitfile for the specified board name, e.g.,:</p>
 <div class="highlight-python"><div class="highlight"><pre>make build.zedboard
 </pre></div>
@@ -227,7 +227,7 @@ half the period, twice the frequency of the main clock.</p>
 
 <dl class="target">
 <dt id="target-run.%">
-<tt class="descname">run.%</tt><a class="headerlink" href="#target-run.%" title="Permalink to this definition">¶</a></dt>
+<code class="descname">run.%</code><a class="headerlink" href="#target-run.%" title="Permalink to this definition">¶</a></dt>
 <dd><p>Programs the FPGA and runs the application using the build for the specified board name. Uses :make:var:RUNPARAM. For example,:</p>
 <div class="highlight-python"><div class="highlight"><pre>make RUNPARAM=sj10 run.vc707
 </pre></div>
@@ -239,55 +239,55 @@ half the period, twice the frequency of the main clock.</p>
 <h2>1.6. Intermediate Make Targets<a class="headerlink" href="#intermediate-make-targets" title="Permalink to this headline">¶</a></h2>
 <dl class="target">
 <dt id="target-verilog">
-<tt class="descname">verilog</tt><a class="headerlink" href="#target-verilog" title="Permalink to this definition">¶</a></dt>
+<code class="descname">verilog</code><a class="headerlink" href="#target-verilog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Runs the build up through generation of verilog from BSV. Requires BOARD to be defined.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-bits">
-<tt class="descname">bits</tt><a class="headerlink" href="#target-bits" title="Permalink to this definition">¶</a></dt>
+<code class="descname">bits</code><a class="headerlink" href="#target-bits" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generates the FPGA bit file from the design. Requires BOARD to be defined.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-bsim">
-<tt class="descname">bsim</tt><a class="headerlink" href="#target-bsim" title="Permalink to this definition">¶</a></dt>
+<code class="descname">bsim</code><a class="headerlink" href="#target-bsim" title="Permalink to this definition">¶</a></dt>
 <dd><p>For BOARD=bluesim, generates the simulation executable.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-xsim">
-<tt class="descname">xsim</tt><a class="headerlink" href="#target-xsim" title="Permalink to this definition">¶</a></dt>
+<code class="descname">xsim</code><a class="headerlink" href="#target-xsim" title="Permalink to this definition">¶</a></dt>
 <dd><p>For BOARD=xsim, generates the simulation executable.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-android.exe">
-<tt class="descname">android.exe</tt><a class="headerlink" href="#target-android.exe" title="Permalink to this definition">¶</a></dt>
+<code class="descname">android.exe</code><a class="headerlink" href="#target-android.exe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds the software executable for boards using Android.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-ubuntu.exe">
-<tt class="descname">ubuntu.exe</tt><a class="headerlink" href="#target-ubuntu.exe" title="Permalink to this definition">¶</a></dt>
+<code class="descname">ubuntu.exe</code><a class="headerlink" href="#target-ubuntu.exe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds the software executable for boards using Ubunto/CentOS.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-bsim_exe">
-<tt class="descname">bsim_exe</tt><a class="headerlink" href="#target-bsim_exe" title="Permalink to this definition">¶</a></dt>
+<code class="descname">bsim_exe</code><a class="headerlink" href="#target-bsim_exe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds the software executable for bluesim.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-gentarget">
-<tt class="descname">gentarget</tt><a class="headerlink" href="#target-gentarget" title="Permalink to this definition">¶</a></dt>
+<code class="descname">gentarget</code><a class="headerlink" href="#target-gentarget" title="Permalink to this definition">¶</a></dt>
 <dd><p>This step creates the board directory and Makefile.</p>
 </dd></dl>
 
 <dl class="target">
 <dt id="target-prebuild">
-<tt class="descname">prebuild</tt><a class="headerlink" href="#target-prebuild" title="Permalink to this definition">¶</a></dt>
+<code class="descname">prebuild</code><a class="headerlink" href="#target-prebuild" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional steps needed before making verilog, etc.  Use this
 target for dependences such as constraint file and IP core
 generation that need to be run before the design is built. This is
@@ -301,7 +301,7 @@ a :: dependence, so you can specify it multiple times.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
@@ -320,14 +320,16 @@ a :: dependence, so you can specify it multiple times.</p>
   <p class="topless"><a href="make.html"
                         title="previous chapter">Connectal Makefile Variables</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="bsv/bsv.html"
-                        title="next chapter">Connectal BSV Libraries</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/makefile.connectal.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="makefile.connectal.build.html"
+                        title="next chapter">2. Makefile.connectal.build</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/makefile.connectal.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -344,7 +346,7 @@ a :: dependence, so you can specify it multiple times.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -354,18 +356,18 @@ a :: dependence, so you can specify it multiple times.</p>
           <a href="bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="makefile.connectal.build.html" title="2. Makefile.connectal.build"
              >next</a> |</li>
         <li class="right" >
           <a href="make.html" title="Connectal Makefile Variables"
              >previous</a> |</li>
-        <li><a href="index.html">connectal 14.12.6 documentation</a> &raquo;</li>
-          <li><a href="make.html" >Connectal Makefile Variables</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="make.html" >Connectal Makefile Variables</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>
