@@ -93,7 +93,9 @@ indexterm:zynqportal</p>
 </div>
 <div class="section" id="portal-memory-map">
 <h2>Portal Memory Map<a class="headerlink" href="#portal-memory-map" title="Permalink to this headline">¶</a></h2>
-<p>Connectal currently supports up to 16 portals connected between software and hardware, for a total of 1MB of address space.</p>
+<p>Connectal is designed to support multiple tiles, each of which can
+hold an independent design. Currently, the number of tiles is one.</p>
+<p>Connectal currently supports up to 16 portals connected between software and hardware, for a total of 64KB of address space.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="59%" />
@@ -105,58 +107,59 @@ indexterm:zynqportal</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>0x00000</td>
+<tr class="row-even"><td>0x0000</td>
 <td>Portal 0</td>
 </tr>
-<tr class="row-odd"><td>0x10000</td>
+<tr class="row-odd"><td>0x1000</td>
 <td>Portal 1</td>
 </tr>
-<tr class="row-even"><td>0x20000</td>
+<tr class="row-even"><td>0x2000</td>
 <td>Portal 2</td>
 </tr>
-<tr class="row-odd"><td>0x30000</td>
+<tr class="row-odd"><td>0x3000</td>
 <td>Portal 3</td>
 </tr>
-<tr class="row-even"><td>0x40000</td>
+<tr class="row-even"><td>0x4000</td>
 <td>Portal 4</td>
 </tr>
-<tr class="row-odd"><td>0x50000</td>
+<tr class="row-odd"><td>0x5000</td>
 <td>Portal 5</td>
 </tr>
-<tr class="row-even"><td>0x60000</td>
+<tr class="row-even"><td>0x6000</td>
 <td>Portal 6</td>
 </tr>
-<tr class="row-odd"><td>0x70000</td>
+<tr class="row-odd"><td>0x7000</td>
 <td>Portal 7</td>
 </tr>
-<tr class="row-even"><td>0x80000</td>
+<tr class="row-even"><td>0x8000</td>
 <td>Portal 8</td>
 </tr>
-<tr class="row-odd"><td>0x90000</td>
+<tr class="row-odd"><td>0x9000</td>
 <td>Portal 9</td>
 </tr>
-<tr class="row-even"><td>0xa0000</td>
+<tr class="row-even"><td>0xa000</td>
 <td>Portal 10</td>
 </tr>
-<tr class="row-odd"><td>0xb0000</td>
+<tr class="row-odd"><td>0xb000</td>
 <td>Portal 11</td>
 </tr>
-<tr class="row-even"><td>0xc0000</td>
+<tr class="row-even"><td>0xc000</td>
 <td>Portal 12</td>
 </tr>
-<tr class="row-odd"><td>0xd0000</td>
+<tr class="row-odd"><td>0xd000</td>
 <td>Portal 13</td>
 </tr>
-<tr class="row-even"><td>0xe0000</td>
+<tr class="row-even"><td>0xe000</td>
 <td>Portal 14</td>
 </tr>
-<tr class="row-odd"><td>0xf0000</td>
+<tr class="row-odd"><td>0xf000</td>
 <td>Portal 15</td>
 </tr>
 </tbody>
 </table>
-<p>Each portal uses 64KB of address space, consisting of a control
-register region and then per-method FIFOs.</p>
+<p>Each portal uses 16KB of address space, consisting of a control
+register region and then per-method FIFOs, each of which takes 32
+bytes of address space.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="42%" />
@@ -168,13 +171,13 @@ register region and then per-method FIFOs.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>0x0000</td>
+<tr class="row-even"><td>0x000</td>
 <td>Portal control regs</td>
 </tr>
-<tr class="row-odd"><td>0x0100</td>
+<tr class="row-odd"><td>0x020</td>
 <td>Method 0 FIFO</td>
 </tr>
-<tr class="row-even"><td>0x0200</td>
+<tr class="row-even"><td>0x040</td>
 <td>Method 1 FIFO</td>
 </tr>
 <tr class="row-odd"><td>...</td>
@@ -230,8 +233,8 @@ indication portals the FIFOs are from hardware to software.</p>
 <td>Write 1 to enable interrupts, 0 to disable</td>
 </tr>
 <tr class="row-even"><td>0x08</td>
-<td>7</td>
-<td>Fixed value</td>
+<td>Number of tiles</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>0x0C</td>
 <td>Ready Channel number + 1</td>
@@ -242,8 +245,8 @@ indication portals the FIFOs are from hardware to software.</p>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-odd"><td>0x14</td>
-<td>Last portal</td>
-<td>1 if this is the last portal defined</td>
+<td>Number of portals</td>
+<td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>0x18</td>
 <td>Cycle count LSW</td>

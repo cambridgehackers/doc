@@ -66,7 +66,35 @@ actualFrequency pointer is non-null, stores the actual freqency
 before returning.</p>
 </dd></dl>
 
-<p><strong>**deprecated***</strong></p>
+<div class="section" id="portal-memory">
+<h2>1.1. Portal Memory<a class="headerlink" href="#portal-memory" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="c.portalAlloc">
+int <code class="descname">portalAlloc</code><span class="sig-paren">(</span>size_t<em>&nbsp;size</em>, int<em>&nbsp;cached</em><span class="sig-paren">)</span><a class="headerlink" href="#c.portalAlloc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses portalmem to allocate a region of size bytes.</p>
+<p>On platforms that support non-cache-coherent I/O (e.g., zedboard),
+cached=0 indicates that the programmable logic will use a port to
+memory that is not snooped by the CPU&#8217;s caches. In this case, it is
+up to the allocation to flush or invalidate the CPU cache as
+needed, using portalCacheFlush().</p>
+<p>Returns the file descriptor associated with the memory region.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.portalMmap">
+void *<code class="descname">portalMmap</code><span class="sig-paren">(</span>int<em>&nbsp;fd</em>, size_t<em>&nbsp;size</em><span class="sig-paren">)</span><a class="headerlink" href="#c.portalMmap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory maps size bytes of the portal memory region indicated by fd.</p>
+<p>Returns a pointer to memory on success or -1 on failure.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="c.portalCacheFlush">
+<code class="descname">portalCacheFlush</code><span class="sig-paren">(</span>int<em>&nbsp;fd</em>, void<em>&nbsp;*__p</em>, long<em>&nbsp;size</em>, int<em>&nbsp;flush</em><span class="sig-paren">)</span><a class="headerlink" href="#c.portalCacheFlush" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="deprecated-functions">
+<h2>1.2. Deprecated Functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="c.portalExec">
 void *<code class="descname">portalExec</code><span class="sig-paren">(</span>void<em>&nbsp;*__x</em><span class="sig-paren">)</span><a class="headerlink" href="#c.portalExec" title="Permalink to this definition">¶</a></dt>
@@ -84,11 +112,7 @@ void <code class="descname">portalExec_start</code><span class="sig-paren">(</sp
 void <code class="descname">portalExec_poll</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.portalExec_poll" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="function">
-<dt id="c.portalAlloc">
-int <code class="descname">portalAlloc</code><span class="sig-paren">(</span>args<span class="sig-paren">)</span><a class="headerlink" href="#c.portalAlloc" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
+</div>
 </div>
 
 
@@ -97,6 +121,15 @@ int <code class="descname">portalAlloc</code><span class="sig-paren">(</span>arg
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. C/C++ Portal</a><ul>
+<li><a class="reference internal" href="#portal-memory">1.1. Portal Memory</a></li>
+<li><a class="reference internal" href="#deprecated-functions">1.2. Deprecated Functions</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="c.html"
                         title="previous chapter">Connectal C/C++ Libraries</a></p>
