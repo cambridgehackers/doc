@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. MemTypes Package &mdash; connectal 14.12.6 documentation</title>
+    <title>8. MemTypes Package &mdash; connectal 15.08.5 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '14.12.6',
+        VERSION:     '15.08.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="connectal 14.12.6 documentation" href="../index.html" />
+    <link rel="top" title="connectal 15.08.5 documentation" href="../index.html" />
     <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
     <link rel="next" title="9. MMU Package" href="mmu.html" />
     <link rel="prev" title="7. MemreadEngine Package" href="memreadengine.html" /> 
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="memreadengine.html" title="7. MemreadEngine Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>  
@@ -385,38 +385,33 @@
 <dt id="MemTypes::MemwriteServer">
 <em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemwriteServer</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemwriteServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
-<dt id="MemTypes::MemwriteServer.cmdServer">
-<code class="descname">cmdServer</code> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemwriteServer.cmdServer" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemwriteServer.request">
+<code class="descname">request</code> &rarr; Put#(MemengineCmd)      <a class="headerlink" href="#MemTypes::MemwriteServer.request" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
-<dt id="MemTypes::MemwriteServer.dataPipe">
-<code class="descname">dataPipe</code> &rarr; PipeIn#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteServer.dataPipe" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemwriteServer.done">
+<code class="descname">done</code> &rarr; Get#(Bool)              <a class="headerlink" href="#MemTypes::MemwriteServer.done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="subinterface">
+<dt id="MemTypes::MemwriteServer.data">
+<code class="descname">data</code> &rarr; PipeIn#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteServer.data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
-<dt id="MemTypes::MemwriteEngineV">
-<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemwriteEngineV</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemwriteEngineV" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemwriteEngine">
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemwriteEngine</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemwriteEngine" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
-<dt id="MemTypes::MemwriteEngineV.dmaClient">
-<code class="descname">dmaClient</code> &rarr; MemWriteClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemwriteEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemwriteEngine.dmaClient">
+<code class="descname">dmaClient</code> &rarr; MemWriteClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemwriteEngine.dmaClient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
-<dt id="MemTypes::MemwriteEngineV.writeServers">
-<code class="descname">writeServers</code> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemwriteEngineV.writeServers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="subinterface">
-<dt id="MemTypes::MemwriteEngineV.dataPipes">
-<code class="descname">dataPipes</code> &rarr; Vector#(numServers, PipeIn#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemwriteEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="subinterface">
-<dt id="MemTypes::MemwriteEngineV.write_servers">
-<code class="descname">write_servers</code> &rarr; Vector#(numServers, MemwriteServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteEngineV.write_servers" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemwriteEngine.writeServers">
+<code class="descname">writeServers</code> &rarr; Vector#(numServers, MemwriteServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemwriteEngine.writeServers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -425,38 +420,28 @@
 <dt id="MemTypes::MemreadServer">
 <em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemreadServer</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemreadServer" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
-<dt id="MemTypes::MemreadServer.cmdServer">
-<code class="descname">cmdServer</code> &rarr; Server#(MemengineCmd,Bool)<a class="headerlink" href="#MemTypes::MemreadServer.cmdServer" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemreadServer.request">
+<code class="descname">request</code> &rarr; Put#(MemengineCmd)       <a class="headerlink" href="#MemTypes::MemreadServer.request" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
-<dt id="MemTypes::MemreadServer.dataPipe">
-<code class="descname">dataPipe</code> &rarr; PipeOut#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadServer.dataPipe" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemreadServer.data">
+<code class="descname">data</code> &rarr; PipeOut#(Bit#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadServer.data" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
-<dt id="MemTypes::MemreadEngineV">
-<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemreadEngineV</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemreadEngineV" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemreadEngine">
+<em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemreadEngine</code><span class="sig-paren">(</span><em>numeric type dataWidth</em>, <em>numeric type cmdQDepth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemreadEngine" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
-<dt id="MemTypes::MemreadEngineV.dmaClient">
-<code class="descname">dmaClient</code> &rarr; MemReadClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemreadEngineV.dmaClient" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemreadEngine.dmaClient">
+<code class="descname">dmaClient</code> &rarr; MemReadClient#(dataWidth)<a class="headerlink" href="#MemTypes::MemreadEngine.dmaClient" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="subinterface">
-<dt id="MemTypes::MemreadEngineV.readServers">
-<code class="descname">readServers</code> &rarr; Vector#(numServers, Server#(MemengineCmd,Bool))<a class="headerlink" href="#MemTypes::MemreadEngineV.readServers" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="subinterface">
-<dt id="MemTypes::MemreadEngineV.dataPipes">
-<code class="descname">dataPipes</code> &rarr; Vector#(numServers, PipeOut#(Bit#(dataWidth)))<a class="headerlink" href="#MemTypes::MemreadEngineV.dataPipes" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="subinterface">
-<dt id="MemTypes::MemreadEngineV.read_servers">
-<code class="descname">read_servers</code> &rarr; Vector#(numServers, MemreadServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadEngineV.read_servers" title="Permalink to this definition">¶</a></dt>
+<dt id="MemTypes::MemreadEngine.readServers">
+<code class="descname">readServers</code> &rarr; Vector#(numServers, MemreadServer#(dataWidth))<a class="headerlink" href="#MemTypes::MemreadEngine.readServers" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -571,12 +556,12 @@
         <li class="right" >
           <a href="memreadengine.html" title="7. MemreadEngine Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 14.12.6 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2014, Jamey Hicks, Myron King, John Ankcorn.
+        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
