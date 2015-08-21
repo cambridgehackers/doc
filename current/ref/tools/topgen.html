@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Connectal Tools &mdash; connectal 15.08.5 documentation</title>
+    <title>3. Invocation of topgen.py &mdash; connectal 15.08.5 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 15.08.5 documentation" href="../index.html" />
-    <link rel="next" title="1. Invocation of makefilegen.py" href="makefilegen.html" />
-    <link rel="prev" title="2. Makefile.connectal.build" href="../makefile.connectal.build.html" /> 
+    <link rel="up" title="Connectal Tools" href="tools.html" />
+    <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
+    <link rel="prev" title="2. pcieflat" href="pcieflat.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -39,12 +40,13 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="makefilegen.html" title="1. Invocation of makefilegen.py"
+          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="../makefile.connectal.build.html" title="2. Makefile.connectal.build"
+          <a href="pcieflat.html" title="2. pcieflat"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -53,32 +55,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="connectal-tools">
-<h1>Connectal Tools<a class="headerlink" href="#connectal-tools" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="makefilegen.html">1. Invocation of makefilegen.py</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#project-options">1.1. Project Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#source-options">1.2. Source Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#interface-options">1.3. Interface Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#software-options">1.4. Software Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#hardware-options">1.5. Hardware Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#xilinx-options">1.6. Xilinx Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#altera-options">1.7. Altera Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#partial-reconfiguration-options">1.8. Partial Reconfiguration Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#bluesim-options">1.9. Bluesim Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#xsim-options">1.10. Xsim Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="makefilegen.html#clocking-options">1.11. Clocking Options</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pcieflat.html">2. pcieflat</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pcieflat.html#diagnosing-crashes">2.1. Diagnosing Crashes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pcieflat.html#example-trace">2.2. Example Trace</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="topgen.html">3. Invocation of topgen.py</a></li>
-</ul>
-</div>
+  <div class="section" id="invocation-of-topgen-py">
+<h1>3. Invocation of topgen.py<a class="headerlink" href="#invocation-of-topgen-py" title="Permalink to this headline">¶</a></h1>
+<pre class="literal-block">
+usage: topgen [-h] [--project-dir PROJECT_DIR] [--interface INTERFACE]
+              [--board BOARD] [--importfiles IMPORTFILES]
+              [--portname PORTNAME] [--wrapper WRAPPER] [--proxy PROXY]
+              [--memread MEMREAD] [--memwrite MEMWRITE] [--cnoc]
+</pre>
+<dl class="docutils">
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--project-dir</span></kbd></td>
+<td>project directory</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--interface=[]</span></kbd></td>
+<td>exported interface declaration</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--board</span></kbd></td>
+<td>Board type</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--importfiles=[]</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>added imports</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--portname=[]</span></kbd></td>
+<td>added portal names to enum list</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--wrapper=[]</span></kbd></td>
+<td>exported wrapper interfaces</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--proxy=[]</span></kbd></td>
+<td>exported proxy interfaces</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--memread=[]</span></kbd></td>
+<td>memory read interfaces</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--memwrite=[]</span></kbd></td>
+<td>memory read interfaces</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--cnoc=False</span></kbd></td>
+<td>generate mkCnocTop</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
 </div>
 
 
@@ -88,15 +113,15 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../makefile.connectal.build.html"
-                        title="previous chapter">2. Makefile.connectal.build</a></p>
+  <p class="topless"><a href="pcieflat.html"
+                        title="previous chapter">2. pcieflat</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="makefilegen.html"
-                        title="next chapter">1. Invocation of makefilegen.py</a></p>
+  <p class="topless"><a href="../bsv/bsv.html"
+                        title="next chapter">Connectal BSV Libraries</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/tools/tools.txt"
+      <li><a href="../_sources/tools/topgen.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -127,12 +152,13 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="makefilegen.html" title="1. Invocation of makefilegen.py"
+          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
              >next</a> |</li>
         <li class="right" >
-          <a href="../makefile.connectal.build.html" title="2. Makefile.connectal.build"
+          <a href="pcieflat.html" title="2. pcieflat"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
