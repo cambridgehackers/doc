@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. pcieflat &mdash; connectal 15.08.5 documentation</title>
+    <title>3. pcieflat &mdash; connectal 15.08.5 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="connectal 15.08.5 documentation" href="../index.html" />
     <link rel="up" title="Connectal Tools" href="tools.html" />
-    <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
-    <link rel="prev" title="1. Invocation of makefilegen.py" href="makefilegen.html" /> 
+    <link rel="next" title="4. Invocation of topgen.py" href="topgen.html" />
+    <link rel="prev" title="2. Invocation of generate-constraints.py" href="generate-constraints.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -40,10 +40,10 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="topgen.html" title="4. Invocation of topgen.py"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="makefilegen.html" title="1. Invocation of makefilegen.py"
+          <a href="generate-constraints.html" title="2. Invocation of generate-constraints.py"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
@@ -56,7 +56,7 @@
           <div class="body" role="main">
             
   <div class="section" id="pcieflat">
-<h1>2. pcieflat<a class="headerlink" href="#pcieflat" title="Permalink to this headline">¶</a></h1>
+<h1>3. pcieflat<a class="headerlink" href="#pcieflat" title="Permalink to this headline">¶</a></h1>
 <p>Usage:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">pcieflat</span>
 </pre></div>
@@ -151,14 +151,14 @@ the types are:</p>
 <p>The <cite>sof</cite> and <cite>eof</cite> flags indicate the start and end TLPs of each
 transaction.</p>
 <div class="section" id="diagnosing-crashes">
-<h2>2.1. Diagnosing Crashes<a class="headerlink" href="#diagnosing-crashes" title="Permalink to this headline">¶</a></h2>
+<h2>3.1. Diagnosing Crashes<a class="headerlink" href="#diagnosing-crashes" title="Permalink to this headline">¶</a></h2>
 <p>If the machine crashed, look for transactions that were
 started but not ended.</p>
 <p>These will generally fall before very large deltas, where the machine
 was rebooted before it had any more interactions with the FPGA.</p>
 </div>
 <div class="section" id="example-trace">
-<h2>2.2. Example Trace<a class="headerlink" href="#example-trace" title="Permalink to this headline">¶</a></h2>
+<h2>3.2. Example Trace<a class="headerlink" href="#example-trace" title="Permalink to this headline">¶</a></h2>
 <p>Here are some excerpts from the output of <cite>pcieflat</cite> after running <cite>tests/memserver_copy</cite>:</p>
 <div class="highlight-python"><div class="highlight"><pre>pcieflat: devices are [&#39;/dev/portal_0_6&#39;, &#39;/dev/portal_0_5&#39;, &#39;/dev/portal_0_4&#39;, &#39;/dev/portal_0_3&#39;, &#39;/dev/portal_0_2&#39;, &#39;/dev/portal_0_1&#39;]
              ts     delta   response                     XXX          tlp          address  off   be       tag     clid  nosnp  laddr        data
@@ -230,19 +230,19 @@ RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">2. pcieflat</a><ul>
-<li><a class="reference internal" href="#diagnosing-crashes">2.1. Diagnosing Crashes</a></li>
-<li><a class="reference internal" href="#example-trace">2.2. Example Trace</a></li>
+<li><a class="reference internal" href="#">3. pcieflat</a><ul>
+<li><a class="reference internal" href="#diagnosing-crashes">3.1. Diagnosing Crashes</a></li>
+<li><a class="reference internal" href="#example-trace">3.2. Example Trace</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="makefilegen.html"
-                        title="previous chapter">1. Invocation of makefilegen.py</a></p>
+  <p class="topless"><a href="generate-constraints.html"
+                        title="previous chapter">2. Invocation of generate-constraints.py</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../bsv/bsv.html"
-                        title="next chapter">Connectal BSV Libraries</a></p>
+  <p class="topless"><a href="topgen.html"
+                        title="next chapter">4. Invocation of topgen.py</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -277,10 +277,10 @@ RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="../bsv/bsv.html" title="Connectal BSV Libraries"
+          <a href="topgen.html" title="4. Invocation of topgen.py"
              >next</a> |</li>
         <li class="right" >
-          <a href="makefilegen.html" title="1. Invocation of makefilegen.py"
+          <a href="generate-constraints.html" title="2. Invocation of generate-constraints.py"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.08.5 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
