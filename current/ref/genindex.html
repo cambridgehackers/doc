@@ -1526,7 +1526,11 @@
   </dt>
 
         
-  <dt><a href="makefile.connectal.html#var-MEM_INTERFACES">MEM_INTERFACES</a>
+  <dt><a href="makefile.connectal.html#var-MEM_READ_INTERFACES">MEM_READ_INTERFACES</a>
+  </dt>
+
+        
+  <dt><a href="makefile.connectal.html#var-MEM_WRITE_INTERFACES">MEM_WRITE_INTERFACES</a>
   </dt>
 
         
@@ -1576,17 +1580,32 @@
 
       
   <dt>
-    MEM_INTERFACES
+    MEM_READ_INTERFACES
   </dt>
 
       <dd><dl>
         
-  <dt><a href="makefile.connectal.html#var-MEM_INTERFACES">Make Variable</a>
+  <dt><a href="makefile.connectal.html#var-MEM_READ_INTERFACES">Make Variable</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
+    MEM_WRITE_INTERFACES
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="makefile.connectal.html#var-MEM_WRITE_INTERFACES">Make Variable</a>
   </dt>
 
       </dl></dd>
       
   <dt><a href="bsv/memtypes.html#MemTypes::MemData#(numeric type dsz)">MemData#(numeric type dsz) (struct in package MemTypes)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/memtypes.html#MemTypes::MemDataF#(numeric type dsz)">MemDataF#(numeric type dsz) (struct in package MemTypes)</a>
   </dt>
 
       
@@ -1608,21 +1627,21 @@
   </dt>
 
       
-  <dt><a href="bsv/memtypes.html#MemTypes::MemreadEngine">MemreadEngine (interface in package MemTypes)</a>
+  <dt><a href="bsv/memtypes.html#MemTypes::MemReadEngine">MemReadEngine (interface in package MemTypes)</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="bsv/memreadengine.html#package-MemreadEngine">(package)</a>
+  <dt><a href="bsv/memreadengine.html#package-MemReadEngine">(package)</a>
   </dt>
 
       </dl></dd>
       
-  <dt><a href="bsv/memtypes.html#MemTypes::MemReadServer">MemReadServer (interface in package MemTypes)</a>
+  <dt><a href="bsv/memtypes.html#MemTypes::MemReadEngineServer">MemReadEngineServer (interface in package MemTypes)</a>
   </dt>
 
       
-  <dt><a href="bsv/memtypes.html#MemTypes::MemreadServer">MemreadServer (interface in package MemTypes)</a>
+  <dt><a href="bsv/memtypes.html#MemTypes::MemReadServer">MemReadServer (interface in package MemTypes)</a>
   </dt>
 
       
@@ -1638,15 +1657,15 @@
   </dt>
 
       
-  <dt><a href="bsv/memtypes.html#MemTypes::MemwriteEngine">MemwriteEngine (interface in package MemTypes)</a>
+  <dt><a href="bsv/memtypes.html#MemTypes::MemWriteEngine">MemWriteEngine (interface in package MemTypes)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/memtypes.html#MemTypes::MemWriteEngineServer">MemWriteEngineServer (interface in package MemTypes)</a>
   </dt>
 
       
   <dt><a href="bsv/memtypes.html#MemTypes::MemWriteServer">MemWriteServer (interface in package MemTypes)</a>
-  </dt>
-
-      
-  <dt><a href="bsv/memtypes.html#MemTypes::MemwriteServer">MemwriteServer (interface in package MemTypes)</a>
   </dt>
 
       
@@ -1681,12 +1700,12 @@
   <dt><a href="bsv/pipe.html#Pipe::mkFunnelPipes">mkFunnelPipes (module in package Pipe)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::mkFunnelPipes1">mkFunnelPipes1 (module in package Pipe)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/ctrlmux.html#CtrlMux::mkInterruptMux">mkInterruptMux (module in package CtrlMux)</a>
   </dt>
@@ -1712,11 +1731,11 @@
   </dt>
 
       
-  <dt><a href="bsv/memreadengine.html#MemreadEngine::mkMemreadEngine(MemreadEngineV">mkMemreadEngine(MemreadEngineV (module in package MemreadEngine)</a>
+  <dt><a href="bsv/memreadengine.html#MemReadEngine::mkMemReadEngine(MemReadEngine">mkMemReadEngine(MemReadEngine (module in package MemReadEngine)</a>
   </dt>
 
       
-  <dt><a href="bsv/memreadengine.html#MemreadEngine::mkMemreadEngineBuff">mkMemreadEngineBuff (module in package MemreadEngine)</a>
+  <dt><a href="bsv/memreadengine.html#MemReadEngine::mkMemReadEngineBuff">mkMemReadEngineBuff (module in package MemReadEngine)</a>
   </dt>
 
       
@@ -1871,7 +1890,7 @@
   </dt>
 
       
-  <dt><a href="bsv/memtypes.html#MemTypes::PhysMemRequest#(numeric type addrWidth)">PhysMemRequest#(numeric type addrWidth) (struct in package MemTypes)</a>
+  <dt><a href="bsv/memtypes.html#MemTypes::PhysMemRequest#(numeric type addrWidth, dataWidth)">PhysMemRequest#(numeric type addrWidth, dataWidth) (struct in package MemTypes)</a>
   </dt>
 
       
@@ -2085,6 +2104,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
+  <dt><a href="bsv/memtypes.html#MemTypes::TDiv#(DataBusSize,8) ByteEnableSize">TDiv#(DataBusSize,8) ByteEnableSize (typedef in package MemTypes)</a>
+  </dt>
+
+      
   <dt><a href="bsv/pipe.html#Pipe::toCountedPipeOut">toCountedPipeOut (function in package Pipe)</a>
   </dt>
 
@@ -2102,12 +2125,12 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::ToPipeIn.toPipeIn">ToPipeIn.toPipeIn (function in package Pipe)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::ToPipeOut">ToPipeOut (instance in package Pipe)</a>, <a href="bsv/pipe.html#Pipe::ToPipeOut">[1]</a>, <a href="bsv/pipe.html#Pipe::ToPipeOut">[2]</a>, <a href="bsv/pipe.html#Pipe::ToPipeOut">[3]</a>, <a href="bsv/pipe.html#Pipe::ToPipeOut">[4]</a>
   </dt>
@@ -2288,6 +2311,5 @@
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
-<script type="text/javascript" src="_static/ga.js"></script>  
   </body>
 </html>

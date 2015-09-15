@@ -351,7 +351,7 @@ the input pipes, using a FIFOF to buffer the output.</p>
 <div class="section" id="funnel-pipes">
 <h2>10.9. Funnel Pipes<a class="headerlink" href="#funnel-pipes" title="Permalink to this headline">¶</a></h2>
 <p>Fork and Join with tree-based fanout and fanin for scalability.</p>
-<p>These are used by MemreadEngine and MemwriteEngine.</p>
+<p>These are used by MemReadEngine and MemWriteEngine.</p>
 <dl class="typedef">
 <dt id="Pipe::Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)">
 <em class="property">typedef </em><code class="descclassname">Pipe::</code><code class="descname">Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)</code><a class="headerlink" href="#Pipe::Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)" title="Permalink to this definition">¶</a></dt>
@@ -500,7 +500,7 @@ used.</p>
 <dl class="module">
 <dt id="Pipe::mkRangePipeOut">
 <em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkRangePipeOut</code> &rarr; (RangePipeIfc#(a)<a class="headerlink" href="#Pipe::mkRangePipeOut" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a Pipe of values from xbase to xlimit by xstep. Used by Memread.</p>
+<dd><p>Creates a Pipe of values from xbase to xlimit by xstep. Used by MemRead.</p>
 </dd></dl>
 
 </div>
@@ -582,6 +582,5 @@ used.</p>
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
-<script type="text/javascript" src="../_static/ga.js"></script>  
   </body>
 </html>

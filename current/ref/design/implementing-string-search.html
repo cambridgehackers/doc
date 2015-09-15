@@ -336,7 +336,7 @@ accelerator to read or write from offsets to these handles,
 taking care of address translation transparently.</p>
 <p>To fully exploit the data parallelism, {tt mkStrStr} partitions the
 search space into $p$ partitions. It instantiates two memory read
-trees from the Connectal library ({tt MemreadEngineV}, discussed in
+trees from the Connectal library ({tt MemReadEngineV}, discussed in
 Section <a class="reference internal" href="connectal-framework.html#sec-memreadengine"><span>Distributed Access to Memory Ports</span></a>, each with $p$ read servers.  One set
 is used by the search kernels to read the configuration data from the
 host memory, while the other is used to read the <a href="#id15"><span class="problematic" id="id16">``</span></a>haystack&#8217;&#8217; from
@@ -461,6 +461,5 @@ per second transceivers.</p>
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
-<script type="text/javascript" src="../_static/ga.js"></script>  
   </body>
 </html>
