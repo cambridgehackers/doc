@@ -93,8 +93,41 @@ void *<code class="descname">portalMmap</code><span class="sig-paren">(</span>in
 <dd></dd></dl>
 
 </div>
+</div>
+<div class="section" id="portalpoller">
+<h1>2. PortalPoller<a class="headerlink" href="#portalpoller" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="_CPPv212PortalPoller">
+<span id="PortalPoller"></span><em class="property">class </em><code class="descclassname"></code><code class="descname">PortalPoller</code><a class="headerlink" href="#_CPPv212PortalPoller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Polls portals</p>
+<dl class="member">
+<dt>
+<code class="descname">PortalPoller::PortalPoller(int autostart = 1)</code></dt>
+<dd><p>If autostart is 1, then invoke <code class="xref cpp cpp-member docutils literal"><span class="pre">start()</span></code> from <code class="xref cpp cpp-member docutils literal"><span class="pre">registerInstance()</span></code></p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<code class="descname">void PortalPoller::start();</code></dt>
+<dd><p>Starts the poller. Called automatically from <code class="xref cpp cpp-member docutils literal"><span class="pre">registerInstance()</span></code> if <code class="xref cpp cpp-member docutils literal"><span class="pre">autostart</span></code> is 1.</p>
+</dd></dl>
+
+<dl class="member">
+<dt>
+<code class="descname">void PortalPoller::stop();</code></dt>
+<dd><p>Stops the poller.</p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv2N12PortalPoller12PortalPoller7timeoutE">
+<span id="PortalPoller::PortalPoller::timeout__i"></span>int <code class="descclassname">PortalPoller::</code><code class="descname">timeout</code><a class="headerlink" href="#_CPPv2N12PortalPoller12PortalPoller7timeoutE" title="Permalink to this definition">¶</a></dt>
+<dd><p>The timeout value, in milliseconds, passed to <a href="#id1"><span class="problematic" id="id2">:c:function:`poll()`</span></a></p>
+</dd></dl>
+
+</dd></dl>
+
 <div class="section" id="deprecated-functions">
-<h2>1.2. Deprecated Functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h2>
+<h2>2.1. Deprecated Functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="c.portalExec">
 void *<code class="descname">portalExec</code><span class="sig-paren">(</span>void<em>&nbsp;*__x</em><span class="sig-paren">)</span><a class="headerlink" href="#c.portalExec" title="Permalink to this definition">¶</a></dt>
@@ -125,7 +158,10 @@ void <code class="descname">portalExec_poll</code><span class="sig-paren">(</spa
   <ul>
 <li><a class="reference internal" href="#">1. C/C++ Portal</a><ul>
 <li><a class="reference internal" href="#portal-memory">1.1. Portal Memory</a></li>
-<li><a class="reference internal" href="#deprecated-functions">1.2. Deprecated Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#portalpoller">2. PortalPoller</a><ul>
+<li><a class="reference internal" href="#deprecated-functions">2.1. Deprecated Functions</a></li>
 </ul>
 </li>
 </ul>
