@@ -304,8 +304,14 @@ performs the build. Creates the directory if it does not exist.</p>
 
 <dl class="option">
 <dt id="cmdoption-m">
-<span id="cmdoption--bsimsource"></span><code class="descname">-m</code><code class="descclassname"> foo.c</code><code class="descclassname">, </code><code class="descname">--bsimsource</code><code class="descclassname"> foo.c</code><a class="headerlink" href="#cmdoption-m" title="Permalink to this definition">¶</a></dt>
-<dd><p>Additional sources to compile into the <cite>bsim</cite> executable.</p>
+<span id="cmdoption--bsimsource"></span><code class="descname">-m</code><code class="descclassname"> foo.cpp</code><code class="descclassname">, </code><code class="descname">--bsimsource</code><code class="descclassname"> foo.cpp</code><a class="headerlink" href="#cmdoption-m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies additional sources to compile into the <cite>bsim</cite>
+executable. If you are using Bluespec import &#8220;BDPI&#8221; or
+SystemVerilog &#8220;DPI&#8221;/&#8221;DPI-C&#8221;, you will need to link additional
+sources into the simulator.</p>
+<p>Note: These files are currently compiled with g++, even if they are
+C files. You will need to use extern &#8220;C&#8221; to export symbols to the
+simulator.</p>
 </dd></dl>
 
 </div>
