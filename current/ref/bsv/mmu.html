@@ -84,6 +84,11 @@
 <dd></dd></dl>
 
 <dl class="typedef">
+<dt id="MMU::24 SGListPageShift12">
+<em class="property">typedef </em><code class="descclassname">MMU::</code><code class="descname">24 SGListPageShift12</code><a class="headerlink" href="#MMU::24 SGListPageShift12" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="typedef">
 <dt id="MMU::Bit#(TLog#(MaxNumSGLists)) RegionsIdx">
 <em class="property">typedef </em><code class="descclassname">MMU::</code><code class="descname">Bit#(TLog#(MaxNumSGLists)) RegionsIdx</code><a class="headerlink" href="#MMU::Bit#(TLog#(MaxNumSGLists)) RegionsIdx" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -96,18 +101,18 @@
 <div class="section" id="address-translation">
 <h2>9.1. Address Translation<a class="headerlink" href="#address-translation" title="Permalink to this headline">¶</a></h2>
 <dl class="struct">
-<dt id="MMU::ReqTup">
-<em class="property">struct </em><code class="descclassname">MMU::</code><code class="descname">ReqTup</code><a class="headerlink" href="#MMU::ReqTup" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::AddrTransRequest">
+<em class="property">struct </em><code class="descclassname">MMU::</code><code class="descname">AddrTransRequest</code><a class="headerlink" href="#MMU::AddrTransRequest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Address translation request type</p>
 <dl class="field">
-<dt id="MMU::ReqTup.id">
-<code class="descname">id</code> &rarr; SGListId            <a class="headerlink" href="#MMU::ReqTup.id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Which SGList to use.</p>
+<dt id="MMU::AddrTransRequest.id">
+<code class="descname">id</code> &rarr; SGListId            <a class="headerlink" href="#MMU::AddrTransRequest.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Which object identifier to use.</p>
 </dd></dl>
 
 <dl class="field">
-<dt id="MMU::ReqTup.off">
-<code class="descname">off</code> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MMU::ReqTup.off" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::AddrTransRequest.off">
+<code class="descname">off</code> &rarr; Bit#(MemOffsetSize)<a class="headerlink" href="#MMU::AddrTransRequest.off" title="Permalink to this definition">¶</a></dt>
 <dd><p>The address to translate.</p>
 </dd></dl>
 
@@ -125,41 +130,182 @@
 
 <dl class="subinterface">
 <dt id="MMU::MMU.addr">
-<code class="descname">addr</code> &rarr; Vector#(2,Server#(ReqTup,Bit#(addrWidth)))<a class="headerlink" href="#MMU::MMU.addr" title="Permalink to this definition">¶</a></dt>
+<code class="descname">addr</code> &rarr; Vector#(2,Server#(AddrTransRequest,Bit#(addrWidth)))<a class="headerlink" href="#MMU::MMU.addr" title="Permalink to this definition">¶</a></dt>
 <dd><p>The address translation servers</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="interface">
+<dt id="MMU::MMURequest;">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">MMURequest;</code><a class="headerlink" href="#MMU::MMURequest;" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Connectal MMU maps linear offsets on objects identified by
+sglId to dmaAddress. It is constructed from a list of
+segments, where the segments are sorted by size in descending
+order. Each segment must be one of the supported sizes.</p>
+<dl class="method">
+<dt id="MMU::MMURequest;.sglist">
+<code class="descname">sglist</code><span class="sig-paren">(</span><em>Bit#(32) sglId</em>, <em>Bit#(32) segmentIndex</em>, <em>Bit#(64) addr</em>, <em>Bit#(32) len)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMURequest;.sglist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the address of the segment number segmentIndex for object identified by sglId. The
+address has been preshifted so that the final address may be
+constructed by concatenating addr and offset within the segment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MMURequest;.region">
+<code class="descname">region</code><span class="sig-paren">(</span><em>Bit#(32) sglId</em>, <em>Bit#(64) barr12</em>, <em>Bit#(32) idxOffset12</em>, <em>Bit#(64) barr8</em>, <em>Bit#(32) idxOffset8</em>, <em>Bit#(64) barr4</em>, <em>Bit#(32) idxOffset4</em>, <em>Bit#(64) barr0</em>, <em>Bit#(32) idxOffset0)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMURequest;.region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the boundaries between the segments of different sizes for the object identified by sglId.</p>
+<p>For example, if an offset to be translated is less than barr12,
+then the target segment is of size SGListPageShift12 (2^24
+bytes). If the offset is less than barr12, then idxOffset12 points to the first translation table entry for segments of that size</p>
+<p>pbase      = offset &gt;&gt; segAddrSize + idxOffset
+segNumber  = pbase + idxOffset
+dmaBase    = translationTable[sglId,segNumber]
+dmaAddress = {dmaBase[physAddrSize-segAddrSize-1:0],offset[segAddrSize-1:0]}</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MMURequest;.idRequest">
+<code class="descname">idRequest</code><span class="sig-paren">(</span><em>SpecialTypeForSendingFd fd)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMURequest;.idRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests a new object identifier.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MMURequest;.idReturn">
+<code class="descname">idReturn</code><span class="sig-paren">(</span><em>Bit#(32) sglId)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMURequest;.idReturn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates that the designated object is no longer in use. The MMU clears the translation entries for this object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MMURequest;.setInterface">
+<code class="descname">setInterface</code><span class="sig-paren">(</span><em>Bit#(32) interfaceId</em>, <em>Bit#(32) sglId)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMURequest;.setInterface" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is only implemented in software responders.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="interface">
+<dt id="MMU::MMUIndication;">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">MMUIndication;</code><a class="headerlink" href="#MMU::MMUIndication;" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::.. bsv:method:: Action idResponse(Bit">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">.. bsv:method:: Action idResponse(Bit</code><span class="sig-paren">(</span><em>(32) sglId);</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::.. bsv:method:: Action idResponse(Bit" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Response from idRequest indicating the new object identifier sglId.</div></blockquote>
+<dl class="method">
+<dt id="MMU::MMUIndication;.configResp">
+<code class="descname">configResp</code><span class="sig-paren">(</span><em>Bit#(32) sglId)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMUIndication;.configResp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="MMU::MMUIndication;.error">
+<code class="descname">error</code><span class="sig-paren">(</span><em>Bit#(32) code</em>, <em>Bit#(32) sglId</em>, <em>Bit#(64) offset</em>, <em>Bit#(64) extra)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MMUIndication;.error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sent from the MMU when there is a translation error.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="struct">
+<dt id="MMU::DmaErrorType">
+<em class="property">struct </em><code class="descclassname">MMU::</code><code class="descname">DmaErrorType</code><a class="headerlink" href="#MMU::DmaErrorType" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorNone">
+<code class="descname">DmaErrorNone</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorNone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 0 indicates no error.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorSGLIdOutOfRange_r">
+<code class="descname">DmaErrorSGLIdOutOfRange_r</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorSGLIdOutOfRange_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 1 indicates object identifier was out of range during a read request.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorSGLIdOutOfRange_w">
+<code class="descname">DmaErrorSGLIdOutOfRange_w</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorSGLIdOutOfRange_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 2 indicates object identifier was out of range during a read request.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorMMUOutOfRange_r">
+<code class="descname">DmaErrorMMUOutOfRange_r</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorMMUOutOfRange_r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 3 indicates MMU identifier was out of range during a read request.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorMMUOutOfRange_w">
+<code class="descname">DmaErrorMMUOutOfRange_w</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorMMUOutOfRange_w" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 4 indicates MMU identifier was out of range during a read request.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorOffsetOutOfRange">
+<code class="descname">DmaErrorOffsetOutOfRange</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorOffsetOutOfRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 5 indicates offset was out of range for the designated object.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorSGLIdInvalid">
+<code class="descname">DmaErrorSGLIdInvalid</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorSGLIdInvalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 6 indicates the object identifier was out of range.</p>
+</dd></dl>
+
+<dl class="field">
+<dt id="MMU::DmaErrorType.DmaErrorTileTagOutOfRange">
+<code class="descname">DmaErrorTileTagOutOfRange</code><a class="headerlink" href="#MMU::DmaErrorType.DmaErrorTileTagOutOfRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code 7 indicates the tag was out of range for the requesting platform application tile.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="module">
 <dt id="MMU::mkMMU">
-<em class="property">module </em><code class="descclassname">MMU::</code><code class="descname">mkMMU</code><span class="sig-paren">(</span><em>Integer iid</em>, <em>Bool bsimMMap</em>, <em>MMUIndication mmuIndication</em><span class="sig-paren">)</span> &rarr; (MMU#(addrWidth)<a class="headerlink" href="#MMU::mkMMU" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="descclassname">MMU::</code><code class="descname">mkMMU</code><span class="sig-paren">(</span><em>Integer iid</em>, <em>Bool hostMapped</em>, <em>MMUIndication mmuIndication</em><span class="sig-paren">)</span> &rarr; (MMU#(addrWidth)<a class="headerlink" href="#MMU::mkMMU" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiates an address translator that stores a scatter-gather
 list to define the logical to physical address mapping.</p>
 <p>Parameter iid is the portal identifier of the MMURequest interface.</p>
-<p>Parameter bsimMMAP ??</p>
+<p>Parameter hostMapped is true for simulation.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="multiple-address-translators">
-<h2>9.2. Multiple Address Translators<a class="headerlink" href="#multiple-address-translators" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
-<dt id="MMU::MMUAddrServer">
-<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">MMUAddrServer</code><span class="sig-paren">(</span><em>numeric type addrWidth</em>, <em>numeric type numServers</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::MMUAddrServer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Used by mkMemServer to share an MMU among multiple memory interfaces.</p>
+<dt id="MMU::MemServerRequest;">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">MemServerRequest;</code><a class="headerlink" href="#MMU::MemServerRequest;" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="MMU::MemServerRequest;.addrTrans">
+<code class="descname">addrTrans</code><span class="sig-paren">(</span><em>Bit#(32) sglId</em>, <em>Bit#(32) offset)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MemServerRequest;.addrTrans" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests an address translation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MemServerRequest;.setTileState">
+<code class="descname">setTileState</code><span class="sig-paren">(</span><em>TileControl tc)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MemServerRequest;.setTileState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes tile status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MemServerRequest;.stateDbg">
+<code class="descname">stateDbg</code><span class="sig-paren">(</span><em>ChannelType rc</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MemServerRequest;.stateDbg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Requests debug info for the specified channel type</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="MMU::MemServerRequest;.memoryTraffic">
+<code class="descname">memoryTraffic</code><span class="sig-paren">(</span><em>ChannelType rc)</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#MMU::MemServerRequest;.memoryTraffic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="interface">
-<dt id="MMU::MMUAddrServer.Vector">
-<em class="property">interface </em><code class="descname">Vector</code><span class="sig-paren">(</span><em>(numServers</em>, <em>Server#(ReqTup</em>, <em>Bit#(addrWidth))) servers</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::MMUAddrServer.Vector" title="Permalink to this definition">¶</a></dt>
-<dd><p>The vector of address translators.</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="module">
-<dt id="MMU::mkMMUAddrServer">
-<em class="property">module </em><code class="descclassname">MMU::</code><code class="descname">mkMMUAddrServer</code><span class="sig-paren">(</span><em>Server#(ReqTup</em>, <em>Bit#(addrWidth)) server</em><span class="sig-paren">)</span> &rarr; (MMUAddrServer#(addrWidth,numServers)<a class="headerlink" href="#MMU::mkMMUAddrServer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Instantiates an MMUAddrServer that shares the input server among multiple clients.</p>
-</dd></dl>
+<dt id="MMU::MemServerIndication;">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">MemServerIndication;</code><a class="headerlink" href="#MMU::MemServerIndication;" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::.. bsv:method:: Action addrResponse(Bit">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">.. bsv:method:: Action addrResponse(Bit</code><span class="sig-paren">(</span><em>(64) physAddr);</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::.. bsv:method:: Action addrResponse(Bit" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::.. bsv:method:: Action reportStateDbg(DmaDbgRec rec);">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">.. bsv:method:: Action reportStateDbg(DmaDbgRec rec);</code><a class="headerlink" href="#MMU::.. bsv:method:: Action reportStateDbg(DmaDbgRec rec);" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::.. bsv:method:: Action reportMemoryTraffic(Bit">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">.. bsv:method:: Action reportMemoryTraffic(Bit</code><span class="sig-paren">(</span><em>(64) words);</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::.. bsv:method:: Action reportMemoryTraffic(Bit" title="Permalink to this definition">¶</a></dt>
+<dt id="MMU::.. bsv:method:: Action error(Bit">
+<em class="property">interface </em><code class="descclassname">MMU::</code><code class="descname">.. bsv:method:: Action error(Bit</code><span class="sig-paren">(</span><em>(32) code</em>, <em>Bit#(32) sglId</em>, <em>Bit#(64) offset</em>, <em>Bit#(64) extra);</em><span class="sig-paren">)</span><a class="headerlink" href="#MMU::.. bsv:method:: Action error(Bit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 </div>
@@ -174,7 +320,6 @@ list to define the logical to physical address mapping.</p>
   <ul>
 <li><a class="reference internal" href="#">9. MMU Package</a><ul>
 <li><a class="reference internal" href="#address-translation">9.1. Address Translation</a></li>
-<li><a class="reference internal" href="#multiple-address-translators">9.2. Multiple Address Translators</a></li>
 </ul>
 </li>
 </ul>

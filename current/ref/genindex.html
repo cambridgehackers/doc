@@ -352,8 +352,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     --xelabflags=flags
@@ -387,6 +385,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     -b options, --bscflags=options
@@ -520,6 +520,33 @@
 
       </dl></dd>
       
+  <dt><a href="bsv/mmu.html#MMU::.. bsv:method:: Action addrResponse(Bit">.. bsv:method:: Action addrResponse(Bit (interface in package MMU)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/mmu.html#MMU::.. bsv:method:: Action error(Bit">.. bsv:method:: Action error(Bit (interface in package MMU)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/mmu.html#MMU::.. bsv:method:: Action idResponse(Bit">.. bsv:method:: Action idResponse(Bit (interface in package MMU)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/mmu.html#MMU::.. bsv:method:: Action reportMemoryTraffic(Bit">.. bsv:method:: Action reportMemoryTraffic(Bit (interface in package MMU)</a>
+  </dt>
+
+      
+  <dt>
+    .. bsv:method:: Action reportStateDbg(DmaDbgRec rec)
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::.. bsv:method:: Action reportStateDbg(DmaDbgRec rec);">(interface in package MMU)</a>
+  </dt>
+
+      </dl></dd>
+      
   <dt><a href="bsv/mmu.html#MMU::12 SGListPageShift0">12 SGListPageShift0 (typedef in package MMU)</a>
   </dt>
 
@@ -529,6 +556,10 @@
 
       
   <dt><a href="bsv/mmu.html#MMU::20 SGListPageShift8">20 SGListPageShift8 (typedef in package MMU)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/mmu.html#MMU::24 SGListPageShift12">24 SGListPageShift12 (typedef in package MMU)</a>
   </dt>
 
       
@@ -577,8 +608,6 @@
   <dt><a href="bsv/addressgenerator.html#AddressGenerator::AddrBeat#(numeric type addrWidth)">AddrBeat#(numeric type addrWidth) (struct in package AddressGenerator)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/addressgenerator.html#AddressGenerator::AddressGenerator">AddressGenerator (interface in package AddressGenerator)</a>
   </dt>
@@ -589,6 +618,23 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt>
+    addrTrans() (MMU::MemServerRequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerRequest;.addrTrans">method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="bsv/mmu.html#MMU::AddrTransRequest">AddrTransRequest (struct in package MMU)</a>
+  </dt>
+
       
   <dt>
     android.exe
@@ -994,6 +1040,17 @@
 
       </dl></dd>
       
+  <dt>
+    configResp() (MMU::MMUIndication
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMUIndication;.configResp">method)</a>
+  </dt>
+
+      </dl></dd>
+      
   <dt><a href="bsv/memtypes.html#MemTypes::Connectable">Connectable (instance in package MemTypes)</a>, <a href="bsv/memtypes.html#MemTypes::Connectable">[1]</a>, <a href="bsv/memtypes.html#MemTypes::Connectable">[2]</a>, <a href="bsv/memtypes.html#MemTypes::Connectable">[3]</a>
   </dt>
 
@@ -1036,6 +1093,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     CONNECTAL_SHARED
@@ -1047,8 +1106,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     CONNECTALFLAGS
@@ -1115,12 +1172,12 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::PipeOut.deq">deq() (Pipe::PipeOut method)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     DERIVED_CLOCK_PERIOD
@@ -1134,6 +1191,10 @@
       </dl></dd>
       
   <dt><a href="bsv/memtypes.html#MemTypes::DmaDbg">DmaDbg (interface in package MemTypes)</a>
+  </dt>
+
+      
+  <dt><a href="bsv/mmu.html#MMU::DmaErrorType">DmaErrorType (struct in package MMU)</a>
   </dt>
 
   </dl></td>
@@ -1177,12 +1238,23 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/arith.html#Arith::eq">eq (function in package Arith)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt>
+    error() (MMU::MMUIndication
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMUIndication;.error">method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt>
     exe
@@ -1306,6 +1378,28 @@
   <td style="width: 33%" valign="top"><dl>
       
   <dt>
+    idRequest() (MMU::MMURequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;.idRequest">method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
+    idReturn() (MMU::MMURequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;.idReturn">method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
     INTERFACES
   </dt>
 
@@ -1315,6 +1409,8 @@
   </dt>
 
       </dl></dd>
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt>
     IPDIR
@@ -1326,8 +1422,6 @@
   </dt>
 
       </dl></dd>
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::RangePipeIfc.isFirst">isFirst() (Pipe::RangePipeIfc method)</a>
   </dt>
@@ -1630,6 +1724,17 @@
   </dt>
 
       
+  <dt>
+    memoryTraffic() (MMU::MemServerRequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerRequest;.memoryTraffic">method)</a>
+  </dt>
+
+      </dl></dd>
+      
   <dt><a href="bsv/portal.html#Portal::MemPortal">MemPortal (interface in package Portal)</a>
   </dt>
 
@@ -1665,6 +1770,28 @@
   <dt><a href="bsv/memtypes.html#MemTypes::MemRequest">MemRequest (struct in package MemTypes)</a>
   </dt>
 
+      
+  <dt>
+    MemServerIndication
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerIndication;">(interface in package MMU)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
+    MemServerRequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerRequest;">(interface in package MMU)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="bsv/memtypes.html#package-MemTypes">MemTypes (package)</a>
   </dt>
@@ -1709,6 +1836,8 @@
   <dt><a href="bsv/pipe.html#Pipe::mkFunnel1">mkFunnel1 (module in package Pipe)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::mkFunnelGB1">mkFunnelGB1 (module in package Pipe)</a>
   </dt>
@@ -1717,8 +1846,6 @@
   <dt><a href="bsv/pipe.html#Pipe::mkFunnelPipes">mkFunnelPipes (module in package Pipe)</a>
   </dt>
 
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="bsv/pipe.html#Pipe::mkFunnelPipes1">mkFunnelPipes1 (module in package Pipe)</a>
   </dt>
@@ -1757,10 +1884,6 @@
 
       
   <dt><a href="bsv/mmu.html#MMU::mkMMU">mkMMU (module in package MMU)</a>
-  </dt>
-
-      
-  <dt><a href="bsv/mmu.html#MMU::mkMMUAddrServer">mkMMUAddrServer (module in package MMU)</a>
   </dt>
 
       
@@ -1838,13 +1961,27 @@
 
       </dl></dd>
       
-  <dt><a href="bsv/mmu.html#MMU::MMUAddrServer">MMUAddrServer (interface in package MMU)</a>
+  <dt>
+    MMUIndication
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMUIndication;">(interface in package MMU)</a>
+  </dt>
+
+      </dl></dd>
       
-  <dt><a href="bsv/mmu.html#MMU::MMUAddrServer.Vector">MMUAddrServer.Vector (interface in package MMU)</a>
+  <dt>
+    MMURequest
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;">(interface in package MMU)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="bsv/arith.html#Arith::mul">mul (function in package Arith)</a>
   </dt>
@@ -2039,9 +2176,16 @@
   </dt>
 
       
-  <dt><a href="bsv/mmu.html#MMU::ReqTup">ReqTup (struct in package MMU)</a>
+  <dt>
+    region() (MMU::MMURequest
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;.region">method)</a>
+  </dt>
+
+      </dl></dd>
       
   <dt><a href="bsv/arith.html#Arith::rshift">rshift (function in package Arith)</a>
   </dt>
@@ -2114,15 +2258,48 @@
   </dt>
 
       
-  <dt><a href="bsv/portal.html#Portal::SharedMemoryPortal">SharedMemoryPortal (interface in package Portal)</a>
+  <dt>
+    setInterface() (MMU::MMURequest
   </dt>
 
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;.setInterface">method)</a>
+  </dt>
+
+      </dl></dd>
       
-  <dt><a href="c/portal.html#c.simulator_dump_vcd">simulator_dump_vcd (C variable)</a>
+  <dt>
+    setTileState() (MMU::MemServerRequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerRequest;.setTileState">method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
+    sglist() (MMU::MMURequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MMURequest;.sglist">method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt><a href="bsv/portal.html#Portal::SharedMemoryPortal">SharedMemoryPortal (interface in package Portal)</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="c/portal.html#c.simulator_dump_vcd">simulator_dump_vcd (C variable)</a>
+  </dt>
+
       
   <dt><a href="bsv/pipe.html#Pipe::FirstLastPipe.start">start() (Pipe::FirstLastPipe method)</a>
   </dt>
@@ -2130,6 +2307,17 @@
       <dd><dl>
         
   <dt><a href="bsv/pipe.html#Pipe::RangePipeIfc.start">(Pipe::RangePipeIfc method)</a>
+  </dt>
+
+      </dl></dd>
+      
+  <dt>
+    stateDbg() (MMU::MemServerRequest
+  </dt>
+
+      <dd><dl>
+        
+  <dt><a href="bsv/mmu.html#MMU::MemServerRequest;.stateDbg">method)</a>
   </dt>
 
       </dl></dd>
