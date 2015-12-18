@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1. Invocation of makefilegen.py &mdash; connectal 15.11.1 documentation</title>
+    <title>1. Invocation of makefilegen.py &mdash; connectal 15.12.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '15.11.1',
+        VERSION:     '15.12.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 15.11.1 documentation" href="../index.html" />
+    <link rel="top" title="connectal 15.12.1 documentation" href="../index.html" />
     <link rel="up" title="Connectal Tools" href="tools.html" />
     <link rel="next" title="2. Invocation of generate-constraints.py" href="generate-constraints.html" />
     <link rel="prev" title="Connectal Tools" href="tools.html" /> 
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="tools.html" title="Connectal Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.11.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.12.1 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,7 +58,7 @@
             
   <div class="section" id="invocation-of-makefilegen-py">
 <h1>1. Invocation of makefilegen.py<a class="headerlink" href="#invocation-of-makefilegen-py" title="Permalink to this headline">¶</a></h1>
-<p>The <strong class="program">makefilegen.py</strong> script generates project Makefiles. Normally, it is invoked from Makefile.connectal and passed options via :make:var:CONNECTALFLAGS.</p>
+<p>The <strong class="program">makefilegen.py</strong> script generates project Makefiles. Normally, it is invoked from Makefile.connectal and passed options via <a class="reference internal" href="../makefile.connectal.html#var-CONNECTALFLAGS"><code class="xref make make-var docutils literal"><span class="pre">CONNECTALFLAGS</span></code></a>.</p>
 <div class="section" id="project-options">
 <h2>1.1. Project Options<a class="headerlink" href="#project-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
@@ -226,7 +226,11 @@ performs the build. Creates the directory if it does not exist.</p>
 <dl class="option">
 <dt id="cmdoption--pinout">
 <code class="descname">--pinout</code><code class="descclassname">=pinusage.json</code><a class="headerlink" href="#cmdoption--pinout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Specifies connection of pins on the board to top level signals of the design.</p>
+<dd><p>Specifies connection of pins on the board to top level signals of
+the design. A board-specific constraint file will be generated from
+pinusage.json and the boardinfo json file, and will be added to
+constraint and implconstraint.</p>
+<p>See :make:var::<cite>PINOUT_FILE</cite>, whose values are passed as &#8211;pinout options to makefilegen.</p>
 </dd></dl>
 
 <dl class="option">
@@ -422,7 +426,7 @@ automatically be connected via SyncFIFO&#8217;s.</p>
         <li class="right" >
           <a href="tools.html" title="Connectal Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.11.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 15.12.1 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>
