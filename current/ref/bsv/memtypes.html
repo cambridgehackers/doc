@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. MemTypes Package &mdash; connectal 16.04.1 documentation</title>
+    <title>9. MemTypes Package &mdash; connectal 16.05.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '16.04.1',
+        VERSION:     '16.05.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.04.1 documentation" href="../index.html" />
+    <link rel="top" title="connectal 16.05.2 documentation" href="../index.html" />
     <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
-    <link rel="next" title="9. MMU Package" href="mmu.html" />
-    <link rel="prev" title="7. MemReadEngine Package" href="memreadengine.html" /> 
+    <link rel="next" title="10. MMU Package" href="mmu.html" />
+    <link rel="prev" title="8. MemReadEngine Package" href="memreadengine.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,12 +41,12 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="mmu.html" title="9. MMU Package"
+          <a href="mmu.html" title="10. MMU Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="memreadengine.html" title="7. MemReadEngine Package"
+          <a href="memreadengine.html" title="8. MemReadEngine Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>  
@@ -57,9 +57,9 @@
           <div class="body" role="main">
             
   <div class="section" id="package-MemTypes">
-<span id="memtypes-package"></span><h1>8. MemTypes Package<a class="headerlink" href="#package-MemTypes" title="Permalink to this headline">¶</a></h1>
+<span id="memtypes-package"></span><h1>9. MemTypes Package<a class="headerlink" href="#package-MemTypes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="constants">
-<h2>8.1. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<h2>9.1. Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <dl class="typedef">
 <dt id="MemTypes::Bit#(32) SGLId">
 <em class="property">typedef </em><code class="descclassname">MemTypes::</code><code class="descname">Bit#(32) SGLId</code><a class="headerlink" href="#MemTypes::Bit#(32) SGLId" title="Permalink to this definition">¶</a></dt>
@@ -92,7 +92,7 @@
 
 </div>
 <div class="section" id="data-types">
-<h2>8.2. Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<h2>9.2. Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
 <dl class="struct">
 <dt id="MemTypes::PhysMemRequest#(numeric type addrWidth, dataWidth)">
 <em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemRequest#(numeric type addrWidth, dataWidth)</code><a class="headerlink" href="#MemTypes::PhysMemRequest#(numeric type addrWidth, dataWidth)" title="Permalink to this definition">¶</a></dt>
@@ -241,7 +241,7 @@ of all beats of that burst.</p>
 
 </div>
 <div class="section" id="physical-memory-clients-and-servers">
-<h2>8.3. Physical Memory Clients and Servers<a class="headerlink" href="#physical-memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
+<h2>9.3. Physical Memory Clients and Servers<a class="headerlink" href="#physical-memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::PhysMemMaster">
 <em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">PhysMemMaster</code><span class="sig-paren">(</span><em>numeric type addrWidth</em>, <em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::PhysMemMaster" title="Permalink to this definition">¶</a></dt>
@@ -345,7 +345,7 @@ of all beats of that burst.</p>
 
 </div>
 <div class="section" id="memory-clients-and-servers">
-<h2>8.4. Memory Clients and Servers<a class="headerlink" href="#memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
+<h2>9.4. Memory Clients and Servers<a class="headerlink" href="#memory-clients-and-servers" title="Permalink to this headline">¶</a></h2>
 <p>These clients and servers operate on logical addresses. These are
 translated by an MMU before being issued to system memory.</p>
 <dl class="interface">
@@ -424,7 +424,7 @@ translated by an MMU before being issued to system memory.</p>
 
 </div>
 <div class="section" id="memory-engine-types">
-<h2>8.5. Memory Engine Types<a class="headerlink" href="#memory-engine-types" title="Permalink to this headline">¶</a></h2>
+<h2>9.5. Memory Engine Types<a class="headerlink" href="#memory-engine-types" title="Permalink to this headline">¶</a></h2>
 <dl class="struct">
 <dt id="MemTypes::MemengineCmd">
 <em class="property">struct </em><code class="descclassname">MemTypes::</code><code class="descname">MemengineCmd</code><a class="headerlink" href="#MemTypes::MemengineCmd" title="Permalink to this definition">¶</a></dt>
@@ -463,7 +463,7 @@ translated by an MMU before being issued to system memory.</p>
 
 </div>
 <div class="section" id="memory-engine-interfaces">
-<h2>8.6. Memory Engine Interfaces<a class="headerlink" href="#memory-engine-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>9.6. Memory Engine Interfaces<a class="headerlink" href="#memory-engine-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::MemWriteEngineServer">
 <em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">MemWriteEngineServer</code><span class="sig-paren">(</span><em>numeric type userWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::MemWriteEngineServer" title="Permalink to this definition">¶</a></dt>
@@ -535,7 +535,7 @@ translated by an MMU before being issued to system memory.</p>
 
 </div>
 <div class="section" id="memory-traffic-interfaces">
-<h2>8.7. Memory Traffic Interfaces<a class="headerlink" href="#memory-traffic-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>9.7. Memory Traffic Interfaces<a class="headerlink" href="#memory-traffic-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="MemTypes::DmaDbg">
 <em class="property">interface </em><code class="descclassname">MemTypes::</code><code class="descname">DmaDbg</code><a class="headerlink" href="#MemTypes::DmaDbg" title="Permalink to this definition">¶</a></dt>
@@ -553,7 +553,7 @@ translated by an MMU before being issued to system memory.</p>
 
 </div>
 <div class="section" id="connectable-instances">
-<h2>8.8. Connectable Instances<a class="headerlink" href="#connectable-instances" title="Permalink to this headline">¶</a></h2>
+<h2>9.8. Connectable Instances<a class="headerlink" href="#connectable-instances" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="MemTypes::Connectable">
 <em class="property">instance </em><code class="descclassname">MemTypes::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>MemReadClient#(dsz)</em>, <em>MemReadServer#(dsz)</em><span class="sig-paren">)</span><a class="headerlink" href="#MemTypes::Connectable" title="Permalink to this definition">¶</a></dt>
@@ -585,25 +585,25 @@ translated by an MMU before being issued to system memory.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">8. MemTypes Package</a><ul>
-<li><a class="reference internal" href="#constants">8.1. Constants</a></li>
-<li><a class="reference internal" href="#data-types">8.2. Data Types</a></li>
-<li><a class="reference internal" href="#physical-memory-clients-and-servers">8.3. Physical Memory Clients and Servers</a></li>
-<li><a class="reference internal" href="#memory-clients-and-servers">8.4. Memory Clients and Servers</a></li>
-<li><a class="reference internal" href="#memory-engine-types">8.5. Memory Engine Types</a></li>
-<li><a class="reference internal" href="#memory-engine-interfaces">8.6. Memory Engine Interfaces</a></li>
-<li><a class="reference internal" href="#memory-traffic-interfaces">8.7. Memory Traffic Interfaces</a></li>
-<li><a class="reference internal" href="#connectable-instances">8.8. Connectable Instances</a></li>
+<li><a class="reference internal" href="#">9. MemTypes Package</a><ul>
+<li><a class="reference internal" href="#constants">9.1. Constants</a></li>
+<li><a class="reference internal" href="#data-types">9.2. Data Types</a></li>
+<li><a class="reference internal" href="#physical-memory-clients-and-servers">9.3. Physical Memory Clients and Servers</a></li>
+<li><a class="reference internal" href="#memory-clients-and-servers">9.4. Memory Clients and Servers</a></li>
+<li><a class="reference internal" href="#memory-engine-types">9.5. Memory Engine Types</a></li>
+<li><a class="reference internal" href="#memory-engine-interfaces">9.6. Memory Engine Interfaces</a></li>
+<li><a class="reference internal" href="#memory-traffic-interfaces">9.7. Memory Traffic Interfaces</a></li>
+<li><a class="reference internal" href="#connectable-instances">9.8. Connectable Instances</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="memreadengine.html"
-                        title="previous chapter">7. MemReadEngine Package</a></p>
+                        title="previous chapter">8. MemReadEngine Package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="mmu.html"
-                        title="next chapter">9. MMU Package</a></p>
+                        title="next chapter">10. MMU Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -638,18 +638,18 @@ translated by an MMU before being issued to system memory.</p>
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="mmu.html" title="9. MMU Package"
+          <a href="mmu.html" title="10. MMU Package"
              >next</a> |</li>
         <li class="right" >
-          <a href="memreadengine.html" title="7. MemReadEngine Package"
+          <a href="memreadengine.html" title="8. MemReadEngine Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

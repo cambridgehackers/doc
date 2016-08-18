@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>10. Pipe Package &mdash; connectal 16.04.1 documentation</title>
+    <title>11. Pipe Package &mdash; connectal 16.05.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '16.04.1',
+        VERSION:     '16.05.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,10 +25,10 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.04.1 documentation" href="../index.html" />
+    <link rel="top" title="connectal 16.05.2 documentation" href="../index.html" />
     <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
-    <link rel="next" title="11. Portal Package" href="portal.html" />
-    <link rel="prev" title="9. MMU Package" href="mmu.html" /> 
+    <link rel="next" title="12. Portal Package" href="portal.html" />
+    <link rel="prev" title="10. MMU Package" href="mmu.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -41,12 +41,12 @@
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="portal.html" title="11. Portal Package"
+          <a href="portal.html" title="12. Portal Package"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="mmu.html" title="9. MMU Package"
+          <a href="mmu.html" title="10. MMU Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>  
@@ -57,11 +57,11 @@
           <div class="body" role="main">
             
   <div class="section" id="package-Pipe">
-<span id="pipe-package"></span><h1>10. Pipe Package<a class="headerlink" href="#package-Pipe" title="Permalink to this headline">¶</a></h1>
+<span id="pipe-package"></span><h1>11. Pipe Package<a class="headerlink" href="#package-Pipe" title="Permalink to this headline">¶</a></h1>
 <p>The Pipe package is modeled on Bluespec, Inc&#8217;s PAClib package. It
 provides functions and modules for composing pipelines of operations.</p>
 <div class="section" id="pipe-interfaces">
-<h2>10.1. Pipe Interfaces<a class="headerlink" href="#pipe-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2>11.1. Pipe Interfaces<a class="headerlink" href="#pipe-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="Pipe::PipeIn">
 <em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">PipeIn</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::PipeIn" title="Permalink to this definition">¶</a></dt>
@@ -201,7 +201,7 @@ parameter &#8220;in&#8221;. Includes a FIFO buffering stage.</p>
 
 </div>
 <div class="section" id="get-and-put-pipes">
-<h2>10.2. Get and Put Pipes<a class="headerlink" href="#get-and-put-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.2. Get and Put Pipes<a class="headerlink" href="#get-and-put-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="Pipe::ToGet ">
 <em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToGet </code><span class="sig-paren">(</span><em>PipeOut #(a)</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToGet " title="Permalink to this definition">¶</a></dt>
@@ -214,7 +214,7 @@ parameter &#8220;in&#8221;. Includes a FIFO buffering stage.</p>
 
 </div>
 <div class="section" id="connectable-pipes">
-<h2>10.3. Connectable Pipes<a class="headerlink" href="#connectable-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.3. Connectable Pipes<a class="headerlink" href="#connectable-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="Pipe::Connectable">
 <em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>PipeOut#(a)</em>, <em>Put#(a)</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::Connectable" title="Permalink to this definition">¶</a></dt>
@@ -227,7 +227,7 @@ parameter &#8220;in&#8221;. Includes a FIFO buffering stage.</p>
 
 </div>
 <div class="section" id="mapping-over-pipes">
-<h2>10.4. Mapping over Pipes<a class="headerlink" href="#mapping-over-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.4. Mapping over Pipes<a class="headerlink" href="#mapping-over-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="Pipe::toCountedPipeOut">
 <em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">toCountedPipeOut</code><span class="sig-paren">(</span><em>Reg#(Bit#(n)) r</em>, <em>PipeOut#(a) pipe</em><span class="sig-paren">)</span> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::toCountedPipeOut" title="Permalink to this definition">¶</a></dt>
@@ -261,10 +261,10 @@ the input pipes using a FIFOF for buffering.</p>
 
 </div>
 <div class="section" id="reducing-pipes">
-<h2>10.5. Reducing Pipes<a class="headerlink" href="#reducing-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.5. Reducing Pipes<a class="headerlink" href="#reducing-pipes" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="functions-on-pipes-of-vectors">
-<h2>10.6. Functions on Pipes of Vectors<a class="headerlink" href="#functions-on-pipes-of-vectors" title="Permalink to this headline">¶</a></h2>
+<h2>11.6. Functions on Pipes of Vectors<a class="headerlink" href="#functions-on-pipes-of-vectors" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="Pipe::unvectorPipeOut">
 <em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">unvectorPipeOut</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(1</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::unvectorPipeOut" title="Permalink to this definition">¶</a></dt>
@@ -272,7 +272,7 @@ the input pipes using a FIFOF for buffering.</p>
 
 </div>
 <div class="section" id="funneling-and-unfunneling">
-<h2>10.7. Funneling and Unfunneling<a class="headerlink" href="#funneling-and-unfunneling" title="Permalink to this headline">¶</a></h2>
+<h2>11.7. Funneling and Unfunneling<a class="headerlink" href="#funneling-and-unfunneling" title="Permalink to this headline">¶</a></h2>
 <dl class="module">
 <dt id="Pipe::mkFunnel">
 <em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnel</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(mk</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(Vector#(m, a))<a class="headerlink" href="#Pipe::mkFunnel" title="Permalink to this definition">¶</a></dt>
@@ -313,7 +313,7 @@ m-element vector, and returns an mk-element vector.</p>
 
 </div>
 <div class="section" id="fork-and-join">
-<h2>10.8. Fork and Join<a class="headerlink" href="#fork-and-join" title="Permalink to this headline">¶</a></h2>
+<h2>11.8. Fork and Join<a class="headerlink" href="#fork-and-join" title="Permalink to this headline">¶</a></h2>
 <p>Fork and Join with limited scalability</p>
 <dl class="module">
 <dt id="Pipe::mkForkVector">
@@ -350,7 +350,7 @@ the input pipes, using a FIFOF to buffer the output.</p>
 
 </div>
 <div class="section" id="funnel-pipes">
-<h2>10.9. Funnel Pipes<a class="headerlink" href="#funnel-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.9. Funnel Pipes<a class="headerlink" href="#funnel-pipes" title="Permalink to this headline">¶</a></h2>
 <p>Fork and Join with tree-based fanout and fanin for scalability.</p>
 <p>These are used by MemReadEngine and MemWriteEngine.</p>
 <dl class="typedef">
@@ -425,7 +425,7 @@ the input pipes, using a FIFOF to buffer the output.</p>
 
 </div>
 <div class="section" id="delimited-pipes">
-<h2>10.10. Delimited Pipes<a class="headerlink" href="#delimited-pipes" title="Permalink to this headline">¶</a></h2>
+<h2>11.10. Delimited Pipes<a class="headerlink" href="#delimited-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="Pipe::FirstLastPipe">
 <em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">FirstLastPipe</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::FirstLastPipe" title="Permalink to this definition">¶</a></dt>
@@ -515,27 +515,27 @@ used.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">10. Pipe Package</a><ul>
-<li><a class="reference internal" href="#pipe-interfaces">10.1. Pipe Interfaces</a></li>
-<li><a class="reference internal" href="#get-and-put-pipes">10.2. Get and Put Pipes</a></li>
-<li><a class="reference internal" href="#connectable-pipes">10.3. Connectable Pipes</a></li>
-<li><a class="reference internal" href="#mapping-over-pipes">10.4. Mapping over Pipes</a></li>
-<li><a class="reference internal" href="#reducing-pipes">10.5. Reducing Pipes</a></li>
-<li><a class="reference internal" href="#functions-on-pipes-of-vectors">10.6. Functions on Pipes of Vectors</a></li>
-<li><a class="reference internal" href="#funneling-and-unfunneling">10.7. Funneling and Unfunneling</a></li>
-<li><a class="reference internal" href="#fork-and-join">10.8. Fork and Join</a></li>
-<li><a class="reference internal" href="#funnel-pipes">10.9. Funnel Pipes</a></li>
-<li><a class="reference internal" href="#delimited-pipes">10.10. Delimited Pipes</a></li>
+<li><a class="reference internal" href="#">11. Pipe Package</a><ul>
+<li><a class="reference internal" href="#pipe-interfaces">11.1. Pipe Interfaces</a></li>
+<li><a class="reference internal" href="#get-and-put-pipes">11.2. Get and Put Pipes</a></li>
+<li><a class="reference internal" href="#connectable-pipes">11.3. Connectable Pipes</a></li>
+<li><a class="reference internal" href="#mapping-over-pipes">11.4. Mapping over Pipes</a></li>
+<li><a class="reference internal" href="#reducing-pipes">11.5. Reducing Pipes</a></li>
+<li><a class="reference internal" href="#functions-on-pipes-of-vectors">11.6. Functions on Pipes of Vectors</a></li>
+<li><a class="reference internal" href="#funneling-and-unfunneling">11.7. Funneling and Unfunneling</a></li>
+<li><a class="reference internal" href="#fork-and-join">11.8. Fork and Join</a></li>
+<li><a class="reference internal" href="#funnel-pipes">11.9. Funnel Pipes</a></li>
+<li><a class="reference internal" href="#delimited-pipes">11.10. Delimited Pipes</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="mmu.html"
-                        title="previous chapter">9. MMU Package</a></p>
+                        title="previous chapter">10. MMU Package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="portal.html"
-                        title="next chapter">11. Portal Package</a></p>
+                        title="next chapter">12. Portal Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -570,18 +570,18 @@ used.</p>
           <a href="../bsv-pkgindex.html" title="Bsv Package Index"
              >bsvpkgs</a> |</li>
         <li class="right" >
-          <a href="portal.html" title="11. Portal Package"
+          <a href="portal.html" title="12. Portal Package"
              >next</a> |</li>
         <li class="right" >
-          <a href="mmu.html" title="9. MMU Package"
+          <a href="mmu.html" title="10. MMU Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

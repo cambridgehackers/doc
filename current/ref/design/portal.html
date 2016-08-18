@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What is Connectal? &mdash; connectal 16.04.1 documentation</title>
+    <title>What is Connectal? &mdash; connectal 16.05.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '16.04.1',
+        VERSION:     '16.05.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.04.1 documentation" href="../index.html" />
+    <link rel="top" title="connectal 16.05.2 documentation" href="../index.html" />
     <link rel="up" title="Connectal Design" href="design.html" />
     <link rel="next" title="Interface Declarations" href="interface_definitions.html" />
     <link rel="prev" title="Portal Interface Structure" href="portalstructure.html" /> 
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="portalstructure.html" title="Portal Interface Structure"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
       </ul>
     </div>  
@@ -331,7 +331,7 @@ x86/PCIe.</p>
 </pre></div>
 </div>
 <p>Collect the portals into a vector:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(2,StdPortal) portals;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c1">#(2,StdPortal) portals;</span>
 <span class="n">portals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpleRequestWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
 <span class="n">portals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">simpleIndicationProxy</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
 </pre></div>
@@ -361,12 +361,12 @@ endmodule : mkConnectalTop
 <p>CONNECTAL generates header files declaring wrappers for
 hardware-to-software interfaces and proxies for software-to-hardware
 interfaces. These will be in the &#8220;jni/&#8221; subdirectory of the project directory.</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#include &quot;SimpleIndication.h&quot;</span>
-<span class="c">#include &quot;SimpleRequest.h&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1">#include &quot;SimpleIndication.h&quot;</span>
+<span class="c1">#include &quot;SimpleRequest.h&quot;</span>
 </pre></div>
 </div>
 <p>It also declares software equivalents for structs and enums declared in the processed BSV files:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c">#include &quot;GeneratedTypes.h&quot;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1">#include &quot;GeneratedTypes.h&quot;</span>
 </pre></div>
 </div>
 <p>CONNECTAL generates abstract virtual base classes for each Indication interface.</p>
@@ -540,7 +540,7 @@ the target manually:</p>
 <div class="section" id="shared-memory-hardware">
 <h3>Shared Memory Hardware<a class="headerlink" href="#shared-memory-hardware" title="Permalink to this headline">¶</a></h3>
 <p>In order to use shared memory, the hardware design instantiates a DMA module in Top.bsv:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">AxiDmaServer</span><span class="c">#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">AxiDmaServer</span><span class="c1">#(addrWidth,64) dma &lt;- mkAxiDmaServer(dmaIndicationProxy.ifc, readClients, writeClients);</span>
 </pre></div>
 </div>
 <p>The AxiDmaServer multiplexes read and write requests from the
@@ -597,8 +597,8 @@ MemreadRequestWrapper memreadRequestWrapper &lt;- mkMemreadRequestWrapper(Memrea
 </pre></div>
 </div>
 <p>Collect the read and write clients:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(1, MemReadClient#(64)) readClients = cons(memread.dmaClient, nil);</span>
-<span class="n">Vector</span><span class="c">#(0, MemReadClient#(64)) writeClients = nil;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c1">#(1, MemReadClient#(64)) readClients = cons(memread.dmaClient, nil);</span>
+<span class="n">Vector</span><span class="c1">#(0, MemReadClient#(64)) writeClients = nil;</span>
 </pre></div>
 </div>
 <p>Instantiate the DMA server and its wrapper and proxy:</p>
@@ -608,7 +608,7 @@ DmaConfigWrapper dmaConfigWrapper &lt;- mkDmaConfigWrapper(DmaConfig,dma.request
 </pre></div>
 </div>
 <p>Include <cite>DmaConfig</cite> and <cite>DmaIndication</cite> in the portals of the design:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c">#(4,StdPortal) portals;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Vector</span><span class="c1">#(4,StdPortal) portals;</span>
 <span class="n">portals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">memreadRequestWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
 <span class="n">portals</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">memreadIndicationProxy</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
 <span class="n">portals</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">dmaConfigWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
@@ -745,13 +745,13 @@ a rather direct path for I/O reads that could get out of order.</p>
         <li class="right" >
           <a href="portalstructure.html" title="Portal Interface Structure"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>

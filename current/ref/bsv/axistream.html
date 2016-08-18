@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. AxiStream Package &mdash; connectal 16.05.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '16.05.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/tracking.js"></script>
+    <link rel="top" title="connectal 16.05.2 documentation" href="../index.html" />
+    <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
+    <link rel="next" title="4. CtrlMux Package" href="ctrlmux.html" />
+    <link rel="prev" title="2. Arith Package" href="arith.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="ctrlmux.html" title="4. CtrlMux Package"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="arith.html" title="2. Arith Package"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="axistream-package">
+<h1>3. AxiStream Package<a class="headerlink" href="#axistream-package" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="package-AxiStream"></span><div class="section" id="axi-stream-interfaces">
+<h2>3.1. AXI Stream Interfaces<a class="headerlink" href="#axi-stream-interfaces" title="Permalink to this headline">¶</a></h2>
+<dl class="interface">
+<dt id="AxiStream::AxiStreamMaster">
+<em class="property">interface </em><code class="descclassname">AxiStream::</code><code class="descname">AxiStreamMaster</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamMaster" title="Permalink to this definition">¶</a></dt>
+<dd><p>AXI stream source with dataWidth data bits.</p>
+<blockquote>
+<div><dl class="method">
+<dt id="AxiStream::AxiStreamMaster.tdata">
+<code class="descname">tdata</code> &rarr; Bit#(dsz)<a class="headerlink" href="#AxiStream::AxiStreamMaster.tdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the data from this beat if tvalid is asserted, otherwise returns undefined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamMaster.    tkeep">
+<code class="descname">    tkeep</code> &rarr; Bit#(TDiv#(dsz,8))<a class="headerlink" href="#AxiStream::AxiStreamMaster.    tkeep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the byte enables from this beat if tvalid is asserted, otherwise returns undefined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamMaster.              tlast">
+<code class="descname">              tlast</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.              tlast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if this is the last data beat of this transaction tvalid is asserted, otherwise returns undefined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamMaster.                tready">
+<code class="descname">                tready</code><span class="sig-paren">(</span><em>Bit#(1) v</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamMaster.                tready" title="Permalink to this definition">¶</a></dt>
+<dd><p>When tvalid and tready are both asserted the current data is
+consumed. The value passed to tready may not depend on the output
+of tvalid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamMaster.               tvalid">
+<code class="descname">               tvalid</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.               tvalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asserted when the data is valid.</p>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+<dl class="interface">
+<dt id="AxiStream::AxiStreamSlave">
+<em class="property">interface </em><code class="descclassname">AxiStream::</code><code class="descname">AxiStreamSlave</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamSlave" title="Permalink to this definition">¶</a></dt>
+<dd><p>AXI stream sink with dataWidth data bits.</p>
+<blockquote>
+<div><dl class="method">
+<dt id="AxiStream::AxiStreamSlave.tdata">
+<code class="descname">tdata</code><span class="sig-paren">(</span><em>Bit#(dsz) data</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tdata" title="Permalink to this definition">¶</a></dt>
+<dd><p>The data passed from the source if tvalid is asserted, otherwise undefined..</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamSlave.tkeep">
+<code class="descname">tkeep</code><span class="sig-paren">(</span><em>Bit#(TDiv#(dsz</em>, <em>8)) keep</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tkeep" title="Permalink to this definition">¶</a></dt>
+<dd><p>The byte enables passed from the source if tvalid is asserted, otherwise undefined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamSlave.tlast">
+<code class="descname">tlast</code><span class="sig-paren">(</span><em>Bit#(1) last</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tlast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if this is the last data beat of this transaction tvalid is asserted, otherwise returns undefined.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamSlave.tready">
+<code class="descname">tready</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamSlave.tready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return 1 if ready to receive data, 0 otherwise.</p>
+<p>When tvalid and tready are both asserted the current data is
+consumed. The value passed to tready may not depend on the output
+of tvalid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="AxiStream::AxiStreamSlave.tvalid">
+<code class="descname">tvalid</code><span class="sig-paren">(</span><em>Bit#(1) v</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tvalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates the data from the source is valid.</p>
+</dd></dl>
+
+</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="connectable-type-instances">
+<h2>3.2. Connectable Type Instances<a class="headerlink" href="#connectable-type-instances" title="Permalink to this headline">¶</a></h2>
+<dl class="instance">
+<dt id="AxiStream::Connectable">
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dataWidth)</em>, <em>AxiStreamSlave#(dataWidth)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::Connectable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="instance">
+<dt id="AxiStream::ToGetM">
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">ToGetM</code><span class="sig-paren">(</span><em>AxiStreamMaster#(asz)</em>, <em>Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToGetM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="instance">
+<dt id="AxiStream::ToPutM">
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">ToPutM</code><span class="sig-paren">(</span><em>AxiStreamSlave#(asz)</em>, <em>Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToPutM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="axi-stream-type-classes-and-instances">
+<h2>3.3. AXI Stream Type Classes and Instances<a class="headerlink" href="#axi-stream-type-classes-and-instances" title="Permalink to this headline">¶</a></h2>
+<dl class="typeclass">
+<dt id="AxiStream::ToAxiStream">
+<em class="property">typeclass </em><code class="descclassname">AxiStream::</code><code class="descname">ToAxiStream</code><span class="sig-paren">(</span><em>type atype</em>, <em>type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToAxiStream" title="Permalink to this definition">¶</a></dt>
+<dt id="AxiStream::.. bsv:function:: atype toAxiStream(btype b)">
+<em class="property">typeclass </em><code class="descclassname">AxiStream::</code><code class="descname">.. bsv:function:: atype toAxiStream(btype b)</code><a class="headerlink" href="#AxiStream::.. bsv:function:: atype toAxiStream(btype b)" title="Permalink to this definition">¶</a></dt>
+<dd><blockquote>
+<div>Convert to an AXI stream interface.</div></blockquote>
+</dd></dl>
+
+<dl class="typeclass">
+<dt id="AxiStream::MkAxiStream">
+<em class="property">typeclass </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>type atype</em>, <em>type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::MkAxiStream" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="module">
+<dt id="AxiStream::MkAxiStream.mkAxiStream">
+<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>btype b</em><span class="sig-paren">)</span> &rarr; (atype<a class="headerlink" href="#AxiStream::MkAxiStream.mkAxiStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a module with an AXI Stream interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="instance">
+<dt>
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<dd><dl class="module">
+<dt>
+<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamMaster#(dsize))</dt>
+<dd></dd></dl>
+
+<p>Create an AXI Stream master from a FIFOF of bits</p>
+</dd></dl>
+
+<dl class="instance">
+<dt>
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamSlave#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<dd><dl class="module">
+<dt>
+<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamSlave#(dsize))</dt>
+<dd><p>Create an AXI Stream slave from a FIFOF of bits</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="instance">
+<dt>
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<dd><dl class="module">
+<dt>
+<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamMaster#(dsize))</dt>
+<dd></dd></dl>
+
+<p>Create an AXI Stream master from a FIFOF of MemDataF</p>
+</dd></dl>
+
+<dl class="instance">
+<dt>
+<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamSlave#(dsize)</em>, <em>FIFOF#(MemDataF#(dsize))</em><span class="sig-paren">)</span></dt>
+<dd><dl class="module">
+<dt>
+<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(MemDataF#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamSlave#(dsize))</dt>
+<dd><p>Create an AXI Stream slave from a FIFOF of MemDataF</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">3. AxiStream Package</a><ul>
+<li><a class="reference internal" href="#axi-stream-interfaces">3.1. AXI Stream Interfaces</a></li>
+<li><a class="reference internal" href="#connectable-type-instances">3.2. Connectable Type Instances</a></li>
+<li><a class="reference internal" href="#axi-stream-type-classes-and-instances">3.3. AXI Stream Type Classes and Instances</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="arith.html"
+                        title="previous chapter">2. Arith Package</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ctrlmux.html"
+                        title="next chapter">4. CtrlMux Package</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/bsv/axistream.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../bsv-pkgindex.html" title="Bsv Package Index"
+             >bsvpkgs</a> |</li>
+        <li class="right" >
+          <a href="ctrlmux.html" title="4. CtrlMux Package"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="arith.html" title="2. Arith Package"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+    </div>
+  </body>
+</html>

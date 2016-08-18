@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. Invocation of topgen.py &mdash; connectal 16.04.1 documentation</title>
+    <title>4. Invocation of topgen.py &mdash; connectal 16.05.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '16.04.1',
+        VERSION:     '16.05.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.04.1 documentation" href="../index.html" />
+    <link rel="top" title="connectal 16.05.2 documentation" href="../index.html" />
     <link rel="up" title="Connectal Tools" href="tools.html" />
     <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
     <link rel="prev" title="3. pcieflat" href="pcieflat.html" /> 
@@ -46,7 +46,7 @@
         <li class="right" >
           <a href="pcieflat.html" title="3. pcieflat"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>  
@@ -58,13 +58,14 @@
             
   <div class="section" id="invocation-of-topgen-py">
 <h1>4. Invocation of topgen.py<a class="headerlink" href="#invocation-of-topgen-py" title="Permalink to this headline">¶</a></h1>
-<pre class="literal-block">
-usage: topgen [-h] [--project-dir PROJECT_DIR] [--interface INTERFACE]
-              [--board BOARD] [--importfiles IMPORTFILES]
-              [--portname PORTNAME] [--wrapper WRAPPER] [--proxy PROXY]
-              [--memread MEMREAD] [--memwrite MEMWRITE] [--cnoc]
-              [--integratedIndication]
-</pre>
+<div class="highlight-python"><div class="highlight"><pre>usage: topgen [-h] [--project-dir PROJECT_DIR] [--filename FILENAME]
+              [--topname TOPNAME] [--ifcnames IFCNAMES] [--pintype PINTYPE]
+              [--interface INTERFACE] [--portalclock PORTALCLOCK]
+              [--importfiles IMPORTFILES] [--portname PORTNAME]
+              [--wrapper WRAPPER] [--proxy PROXY] [--memread MEMREAD]
+              [--memwrite MEMWRITE] [--cnoc] [--integratedIndication]
+</pre></div>
+</div>
 <dl class="docutils">
 <dt>Options:</dt>
 <dd><table class="first last docutils option-list" frame="void" rules="none">
@@ -74,12 +75,27 @@ usage: topgen [-h] [--project-dir PROJECT_DIR] [--interface INTERFACE]
 <tr><td class="option-group">
 <kbd><span class="option">--project-dir</span></kbd></td>
 <td>project directory</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--filename=Top.bsv</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>name of generated file</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--topname=mkConnectalTop</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>name of generated module</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">--ifcnames=IfcNames</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>name of interface names enum type and file</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--pintype=[]</span></kbd></td>
+<td>Type of pins interface</td></tr>
 <tr><td class="option-group">
 <kbd><span class="option">--interface=[]</span></kbd></td>
 <td>exported interface declaration</td></tr>
 <tr><td class="option-group">
-<kbd><span class="option">--board</span></kbd></td>
-<td>Board type</td></tr>
+<kbd><span class="option">--portalclock</span></kbd></td>
+<td>Portal clock source</td></tr>
 <tr><td class="option-group" colspan="2">
 <kbd><span class="option">--importfiles=[]</span></kbd></td>
 </tr>
@@ -163,13 +179,13 @@ usage: topgen [-h] [--project-dir PROJECT_DIR] [--interface INTERFACE]
         <li class="right" >
           <a href="pcieflat.html" title="3. pcieflat"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.04.1 documentation</a> &raquo;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.05.2 documentation</a> &raquo;</li>
           <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
     </div>
   </body>
 </html>
