@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; connectal 16.05.2 documentation</title>
+    <title>Installation &mdash; connectal 16.11.1 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '16.05.2',
+        VERSION:     '16.11.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.05.2 documentation" href="index.html" />
+    <link rel="top" title="connectal 16.11.1 documentation" href="index.html" />
     <link rel="next" title="Connectal Design" href="design/design.html" />
     <link rel="prev" title="Introduction" href="intro.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="intro.html" title="Introduction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">connectal 16.05.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">connectal 16.11.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -59,42 +59,117 @@
 <div class="section" id="installing-connectal-from-packages">
 <h2>Installing Connectal from Packages<a class="headerlink" href="#installing-connectal-from-packages" title="Permalink to this headline">¶</a></h2>
 <p>On Ubuntu systems, connectal may be installed from pre-built packages:</p>
-<blockquote>
-<div>sudo add-apt-repository -y ppa:jamey-hicks/connectal
+<div class="highlight-python"><div class="highlight"><pre>sudo add-apt-repository -y ppa:jamey-hicks/connectal
 sudo apt-get update
-sudo apt-get -y install connectal</div></blockquote>
+sudo apt-get -y install connectal
+</pre></div>
+</div>
 </div>
 <div class="section" id="installing-connectal-from-source">
 <h2>Installing Connectal from Source<a class="headerlink" href="#installing-connectal-from-source" title="Permalink to this headline">¶</a></h2>
 <p>Connectal source comes from three repositories:</p>
-<blockquote>
-<div>git clone git://github.com/cambridgehackers/connectal
+<div class="highlight-python"><div class="highlight"><pre>git clone git://github.com/cambridgehackers/connectal
 git clone git://github.com/cambridgehackers/fpgamake
-git clone git://github.com/cambridgehackers/buildcache</div></blockquote>
+git clone git://github.com/cambridgehackers/buildcache
+</pre></div>
+</div>
 <p>To use Connectal to build hardware/software applications, some additional packages are required:</p>
-<blockquote>
-<div>cd connectal; sudo make install-dependences</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>cd connectal; sudo make install-dependences
+</pre></div>
+</div>
 </div>
 <div class="section" id="installing-connectal-drivers-and-pci-express-utilities">
 <h2>Installing Connectal Drivers and PCI Express Utilities:<a class="headerlink" href="#installing-connectal-drivers-and-pci-express-utilities" title="Permalink to this headline">¶</a></h2>
 <p>To run Connectal applications on FPGAs attached via PCI Express, a
 couple of device drivers have to be built and installed:</p>
-<blockquote>
-<div>cd connectal; make all &amp;&amp; sudo make install</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>cd connectal; make all &amp;&amp; sudo make install
+</pre></div>
+</div>
 <p>In addition, you will need to build and install fpgajtag and pciescan:</p>
-<blockquote>
-<div><p>git clone git://github.com/cambridgehackers/pciescan
-(cd pciescan; make &amp;&amp; sudo make install)</p>
-<p>git clone git://github.com/cambridgehackers/fpgajtag
-(cd fpgajtag; make &amp;&amp; sudo make install)</p>
-</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre>git clone git://github.com/cambridgehackers/pciescan
+(cd pciescan; make &amp;&amp; sudo make install)
+
+git clone git://github.com/cambridgehackers/fpgajtag
+(cd fpgajtag; make &amp;&amp; sudo make install)
+</pre></div>
+</div>
 </div>
 <div class="section" id="installing-vivado">
 <h2>Installing Vivado<a class="headerlink" href="#installing-vivado" title="Permalink to this headline">¶</a></h2>
-<p>Download Vivado from Xilinx</p>
+<p>Download Vivado from Xilinx:</p>
 <blockquote>
 <div><a class="reference external" href="http://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2015-4.html">http://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/2015-4.html</a></div></blockquote>
 <p>Connectal builds do not use the Vivado SDK.</p>
+</div>
+<div class="section" id="installing-ubuntu-on-zynq-zedboard-etc">
+<h2>Installing Ubuntu on Zynq (Zedboard, etc)<a class="headerlink" href="#installing-ubuntu-on-zynq-zedboard-etc" title="Permalink to this headline">¶</a></h2>
+<p>The shorthand instructions are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Follow the instructions to install Ubuntu for Raspberry Pi 2 on and SD Card</li>
+<li>Copy a Zedboard boot.bin to the first (VFAT) partition of the SD Card</li>
+<li>Boot the Zedboard</li>
+<li>Default password for user &#8220;ubuntu&#8221; is &#8220;ubuntu&#8221;</li>
+</ul>
+</div></blockquote>
+<div class="section" id="toolchain">
+<h3>Toolchain<a class="headerlink" href="#toolchain" title="Permalink to this headline">¶</a></h3>
+<p>Zynq contains dual ARM Cortex A9 cores, which are 32-bit processors
+using the ARMv7 instruction set. They are compatible with the
+toolchain used for Raspberry Pi 2, which has prefix
+&#8220;arm-linux-gnueabihf&#8221;.</p>
+<p>The &#8220;eabi&#8221; suffix indicates the ARM extended application binary
+interface standard.</p>
+<p>The &#8220;hf&#8221; suffix indicates that the toolchain generates floating point
+instructions rather than subroutine calls to emulate floating point,
+because not all 32-bit ARM processors have floating point units.</p>
+</div>
+<div class="section" id="download-the-base-image">
+<h3>Download the base image<a class="headerlink" href="#download-the-base-image" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Download the Ubuntu SD card image:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://cdimage.ubuntu.com/ubuntu/releases/16.04/release/ubuntu-16.04-preinstalled-server-armhf+raspi2.img.xz">http://cdimage.ubuntu.com/ubuntu/releases/16.04/release/ubuntu-16.04-preinstalled-server-armhf+raspi2.img.xz</a></li>
+</ul>
+</dd>
+<dt>Which is referenced on this page:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://wiki.ubuntu.com/ARM/RaspberryPi">https://wiki.ubuntu.com/ARM/RaspberryPi</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="formatting-and-sd-card-for-ubuntu">
+<h3>Formatting and SD Card for Ubuntu<a class="headerlink" href="#formatting-and-sd-card-for-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>Ubuntu 16.04 uses filesystem labels to determine which partitions to mount. There should be two partitions, with the following labels:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">system-boot The first partition should be vfat so that the
+firmware in the Zynq ROM can read it to find boot.bin. The
+following command will format the partition and label it:</p>
+<p>mkfs -t vfat -n system-boot /dev/sdb1</p>
+</li>
+<li><p class="first">cloudimg-rootfs The second partition should be a Linux filesystem
+(default ext4) containing the ubuntu installation. The following
+two commands will format a partition and label it:</p>
+<div class="highlight-python"><div class="highlight"><pre>mkfs -t ext4 /dev/sdb2
+e2label /dev/sdb2 cloudimg-rootfs
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="install-a-boot-bin-file">
+<h3>Install a boot.bin file<a class="headerlink" href="#install-a-boot-bin-file" title="Permalink to this headline">¶</a></h3>
+<p>See the instructions at <a class="reference external" href="https://github.com/cambridgehackers/zynq-boot">https://github.com/cambridgehackers/zynq-boot</a></p>
+</div>
+<div class="section" id="configuring-a-linux-kernel-for-ubuntu-16-04">
+<h3>Configuring a Linux Kernel for Ubuntu 16.04<a class="headerlink" href="#configuring-a-linux-kernel-for-ubuntu-16-04" title="Permalink to this headline">¶</a></h3>
+<p>I had to change the kernel configuration to suppport systemd, the init
+system used in Ubuntu 16.04.</p>
+<p>To be written ...</p>
+</div>
 </div>
 </div>
 
@@ -111,6 +186,14 @@ couple of device drivers have to be built and installed:</p>
 <li><a class="reference internal" href="#installing-connectal-from-source">Installing Connectal from Source</a></li>
 <li><a class="reference internal" href="#installing-connectal-drivers-and-pci-express-utilities">Installing Connectal Drivers and PCI Express Utilities:</a></li>
 <li><a class="reference internal" href="#installing-vivado">Installing Vivado</a></li>
+<li><a class="reference internal" href="#installing-ubuntu-on-zynq-zedboard-etc">Installing Ubuntu on Zynq (Zedboard, etc)</a><ul>
+<li><a class="reference internal" href="#toolchain">Toolchain</a></li>
+<li><a class="reference internal" href="#download-the-base-image">Download the base image</a></li>
+<li><a class="reference internal" href="#formatting-and-sd-card-for-ubuntu">Formatting and SD Card for Ubuntu</a></li>
+<li><a class="reference internal" href="#install-a-boot-bin-file">Install a boot.bin file</a></li>
+<li><a class="reference internal" href="#configuring-a-linux-kernel-for-ubuntu-16-04">Configuring a Linux Kernel for Ubuntu 16.04</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -160,7 +243,7 @@ couple of device drivers have to be built and installed:</p>
         <li class="right" >
           <a href="intro.html" title="Introduction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">connectal 16.05.2 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">connectal 16.11.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
