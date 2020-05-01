@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>1. Invocation of makefilegen.py &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>1. Invocation of makefilegen.py &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Tools" href="tools.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Invocation of generate-constraints.py" href="generate-constraints.html" />
     <link rel="prev" title="Connectal Tools" href="tools.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="tools.html" title="Connectal Tools"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,311 +46,320 @@
           <div class="body" role="main">
             
   <div class="section" id="invocation-of-makefilegen-py">
-<h1>1. Invocation of makefilegen.py<a class="headerlink" href="#invocation-of-makefilegen-py" title="Permalink to this headline">¶</a></h1>
-<p>The <strong class="program">makefilegen.py</strong> script generates project Makefiles. Normally, it is invoked from Makefile.connectal and passed options via <a class="reference internal" href="../makefile.connectal.html#var-CONNECTALFLAGS"><code class="xref make make-var docutils literal"><span class="pre">CONNECTALFLAGS</span></code></a>.</p>
+<h1><span class="section-number">1. </span>Invocation of makefilegen.py<a class="headerlink" href="#invocation-of-makefilegen-py" title="Permalink to this headline">¶</a></h1>
+<p>The <strong class="program">makefilegen.py</strong> script generates project Makefiles. Normally, it is invoked from Makefile.connectal and passed options via <a class="reference internal" href="../makefile.connectal.html#var-CONNECTALFLAGS"><code class="xref make make-var docutils literal notranslate"><span class="pre">CONNECTALFLAGS</span></code></a>.</p>
 <div class="section" id="project-options">
-<h2>1.1. Project Options<a class="headerlink" href="#project-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Project Options<a class="headerlink" href="#project-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption-B">
-<span id="cmdoption--board"></span><code class="descname">-B</code><code class="descclassname"> board</code><code class="descclassname">, </code><code class="descname">--board</code><code class="descclassname">=board</code><a class="headerlink" href="#cmdoption-B" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-b">
+<code class="sig-name descname">-B</code><code class="sig-prename descclassname"> board</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--board</code><code class="sig-prename descclassname">=board</code><a class="headerlink" href="#cmdoption-b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies which board to build for.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--O">
-<span id="cmdoption--option"></span><code class="descname">--O</code><code class="descclassname"> os</code><code class="descclassname">, </code><code class="descname">--option</code><code class="descclassname">=os</code><a class="headerlink" href="#cmdoption--O" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-o">
+<code class="sig-name descname">--O</code><code class="sig-prename descclassname"> os</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--option</code><code class="sig-prename descclassname">=os</code><a class="headerlink" href="#cmdoption-o" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies which operating system to support. Usually derived from :option:board.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--project-dir">
-<code class="descname">--project-dir</code><code class="descclassname">=dir</code><a class="headerlink" href="#cmdoption--project-dir" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-project-dir">
+<code class="sig-name descname">--project-dir</code><code class="sig-prename descclassname">=dir</code><a class="headerlink" href="#cmdoption-project-dir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the directory in which to creat the Makefile that
 performs the build. Creates the directory if it does not exist.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="source-options">
-<h2>1.2. Source Options<a class="headerlink" href="#source-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Source Options<a class="headerlink" href="#source-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
 <dt id="cmdoption-arg-bsvfile">
-<code class="descname">bsvfile</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-arg-bsvfile" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bsvfile</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-arg-bsvfile" title="Permalink to this definition">¶</a></dt>
 <dd><p>This positional argument specifies which BSV files to parse for type and interface declarations.</p>
 </dd></dl>
 
 <dl class="option">
 <dt id="cmdoption-s">
-<span id="cmdoption--source"></span><code class="descname">-s</code><code class="descclassname"> foo.cpp</code><code class="descclassname">, </code><code class="descname">--source</code><code class="descclassname">=foo.cpp</code><a class="headerlink" href="#cmdoption-s" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">-s</code><code class="sig-prename descclassname"> foo.cpp</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--source</code><code class="sig-prename descclassname">=foo.cpp</code><a class="headerlink" href="#cmdoption-s" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies C and C++ files to include in the application.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--ipdir">
-<code class="descname">--ipdir</code><code class="descclassname">=dir</code><a class="headerlink" href="#cmdoption--ipdir" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-ipdir">
+<code class="sig-name descname">--ipdir</code><code class="sig-prename descclassname">=dir</code><a class="headerlink" href="#cmdoption-ipdir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies where to store IP cores generated by Vivado or Quartus</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--cachedir">
-<code class="descname">--cachedir</code><code class="descclassname">=dirname</code><a class="headerlink" href="#cmdoption--cachedir" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-cachedir">
+<code class="sig-name descname">--cachedir</code><code class="sig-prename descclassname">=dirname</code><a class="headerlink" href="#cmdoption-cachedir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies directory to be used by <cite>buildcache</cite></p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--nocache">
-<code class="descname">--nocache</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--nocache" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-nocache">
+<code class="sig-name descname">--nocache</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-nocache" title="Permalink to this definition">¶</a></dt>
 <dd><p>Disables <cite>buildcache</cite></p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-D">
-<code class="descname">-D</code><code class="descclassname"> var=value</code><a class="headerlink" href="#cmdoption-D" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-d">
+<code class="sig-name descname">-D</code><code class="sig-prename descclassname"> var=value</code><a class="headerlink" href="#cmdoption-d" title="Permalink to this definition">¶</a></dt>
 <dd><p>Binds var to value in software, BSV, Verilog, and Tcl contexts.</p>
 </dd></dl>
 
 <dl class="option">
 <dt id="cmdoption-v">
-<span id="cmdoption--verbose"></span><code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-v" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">-v</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--verbose</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-v" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verbose operation</p>
 </dd></dl>
 
 </div>
 <div class="section" id="interface-options">
-<h2>1.3. Interface Options<a class="headerlink" href="#interface-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Interface Options<a class="headerlink" href="#interface-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--interfaces">
-<code class="descname">--interfaces</code><code class="descclassname">=...</code><a class="headerlink" href="#cmdoption--interfaces" title="Permalink to this definition">¶</a></dt>
-<dd><p>To be written...</p>
+<dt id="cmdoption-interfaces">
+<code class="sig-name descname">--interfaces</code><code class="sig-prename descclassname">=...</code><a class="headerlink" href="#cmdoption-interfaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>To be written…</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--dump_map">
-<code class="descname">--dump_map</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--dump_map" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-dump-map">
+<code class="sig-name descname">--dump_map</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-dump-map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a JSON file describing the portals, for use in tracing tools such as <cite>pcieflat</cite>.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="software-options">
-<h2>1.4. Software Options<a class="headerlink" href="#software-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Software Options<a class="headerlink" href="#software-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--cflags">
-<code class="descname">--cflags</code><code class="descclassname">=flags</code><a class="headerlink" href="#cmdoption--cflags" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-cflags">
+<code class="sig-name descname">--cflags</code><code class="sig-prename descclassname">=flags</code><a class="headerlink" href="#cmdoption-cflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies build flags for the C/C++ compiler</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-I">
-<code class="descname">-I</code><code class="descclassname"> dir --cinclude=dir</code><a class="headerlink" href="#cmdoption-I" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-i">
+<code class="sig-name descname">-I</code><code class="sig-prename descclassname"> dir --cinclude=dir</code><a class="headerlink" href="#cmdoption-i" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="option">
 <dt id="cmdoption-l">
-<span id="cmdoption--clib"></span><code class="descname">-l</code><code class="descclassname"> lib</code><code class="descclassname">, </code><code class="descname">--clib</code><code class="descclassname">=lib</code><a class="headerlink" href="#cmdoption-l" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">-l</code><code class="sig-prename descclassname"> lib</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--clib</code><code class="sig-prename descclassname">=lib</code><a class="headerlink" href="#cmdoption-l" title="Permalink to this definition">¶</a></dt>
 <dd><p>Link the application with library lib.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-S">
-<span id="cmdoption--clibfiles"></span><code class="descname">-S</code><code class="descclassname"> libfile</code><code class="descclassname">, </code><code class="descname">--clibfiles</code><code class="descclassname">=libfile.a</code><a class="headerlink" href="#cmdoption-S" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-clibfiles">
+<code class="sig-name descname">-S</code><code class="sig-prename descclassname"> libfile</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--clibfiles</code><code class="sig-prename descclassname">=libfile.a</code><a class="headerlink" href="#cmdoption-clibfiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Link the application with library file <cite>libfile.a</cite>.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-L">
-<span id="cmdoption--clibdir"></span><code class="descname">-L</code><code class="descclassname"> libdir</code><code class="descclassname">, </code><code class="descname">--clibdir</code><code class="descclassname">=libdir</code><a class="headerlink" href="#cmdoption-L" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-clibdir">
+<code class="sig-name descname">-L</code><code class="sig-prename descclassname"> libdir</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--clibdir</code><code class="sig-prename descclassname">=libdir</code><a class="headerlink" href="#cmdoption-clibdir" title="Permalink to this definition">¶</a></dt>
 <dd><p>Addes <cite>libdir</cite> to the software library path.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--nonstrict">
-<code class="descname">--nonstrict</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--nonstrict" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pass &#8211;Wall to gcc instead of -Werror.</p>
+<dt id="cmdoption-nonstrict">
+<code class="sig-name descname">--nonstrict</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-nonstrict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pass –Wall to gcc instead of -Werror.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--shared">
-<code class="descname">--shared</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--shared" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-shared">
+<code class="sig-name descname">--shared</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-shared" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies to build a shared library instead of an executable.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--nohardware">
-<code class="descname">--nohardware</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--nohardware" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-nohardware">
+<code class="sig-name descname">--nohardware</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-nohardware" title="Permalink to this definition">¶</a></dt>
 <dd><p>Suppresses build of hardware, for software-only projects.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--stl">
-<code class="descname">--stl</code><code class="descclassname">=stltype</code><a class="headerlink" href="#cmdoption--stl" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-stl">
+<code class="sig-name descname">--stl</code><code class="sig-prename descclassname">=stltype</code><a class="headerlink" href="#cmdoption-stl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies which C++ Standard Template Library to use for Android. The choices are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>stlport_static: STLport runtime C++ exceptions and RTTI and Standard Template Library</li>
-<li>stlport_shared</li>
-<li>gnustl_static: GNU STL runtime C++ exceptions and RTTI and Standard Template Library</li>
-<li>gnustl_shared</li>
-<li>c++_static: LLVM libc++ runtime C++ exceptions and RTTI and Standard Template Library</li>
-<li>c++_shared</li>
-<li>gabi++_static: GAbi++ runtime C++ exceptions and RTTI</li>
-<li>gabi++_shared</li>
+<li><p>stlport_static: STLport runtime C++ exceptions and RTTI and Standard Template Library</p></li>
+<li><p>stlport_shared</p></li>
+<li><p>gnustl_static: GNU STL runtime C++ exceptions and RTTI and Standard Template Library</p></li>
+<li><p>gnustl_shared</p></li>
+<li><p>c++_static: LLVM libc++ runtime C++ exceptions and RTTI and Standard Template Library</p></li>
+<li><p>c++_shared</p></li>
+<li><p>gabi++_static: GAbi++ runtime C++ exceptions and RTTI</p></li>
+<li><p>gabi++_shared</p></li>
 </ul>
 </div></blockquote>
 </dd></dl>
 
 </div>
 <div class="section" id="hardware-options">
-<h2>1.5. Hardware Options<a class="headerlink" href="#hardware-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Hardware Options<a class="headerlink" href="#hardware-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--bsvpath">
-<code class="descname">--bsvpath</code><code class="descclassname">=dirname</code><a class="headerlink" href="#cmdoption--bsvpath" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-bsvpath">
+<code class="sig-name descname">--bsvpath</code><code class="sig-prename descclassname">=dirname</code><a class="headerlink" href="#cmdoption-bsvpath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds <cite>dirname</cite> to the BSV module import path.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-b">
-<span id="cmdoption--bscflags"></span><code class="descname">-b</code><code class="descclassname"> options</code><code class="descclassname">, </code><code class="descname">--bscflags</code><code class="descclassname">=options</code><a class="headerlink" href="#cmdoption-b" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-bscflags">
+<code class="sig-name descname">-b</code><code class="sig-prename descclassname"> options</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--bscflags</code><code class="sig-prename descclassname">=options</code><a class="headerlink" href="#cmdoption-bscflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flags to pass to the BSV compiler.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-V">
-<span id="cmdoption--verilog"></span><code class="descname">-V</code><code class="descclassname"> file.v</code><code class="descclassname">, </code><code class="descname">--verilog</code><code class="descclassname">=file.v</code><a class="headerlink" href="#cmdoption-V" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-verilog">
+<code class="sig-name descname">-V</code><code class="sig-prename descclassname"> file.v</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--verilog</code><code class="sig-prename descclassname">=file.v</code><a class="headerlink" href="#cmdoption-verilog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies verilog file to include in the design</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--pinfo">
-<code class="descname">--pinfo</code><code class="descclassname">=project.json</code><a class="headerlink" href="#cmdoption--pinfo" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-pinfo">
+<code class="sig-name descname">--pinfo</code><code class="sig-prename descclassname">=project.json</code><a class="headerlink" href="#cmdoption-pinfo" title="Permalink to this definition">¶</a></dt>
 <dd><p>This does what?</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--pinout">
-<code class="descname">--pinout</code><code class="descclassname">=pinusage.json</code><a class="headerlink" href="#cmdoption--pinout" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-pinout">
+<code class="sig-name descname">--pinout</code><code class="sig-prename descclassname">=pinusage.json</code><a class="headerlink" href="#cmdoption-pinout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies connection of pins on the board to top level signals of
 the design. A board-specific constraint file will be generated from
 pinusage.json and the boardinfo json file, and will be added to
 constraint and implconstraint.</p>
-<p>See :make:var::<cite>PINOUT_FILE</cite>, whose values are passed as &#8211;pinout options to makefilegen.</p>
+<p>See :make:var::<cite>PINOUT_FILE</cite>, whose values are passed as –pinout options to makefilegen.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--constraint">
-<code class="descname">--constraint</code><code class="descclassname">=file.xdc</code><a class="headerlink" href="#cmdoption--constraint" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-constraint">
+<code class="sig-name descname">--constraint</code><code class="sig-prename descclassname">=file.xdc</code><a class="headerlink" href="#cmdoption-constraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies synthesis phase constraint file.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--implconstraint">
-<code class="descname">--implconstraint</code><code class="descclassname">=file.xdc</code><a class="headerlink" href="#cmdoption--implconstraint" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-implconstraint">
+<code class="sig-name descname">--implconstraint</code><code class="sig-prename descclassname">=file.xdc</code><a class="headerlink" href="#cmdoption-implconstraint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies implementation (place and route) constraint file.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption-P">
-<span id="cmdoption--partition"></span><code class="descname">-P</code><code class="descclassname"> modulename</code><code class="descclassname">, </code><code class="descname">--partition</code><code class="descclassname">=modulename</code><a class="headerlink" href="#cmdoption-P" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-unmanaged-implconstraint">
+<code class="sig-name descname">--unmanaged-implconstraint</code><code class="sig-prename descclassname">=file.xdc</code><a class="headerlink" href="#cmdoption-unmanaged-implconstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies unmanaged implementation (place and route) constraint file.
+This causes the xdc file to be read in using the <cite>-unmanaged</cite> flag of <cite>read_xdc</cite>.
+This allows the xdc files to use more tcl commands than a normal xdc file (including <cite>if</cite> and
+<cite>foreach</cite>).</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-p">
+<code class="sig-name descname">-P</code><code class="sig-prename descclassname"> modulename</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--partition</code><code class="sig-prename descclassname">=modulename</code><a class="headerlink" href="#cmdoption-p" title="Permalink to this definition">¶</a></dt>
 <dd><p>Directs <cite>fpgamake</cite> to build a separate netlist for
 <cite>modulename</cite>. With <cite>buildcache</cite>, Reduces build times if module changes infrequently.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="xilinx-options">
-<h2>1.6. Xilinx Options<a class="headerlink" href="#xilinx-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Xilinx Options<a class="headerlink" href="#xilinx-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--xci">
-<code class="descname">--xci</code><code class="descclassname">=core.xci</code><a class="headerlink" href="#cmdoption--xci" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-xci">
+<code class="sig-name descname">--xci</code><code class="sig-prename descclassname">=core.xci</code><a class="headerlink" href="#cmdoption-xci" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies IP core to include in the design. (Xilinx only)</p>
 </dd></dl>
 
 </div>
 <div class="section" id="altera-options">
-<h2>1.7. Altera Options<a class="headerlink" href="#altera-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.7. </span>Altera Options<a class="headerlink" href="#altera-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--qip">
-<code class="descname">--qip</code><code class="descclassname">=core.qip</code><a class="headerlink" href="#cmdoption--qip" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-qip">
+<code class="sig-name descname">--qip</code><code class="sig-prename descclassname">=core.qip</code><a class="headerlink" href="#cmdoption-qip" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies IP core to include in the design. (Altera only)</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--qsf">
-<code class="descname">--qsf</code><code class="descclassname">=settings.qsf</code><a class="headerlink" href="#cmdoption--qsf" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-qsf">
+<code class="sig-name descname">--qsf</code><code class="sig-prename descclassname">=settings.qsf</code><a class="headerlink" href="#cmdoption-qsf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies Altera Quartus settings.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="partial-reconfiguration-options">
-<h2>1.8. Partial Reconfiguration Options<a class="headerlink" href="#partial-reconfiguration-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.8. </span>Partial Reconfiguration Options<a class="headerlink" href="#partial-reconfiguration-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--prtop">
-<code class="descname">--prtop</code><code class="descclassname">=mkTop.dcp</code><a class="headerlink" href="#cmdoption--prtop" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-prtop">
+<code class="sig-name descname">--prtop</code><code class="sig-prename descclassname">=mkTop.dcp</code><a class="headerlink" href="#cmdoption-prtop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies filename of previously built top level.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--prvariant">
-<code class="descname">--prvariant</code><code class="descclassname">=name</code><a class="headerlink" href="#cmdoption--prvariant" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dt id="cmdoption-prvariant">
+<code class="sig-name descname">--prvariant</code><code class="sig-prename descclassname">=name</code><a class="headerlink" href="#cmdoption-prvariant" title="Permalink to this definition">¶</a></dt>
+<dd><p>…</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--reconfig">
-<code class="descname">--reconfig</code><code class="descclassname">=modulenames</code><a class="headerlink" href="#cmdoption--reconfig" title="Permalink to this definition">¶</a></dt>
-<dd><p>...</p>
+<dt id="cmdoption-reconfig">
+<code class="sig-name descname">--reconfig</code><code class="sig-prename descclassname">=modulenames</code><a class="headerlink" href="#cmdoption-reconfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>…</p>
 </dd></dl>
 
 </div>
 <div class="section" id="bluesim-options">
-<h2>1.9. Bluesim Options<a class="headerlink" href="#bluesim-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.9. </span>Bluesim Options<a class="headerlink" href="#bluesim-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
 <dt id="cmdoption-q">
-<span id="cmdoption--qtused"></span><code class="descname">-q</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--qtused</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-q" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">-q</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--qtused</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-q" title="Permalink to this definition">¶</a></dt>
 <dd><p>Link the bluesim <cite>bsim</cite> executable with libQt.</p>
 </dd></dl>
 
 <dl class="option">
 <dt id="cmdoption-m">
-<span id="cmdoption--bsimsource"></span><code class="descname">-m</code><code class="descclassname"> foo.cpp</code><code class="descclassname">, </code><code class="descname">--bsimsource</code><code class="descclassname"> foo.cpp</code><a class="headerlink" href="#cmdoption-m" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">-m</code><code class="sig-prename descclassname"> foo.cpp</code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--bsimsource</code><code class="sig-prename descclassname"> foo.cpp</code><a class="headerlink" href="#cmdoption-m" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies additional sources to compile into the <cite>bsim</cite>
-executable. If you are using Bluespec import &#8220;BDPI&#8221; or
-SystemVerilog &#8220;DPI&#8221;/&#8221;DPI-C&#8221;, you will need to link additional
+executable. If you are using Bluespec import “BDPI” or
+SystemVerilog “DPI”/”DPI-C”, you will need to link additional
 sources into the simulator.</p>
 <p>Note: These files are currently compiled with g++, even if they are
-C files. You will need to use extern &#8220;C&#8221; to export symbols to the
+C files. You will need to use extern “C” to export symbols to the
 simulator.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="xsim-options">
-<h2>1.10. Xsim Options<a class="headerlink" href="#xsim-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.10. </span>Xsim Options<a class="headerlink" href="#xsim-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--xelabflags">
-<code class="descname">--xelabflags</code><code class="descclassname">=flags</code><a class="headerlink" href="#cmdoption--xelabflags" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-xelabflags">
+<code class="sig-name descname">--xelabflags</code><code class="sig-prename descclassname">=flags</code><a class="headerlink" href="#cmdoption-xelabflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Options to pass to <cite>xelab</cite></p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--xsimflags">
-<code class="descname">--xsimflags</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--xsimflags" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-xsimflags">
+<code class="sig-name descname">--xsimflags</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-xsimflags" title="Permalink to this definition">¶</a></dt>
 <dd><p>Options to pass to <cite>xsim</cite></p>
 </dd></dl>
 
 </div>
 <div class="section" id="clocking-options">
-<h2>1.11. Clocking Options<a class="headerlink" href="#clocking-options" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.11. </span>Clocking Options<a class="headerlink" href="#clocking-options" title="Permalink to this headline">¶</a></h2>
 <dl class="option">
-<dt id="cmdoption--mainclockperiod">
-<code class="descname">--mainclockperiod</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--mainclockperiod" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-mainclockperiod">
+<code class="sig-name descname">--mainclockperiod</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-mainclockperiod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the period, in nanoseconds, of the main clock. Must be an integer.</p>
 <p>On Zynq boards,</p>
 <p>On PCIe-connected boards, if the main clock period differs from the
-PCIe clock period, then the design&#8217;s portals and DMA ports will
-automatically be connected via SyncFIFO&#8217;s.</p>
+PCIe clock period, then the design’s portals and DMA ports will
+automatically be connected via SyncFIFO’s.</p>
 <p>Each boardinfo JSON file specifies the default value for mainclockperiod.</p>
 </dd></dl>
 
 <dl class="option">
-<dt id="cmdoption--derivedclockperiod">
-<code class="descname">--derivedclockperiod</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption--derivedclockperiod" title="Permalink to this definition">¶</a></dt>
+<dt id="cmdoption-derivedclockperiod">
+<code class="sig-name descname">--derivedclockperiod</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-derivedclockperiod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connectal also makes a second clock available, host.derivedClock. The period of this clock is</p>
 <p>Each boardinfo JSON file specifies the default value for mainclockperiod.</p>
 </dd></dl>
@@ -375,7 +373,7 @@ automatically be connected via SyncFIFO&#8217;s.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">1. Invocation of makefilegen.py</a><ul>
 <li><a class="reference internal" href="#project-options">1.1. Project Options</a></li>
@@ -398,27 +396,24 @@ automatically be connected via SyncFIFO&#8217;s.</p>
                         title="previous chapter">Connectal Tools</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="generate-constraints.html"
-                        title="next chapter">2. Invocation of generate-constraints.py</a></p>
+                        title="next chapter"><span class="section-number">2. </span>Invocation of generate-constraints.py</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/tools/makefilegen.txt"
+      <li><a href="../_sources/tools/makefilegen.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -438,13 +433,13 @@ automatically be connected via SyncFIFO&#8217;s.</p>
         <li class="right" >
           <a href="tools.html" title="Connectal Tools"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

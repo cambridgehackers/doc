@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>2. Arith Package &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>2. Arith Package &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="3. AxiStream Package" href="axistream.html" />
     <link rel="prev" title="1. Address Generator" href="addressgenerator.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="addressgenerator.html" title="1. Address Generator"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,58 +46,58 @@
           <div class="body" role="main">
             
   <div class="section" id="package-Arith">
-<span id="arith-package"></span><h1>2. Arith Package<a class="headerlink" href="#package-Arith" title="Permalink to this headline">¶</a></h1>
+<span id="arith-package"></span><h1><span class="section-number">2. </span>Arith Package<a class="headerlink" href="#package-Arith" title="Permalink to this headline">¶</a></h1>
 <p>The Arith package implements some functions that correspond to infix operators.</p>
 <dl class="function">
 <dt id="Arith::booland">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">booland</code><span class="sig-paren">(</span><em>Bool x1</em>, <em>Bool x2</em><span class="sig-paren">)</span> &rarr; Bool<a class="headerlink" href="#Arith::booland" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns logical &#8220;and&#8221; of inputs. Named to avoid conflict with the Verilog keyword &#8220;and&#8221;.</p>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">booland</code><span class="sig-paren">(</span><em class="sig-param">Bool x1</em>, <em class="sig-param">Bool x2</em><span class="sig-paren">)</span> &#x2192; Bool<a class="headerlink" href="#Arith::booland" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns logical “and” of inputs. Named to avoid conflict with the Verilog keyword “and”.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::boolor">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">boolor</code><span class="sig-paren">(</span><em>Bool x1</em>, <em>Bool x2</em><span class="sig-paren">)</span> &rarr; Bool<a class="headerlink" href="#Arith::boolor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns logical &#8220;or&#8221; of inputs. Named to avoid conflict with the Verilog keyword &#8220;or&#8221;.</p>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">boolor</code><span class="sig-paren">(</span><em class="sig-param">Bool x1</em>, <em class="sig-param">Bool x2</em><span class="sig-paren">)</span> &#x2192; Bool<a class="headerlink" href="#Arith::boolor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns logical “or” of inputs. Named to avoid conflict with the Verilog keyword “or”.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::eq">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">eq</code><span class="sig-paren">(</span><em>a x1</em>, <em>a x2)</em><span class="sig-paren">)</span> &rarr; Bool<a class="headerlink" href="#Arith::eq" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">eq</code><span class="sig-paren">(</span><em class="sig-param">a x1</em>, <em class="sig-param">a x2)</em><span class="sig-paren">)</span> &#x2192; Bool<a class="headerlink" href="#Arith::eq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="Arith::add">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">add</code><span class="sig-paren">(</span><em>a x1</em>, <em>a x2</em><span class="sig-paren">)</span> &rarr; a<a class="headerlink" href="#Arith::add" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">a x1</em>, <em class="sig-param">a x2</em><span class="sig-paren">)</span> &#x2192; a<a class="headerlink" href="#Arith::add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns sum of inputs. Requires Arith#(a).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::mul">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">mul</code><span class="sig-paren">(</span><em>a x1</em>, <em>a x2</em><span class="sig-paren">)</span> &rarr; a<a class="headerlink" href="#Arith::mul" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">mul</code><span class="sig-paren">(</span><em class="sig-param">a x1</em>, <em class="sig-param">a x2</em><span class="sig-paren">)</span> &#x2192; a<a class="headerlink" href="#Arith::mul" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns product of inputs. Requires Arith#(a).</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::rshift">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">rshift</code><span class="sig-paren">(</span><em>Bit#(b) x1</em>, <em>Integer i</em><span class="sig-paren">)</span> &rarr; Bit#(b)<a class="headerlink" href="#Arith::rshift" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">rshift</code><span class="sig-paren">(</span><em class="sig-param">Bit#(b) x1</em>, <em class="sig-param">Integer i</em><span class="sig-paren">)</span> &#x2192; Bit#(b)<a class="headerlink" href="#Arith::rshift" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns input right shifted by i bits.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::a) vadd">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">a) vadd</code><span class="sig-paren">(</span><em>Vector#(n</em>, <em>a) x1</em>, <em>Vector#(n</em>, <em>a) x2</em><span class="sig-paren">)</span> &rarr; Vector#(n,<a class="headerlink" href="#Arith::a) vadd" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">a) vadd</code><span class="sig-paren">(</span><em class="sig-param">Vector#(n</em>, <em class="sig-param">a) x1</em>, <em class="sig-param">Vector#(n</em>, <em class="sig-param">a) x2</em><span class="sig-paren">)</span> &#x2192; Vector#(n,<a class="headerlink" href="#Arith::a) vadd" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns sum of input vectors.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::a) vmul">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">a) vmul</code><span class="sig-paren">(</span><em>Vector#(n</em>, <em>a) x1</em>, <em>Vector#(n</em>, <em>a) x2</em><span class="sig-paren">)</span> &rarr; Vector#(n,<a class="headerlink" href="#Arith::a) vmul" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">a) vmul</code><span class="sig-paren">(</span><em class="sig-param">Vector#(n</em>, <em class="sig-param">a) x1</em>, <em class="sig-param">Vector#(n</em>, <em class="sig-param">a) x2</em><span class="sig-paren">)</span> &#x2192; Vector#(n,<a class="headerlink" href="#Arith::a) vmul" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns element-wise product of input vectors.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Arith::Bit#">
-<em class="property">function </em><code class="descclassname">Arith::</code><code class="descname">Bit#</code><span class="sig-paren">(</span><em>b)) vrshift(Vector#(n</em>, <em>Bit#(b)) x1</em>, <em>Integer i</em><span class="sig-paren">)</span> &rarr; Vector#(n,<a class="headerlink" href="#Arith::Bit#" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Arith::</code><code class="sig-name descname">Bit#</code><span class="sig-paren">(</span><em class="sig-param">b)) vrshift(Vector#(n</em>, <em class="sig-param">Bit#(b)) x1</em>, <em class="sig-param">Integer i</em><span class="sig-paren">)</span> &#x2192; Vector#(n,<a class="headerlink" href="#Arith::Bit#" title="Permalink to this definition">¶</a></dt>
 <dd><p>Right shifts the elements of the input vector by i bits.</p>
 </dd></dl>
 
@@ -122,30 +111,27 @@
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="addressgenerator.html"
-                        title="previous chapter">1. Address Generator</a></p>
+                        title="previous chapter"><span class="section-number">1. </span>Address Generator</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="axistream.html"
-                        title="next chapter">3. AxiStream Package</a></p>
+                        title="next chapter"><span class="section-number">3. </span>AxiStream Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/bsv/arith.txt"
+      <li><a href="../_sources/bsv/arith.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -165,13 +151,13 @@
         <li class="right" >
           <a href="addressgenerator.html" title="1. Address Generator"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

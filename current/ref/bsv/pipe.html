@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>11. Pipe Package &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>11. Pipe Package &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="12. Portal Package" href="portal.html" />
     <link rel="prev" title="10. MMU Package" href="mmu.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="mmu.html" title="10. MMU Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,390 +46,390 @@
           <div class="body" role="main">
             
   <div class="section" id="package-Pipe">
-<span id="pipe-package"></span><h1>11. Pipe Package<a class="headerlink" href="#package-Pipe" title="Permalink to this headline">¶</a></h1>
-<p>The Pipe package is modeled on Bluespec, Inc&#8217;s PAClib package. It
+<span id="pipe-package"></span><h1><span class="section-number">11. </span>Pipe Package<a class="headerlink" href="#package-Pipe" title="Permalink to this headline">¶</a></h1>
+<p>The Pipe package is modeled on Bluespec, Inc’s PAClib package. It
 provides functions and modules for composing pipelines of operations.</p>
 <div class="section" id="pipe-interfaces">
-<h2>11.1. Pipe Interfaces<a class="headerlink" href="#pipe-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.1. </span>Pipe Interfaces<a class="headerlink" href="#pipe-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="Pipe::PipeIn">
-<em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">PipeIn</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::PipeIn" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">PipeIn</code><span class="sig-paren">(</span><em class="sig-param">type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::PipeIn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Corresponds to the input interface of a FIFOF.</p>
 <dl class="method">
 <dt id="Pipe::PipeIn.enq">
-<code class="descname">enq</code><span class="sig-paren">(</span><em>a v</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#Pipe::PipeIn.enq" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">enq</code><span class="sig-paren">(</span><em class="sig-param">a v</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#Pipe::PipeIn.enq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::PipeIn.notFull">
-<code class="descname">notFull</code> &rarr; Bool<a class="headerlink" href="#Pipe::PipeIn.notFull" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notFull</code> &#x2192; Bool<a class="headerlink" href="#Pipe::PipeIn.notFull" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="Pipe::PipeOut">
-<em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">PipeOut</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::PipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">PipeOut</code><span class="sig-paren">(</span><em class="sig-param">type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::PipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Corresponds to the output interface of a FIFOF.</p>
 <dl class="method">
 <dt id="Pipe::PipeOut.first">
-<code class="descname">first</code> &rarr; a<a class="headerlink" href="#Pipe::PipeOut.first" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">first</code> &#x2192; a<a class="headerlink" href="#Pipe::PipeOut.first" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::PipeOut.deq">
-<code class="descname">deq</code> &rarr; Action<a class="headerlink" href="#Pipe::PipeOut.deq" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">deq</code> &#x2192; Action<a class="headerlink" href="#Pipe::PipeOut.deq" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::PipeOut.notEmpty">
-<code class="descname">notEmpty</code> &rarr; Bool<a class="headerlink" href="#Pipe::PipeOut.notEmpty" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">notEmpty</code> &#x2192; Bool<a class="headerlink" href="#Pipe::PipeOut.notEmpty" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="typeclass">
 <dt id="Pipe::ToPipeIn">
-<em class="property">typeclass </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeIn</code><span class="sig-paren">(</span><em>type a</em>, <em>type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPipeIn" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeIn</code><span class="sig-paren">(</span><em class="sig-param">type a</em>, <em class="sig-param">type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPipeIn" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="function">
 <dt id="Pipe::ToPipeIn.toPipeIn">
-<em class="property">function </em><code class="descname">toPipeIn</code><span class="sig-paren">(</span><em>b in</em><span class="sig-paren">)</span> &rarr; PipeIn#(a)<a class="headerlink" href="#Pipe::ToPipeIn.toPipeIn" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a PipeIn to the object &#8220;in&#8221; with no additional buffering.</p>
+<em class="property">function </em><code class="sig-name descname">toPipeIn</code><span class="sig-paren">(</span><em class="sig-param">b in</em><span class="sig-paren">)</span> &#x2192; PipeIn#(a)<a class="headerlink" href="#Pipe::ToPipeIn.toPipeIn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a PipeIn to the object “in” with no additional buffering.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="typeclass">
 <dt id="Pipe::ToPipeOut">
-<em class="property">typeclass </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>type a</em>, <em>type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">type a</em>, <em class="sig-param">type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="function">
 <dt id="Pipe::ToPipeOut.toPipeOut">
-<em class="property">function </em><code class="descname">toPipeOut</code><span class="sig-paren">(</span><em>b in</em><span class="sig-paren">)</span> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::ToPipeOut.toPipeOut" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a PipeOut from the object &#8220;in&#8221; with no additional buffering.</p>
+<em class="property">function </em><code class="sig-name descname">toPipeOut</code><span class="sig-paren">(</span><em class="sig-param">b in</em><span class="sig-paren">)</span> &#x2192; PipeOut#(a)<a class="headerlink" href="#Pipe::ToPipeOut.toPipeOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a PipeOut from the object “in” with no additional buffering.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="typeclass">
 <dt id="Pipe::MkPipeIn">
-<em class="property">typeclass </em><code class="descclassname">Pipe::</code><code class="descname">MkPipeIn</code><span class="sig-paren">(</span><em>type a</em>, <em>type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::MkPipeIn" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">MkPipeIn</code><span class="sig-paren">(</span><em class="sig-param">type a</em>, <em class="sig-param">type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::MkPipeIn" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="module">
 <dt id="Pipe::MkPipeIn.mkPipeIn">
-<em class="property">module </em><code class="descname">mkPipeIn</code><span class="sig-paren">(</span><em>b in</em><span class="sig-paren">)</span> &rarr; (PipeIn#(a)<a class="headerlink" href="#Pipe::MkPipeIn.mkPipeIn" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkPipeIn</code><span class="sig-paren">(</span><em class="sig-param">b in</em><span class="sig-paren">)</span> &#x2192; (PipeIn#(a)<a class="headerlink" href="#Pipe::MkPipeIn.mkPipeIn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiates a module whose interface is a PipeIn to the input
-parameter &#8220;in&#8221;. Includes a FIFO buffering stage.</p>
+parameter “in”. Includes a FIFO buffering stage.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="typeclass">
 <dt id="Pipe::MkPipeOut">
-<em class="property">typeclass </em><code class="descclassname">Pipe::</code><code class="descname">MkPipeOut</code><span class="sig-paren">(</span><em>type a</em>, <em>type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::MkPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">MkPipeOut</code><span class="sig-paren">(</span><em class="sig-param">type a</em>, <em class="sig-param">type b</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::MkPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="module">
 <dt id="Pipe::MkPipeOut.mkPipeOut">
-<em class="property">module </em><code class="descname">mkPipeOut</code><span class="sig-paren">(</span><em>b in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(a)<a class="headerlink" href="#Pipe::MkPipeOut.mkPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkPipeOut</code><span class="sig-paren">(</span><em class="sig-param">b in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(a)<a class="headerlink" href="#Pipe::MkPipeOut.mkPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiates a module whose interface is PipeOut from the input
-parameter &#8220;in&#8221;. Includes a FIFO buffering stage.</p>
+parameter “in”. Includes a FIFO buffering stage.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeIn</code><span class="sig-paren">(</span><em>a</em>, <em>FIFOF#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeIn</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">FIFOF#(a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a FIFOF to a PipeIn.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>a</em>, <em>function a pipefn()</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">function a pipefn()</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a function to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>a</em>, <em>Reg#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">Reg#(a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a register to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeIn</code><span class="sig-paren">(</span><em>Vector#(m</em>, <em>a)</em>, <em>Gearbox#(m</em>, <em>n</em>, <em>a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeIn</code><span class="sig-paren">(</span><em class="sig-param">Vector#(m</em>, <em class="sig-param">a)</em>, <em class="sig-param">Gearbox#(m</em>, <em class="sig-param">n</em>, <em class="sig-param">a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a Gearbox to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>a</em>, <em>FIFOF#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">FIFOF#(a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a FIFOF to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>Vector#(n</em>, <em>a)</em>, <em>MIMO#(k</em>, <em>n</em>, <em>sz</em>, <em>a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">Vector#(n</em>, <em class="sig-param">a)</em>, <em class="sig-param">MIMO#(k</em>, <em class="sig-param">n</em>, <em class="sig-param">sz</em>, <em class="sig-param">a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a MIMO to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPipeOut</code><span class="sig-paren">(</span><em>Vector#(n</em>, <em>a)</em>, <em>Gearbox#(m</em>, <em>n</em>, <em>a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPipeOut</code><span class="sig-paren">(</span><em class="sig-param">Vector#(n</em>, <em class="sig-param">a)</em>, <em class="sig-param">Gearbox#(m</em>, <em class="sig-param">n</em>, <em class="sig-param">a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Converts a Gearbox to a PipeOut.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">MkPipeOut</code><span class="sig-paren">(</span><em>a</em>, <em>Get#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">MkPipeOut</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">Get#(a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Instantiates a pipelined PipeOut from a Get interface.</p>
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">MkPipeIn</code><span class="sig-paren">(</span><em>a</em>, <em>Put#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">MkPipeIn</code><span class="sig-paren">(</span><em class="sig-param">a</em>, <em class="sig-param">Put#(a)</em><span class="sig-paren">)</span></dt>
 <dd><p>Instantiates a pipelined PipeIn to a Put interface.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="get-and-put-pipes">
-<h2>11.2. Get and Put Pipes<a class="headerlink" href="#get-and-put-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.2. </span>Get and Put Pipes<a class="headerlink" href="#get-and-put-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="Pipe::ToGet ">
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToGet </code><span class="sig-paren">(</span><em>PipeOut #(a)</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToGet " title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToGet </code><span class="sig-paren">(</span><em class="sig-param">PipeOut #(a)</em>, <em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToGet " title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt id="Pipe::ToPut ">
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">ToPut </code><span class="sig-paren">(</span><em>PipeIn #(a)</em>, <em>a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPut " title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">ToPut </code><span class="sig-paren">(</span><em class="sig-param">PipeIn #(a)</em>, <em class="sig-param">a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::ToPut " title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="connectable-pipes">
-<h2>11.3. Connectable Pipes<a class="headerlink" href="#connectable-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.3. </span>Connectable Pipes<a class="headerlink" href="#connectable-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="Pipe::Connectable">
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>PipeOut#(a)</em>, <em>Put#(a)</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::Connectable" title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">Connectable</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(a)</em>, <em class="sig-param">Put#(a)</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::Connectable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>PipeOut#(a)</em>, <em>PipeIn#(a)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">Connectable</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(a)</em>, <em class="sig-param">PipeIn#(a)</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="mapping-over-pipes">
-<h2>11.4. Mapping over Pipes<a class="headerlink" href="#mapping-over-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.4. </span>Mapping over Pipes<a class="headerlink" href="#mapping-over-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="Pipe::toCountedPipeOut">
-<em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">toCountedPipeOut</code><span class="sig-paren">(</span><em>Reg#(Bit#(n)) r</em>, <em>PipeOut#(a) pipe</em><span class="sig-paren">)</span> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::toCountedPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">toCountedPipeOut</code><span class="sig-paren">(</span><em class="sig-param">Reg#(Bit#(n)) r</em>, <em class="sig-param">PipeOut#(a) pipe</em><span class="sig-paren">)</span> &#x2192; PipeOut#(a)<a class="headerlink" href="#Pipe::toCountedPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="function">
 <dt id="Pipe::zipPipeOut">
-<em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">zipPipeOut</code><span class="sig-paren">(</span><em>PipeOut#(a) ina</em>, <em>PipeOut#(b) inb</em><span class="sig-paren">)</span> &rarr; PipeOut#(Tuple2#(a,b))<a class="headerlink" href="#Pipe::zipPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">zipPipeOut</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(a) ina</em>, <em class="sig-param">PipeOut#(b) inb</em><span class="sig-paren">)</span> &#x2192; PipeOut#(Tuple2#(a,b))<a class="headerlink" href="#Pipe::zipPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeOut whose elements are 2-tuples of the elements of the input pipes.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Pipe::mapPipe">
-<em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">mapPipe</code><span class="sig-paren">(</span><em>function b f(a av)</em>, <em>PipeOut#(a) apipe</em><span class="sig-paren">)</span> &rarr; PipeOut#(b)<a class="headerlink" href="#Pipe::mapPipe" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mapPipe</code><span class="sig-paren">(</span><em class="sig-param">function b f(a av)</em>, <em class="sig-param">PipeOut#(a) apipe</em><span class="sig-paren">)</span> &#x2192; PipeOut#(b)<a class="headerlink" href="#Pipe::mapPipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeOut that maps the function f to each element of the
 input pipes with no buffering.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkMapPipe">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkMapPipe</code><span class="sig-paren">(</span><em>function b f(a av)</em>, <em>PipeOut#(a) apipe</em><span class="sig-paren">)</span> &rarr; (PipeOut#(b)<a class="headerlink" href="#Pipe::mkMapPipe" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkMapPipe</code><span class="sig-paren">(</span><em class="sig-param">function b f(a av)</em>, <em class="sig-param">PipeOut#(a) apipe</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(b)<a class="headerlink" href="#Pipe::mkMapPipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiates a PipeOut that maps the function f to each element of
 the input pipes using a FIFOF for buffering.</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="Pipe::mapPipeIn">
-<em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">mapPipeIn</code><span class="sig-paren">(</span><em>function b f(a av)</em>, <em>PipeIn#(b) apipe</em><span class="sig-paren">)</span> &rarr; PipeIn#(a)<a class="headerlink" href="#Pipe::mapPipeIn" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mapPipeIn</code><span class="sig-paren">(</span><em class="sig-param">function b f(a av)</em>, <em class="sig-param">PipeIn#(b) apipe</em><span class="sig-paren">)</span> &#x2192; PipeIn#(a)<a class="headerlink" href="#Pipe::mapPipeIn" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeIn applies the function f to each value that is enqueued.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="reducing-pipes">
-<h2>11.5. Reducing Pipes<a class="headerlink" href="#reducing-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.5. </span>Reducing Pipes<a class="headerlink" href="#reducing-pipes" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="functions-on-pipes-of-vectors">
-<h2>11.6. Functions on Pipes of Vectors<a class="headerlink" href="#functions-on-pipes-of-vectors" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.6. </span>Functions on Pipes of Vectors<a class="headerlink" href="#functions-on-pipes-of-vectors" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
 <dt id="Pipe::unvectorPipeOut">
-<em class="property">function </em><code class="descclassname">Pipe::</code><code class="descname">unvectorPipeOut</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(1</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::unvectorPipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">unvectorPipeOut</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(Vector#(1</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; PipeOut#(a)<a class="headerlink" href="#Pipe::unvectorPipeOut" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="funneling-and-unfunneling">
-<h2>11.7. Funneling and Unfunneling<a class="headerlink" href="#funneling-and-unfunneling" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.7. </span>Funneling and Unfunneling<a class="headerlink" href="#funneling-and-unfunneling" title="Permalink to this headline">¶</a></h2>
 <dl class="module">
 <dt id="Pipe::mkFunnel">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnel</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(mk</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(Vector#(m, a))<a class="headerlink" href="#Pipe::mkFunnel" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFunnel</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(Vector#(mk</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(Vector#(m, a))<a class="headerlink" href="#Pipe::mkFunnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns k Vectors of m elements for each Vector#(mk,a) element of the input pipe.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkFunnel1">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnel1</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(k</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnel1" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFunnel1</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(Vector#(k</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnel1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sames as mkFunnel, but returns k singleton elements for each vector
 element of the input pipe.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkFunnelGB1">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnelGB1</code><span class="sig-paren">(</span><em>Clock slowClock</em>, <em>Reset slowReset</em>, <em>Clock fastClock</em>, <em>Reset fastReset</em>, <em>PipeOut#(Vector#(k</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnelGB1" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFunnelGB1</code><span class="sig-paren">(</span><em class="sig-param">Clock slowClock</em>, <em class="sig-param">Reset slowReset</em>, <em class="sig-param">Clock fastClock</em>, <em class="sig-param">Reset fastReset</em>, <em class="sig-param">PipeOut#(Vector#(k</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnelGB1" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as mkFunnel1, but uses a Gearbox with a 1 to k ratio.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkUnfunnel">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkUnfunnel</code><span class="sig-paren">(</span><em>PipeOut#(Vector#(m</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(Vector#(mk, a))<a class="headerlink" href="#Pipe::mkUnfunnel" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkUnfunnel</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(Vector#(m</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(Vector#(mk, a))<a class="headerlink" href="#Pipe::mkUnfunnel" title="Permalink to this definition">¶</a></dt>
 <dd><p>The dual of mkFunnel. Consumes k elements from the input pipe, each of which is an
 m-element vector, and returns an mk-element vector.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkUnfunnelGB">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkUnfunnelGB</code><span class="sig-paren">(</span><em>Clock slowClock</em>, <em>Reset slowReset</em>, <em>Clock fastClock</em>, <em>Reset fastReset</em>, <em>PipeOut#(Vector#(1</em>, <em>a)) in</em><span class="sig-paren">)</span> &rarr; (PipeOut#(Vector#(k, a))<a class="headerlink" href="#Pipe::mkUnfunnelGB" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkUnfunnelGB</code><span class="sig-paren">(</span><em class="sig-param">Clock slowClock</em>, <em class="sig-param">Reset slowReset</em>, <em class="sig-param">Clock fastClock</em>, <em class="sig-param">Reset fastReset</em>, <em class="sig-param">PipeOut#(Vector#(1</em>, <em class="sig-param">a)) in</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(Vector#(k, a))<a class="headerlink" href="#Pipe::mkUnfunnelGB" title="Permalink to this definition">¶</a></dt>
 <dd><p>The same as mkUnfunnel, but uses a Gearbox with a 1-to-k.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkRepeat">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkRepeat</code><span class="sig-paren">(</span><em>UInt#(n) repetitions</em>, <em>PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &rarr; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkRepeat" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkRepeat</code><span class="sig-paren">(</span><em class="sig-param">UInt#(n) repetitions</em>, <em class="sig-param">PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkRepeat" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeOut which repeats each element of the input pipe the specified number of times.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="fork-and-join">
-<h2>11.8. Fork and Join<a class="headerlink" href="#fork-and-join" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.8. </span>Fork and Join<a class="headerlink" href="#fork-and-join" title="Permalink to this headline">¶</a></h2>
 <p>Fork and Join with limited scalability</p>
 <dl class="module">
 <dt id="Pipe::mkForkVector">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkForkVector</code><span class="sig-paren">(</span><em>PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &rarr; (Vector#(n, PipeOut#(a))<a class="headerlink" href="#Pipe::mkForkVector" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkForkVector</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &#x2192; (Vector#(n, PipeOut#(a))<a class="headerlink" href="#Pipe::mkForkVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Replicates each element of the input pipe to each of the output
 pipes. It uses a FIFOF per output pipe.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkSizedForkVector">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkSizedForkVector</code><span class="sig-paren">(</span><em>Integer size</em>, <em>PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &rarr; (Vector#(n, PipeOut#(a))<a class="headerlink" href="#Pipe::mkSizedForkVector" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkSizedForkVector</code><span class="sig-paren">(</span><em class="sig-param">Integer size</em>, <em class="sig-param">PipeOut#(a) inpipe</em><span class="sig-paren">)</span> &#x2192; (Vector#(n, PipeOut#(a))<a class="headerlink" href="#Pipe::mkSizedForkVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Used a SizedFIFOF for each of the output pipes.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkJoin">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkJoin</code><span class="sig-paren">(</span><em>function c f(a av</em>, <em>b bv)</em>, <em>PipeOut#(a) apipe</em>, <em>PipeOut#(b) bpipe</em><span class="sig-paren">)</span> &rarr; (PipeOut#(c)<a class="headerlink" href="#Pipe::mkJoin" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkJoin</code><span class="sig-paren">(</span><em class="sig-param">function c f(a av</em>, <em class="sig-param">b bv)</em>, <em class="sig-param">PipeOut#(a) apipe</em>, <em class="sig-param">PipeOut#(b) bpipe</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(c)<a class="headerlink" href="#Pipe::mkJoin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeOut that applies the function f to the elements of
 the input pipes, with no buffering.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkJoinBuffered">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkJoinBuffered</code><span class="sig-paren">(</span><em>function c f(a av</em>, <em>b bv)</em>, <em>PipeOut#(a) apipe</em>, <em>PipeOut#(b) bpipe</em><span class="sig-paren">)</span> &rarr; (PipeOut#(c)<a class="headerlink" href="#Pipe::mkJoinBuffered" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkJoinBuffered</code><span class="sig-paren">(</span><em class="sig-param">function c f(a av</em>, <em class="sig-param">b bv)</em>, <em class="sig-param">PipeOut#(a) apipe</em>, <em class="sig-param">PipeOut#(b) bpipe</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(c)<a class="headerlink" href="#Pipe::mkJoinBuffered" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a PipeOut that applies the function f to the elements of
 the input pipes, using a FIFOF to buffer the output.</p>
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkJoinVector">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkJoinVector</code><span class="sig-paren">(</span><em>function b f(Vector#(n</em>, <em>a) av)</em>, <em>Vector#(n</em>, <em>PipeOut#(a)) apipes</em><span class="sig-paren">)</span> &rarr; (PipeOut#(b)<a class="headerlink" href="#Pipe::mkJoinVector" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkJoinVector</code><span class="sig-paren">(</span><em class="sig-param">function b f(Vector#(n</em>, <em class="sig-param">a) av)</em>, <em class="sig-param">Vector#(n</em>, <em class="sig-param">PipeOut#(a)) apipes</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(b)<a class="headerlink" href="#Pipe::mkJoinVector" title="Permalink to this definition">¶</a></dt>
 <dd><p>Same as mkJoin, but operates on a vector of PipeOut as input.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="funnel-pipes">
-<h2>11.9. Funnel Pipes<a class="headerlink" href="#funnel-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.9. </span>Funnel Pipes<a class="headerlink" href="#funnel-pipes" title="Permalink to this headline">¶</a></h2>
 <p>Fork and Join with tree-based fanout and fanin for scalability.</p>
 <p>These are used by MemReadEngine and MemWriteEngine.</p>
 <dl class="typedef">
 <dt id="Pipe::Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)">
-<em class="property">typedef </em><code class="descclassname">Pipe::</code><code class="descname">Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)</code><a class="headerlink" href="#Pipe::Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)</code><a class="headerlink" href="#Pipe::Vector#(j,PipeOut#(a))   FunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typedef">
 <dt id="Pipe::Vector#(k,PipeOut#(a)) UnFunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)">
-<em class="property">typedef </em><code class="descclassname">Pipe::</code><code class="descname">Vector#(k,PipeOut#(a)) UnFunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)</code><a class="headerlink" href="#Pipe::Vector#(k,PipeOut#(a)) UnFunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">Vector#(k,PipeOut#(a)) UnFunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)</code><a class="headerlink" href="#Pipe::Vector#(k,PipeOut#(a)) UnFunnelPipe#(numeric type j, numeric type k, type a, numeric type bitsPerCycle)" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="typeclass">
 <dt id="Pipe::FunnelPipesPipelined">
-<em class="property">typeclass </em><code class="descclassname">Pipe::</code><code class="descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em>numeric type j</em>, <em>numeric type k</em>, <em>type a</em>, <em>numeric type bpc</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::FunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em class="sig-param">numeric type j</em>, <em class="sig-param">numeric type k</em>, <em class="sig-param">type a</em>, <em class="sig-param">numeric type bpc</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::FunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="module">
 <dt id="Pipe::FunnelPipesPipelined.mkFunnelPipesPipelined">
-<em class="property">module </em><code class="descname">mkFunnelPipesPipelined</code><span class="sig-paren">(</span><em>Vector#(k</em>, <em>PipeOut#(a)) in</em><span class="sig-paren">)</span> &rarr;  (FunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkFunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkFunnelPipesPipelined</code><span class="sig-paren">(</span><em class="sig-param">Vector#(k</em>, <em class="sig-param">PipeOut#(a)) in</em><span class="sig-paren">)</span> &#x2192;  (FunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkFunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::FunnelPipesPipelined.mkFunnelPipesPipelinedRR">
-<em class="property">module </em><code class="descname">mkFunnelPipesPipelinedRR</code><span class="sig-paren">(</span><em>Vector#(k</em>, <em>PipeOut#(a)) in</em>, <em>Integer c</em><span class="sig-paren">)</span> &rarr;  (FunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkFunnelPipesPipelinedRR" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkFunnelPipesPipelinedRR</code><span class="sig-paren">(</span><em class="sig-param">Vector#(k</em>, <em class="sig-param">PipeOut#(a)) in</em>, <em class="sig-param">Integer c</em><span class="sig-paren">)</span> &#x2192;  (FunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkFunnelPipesPipelinedRR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelined">
-<em class="property">module </em><code class="descname">mkUnFunnelPipesPipelined</code><span class="sig-paren">(</span><em>Vector#(j</em>, <em>PipeOut#(Tuple2#(Bit#(TLog#(k))</em>, <em>a))) in</em><span class="sig-paren">)</span> &rarr;  (UnFunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkUnFunnelPipesPipelined</code><span class="sig-paren">(</span><em class="sig-param">Vector#(j</em>, <em class="sig-param">PipeOut#(Tuple2#(Bit#(TLog#(k))</em>, <em class="sig-param">a))) in</em><span class="sig-paren">)</span> &#x2192;  (UnFunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelined" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelinedRR">
-<em class="property">module </em><code class="descname">mkUnFunnelPipesPipelinedRR</code><span class="sig-paren">(</span><em>Vector#(j</em>, <em>PipeOut#(a)) in</em>, <em>Integer c</em><span class="sig-paren">)</span> &rarr;  (UnFunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelinedRR" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkUnFunnelPipesPipelinedRR</code><span class="sig-paren">(</span><em class="sig-param">Vector#(j</em>, <em class="sig-param">PipeOut#(a)) in</em>, <em class="sig-param">Integer c</em><span class="sig-paren">)</span> &#x2192;  (UnFunnelPipe#(j,k,a,bpc)<a class="headerlink" href="#Pipe::FunnelPipesPipelined.mkUnFunnelPipesPipelinedRR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em>1</em>, <em>1</em>, <em>a</em>, <em>bpc</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em class="sig-param">1</em>, <em class="sig-param">1</em>, <em class="sig-param">a</em>, <em class="sig-param">bpc</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">Pipe::</code><code class="descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em>1</em>, <em>k</em>, <em>a</em>, <em>bpc</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">FunnelPipesPipelined</code><span class="sig-paren">(</span><em class="sig-param">1</em>, <em class="sig-param">k</em>, <em class="sig-param">a</em>, <em class="sig-param">bpc</em><span class="sig-paren">)</span></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkUnFunnelPipesPipelinedInternal">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkUnFunnelPipesPipelinedInternal</code><span class="sig-paren">(</span><em>Vector#(1</em>, <em>PipeOut#(Tuple2#(Bit#(TLog#(k))</em>, <em>a))) in</em><span class="sig-paren">)</span> &rarr; (UnFunnelPipe#(1,k,a,bpc)<a class="headerlink" href="#Pipe::mkUnFunnelPipesPipelinedInternal" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkUnFunnelPipesPipelinedInternal</code><span class="sig-paren">(</span><em class="sig-param">Vector#(1</em>, <em class="sig-param">PipeOut#(Tuple2#(Bit#(TLog#(k))</em>, <em class="sig-param">a))) in</em><span class="sig-paren">)</span> &#x2192; (UnFunnelPipe#(1,k,a,bpc)<a class="headerlink" href="#Pipe::mkUnFunnelPipesPipelinedInternal" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkFunnelPipes">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnelPipes</code><span class="sig-paren">(</span><em>Vector#(mk</em>, <em>PipeOut#(a)) ins</em><span class="sig-paren">)</span> &rarr; (Vector#(m, PipeOut#(a))<a class="headerlink" href="#Pipe::mkFunnelPipes" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFunnelPipes</code><span class="sig-paren">(</span><em class="sig-param">Vector#(mk</em>, <em class="sig-param">PipeOut#(a)) ins</em><span class="sig-paren">)</span> &#x2192; (Vector#(m, PipeOut#(a))<a class="headerlink" href="#Pipe::mkFunnelPipes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkFunnelPipes1">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFunnelPipes1</code><span class="sig-paren">(</span><em>Vector#(k</em>, <em>PipeOut#(a)) ins</em><span class="sig-paren">)</span> &rarr; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnelPipes1" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFunnelPipes1</code><span class="sig-paren">(</span><em class="sig-param">Vector#(k</em>, <em class="sig-param">PipeOut#(a)) ins</em><span class="sig-paren">)</span> &#x2192; (PipeOut#(a)<a class="headerlink" href="#Pipe::mkFunnelPipes1" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkUnfunnelPipes">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkUnfunnelPipes</code><span class="sig-paren">(</span><em>Vector#(m</em>, <em>PipeOut#(a)) ins</em><span class="sig-paren">)</span> &rarr; (Vector#(mk, PipeOut#(a))<a class="headerlink" href="#Pipe::mkUnfunnelPipes" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkUnfunnelPipes</code><span class="sig-paren">(</span><em class="sig-param">Vector#(m</em>, <em class="sig-param">PipeOut#(a)) ins</em><span class="sig-paren">)</span> &#x2192; (Vector#(mk, PipeOut#(a))<a class="headerlink" href="#Pipe::mkUnfunnelPipes" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkPipelinedForkVector">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkPipelinedForkVector</code><span class="sig-paren">(</span><em>PipeOut#(a) inpipe</em>, <em>Integer id</em><span class="sig-paren">)</span> &rarr; (UnFunnelPipe#(1,k,a,bpc)<a class="headerlink" href="#Pipe::mkPipelinedForkVector" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkPipelinedForkVector</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(a) inpipe</em>, <em class="sig-param">Integer id</em><span class="sig-paren">)</span> &#x2192; (UnFunnelPipe#(1,k,a,bpc)<a class="headerlink" href="#Pipe::mkPipelinedForkVector" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="delimited-pipes">
-<h2>11.10. Delimited Pipes<a class="headerlink" href="#delimited-pipes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">11.10. </span>Delimited Pipes<a class="headerlink" href="#delimited-pipes" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="Pipe::FirstLastPipe">
-<em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">FirstLastPipe</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::FirstLastPipe" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">FirstLastPipe</code><span class="sig-paren">(</span><em class="sig-param">type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::FirstLastPipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>A pipe whose elements two-tuples of boolean values indicating first
 and last in a series. The ttype a indicates the type of the counter
 used.</p>
 <dl class="subinterface">
 <dt id="Pipe::FirstLastPipe.pipe">
-<code class="descname">pipe</code> &rarr; PipeOut#(Tuple2#(Bool,Bool))<a class="headerlink" href="#Pipe::FirstLastPipe.pipe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pipe</code> &#x2192; PipeOut#(Tuple2#(Bool,Bool))<a class="headerlink" href="#Pipe::FirstLastPipe.pipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>The pipe of delimited elements</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="Pipe::FirstLastPipe.start">
-<code class="descname">start</code><span class="sig-paren">(</span><em>a count</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#Pipe::FirstLastPipe.start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">a count</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#Pipe::FirstLastPipe.start" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts the series of count elements</p>
 </dd></dl>
 
@@ -448,59 +437,59 @@ used.</p>
 
 <dl class="module">
 <dt id="Pipe::mkFirstLastPipe">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkFirstLastPipe</code> &rarr; (FirstLastPipe#(a)<a class="headerlink" href="#Pipe::mkFirstLastPipe" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkFirstLastPipe</code> &#x2192; (FirstLastPipe#(a)<a class="headerlink" href="#Pipe::mkFirstLastPipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a FirstLastPipe.</p>
 </dd></dl>
 
 <dl class="struct">
 <dt id="Pipe::RangeConfig#(type a)">
-<em class="property">struct </em><code class="descclassname">Pipe::</code><code class="descname">RangeConfig#(type a)</code><a class="headerlink" href="#Pipe::RangeConfig#(type a)" title="Permalink to this definition">¶</a></dt>
+<em class="property">struct </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">RangeConfig#(type a)</code><a class="headerlink" href="#Pipe::RangeConfig#(type a)" title="Permalink to this definition">¶</a></dt>
 <dd><p>The base, limit and step for mkRangePipeOut.</p>
 <dl class="field">
 <dt id="Pipe::RangeConfig#(type a).xbase">
-<code class="descname">xbase</code> &rarr; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xbase" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xbase</code> &#x2192; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xbase" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="Pipe::RangeConfig#(type a).xlimit">
-<code class="descname">xlimit</code> &rarr; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xlimit" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xlimit</code> &#x2192; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xlimit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="field">
 <dt id="Pipe::RangeConfig#(type a).xstep">
-<code class="descname">xstep</code> &rarr; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xstep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">xstep</code> &#x2192; a<a class="headerlink" href="#Pipe::RangeConfig#(type a).xstep" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="interface">
 <dt id="Pipe::RangePipeIfc">
-<em class="property">interface </em><code class="descclassname">Pipe::</code><code class="descname">RangePipeIfc</code><span class="sig-paren">(</span><em>type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::RangePipeIfc" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">RangePipeIfc</code><span class="sig-paren">(</span><em class="sig-param">type a</em><span class="sig-paren">)</span><a class="headerlink" href="#Pipe::RangePipeIfc" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="subinterface">
 <dt id="Pipe::RangePipeIfc.pipe">
-<code class="descname">pipe</code> &rarr; PipeOut#(a)<a class="headerlink" href="#Pipe::RangePipeIfc.pipe" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">pipe</code> &#x2192; PipeOut#(a)<a class="headerlink" href="#Pipe::RangePipeIfc.pipe" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::RangePipeIfc.isFirst">
-<code class="descname">isFirst</code> &rarr; Bool<a class="headerlink" href="#Pipe::RangePipeIfc.isFirst" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isFirst</code> &#x2192; Bool<a class="headerlink" href="#Pipe::RangePipeIfc.isFirst" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::RangePipeIfc.isLast">
-<code class="descname">isLast</code> &rarr; Bool<a class="headerlink" href="#Pipe::RangePipeIfc.isLast" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">isLast</code> &#x2192; Bool<a class="headerlink" href="#Pipe::RangePipeIfc.isLast" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="Pipe::RangePipeIfc.start">
-<code class="descname">start</code><span class="sig-paren">(</span><em>RangeConfig#(a) cfg</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#Pipe::RangePipeIfc.start" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">start</code><span class="sig-paren">(</span><em class="sig-param">RangeConfig#(a) cfg</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#Pipe::RangePipeIfc.start" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="module">
 <dt id="Pipe::mkRangePipeOut">
-<em class="property">module </em><code class="descclassname">Pipe::</code><code class="descname">mkRangePipeOut</code> &rarr; (RangePipeIfc#(a)<a class="headerlink" href="#Pipe::mkRangePipeOut" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-prename descclassname">Pipe::</code><code class="sig-name descname">mkRangePipeOut</code> &#x2192; (RangePipeIfc#(a)<a class="headerlink" href="#Pipe::mkRangePipeOut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a Pipe of values from xbase to xlimit by xstep. Used by MemRead.</p>
 </dd></dl>
 
@@ -513,7 +502,7 @@ used.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">11. Pipe Package</a><ul>
 <li><a class="reference internal" href="#pipe-interfaces">11.1. Pipe Interfaces</a></li>
@@ -532,30 +521,27 @@ used.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="mmu.html"
-                        title="previous chapter">10. MMU Package</a></p>
+                        title="previous chapter"><span class="section-number">10. </span>MMU Package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="portal.html"
-                        title="next chapter">12. Portal Package</a></p>
+                        title="next chapter"><span class="section-number">12. </span>Portal Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/bsv/pipe.txt"
+      <li><a href="../_sources/bsv/pipe.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -575,13 +561,13 @@ used.</p>
         <li class="right" >
           <a href="mmu.html" title="10. MMU Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

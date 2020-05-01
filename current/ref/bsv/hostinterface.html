@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>5. HostInterface Package &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>5. HostInterface Package &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="6. Leds Package" href="leds.html" />
     <link rel="prev" title="4. CtrlMux Package" href="ctrlmux.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="ctrlmux.html" title="4. CtrlMux Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,56 +46,56 @@
           <div class="body" role="main">
             
   <div class="section" id="hostinterface-package">
-<h1>5. HostInterface Package<a class="headerlink" href="#hostinterface-package" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>HostInterface Package<a class="headerlink" href="#hostinterface-package" title="Permalink to this headline">¶</a></h1>
 <p>The HostInterface package provides host-specific typedefs and interfaces.</p>
 <span class="target" id="package-HostInterface"></span><div class="section" id="host-specific-constants">
-<h2>5.1. Host-Specific Constants<a class="headerlink" href="#host-specific-constants" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>Host-Specific Constants<a class="headerlink" href="#host-specific-constants" title="Permalink to this headline">¶</a></h2>
 <dl class="typedef">
 <dt id="HostInterface::DataBusWidth">
-<em class="property">typedef </em><code class="descclassname">HostInterface::</code><code class="descname">DataBusWidth</code><a class="headerlink" href="#HostInterface::DataBusWidth" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">DataBusWidth</code><a class="headerlink" href="#HostInterface::DataBusWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Width in bits of the data bus connected to host shared memory.</p>
 </dd></dl>
 
 <dl class="typedef">
 <dt id="HostInterface::PhysAddrWidth">
-<em class="property">typedef </em><code class="descclassname">HostInterface::</code><code class="descname">PhysAddrWidth</code><a class="headerlink" href="#HostInterface::PhysAddrWidth" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">PhysAddrWidth</code><a class="headerlink" href="#HostInterface::PhysAddrWidth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Width in bits of physical addresses on the data bus connected to host shared memory.</p>
 </dd></dl>
 
 <dl class="typedef">
 <dt id="HostInterface::NumberOfMasters">
-<em class="property">typedef </em><code class="descclassname">HostInterface::</code><code class="descname">NumberOfMasters</code><a class="headerlink" href="#HostInterface::NumberOfMasters" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">NumberOfMasters</code><a class="headerlink" href="#HostInterface::NumberOfMasters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of memory interfaces used for connecting to host shared memory.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="host-specific-interfaces">
-<h2>5.2. Host-Specific Interfaces<a class="headerlink" href="#host-specific-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Host-Specific Interfaces<a class="headerlink" href="#host-specific-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="HostInterface::BsimHost">
-<em class="property">interface </em><code class="descclassname">HostInterface::</code><code class="descname">BsimHost</code><a class="headerlink" href="#HostInterface::BsimHost" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">BsimHost</code><a class="headerlink" href="#HostInterface::BsimHost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host interface for the bluesim platform</p>
 </dd></dl>
 
 <dl class="interface">
 <dt id="HostInterface::PcieHost">
-<em class="property">interface </em><code class="descclassname">HostInterface::</code><code class="descname">PcieHost</code><a class="headerlink" href="#HostInterface::PcieHost" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">PcieHost</code><a class="headerlink" href="#HostInterface::PcieHost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host interface for PCIe-attached FPGAs such as vc707 and kc705</p>
 </dd></dl>
 
 <dl class="interface">
 <dt id="HostInterface::ZynqHost">
-<em class="property">interface </em><code class="descclassname">HostInterface::</code><code class="descname">ZynqHost</code><a class="headerlink" href="#HostInterface::ZynqHost" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">ZynqHost</code><a class="headerlink" href="#HostInterface::ZynqHost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Host interface for Zynq FPGAs such as zedboard, zc702, zc706, and zybo.</p>
 <p>The Zc706 is a ZynqHost even when it is plugged into a PCIe slot.</p>
 </dd></dl>
 
 </div>
 <div class="section" id="application-specific-types">
-<h2>5.3. Application-Specific Types<a class="headerlink" href="#application-specific-types" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Application-Specific Types<a class="headerlink" href="#application-specific-types" title="Permalink to this headline">¶</a></h2>
 <dl class="typedef">
 <dt id="HostInterface::PinType">
-<em class="property">typedef </em><code class="descclassname">HostInterface::</code><code class="descname">PinType</code><a class="headerlink" href="#HostInterface::PinType" title="Permalink to this definition">¶</a></dt>
+<em class="property">typedef </em><code class="sig-prename descclassname">HostInterface::</code><code class="sig-name descname">PinType</code><a class="headerlink" href="#HostInterface::PinType" title="Permalink to this definition">¶</a></dt>
 <dd><p>Specifies the type of the application pins interface. Defined from PIN_TYPE.</p>
 </dd></dl>
 
@@ -119,7 +108,7 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">5. HostInterface Package</a><ul>
 <li><a class="reference internal" href="#host-specific-constants">5.1. Host-Specific Constants</a></li>
@@ -131,30 +120,27 @@
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="ctrlmux.html"
-                        title="previous chapter">4. CtrlMux Package</a></p>
+                        title="previous chapter"><span class="section-number">4. </span>CtrlMux Package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="leds.html"
-                        title="next chapter">6. Leds Package</a></p>
+                        title="next chapter"><span class="section-number">6. </span>Leds Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/bsv/hostinterface.txt"
+      <li><a href="../_sources/bsv/hostinterface.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -174,13 +160,13 @@
         <li class="right" >
           <a href="ctrlmux.html" title="4. CtrlMux Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

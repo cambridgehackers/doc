@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Implementing String Search &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Implementing String Search &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Design" href="design.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Workflow using Connectal" href="toolchain.html" />
     <link rel="prev" title="The Connectal Framework" href="connectal-framework.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="connectal-framework.html" title="The Connectal Framework"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -60,7 +49,7 @@
 <h1>Implementing String Search<a class="headerlink" href="#implementing-string-search" title="Permalink to this headline">¶</a></h1>
 <p>Having covered the features of the Connectal at a high level, we now
 explain more specifically how the framework can be applied to
-implement the refinements outlined in Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a>.</p>
+implement the refinements outlined in Section <a class="reference internal" href="string-search.html#sec-strstr"><span class="std std-ref">Accelerating String Search</span></a>.</p>
 <div class="section" id="initial-implementation">
 <h2>Initial Implementation<a class="headerlink" href="#initial-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The FPGA is connected to the host system with a PCIe bus, and to the
@@ -68,15 +57,15 @@ memory array with wires.  In addition to implementing a search kernel,
 the hardware accelerator must communicate with the software components
 and with the flash chips.  Communication with the software takes place
 through portals, whose interface declaration is given below:</p>
-<div class="highlight-python"><div class="highlight"><pre>interface StrstrRequest;
-  method Action setupNeedle(Bit#(8) needleChars);
-  method Action search(Bit#(32) haystackPtr,
-                       Bit#(32) haystackLen);
-endinterface
-interface StrstrIndication;
-  method Action searchResult(Int#(32) v);
-  method Action setupComplete();
-endinterface
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interface</span> <span class="n">StrstrRequest</span><span class="p">;</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">setupNeedle</span><span class="p">(</span><span class="n">Bit</span><span class="c1">#(8) needleChars);</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">search</span><span class="p">(</span><span class="n">Bit</span><span class="c1">#(32) haystackPtr,</span>
+                       <span class="n">Bit</span><span class="c1">#(32) haystackLen);</span>
+<span class="n">endinterface</span>
+<span class="n">interface</span> <span class="n">StrstrIndication</span><span class="p">;</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">searchResult</span><span class="p">(</span><span class="n">Int</span><span class="c1">#(32) v);</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">setupComplete</span><span class="p">();</span>
+<span class="n">endinterface</span>
 </pre></div>
 </div>
 <p>The hardware implements the StrstrRequest interface, which the
@@ -97,12 +86,12 @@ to use a pointer to system memory instead.</p>
 <p>Because the StrStrRequest functionality is implemented in hardware,
 the Connectal interface compiler generates a C++ textbf{proxy} with
 the following interface to be invoked by the application software:</p>
-<div class="highlight-python"><div class="highlight"><pre>class StrStrRequestProxy : public Portal {
-public:
-  void setupNeedle(uint32_t needleChars);
-  void search(uint32_t haystackPtr,
-              uint32_t haystackLen);
-};
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StrStrRequestProxy</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Portal</span> <span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+  <span class="n">void</span> <span class="n">setupNeedle</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">needleChars</span><span class="p">);</span>
+  <span class="n">void</span> <span class="n">search</span><span class="p">(</span><span class="n">uint32_t</span> <span class="n">haystackPtr</span><span class="p">,</span>
+              <span class="n">uint32_t</span> <span class="n">haystackLen</span><span class="p">);</span>
+<span class="p">};</span>
 </pre></div>
 </div>
 <p>The implementation of StrStrRequestProxy marshals the arguments of
@@ -110,9 +99,9 @@ each method and en-queues them directly into their dedicated hardware
 FIFOs. To execute searches in the FPGA fabric over data stored in
 flash memory, the software developer simply instantiates
 <em>StrStrRequestProxy</em> and invokes its methods:</p>
-<div class="highlight-python"><div class="highlight"><pre>StrStrRequestProxy *proxy =
-            new StrStrRequestProxy(...);
-proxy-&gt;search(haystackPtr, haystackLen);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StrStrRequestProxy</span> <span class="o">*</span><span class="n">proxy</span> <span class="o">=</span>
+            <span class="n">new</span> <span class="n">StrStrRequestProxy</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="n">proxy</span><span class="o">-&gt;</span><span class="n">search</span><span class="p">(</span><span class="n">haystackPtr</span><span class="p">,</span> <span class="n">haystackLen</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>On the FPGA, the user implements the application logic as a BSV module
@@ -121,10 +110,10 @@ the interface compiler to connect this module to the hardware
 FIFOs. The wrapper unmarshals messages that it receives and then
 invokes the appropriate method in the StrStrRequest interface.  Here
 is the BSV code that instantiates the generated wrapper and connects
-it to the user&#8217;s texttt{mkStrStr} module:</p>
-<div class="highlight-python"><div class="highlight"><pre>StrStrRequest strStr &lt;- mkStrStr(...);
-StrStrRequestWrapper wrapper &lt;-
-    mkStrStrRequestWrapper(strStr);
+it to the user’s texttt{mkStrStr} module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StrStrRequest</span> <span class="n">strStr</span> <span class="o">&lt;-</span> <span class="n">mkStrStr</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="n">StrStrRequestWrapper</span> <span class="n">wrapper</span> <span class="o">&lt;-</span>
+    <span class="n">mkStrStrRequestWrapper</span><span class="p">(</span><span class="n">strStr</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Figure <a href="#id1"><span class="problematic" id="id2">:ref:`Fig-msc1`_</span></a> shows how all the pieces of an application
@@ -133,25 +122,25 @@ is invoked remotely from software.  Direct access to the memory mapped
 hardware FIFOs by the generated proxy running in user-mode is key to
 the efficiency of our implementation strategy.</p>
 <img alt="../_images/msc1.png" src="../_images/msc1.png" />
-<div class="figure" id="id19">
+<div class="figure align-default" id="id19">
 <span id="fig-msc1"></span><img alt="../_images/msc1.png" src="../_images/msc1.png" />
-<p class="caption"><span class="caption-text">SW invokes HW: <em>main</em> and <em>app HW</em> are implemented by the user.</span></p>
+<p class="caption"><span class="caption-text">SW invokes HW: <em>main</em> and <em>app HW</em> are implemented by the user.</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="invoking-software-from-hardware">
 <h3>Invoking Software from Hardware<a class="headerlink" href="#invoking-software-from-hardware" title="Permalink to this headline">¶</a></h3>
 <p>Invoking software from hardware takes a slightly different form, due
-primarily to the fact that <a href="#id3"><span class="problematic" id="id4">``</span></a>main&#8217;&#8217; is still owned by software.  Since
+primarily to the fact that <a href="#id3"><span class="problematic" id="id4">``</span></a>main’’ is still owned by software.  Since
 the direction of the remote invocation is reversed, the proxy on this
 path will be instantiated on the FPGA and the wrapper instantiated on
 host side.  The user implements the StrStrResponse interface in
 software and connects it to the generated wrapper using C++
 subclasses:</p>
-<div class="highlight-python"><div class="highlight"><pre>class StrStrResponse:
-  public StrStrResponseWrapper {
-    ...
-  void searchResult(int32_t v) {...}
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StrStrResponse</span><span class="p">:</span>
+  <span class="n">public</span> <span class="n">StrStrResponseWrapper</span> <span class="p">{</span>
+    <span class="o">...</span>
+  <span class="n">void</span> <span class="n">searchResult</span><span class="p">(</span><span class="n">int32_t</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The StrStrResponseWrapper constructor registers a pointer to the
@@ -160,46 +149,46 @@ software wrappers.  The wrapper implementation unmarshals messages
 sent through the hardware FIFOs and invokes the appropriate subclass
 interface method.  To activate this path, main simply instantiates the
 response implementation and invokes the library event handler:</p>
-<div class="highlight-python"><div class="highlight"><pre>StrStrResponse *response =
-  new StrStrResponse(...);
-while(1)
-  portalExec_event();
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StrStrResponse</span> <span class="o">*</span><span class="n">response</span> <span class="o">=</span>
+  <span class="n">new</span> <span class="n">StrStrResponse</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">portalExec_event</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>On the invocation side, the interface compiler generates a proxy which
 the application logic instantiates and invokes directly:</p>
-<div class="highlight-python"><div class="highlight"><pre>StrStrResponseProxy proxy &lt;-
-     mkStrStrRequestProxy();
-StrStrRequest strStr &lt;-
-     mkStrStr(... proxy.ifc ...);
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">StrStrResponseProxy</span> <span class="n">proxy</span> <span class="o">&lt;-</span>
+     <span class="n">mkStrStrRequestProxy</span><span class="p">();</span>
+<span class="n">StrStrRequest</span> <span class="n">strStr</span> <span class="o">&lt;-</span>
+     <span class="n">mkStrStr</span><span class="p">(</span><span class="o">...</span> <span class="n">proxy</span><span class="o">.</span><span class="n">ifc</span> <span class="o">...</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>Figure :ref:Fig-msc0 shows how all the pieces of an application
 collaborate when software functionality is being invoked from
 hardware.</p>
 <img alt="../_images/msc0.png" src="../_images/msc0.png" />
-<div class="figure" id="id20">
+<div class="figure align-default" id="id20">
 <span id="fig-msc0"></span><img alt="../_images/msc0.png" src="../_images/msc0.png" />
-<p class="caption"><span class="caption-text">HW invokes SW: <a href="#id5"><span class="problematic" id="id6">`</span></a>main&#8217;, <a href="#id7"><span class="problematic" id="id8">`</span></a>ind::wrapper&#8217;, and <a href="#id9"><span class="problematic" id="id10">`</span></a>app HW&#8217; are implemented by the user.</span></p>
+<p class="caption"><span class="caption-text">HW invokes SW: <a href="#id5"><span class="problematic" id="id6">`</span></a>main’, <a href="#id7"><span class="problematic" id="id8">`</span></a>ind::wrapper’, and <a href="#id9"><span class="problematic" id="id10">`</span></a>app HW’ are implemented by the user.</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
 <div class="legend">
 </div>
 </div>
 <p>The simplest software execution environment for the string search accelerator
 is to have a single thread making requests and waiting for responses as
 follows:</p>
-<div class="highlight-python"><div class="highlight"><pre>void search(char *str){
-  StrStrRequestProxy *req =
-    new StrStrRequestProxy(...);
-  StrStrResponse *resp =
-    new StrStrResponse(...);
-  while (char c = *str++)
-    req-&gt;setupNeedle(c);
-  // start search
-  req-&gt;search(...);
-  // handle responses from the HW
-  while(1)
-    portalExec_event();
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">search</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">){</span>
+  <span class="n">StrStrRequestProxy</span> <span class="o">*</span><span class="n">req</span> <span class="o">=</span>
+    <span class="n">new</span> <span class="n">StrStrRequestProxy</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+  <span class="n">StrStrResponse</span> <span class="o">*</span><span class="n">resp</span> <span class="o">=</span>
+    <span class="n">new</span> <span class="n">StrStrResponse</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="nb">str</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">-&gt;</span><span class="n">setupNeedle</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">start</span> <span class="n">search</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">search</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">handle</span> <span class="n">responses</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">HW</span>
+  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">portalExec_event</span><span class="p">();</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The call to :c:func:portalExec_event() checks for a response from HW.  If
@@ -230,31 +219,31 @@ driver connects these signals to the Linux kernel and the software
 wrappers can exploit then by calling poll.  Connectal applications
 often use a separate thread to execute hardware-to-software
 asynchronous invocations, since dedicated thread can put itself to sleep until the
-hardware raises an interrupt.  The <a href="#id11"><span class="problematic" id="id12">``</span></a>main&#8217;&#8217; thread is free to do other
-work and can communicate with the <a href="#id13"><span class="problematic" id="id14">``</span></a>indication&#8217;&#8217; thread using a
+hardware raises an interrupt.  The <a href="#id11"><span class="problematic" id="id12">``</span></a>main’’ thread is free to do other
+work and can communicate with the <a href="#id13"><span class="problematic" id="id14">``</span></a>indication’’ thread using a
 semaphore as shown below:</p>
-<div class="highlight-python"><div class="highlight"><pre>class StrStrResponse:
-    public StrStrResponseWrapper {
-  sem_t sem;
-  int v;
-  void searchResult(int32_t v) {
-    this-&gt;response = v;
-    sem_post(&amp;sem);
-  }
-  void waitResponse(){sem_wait(&amp;sem);}
-};
-StrStrResponse *resp;
-StrStrRequestProxy *req;
-int search(char *str){
-  while (char c = *str++)
-    req-&gt;setupNeedle(c);
-  // start search
-  req-&gt;search(...);
-  // wait for response
-  resp-&gt;waitResponse();
-  // return result
-  return resp-&gt;v;
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StrStrResponse</span><span class="p">:</span>
+    <span class="n">public</span> <span class="n">StrStrResponseWrapper</span> <span class="p">{</span>
+  <span class="n">sem_t</span> <span class="n">sem</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">v</span><span class="p">;</span>
+  <span class="n">void</span> <span class="n">searchResult</span><span class="p">(</span><span class="n">int32_t</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">-&gt;</span><span class="n">response</span> <span class="o">=</span> <span class="n">v</span><span class="p">;</span>
+    <span class="n">sem_post</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">void</span> <span class="n">waitResponse</span><span class="p">(){</span><span class="n">sem_wait</span><span class="p">(</span><span class="o">&amp;</span><span class="n">sem</span><span class="p">);}</span>
+<span class="p">};</span>
+<span class="n">StrStrResponse</span> <span class="o">*</span><span class="n">resp</span><span class="p">;</span>
+<span class="n">StrStrRequestProxy</span> <span class="o">*</span><span class="n">req</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">search</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">){</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">char</span> <span class="n">c</span> <span class="o">=</span> <span class="o">*</span><span class="nb">str</span><span class="o">++</span><span class="p">)</span>
+    <span class="n">req</span><span class="o">-&gt;</span><span class="n">setupNeedle</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">start</span> <span class="n">search</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">search</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">response</span>
+  <span class="n">resp</span><span class="o">-&gt;</span><span class="n">waitResponse</span><span class="p">();</span>
+  <span class="o">//</span> <span class="k">return</span> <span class="n">result</span>
+  <span class="k">return</span> <span class="n">resp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The polling thread is started by a call
@@ -282,65 +271,65 @@ pieces of hardware functionality.</p>
 </div>
 <div class="section" id="shared-access-to-host-memory">
 <h2>Shared Access to Host Memory<a class="headerlink" href="#shared-access-to-host-memory" title="Permalink to this headline">¶</a></h2>
-<p>In the first three refinements presented in Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a>,
+<p>In the first three refinements presented in Section <a class="reference internal" href="string-search.html#sec-strstr"><span class="std std-ref">Accelerating String Search</span></a>,
 all communication between hardware and software takes place through
 register-mapped IO.  The final refinement in
 Section <span class="xref std std-ref">Sec-StrStrDma</span> is to grant hardware and software shared
 access to host memory.  The interface to the search accelerator shown
 below has been updated to use direct access to system memory for the
 search strings:</p>
-<div class="highlight-python"><div class="highlight"><pre>interface StrstrRequest;
-  method Action setup(Bit#(32) needlePtr,
-                      Bit#(32) mpNextPtr,
-                      Bit#(32) needleLen);
-  method Action search(Bit#(32) haystackPtr,
-                       Bit#(32) haystackLen,
-                       Bit#(32) iterCount);
-endinterface
-interface StrstrIndication;
-   method Action searchResult(Int#(32) v);
-   method Action setupComplete();
-endinterface
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interface</span> <span class="n">StrstrRequest</span><span class="p">;</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">setup</span><span class="p">(</span><span class="n">Bit</span><span class="c1">#(32) needlePtr,</span>
+                      <span class="n">Bit</span><span class="c1">#(32) mpNextPtr,</span>
+                      <span class="n">Bit</span><span class="c1">#(32) needleLen);</span>
+  <span class="n">method</span> <span class="n">Action</span> <span class="n">search</span><span class="p">(</span><span class="n">Bit</span><span class="c1">#(32) haystackPtr,</span>
+                       <span class="n">Bit</span><span class="c1">#(32) haystackLen,</span>
+                       <span class="n">Bit</span><span class="c1">#(32) iterCount);</span>
+<span class="n">endinterface</span>
+<span class="n">interface</span> <span class="n">StrstrIndication</span><span class="p">;</span>
+   <span class="n">method</span> <span class="n">Action</span> <span class="n">searchResult</span><span class="p">(</span><span class="n">Int</span><span class="c1">#(32) v);</span>
+   <span class="n">method</span> <span class="n">Action</span> <span class="n">setupComplete</span><span class="p">();</span>
+<span class="n">endinterface</span>
 </pre></div>
 </div>
 <p>In order to share memory with hardware accelerators, it needs to be
 allocated using :c:func:portalAlloc(). Here is the search function updated
 accordingly:</p>
-<div class="highlight-python"><div class="highlight"><pre>int search(char *str){
-  int size = strlen(str)+1;
-  int fd = portalAlloc(size, 0);
-  char *sharedStr = portalMmap(fd, size);
-  strcpy(sharedStr, str);
-  // send a DMA reference to the search pattern
-  req-&gt;needle(dma-&gt;reference(fd), size);
-  // start search
-  req-&gt;search(...);
-  resp-&gt;waitResponse();
-  ... unmap and free the string
-  return resp-&gt;v;
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">search</span><span class="p">(</span><span class="n">char</span> <span class="o">*</span><span class="nb">str</span><span class="p">){</span>
+  <span class="nb">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">fd</span> <span class="o">=</span> <span class="n">portalAlloc</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="n">char</span> <span class="o">*</span><span class="n">sharedStr</span> <span class="o">=</span> <span class="n">portalMmap</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+  <span class="n">strcpy</span><span class="p">(</span><span class="n">sharedStr</span><span class="p">,</span> <span class="nb">str</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">send</span> <span class="n">a</span> <span class="n">DMA</span> <span class="n">reference</span> <span class="n">to</span> <span class="n">the</span> <span class="n">search</span> <span class="n">pattern</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">needle</span><span class="p">(</span><span class="n">dma</span><span class="o">-&gt;</span><span class="n">reference</span><span class="p">(</span><span class="n">fd</span><span class="p">),</span> <span class="n">size</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">start</span> <span class="n">search</span>
+  <span class="n">req</span><span class="o">-&gt;</span><span class="n">search</span><span class="p">(</span><span class="o">...</span><span class="p">);</span>
+  <span class="n">resp</span><span class="o">-&gt;</span><span class="n">waitResponse</span><span class="p">();</span>
+  <span class="o">...</span> <span class="n">unmap</span> <span class="ow">and</span> <span class="n">free</span> <span class="n">the</span> <span class="n">string</span>
+  <span class="k">return</span> <span class="n">resp</span><span class="o">-&gt;</span><span class="n">v</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>The application allocates shared memory via {tt portalAlloc}, which
 returns a file descriptor, and then passes that file descriptor to
-{tt mmap}, which maps the physical pages into the application&#8217;s
+{tt mmap}, which maps the physical pages into the application’s
 address space. The file descriptor corresponds to a
 dmabufcite{dmabuf}, which is a standard Linux kernel mechanism.</p>
-<dl class="docutils">
-<dt>To share that memory with the accelerator, the application calls {tt</dt>
-<dd>reference}, which sends a logical to physical address</dd>
-<dt>mapping to the hardware&#8217;s address translator. The call to {tt</dt>
-<dd>reference} returns a handle, which the application sends to</dd>
+<dl class="simple">
+<dt>To share that memory with the accelerator, the application calls {tt</dt><dd><p>reference}, which sends a logical to physical address</p>
+</dd>
+<dt>mapping to the hardware’s address translator. The call to {tt</dt><dd><p>reference} returns a handle, which the application sends to</p>
+</dd>
 </dl>
-<p>the accelerator. Connectal&#8217;s BSV libraries for DMA enable the
+<p>the accelerator. Connectal’s BSV libraries for DMA enable the
 accelerator to read or write from offsets to these handles,
 taking care of address translation transparently.</p>
 <p>To fully exploit the data parallelism, {tt mkStrStr} partitions the
 search space into $p$ partitions. It instantiates two memory read
 trees from the Connectal library ({tt MemReadEngineV}, discussed in
-Section <a class="reference internal" href="connectal-framework.html#sec-memreadengine"><span>Distributed Access to Memory Ports</span></a>, each with $p$ read servers.  One set
+Section <a class="reference internal" href="connectal-framework.html#sec-memreadengine"><span class="std std-ref">Distributed Access to Memory Ports</span></a>, each with $p$ read servers.  One set
 is used by the search kernels to read the configuration data from the
-host memory, while the other is used to read the <a href="#id15"><span class="problematic" id="id16">``</span></a>haystack&#8217;&#8217; from
+host memory, while the other is used to read the <a href="#id15"><span class="problematic" id="id16">``</span></a>haystack’’ from
 flash.</p>
 <p>On supported platforms such as Zynq which provide multiple physical
 master connections to system memory, Connectal interleaves DMA
@@ -351,7 +340,7 @@ basis, rather than a per-request basis.</p>
 <h2>Alternate Portal Implementations<a class="headerlink" href="#alternate-portal-implementations" title="Permalink to this headline">¶</a></h2>
 <p>Connectal separates the generation of code for marshalling and
 unmarshaling method arguments from the transport mechanism used to
-transmit the messages. This separation enables <a href="#id17"><span class="problematic" id="id18">``</span></a>swappable&#8217;&#8217;
+transmit the messages. This separation enables <a href="#id17"><span class="problematic" id="id18">``</span></a>swappable’’
 application-specific transport libraries.  In light of this, a large
 number of transport mechanism can be considered. Switching between
 mechanism requires a simple directive in the project Makefile (more
@@ -393,7 +382,7 @@ per second transceivers.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Implementing String Search</a><ul>
 <li><a class="reference internal" href="#initial-implementation">Initial Implementation</a><ul>
@@ -418,23 +407,20 @@ per second transceivers.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/design/implementing-string-search.txt"
+      <li><a href="../_sources/design/implementing-string-search.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -454,13 +440,13 @@ per second transceivers.</p>
         <li class="right" >
           <a href="connectal-framework.html" title="The Connectal Framework"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

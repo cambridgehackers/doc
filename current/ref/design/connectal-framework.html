@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>The Connectal Framework &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>The Connectal Framework &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Design" href="design.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Implementing String Search" href="implementing-string-search.html" />
     <link rel="prev" title="Accelerating String Search" href="string-search.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="string-search.html" title="Accelerating String Search"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,24 +48,24 @@
   <div class="section" id="the-connectal-framework">
 <span id="sec-framework"></span><h1>The Connectal Framework<a class="headerlink" href="#the-connectal-framework" title="Permalink to this headline">¶</a></h1>
 <p>In and of themselves, none of the HW/SW interfaces considered in
-Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a> are particularly complex.  On the other hand,
+Section <a class="reference internal" href="string-search.html#sec-strstr"><span class="std std-ref">Accelerating String Search</span></a> are particularly complex.  On the other hand,
 implementing the complete set and maintaining correctness as the
 application evolves is a considerable amount of care, requiring deep
 understanding of both the application and the platform.  The Connectal
 framework is a collection of tools and library components which was
 designed to address these challenges with the following features:</p>
 <ul class="simple">
-<li>Easy declaration and invocation of remote methods between
-application components running on the host or in the FPGA.</li>
-<li>Direct user-mode access to hardware accelerators from software.</li>
-<li>High performance read and write bus master access to system
-memory from the FPGA</li>
-<li>Infrastructure for sharing full speed memory port access between
-an arbitrary number of clients in the FPGA fabric</li>
-<li>Portability across platforms using different CPUs, buses,
-operating systems, and FPGAs</li>
-<li>Fully integrated tool-chain support for dependency builds and
-device configuration.</li>
+<li><p>Easy declaration and invocation of remote methods between
+application components running on the host or in the FPGA.</p></li>
+<li><p>Direct user-mode access to hardware accelerators from software.</p></li>
+<li><p>High performance read and write bus master access to system
+memory from the FPGA</p></li>
+<li><p>Infrastructure for sharing full speed memory port access between
+an arbitrary number of clients in the FPGA fabric</p></li>
+<li><p>Portability across platforms using different CPUs, buses,
+operating systems, and FPGAs</p></li>
+<li><p>Fully integrated tool-chain support for dependency builds and
+device configuration.</p></li>
 </ul>
 <p>In this section, we introduce the Connectal framework through a
 discussion of its prominent features.</p>
@@ -87,7 +76,7 @@ components using asynchronous messaging. The message and channel types
 are application specific, requiring the user to define the HW/SW
 interface using BSV interfaces as the interface definition language
 (IDL).  These interfaces declare logical groups of unidirectional
-<a href="#id1"><span class="problematic" id="id2">``</span></a>send&#8217;&#8217; methods, each of which is implemented as a FIFO channel by
+<a href="#id1"><span class="problematic" id="id2">``</span></a>send’’ methods, each of which is implemented as a FIFO channel by
 the Connectal interface compiler; all channels corresponding to a
 single BSV interface are grouped together into a single
 <em>portal</em>.</p>
@@ -105,8 +94,8 @@ software using the generated wrappers and proxies.  An application can
 partition methods across several portals, to control access to the
 interfaces by specific hardware or software modules.  To support
 bi-directional communication, at least two portals are required: one
-which allows software to <a href="#id3"><span class="problematic" id="id4">``</span></a>invoke&#8217;&#8217; hardware, and another for hardware
-to <a href="#id5"><span class="problematic" id="id6">``</span></a>invoke&#8217;&#8217; software.  Each portal may be accessed by different
+which allows software to <a href="#id3"><span class="problematic" id="id4">``</span></a>invoke’’ hardware, and another for hardware
+to <a href="#id5"><span class="problematic" id="id6">``</span></a>invoke’’ software.  Each portal may be accessed by different
 threads, processes, or directly from the kernel.</p>
 </div>
 <div class="section" id="direct-user-mode-access-to-hardware">
@@ -132,7 +121,7 @@ HW/SW interface changes, and eliminates the need for device-driver
 development expertise in many cases.  Secondly, after the hardware
 registers have been mapped into user address space, the need for
 software to switch between user and kernel mode is all but eliminated
-since all <a href="#id7"><span class="problematic" id="id8">``</span></a>driver&#8217;&#8217; functionality is being executed in user-space.</p>
+since all <a href="#id7"><span class="problematic" id="id8">``</span></a>driver’’ functionality is being executed in user-space.</p>
 </div>
 <div class="section" id="shared-access-to-host-memory">
 <h2>Shared Access to Host Memory<a class="headerlink" href="#shared-access-to-host-memory" title="Permalink to this headline">¶</a></h2>
@@ -153,16 +142,14 @@ for the FPGA.  We implemented a custom kernel memory allocator for
 Connectal, textbf{portalmem}, using the kernel dmabuf support.  Any
 solution which allocates and shares memory between hardware and
 software must meet two high-level requirements:</p>
-<ul>
-<li><dl class="first docutils">
-<dt>Allocated buffers must have reference counts to prevent memory</dt>
-<dd><p class="first last">leaks.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Allocated buffers must have reference counts to prevent memory</dt><dd><p>leaks.</p>
 </dd>
 </dl>
 </li>
-<li><dl class="first docutils">
-<dt>Efficient mechanisms must be provided to share the location of</dt>
-<dd><p class="first last">allocated regions.</p>
+<li><dl class="simple">
+<dt>Efficient mechanisms must be provided to share the location of</dt><dd><p>allocated regions.</p>
 </dd>
 </dl>
 </li>
@@ -229,7 +216,7 @@ FPGA or in Bluesim.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">The Connectal Framework</a><ul>
 <li><a class="reference internal" href="#portals">Portals</a></li>
@@ -250,23 +237,20 @@ FPGA or in Bluesim.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/design/connectal-framework.txt"
+      <li><a href="../_sources/design/connectal-framework.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -286,13 +270,13 @@ FPGA or in Bluesim.</p>
         <li class="right" >
           <a href="string-search.html" title="Accelerating String Search"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

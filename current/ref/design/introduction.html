@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Introduction &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Introduction &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Design" href="design.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Accelerating String Search" href="string-search.html" />
     <link rel="prev" title="Abstract" href="abstract.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="abstract.html" title="Abstract"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -70,12 +59,12 @@ supporting additional applications.</p>
 <p>As a system evolves through design exploration, the boundary between
 the software and hardware pieces can change substantially.  The old
 paradigm of <a href="#id1"><span class="problematic" id="id2">``</span></a>separate hardware and software designs before the
-project starts&#8217;&#8217; is no longer sustainable, and hardware teams are
+project starts’’ is no longer sustainable, and hardware teams are
 increasingly responsible for delivering significant software
 components.</p>
 <p>Despite this trend, hardware engineers find themselves with
 surprisingly poor support for the development of the software that is
-so integral to their project&#8217;s success. They are often required to
+so integral to their project’s success. They are often required to
 manually develop the necessary software and hardware to connect the
 two environments. In the software world, this is equivalent to
 manually re-creating header files from the prose description of an
@@ -88,10 +77,10 @@ expensive to debug.</p>
 partitioning of designs across hardware and software components.  We
 have identified the following four goals as central to this endeavor:</p>
 <ul class="simple">
-<li>Connect software and hardware by compiling interface declarations.</li>
-<li>Enable concurrent access to hardware accelerators from software.</li>
-<li>Enable high-bandwidth sharing of system memory with hardware accelerators.</li>
-<li>Provide portability across platforms (CPU, OS, bus types, FPGAs).</li>
+<li><p>Connect software and hardware by compiling interface declarations.</p></li>
+<li><p>Enable concurrent access to hardware accelerators from software.</p></li>
+<li><p>Enable high-bandwidth sharing of system memory with hardware accelerators.</p></li>
+<li><p>Provide portability across platforms (CPU, OS, bus types, FPGAs).</p></li>
 </ul>
 <p>In this paper, we present a software-driven hardware development
 framework called <a class="reference external" href="http://www.connectal.org/">Connectal</a>.  Connectal consists of a
@@ -114,7 +103,7 @@ worked hard to remove any performance penalty associated with its use.</p>
 (BSV) because it enables a higher level of abstraction than the
 alternatives and supports parameterized types.  The software
 components are implemented in C/C++. We chose Bluespec interfaces as
-the interface definition language (IDL) for Connectal&#8217;s interface
+the interface definition language (IDL) for Connectal’s interface
 compiler.</p>
 <p>This paper describes the Connectal framework, and how it can be used
 to flexibly move between a variety of software environments and
@@ -122,9 +111,9 @@ communication models when mapping applications to platforms with
 connected FPGAs and CPUs.</p>
 <div class="section" id="document-organization">
 <h2>Document Organization<a class="headerlink" href="#document-organization" title="Permalink to this headline">¶</a></h2>
-<p>In Section <a class="reference internal" href="string-search.html#sec-strstr"><span>Accelerating String Search</span></a>, we present an example running in a
+<p>In Section <a class="reference internal" href="string-search.html#sec-strstr"><span class="std std-ref">Accelerating String Search</span></a>, we present an example running in a
 number of different execution environments. In Section
-<a class="reference internal" href="connectal-framework.html#sec-framework"><span>The Connectal Framework</span></a>, we give an overview of the Connectal framework
+<a class="reference internal" href="connectal-framework.html#sec-framework"><span class="std std-ref">The Connectal Framework</span></a>, we give an overview of the Connectal framework
 and its design goals.  In Section <span class="xref std std-ref">Sec-Impl</span> we discuss the
 details of Connectal and how it can be used to implement the
 example. Section <span class="xref std std-ref">Sec-ToolChain</span> describes the implementation of
@@ -140,7 +129,7 @@ discussion of performance metrics and related work.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#document-organization">Document Organization</a></li>
@@ -157,23 +146,20 @@ discussion of performance metrics and related work.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/design/introduction.txt"
+      <li><a href="../_sources/design/introduction.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -193,13 +179,13 @@ discussion of performance metrics and related work.</p>
         <li class="right" >
           <a href="abstract.html" title="Abstract"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

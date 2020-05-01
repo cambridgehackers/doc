@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>3. pcieflat &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>3. pcieflat &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Tools" href="tools.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Invocation of topgen.py" href="topgen.html" />
     <link rel="prev" title="2. Invocation of generate-constraints.py" href="generate-constraints.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="generate-constraints.html" title="2. Invocation of generate-constraints.py"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,53 +46,53 @@
           <div class="body" role="main">
             
   <div class="section" id="pcieflat">
-<h1>3. pcieflat<a class="headerlink" href="#pcieflat" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>pcieflat<a class="headerlink" href="#pcieflat" title="Permalink to this headline">¶</a></h1>
 <p>Usage:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">pcieflat</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcieflat</span>
 </pre></div>
 </div>
 <p>Dumps trace of PCIE transactions.</p>
 <p>The trace contains the following columns:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="19%" />
-<col width="81%" />
+<col style="width: 19%" />
+<col style="width: 81%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">col</th>
-<th class="head">description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>col</p></th>
+<th class="head"><p>description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>dirtype</td>
-<td>TLP direction and type</td>
+<tbody>
+<tr class="row-even"><td><p>dirtype</p></td>
+<td><p>TLP direction and type</p></td>
 </tr>
-<tr class="row-odd"><td>timestamp</td>
-<td>Timestamp of TLP, in main clock cycles</td>
+<tr class="row-odd"><td><p>timestamp</p></td>
+<td><p>Timestamp of TLP, in main clock cycles</p></td>
 </tr>
-<tr class="row-even"><td>delta</td>
-<td>Number of cycles since previous TLP</td>
+<tr class="row-even"><td><p>delta</p></td>
+<td><p>Number of cycles since previous TLP</p></td>
 </tr>
-<tr class="row-odd"><td>type</td>
-<td>type:pktype:format</td>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>type:pktype:format</p></td>
 </tr>
-<tr class="row-even"><td>be</td>
-<td>Byte enables</td>
+<tr class="row-even"><td><p>be</p></td>
+<td><p>Byte enables</p></td>
 </tr>
-<tr class="row-odd"><td>hit</td>
-<td>BAR hit</td>
+<tr class="row-odd"><td><p>hit</p></td>
+<td><p>BAR hit</p></td>
 </tr>
-<tr class="row-even"><td>eof</td>
-<td>End of frame</td>
+<tr class="row-even"><td><p>eof</p></td>
+<td><p>End of frame</p></td>
 </tr>
-<tr class="row-odd"><td>sof</td>
-<td>Start of frame</td>
+<tr class="row-odd"><td><p>sof</p></td>
+<td><p>Start of frame</p></td>
 </tr>
-<tr class="row-even"><td>address</td>
-<td>Request physical address</td>
+<tr class="row-even"><td><p>address</p></td>
+<td><p>Request physical address</p></td>
 </tr>
-<tr class="row-odd"><td>tag</td>
-<td>Request tag</td>
+<tr class="row-odd"><td><p>tag</p></td>
+<td><p>Request tag</p></td>
 </tr>
 </tbody>
 </table>
@@ -122,101 +111,101 @@ transaction, it will be of the form <cite>type:tlppkttype:tlpformat</cite>, wher
 the types are:</p>
 <blockquote>
 <div><ul class="simple">
-<li>CpuRReq: read request from CPU to FPGA</li>
-<li>CpuWReq: write request from CPU to FPGA</li>
-<li>CpuRRsp: read response from FPGA to CPU</li>
-<li>DmaRReq: read request from FPGA to CPU DRAM</li>
-<li>DmaWReq: write request from FPGA to CPU DRAM</li>
-<li>DmaRRsp: read response from CPU DRAM to FPGA</li>
-<li>CpuRCon: continuation data sent from FPGA to CPU (continuation of CpuRRsp or DmaWReq)</li>
-<li>DmaRCon: continuation data sent from CPU DRAM to FPGA (continuation of DmaRRsp or CpuWReq)</li>
-<li>Interru: interrupt message from FPGA to CPU</li>
+<li><p>CpuRReq: read request from CPU to FPGA</p></li>
+<li><p>CpuWReq: write request from CPU to FPGA</p></li>
+<li><p>CpuRRsp: read response from FPGA to CPU</p></li>
+<li><p>DmaRReq: read request from FPGA to CPU DRAM</p></li>
+<li><p>DmaWReq: write request from FPGA to CPU DRAM</p></li>
+<li><p>DmaRRsp: read response from CPU DRAM to FPGA</p></li>
+<li><p>CpuRCon: continuation data sent from FPGA to CPU (continuation of CpuRRsp or DmaWReq)</p></li>
+<li><p>DmaRCon: continuation data sent from CPU DRAM to FPGA (continuation of DmaRRsp or CpuWReq)</p></li>
+<li><p>Interru: interrupt message from FPGA to CPU</p></li>
 </ul>
 </div></blockquote>
 <p>The TLP <cite>pkttype</cite> is one of the following:</p>
 <blockquote>
 <div><ul class="simple">
-<li>MRW:  Memory read/write</li>
-<li>COMP: additional data (&#8220;completion&#8221;) of transaction</li>
+<li><p>MRW:  Memory read/write</p></li>
+<li><p>COMP: additional data (“completion”) of transaction</p></li>
 </ul>
 </div></blockquote>
 <p>The TLP <cite>format</cite> is one of the following:</p>
 <blockquote>
 <div><ul class="simple">
-<li>MEM_WRITE_3DW_DATA: 96-bit write request header containing 32-bit address and 32-bit data</li>
-<li>MEM_WRITE_4DW_DATA: 128-bit write request header containing 64-bit address and no data</li>
-<li>MEM_READ__3DW: 96-bit read request header containing 32-bit address</li>
-<li>MEM_READ__4DW: 128-bit read request header containing 64-bit address</li>
+<li><p>MEM_WRITE_3DW_DATA: 96-bit write request header containing 32-bit address and 32-bit data</p></li>
+<li><p>MEM_WRITE_4DW_DATA: 128-bit write request header containing 64-bit address and no data</p></li>
+<li><p>MEM_READ__3DW: 96-bit read request header containing 32-bit address</p></li>
+<li><p>MEM_READ__4DW: 128-bit read request header containing 64-bit address</p></li>
 </ul>
 </div></blockquote>
 <p>The <cite>sof</cite> and <cite>eof</cite> flags indicate the start and end TLPs of each
 transaction.</p>
 <div class="section" id="diagnosing-crashes">
-<h2>3.1. Diagnosing Crashes<a class="headerlink" href="#diagnosing-crashes" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>Diagnosing Crashes<a class="headerlink" href="#diagnosing-crashes" title="Permalink to this headline">¶</a></h2>
 <p>If the machine crashed, look for transactions that were
 started but not ended.</p>
 <p>These will generally fall before very large deltas, where the machine
 was rebooted before it had any more interactions with the FPGA.</p>
 </div>
 <div class="section" id="example-trace">
-<h2>3.2. Example Trace<a class="headerlink" href="#example-trace" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Example Trace<a class="headerlink" href="#example-trace" title="Permalink to this headline">¶</a></h2>
 <p>Here are some excerpts from the output of <cite>pcieflat</cite> after running <cite>tests/memserver_copy</cite>:</p>
-<div class="highlight-python"><div class="highlight"><pre>pcieflat: devices are [&#39;/dev/portal_0_6&#39;, &#39;/dev/portal_0_5&#39;, &#39;/dev/portal_0_4&#39;, &#39;/dev/portal_0_3&#39;, &#39;/dev/portal_0_2&#39;, &#39;/dev/portal_0_1&#39;]
-             ts     delta   response                     XXX          tlp          address  off   be       tag     clid  nosnp  laddr        data
-                                pkttype format               foo (be hit eof sof)            (1st last)        req     stat  bcnt    length
-RXpp  513858932          0 DmaRRsp:COMP:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 0 0 1)                        tag:07 0300 0000 0 00 080 00  16 01179d1d
-TXcc  513858932          0 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:259b17012c9b1701339b17013a9b1701
-RXcc  513858933          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:249d17012b9d1701329d1701399d1701
-TXcc  513858933          0 CpuRCon                         10 0x8 tlp(ffff 0 1 0)                            data:419b1701489b17014f9b1701569b1701
-RXcc  513858934          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:409d1701479d17014e9d1701559d1701
-RXcc  513858935          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:5c9d1701639d17016a9d1701719d1701
-RXcc  513858936          1 DmaRCon                         08 0x4 tlp(ffff 0 1 0)                            data:789d17017f9d1701869d170164b19a21
-RXpp  513858938          2 DmaRRsp:COMP:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 0 0 1)                        tag:07 0300 0000 0 00 040 40  16 01179d8d
-RXcc  513858939          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:949d17019b9d1701a29d1701a99d1701
-RXcc  513858940          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:b09d1701b79d1701be9d1701c59d1701
-RXcc  513858941          1 DmaRCon                         08 0x4 tlp(ffff 0 0 0)                            data:cc9d1701d39d1701da9d1701e19d1701
-RXcc  513858942          1 DmaRCon                         08 0x4 tlp(ffff 0 1 0)                            data:e89d1701ef9d1701f69d1701af3ad2c2
-TXqq  513858949          7 DmaWReq: MRW:MEM_WRITE_4DW_DATA 11 0x8 tlp(ffff 0 0 1) address: 000000035f4fc680 be(1st: f last:f) tag:05 reqid:0300 length:32
-TXcc  513858950          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:5d9b1701649b17016b9b1701729b1701
-TXcc  513858951          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:799b1701809b1701879b17018e9b1701
-TXcc  513858952          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:959b17019c9b1701a39b1701aa9b1701
-TXcc  513858953          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:b19b1701b89b1701bf9b1701c69b1701
-TXcc  513858954          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:cd9b1701d49b1701db9b1701e29b1701
-TXcc  513858955          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:e99b1701f09b1701f79b1701fe9b1701
-TXcc  513858956          1 CpuRCon                         10 0x8 tlp(ffff 0 0 0)                            data:059c17010c9c1701139c17011a9c1701
-TXcc  513858957          1 CpuRCon                         10 0x8 tlp(ffff 0 1 0)                            data:219c1701289c17012f9c1701369c1701
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pcieflat</span><span class="p">:</span> <span class="n">devices</span> <span class="n">are</span> <span class="p">[</span><span class="s1">&#39;/dev/portal_0_6&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/portal_0_5&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/portal_0_4&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/portal_0_3&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/portal_0_2&#39;</span><span class="p">,</span> <span class="s1">&#39;/dev/portal_0_1&#39;</span><span class="p">]</span>
+             <span class="n">ts</span>     <span class="n">delta</span>   <span class="n">response</span>                     <span class="n">XXX</span>          <span class="n">tlp</span>          <span class="n">address</span>  <span class="n">off</span>   <span class="n">be</span>       <span class="n">tag</span>     <span class="n">clid</span>  <span class="n">nosnp</span>  <span class="n">laddr</span>        <span class="n">data</span>
+                                <span class="n">pkttype</span> <span class="nb">format</span>               <span class="n">foo</span> <span class="p">(</span><span class="n">be</span> <span class="n">hit</span> <span class="n">eof</span> <span class="n">sof</span><span class="p">)</span>            <span class="p">(</span><span class="mi">1</span><span class="n">st</span> <span class="n">last</span><span class="p">)</span>        <span class="n">req</span>     <span class="n">stat</span>  <span class="n">bcnt</span>    <span class="n">length</span>
+<span class="n">RXpp</span>  <span class="mi">513858932</span>          <span class="mi">0</span> <span class="n">DmaRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">07</span> <span class="mi">0300</span> <span class="mi">0000</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">080</span> <span class="mi">00</span>  <span class="mi">16</span> <span class="mi">01179</span><span class="n">d1d</span>
+<span class="n">TXcc</span>  <span class="mi">513858932</span>          <span class="mi">0</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">259</span><span class="n">b17012c9b1701339b17013a9b1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858933</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">249</span><span class="n">d17012b9d1701329d1701399d1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858933</span>          <span class="mi">0</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">419</span><span class="n">b1701489b17014f9b1701569b1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858934</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">409</span><span class="n">d1701479d17014e9d1701559d1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858935</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">5</span><span class="n">c9d1701639d17016a9d1701719d1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858936</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">789</span><span class="n">d17017f9d1701869d170164b19a21</span>
+<span class="n">RXpp</span>  <span class="mi">513858938</span>          <span class="mi">2</span> <span class="n">DmaRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">07</span> <span class="mi">0300</span> <span class="mi">0000</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">040</span> <span class="mi">40</span>  <span class="mi">16</span> <span class="mi">01179</span><span class="n">d8d</span>
+<span class="n">RXcc</span>  <span class="mi">513858939</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">949</span><span class="n">d17019b9d1701a29d1701a99d1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858940</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">b09d1701b79d1701be9d1701c59d1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858941</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">cc9d1701d39d1701da9d1701e19d1701</span>
+<span class="n">RXcc</span>  <span class="mi">513858942</span>          <span class="mi">1</span> <span class="n">DmaRCon</span>                         <span class="mi">08</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">e89d1701ef9d1701f69d1701af3ad2c2</span>
+<span class="n">TXqq</span>  <span class="mi">513858949</span>          <span class="mi">7</span> <span class="n">DmaWReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_WRITE_4DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">1</span><span class="p">)</span> <span class="n">address</span><span class="p">:</span> <span class="mi">000000035</span><span class="n">f4fc680</span> <span class="n">be</span><span class="p">(</span><span class="mi">1</span><span class="n">st</span><span class="p">:</span> <span class="n">f</span> <span class="n">last</span><span class="p">:</span><span class="n">f</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">05</span> <span class="n">reqid</span><span class="p">:</span><span class="mi">0300</span> <span class="n">length</span><span class="p">:</span><span class="mi">32</span>
+<span class="n">TXcc</span>  <span class="mi">513858950</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">5</span><span class="n">d9b1701649b17016b9b1701729b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858951</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">799</span><span class="n">b1701809b1701879b17018e9b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858952</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">959</span><span class="n">b17019c9b1701a39b1701aa9b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858953</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">b19b1701b89b1701bf9b1701c69b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858954</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">cd9b1701d49b1701db9b1701e29b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858955</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="n">e99b1701f09b1701f79b1701fe9b1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858956</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">059</span><span class="n">c17010c9c1701139c17011a9c1701</span>
+<span class="n">TXcc</span>  <span class="mi">513858957</span>          <span class="mi">1</span> <span class="n">CpuRCon</span>                         <span class="mi">10</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">)</span>                            <span class="n">data</span><span class="p">:</span><span class="mi">219</span><span class="n">c1701289c17012f9c1701369c1701</span>
 </pre></div>
 </div>
 <p>It may contain DMA Read Requests:</p>
-<div class="highlight-python"><div class="highlight"><pre>TXqq  513859009          1 DmaRReq: MRW:MEM_READ__4DW      11 0x8 tlp(ffff 0 1 1) address: 000000039e8fc800 be(1st: f last:f) tag:00 reqid:0300 length:32
-TXqq  513859010          1 DmaRReq: MRW:MEM_READ__4DW      11 0x8 tlp(ffff 0 1 1) address: 000000039e8fc880 be(1st: f last:f) tag:01 reqid:0300 length:32
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXqq</span>  <span class="mi">513859009</span>          <span class="mi">1</span> <span class="n">DmaRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__4DW</span>      <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span> <span class="n">address</span><span class="p">:</span> <span class="mf">000000039e8</span><span class="n">fc800</span> <span class="n">be</span><span class="p">(</span><span class="mi">1</span><span class="n">st</span><span class="p">:</span> <span class="n">f</span> <span class="n">last</span><span class="p">:</span><span class="n">f</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="n">reqid</span><span class="p">:</span><span class="mi">0300</span> <span class="n">length</span><span class="p">:</span><span class="mi">32</span>
+<span class="n">TXqq</span>  <span class="mi">513859010</span>          <span class="mi">1</span> <span class="n">DmaRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__4DW</span>      <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span> <span class="n">address</span><span class="p">:</span> <span class="mf">000000039e8</span><span class="n">fc880</span> <span class="n">be</span><span class="p">(</span><span class="mi">1</span><span class="n">st</span><span class="p">:</span> <span class="n">f</span> <span class="n">last</span><span class="p">:</span><span class="n">f</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">01</span> <span class="n">reqid</span><span class="p">:</span><span class="mi">0300</span> <span class="n">length</span><span class="p">:</span><span class="mi">32</span>
 </pre></div>
 </div>
 <p>The trace may contain interrupts:</p>
-<div class="highlight-python"><div class="highlight"><pre>TXqq  513865009         12 Interru: MRW:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 0 1 1)  fee00000    0 be(f 0) tag:00 0300                    1 0000406e
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TXqq</span>  <span class="mi">513865009</span>         <span class="mi">12</span> <span class="n">Interru</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">fee00000</span>    <span class="mi">0</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0300</span>                    <span class="mi">1</span> <span class="mi">0000406</span><span class="n">e</span>
 </pre></div>
 </div>
 <p>It will also contain reads and writes from the CPU to the FPGA:</p>
-<div class="highlight-python"><div class="highlight"><pre>RXqq  513874994       9985 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df400000    0 be(f 0) tag:00 0038                    1
-TXpp  513875008         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 00   1 00000001
-RXqq  513875159        151 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df402000  800 be(f 0) tag:00 0038                    1
-TXpp  513875173         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 00   1 00000000
-RXqq  513875323        150 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df401000  400 be(f 0) tag:00 0038                    1
-TXpp  513875337         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 00   1 00000000
-RXqq  513876236        899 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df40000c    3 be(f 0) tag:00 0038                    1
-TXpp  513876250         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 0c   1 00000001
-RXqq  513876449        199 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df400020    8 be(f 0) tag:00 0038                    1
-TXpp  513876463         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 20   1 00000000
-RXqq  513883818       7355 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df40000c    3 be(f 0) tag:00 0038                    1
-TXpp  513883832         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 0c   1 00000000
-RXqq  513883976        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1)  df400004    1 be(f 0) tag:02 0000                    1 00000001
-RXqq  513884007         31 CpuRReq: MRW:MEM_READ__3DW      09 0x4 tlp(ffff 4 1 1)  df40200c  803 be(f 0) tag:00 0038                    1
-TXpp  513884021         14 CpuRRsp:COMP:MEM_WRITE_3DW_DATA 11 0x8 tlp(ffff 4 1 1)                        tag:00 0038 0300 0 00 004 0c   1 00000000
-RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1)  df402004  801 be(f 0) tag:03 0000                    1 00000001
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">RXqq</span>  <span class="mi">513874994</span>       <span class="mi">9985</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df400000</span>    <span class="mi">0</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513875008</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">00</span>   <span class="mi">1</span> <span class="mi">00000001</span>
+<span class="n">RXqq</span>  <span class="mi">513875159</span>        <span class="mi">151</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df402000</span>  <span class="mi">800</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513875173</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">00</span>   <span class="mi">1</span> <span class="mi">00000000</span>
+<span class="n">RXqq</span>  <span class="mi">513875323</span>        <span class="mi">150</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df401000</span>  <span class="mi">400</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513875337</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">00</span>   <span class="mi">1</span> <span class="mi">00000000</span>
+<span class="n">RXqq</span>  <span class="mi">513876236</span>        <span class="mi">899</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df40000c</span>    <span class="mi">3</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513876250</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">0</span><span class="n">c</span>   <span class="mi">1</span> <span class="mi">00000001</span>
+<span class="n">RXqq</span>  <span class="mi">513876449</span>        <span class="mi">199</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df400020</span>    <span class="mi">8</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513876463</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">20</span>   <span class="mi">1</span> <span class="mi">00000000</span>
+<span class="n">RXqq</span>  <span class="mi">513883818</span>       <span class="mi">7355</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df40000c</span>    <span class="mi">3</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513883832</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">0</span><span class="n">c</span>   <span class="mi">1</span> <span class="mi">00000000</span>
+<span class="n">RXqq</span>  <span class="mi">513883976</span>        <span class="mi">144</span> <span class="n">CpuWReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df400004</span>    <span class="mi">1</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">02</span> <span class="mi">0000</span>                    <span class="mi">1</span> <span class="mi">00000001</span>
+<span class="n">RXqq</span>  <span class="mi">513884007</span>         <span class="mi">31</span> <span class="n">CpuRReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_READ__3DW</span>      <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df40200c</span>  <span class="mi">803</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span>                    <span class="mi">1</span>
+<span class="n">TXpp</span>  <span class="mi">513884021</span>         <span class="mi">14</span> <span class="n">CpuRRsp</span><span class="p">:</span><span class="n">COMP</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">11</span> <span class="mh">0x8</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>                        <span class="n">tag</span><span class="p">:</span><span class="mi">00</span> <span class="mi">0038</span> <span class="mi">0300</span> <span class="mi">0</span> <span class="mi">00</span> <span class="mi">004</span> <span class="mi">0</span><span class="n">c</span>   <span class="mi">1</span> <span class="mi">00000000</span>
+<span class="n">RXqq</span>  <span class="mi">513884165</span>        <span class="mi">144</span> <span class="n">CpuWReq</span><span class="p">:</span> <span class="n">MRW</span><span class="p">:</span><span class="n">MEM_WRITE_3DW_DATA</span> <span class="mi">09</span> <span class="mh">0x4</span> <span class="n">tlp</span><span class="p">(</span><span class="n">ffff</span> <span class="mi">4</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">)</span>  <span class="n">df402004</span>  <span class="mi">801</span> <span class="n">be</span><span class="p">(</span><span class="n">f</span> <span class="mi">0</span><span class="p">)</span> <span class="n">tag</span><span class="p">:</span><span class="mi">03</span> <span class="mi">0000</span>                    <span class="mi">1</span> <span class="mi">00000001</span>
 </pre></div>
 </div>
 <p>The trace will end with a summary of the kinds of PCIe transactions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">{</span><span class="s1">&#39;DmaWReq&#39;</span><span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s1">&#39;CpuRReq&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;Interru&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;CpuRRsp&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;CpuRCon&#39;</span><span class="p">:</span> <span class="mi">922</span><span class="p">,</span> <span class="s1">&#39;CpuWReq&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;DmaRReq&#39;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span> <span class="s1">&#39;DmaRRsp&#39;</span><span class="p">:</span> <span class="mi">141</span><span class="p">,</span> <span class="s1">&#39;DmaRCon&#39;</span><span class="p">:</span> <span class="mi">904</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;DmaWReq&#39;</span><span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s1">&#39;CpuRReq&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;Interru&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;CpuRRsp&#39;</span><span class="p">:</span> <span class="mi">45</span><span class="p">,</span> <span class="s1">&#39;CpuRCon&#39;</span><span class="p">:</span> <span class="mi">922</span><span class="p">,</span> <span class="s1">&#39;CpuWReq&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;DmaRReq&#39;</span><span class="p">:</span> <span class="mi">112</span><span class="p">,</span> <span class="s1">&#39;DmaRRsp&#39;</span><span class="p">:</span> <span class="mi">141</span><span class="p">,</span> <span class="s1">&#39;DmaRCon&#39;</span><span class="p">:</span> <span class="mi">904</span><span class="p">}</span>
 <span class="mi">2302</span>
 </pre></div>
 </div>
@@ -229,7 +218,7 @@ RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">3. pcieflat</a><ul>
 <li><a class="reference internal" href="#diagnosing-crashes">3.1. Diagnosing Crashes</a></li>
@@ -240,30 +229,27 @@ RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="generate-constraints.html"
-                        title="previous chapter">2. Invocation of generate-constraints.py</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Invocation of generate-constraints.py</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="topgen.html"
-                        title="next chapter">4. Invocation of topgen.py</a></p>
+                        title="next chapter"><span class="section-number">4. </span>Invocation of topgen.py</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/tools/pcieflat.txt"
+      <li><a href="../_sources/tools/pcieflat.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -283,13 +269,13 @@ RXqq  513884165        144 CpuWReq: MRW:MEM_WRITE_3DW_DATA 09 0x4 tlp(ffff 4 1 1
         <li class="right" >
           <a href="generate-constraints.html" title="2. Invocation of generate-constraints.py"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

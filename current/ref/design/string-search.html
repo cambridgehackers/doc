@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Accelerating String Search &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Accelerating String Search &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Design" href="design.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="The Connectal Framework" href="connectal-framework.html" />
     <link rel="prev" title="Introduction" href="introduction.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="introduction.html" title="Introduction"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" accesskey="U">Connectal Design</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -66,15 +55,14 @@ application~cite{mpAlgo}. Each variation represents a step in the
 iterative refinement process, intended to enhance performance or
 enable a different software execution environment.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[!h]</dt>
-<dd><blockquote class="first">
-<div>centering</div></blockquote>
-<dl class="last docutils">
-<dt>includegraphics[width=0.43textwidth]{platform.pdf}</dt>
-<dd><dl class="first last docutils">
-<dt>caption{label{Fig:Platform0}Target platform for string search</dt>
-<dd>application}</dd>
+<div><dl>
+<dt>begin{figure}[!h]</dt><dd><blockquote>
+<div><p>centering</p>
+</div></blockquote>
+<dl class="simple">
+<dt>includegraphics[width=0.43textwidth]{platform.pdf}</dt><dd><dl class="simple">
+<dt>caption{label{Fig:Platform0}Target platform for string search</dt><dd><p>application}</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -89,20 +77,19 @@ our application will be run on the CPU in a Linux environment.
 Connected to the host is a PCIe expansion card containing (among other
 things) a high-performance FPGA chip and a large array of flash
 memory.  The FPGA board was designed as a platform to accelerate <a href="#id1"><span class="problematic" id="id2">``</span></a>big
-data&#8217;&#8217; analytics by moving more processing power closer to the storage
+data’’ analytics by moving more processing power closer to the storage
 device.</p>
 <div class="section" id="initial-implementation">
 <span id="sec-strstrinitial"></span><h2>Initial Implementation<a class="headerlink" href="#initial-implementation" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[!h]</dt>
-<dd><blockquote class="first">
-<div>centering</div></blockquote>
-<dl class="last docutils">
-<dt>includegraphics[width=0.43textwidth]{data_accel_logical0.pdf}</dt>
-<dd><dl class="first last docutils">
-<dt>caption{label{Fig:StringSearch0}Logical components of the string</dt>
-<dd>search system}</dd>
+<div><dl>
+<dt>begin{figure}[!h]</dt><dd><blockquote>
+<div><p>centering</p>
+</div></blockquote>
+<dl class="simple">
+<dt>includegraphics[width=0.43textwidth]{data_accel_logical0.pdf}</dt><dd><dl class="simple">
+<dt>caption{label{Fig:StringSearch0}Logical components of the string</dt><dd><p>search system}</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -133,10 +120,10 @@ management strategy.  Our first refinement is based on the observation
 that there are four distinct tasks which the application software
 executes (mostly) independently:</p>
 <ul class="simple">
-<li>Send search command to the hardware.</li>
-<li>Receive search results from the hardware.</li>
-<li>Send commands to the hardware to manage the flash arrays</li>
-<li>Receive responses from the flash management hardware</li>
+<li><p>Send search command to the hardware.</p></li>
+<li><p>Receive search results from the hardware.</p></li>
+<li><p>Send commands to the hardware to manage the flash arrays</p></li>
+<li><p>Receive responses from the flash management hardware</p></li>
 </ul>
 <p>To exploit the task-level parallelism in our application, we can
 assign one thread to each of the four enumerated tasks.  To further
@@ -144,14 +131,14 @@ improve efficiency, the two threads receiving data from the hardware
 put themselves to sleep by calling textbf{poll} and are woken up only
 when a message has been received.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[!h]</dt>
-<dd><blockquote class="first">
-<div>centering</div></blockquote>
-<dl class="last docutils">
-<dt>includegraphics[width=0.43textwidth]{data_accel_logical1.pdf}</dt>
-<dd>caption{label{Fig:StringSearch1}Using a mutex to coordinate
-user-level access to hardware accelerator}</dd>
+<div><dl>
+<dt>begin{figure}[!h]</dt><dd><blockquote>
+<div><p>centering</p>
+</div></blockquote>
+<dl class="simple">
+<dt>includegraphics[width=0.43textwidth]{data_accel_logical1.pdf}</dt><dd><p>caption{label{Fig:StringSearch1}Using a mutex to coordinate
+user-level access to hardware accelerator}</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -168,14 +155,14 @@ between user-level processes.</p>
 <div class="section" id="refining-the-interfaces">
 <span id="sec-strstrrefininginterfaces"></span><h2>Refining the Interfaces<a class="headerlink" href="#refining-the-interfaces" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[!h]</dt>
-<dd><p class="first">centering
+<div><dl>
+<dt>begin{figure}[!h]</dt><dd><p>centering
 includegraphics[width=0.43textwidth]{data_accel_logical2.pdf}
 caption{label{Fig:StringSearch2}Movement of functionality from</p>
-<blockquote class="last">
-<div>user to kernel space.  Software-based coordination between kernel
-and user processes are prohibitively expensive.}</div></blockquote>
+<blockquote>
+<div><p>user to kernel space.  Software-based coordination between kernel
+and user processes are prohibitively expensive.}</p>
+</div></blockquote>
 </dd>
 </dl>
 <p>end{figure}</p>
@@ -195,14 +182,14 @@ no longer have an efficient SW mechanism to synchronize the block
 device driver running in kernel space with the application running in
 user space.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[htb]</dt>
-<dd><p class="first">centering
+<div><dl>
+<dt>begin{figure}[htb]</dt><dd><p>centering
 includegraphics[width=0.43textwidth]{data_accel_logical3.pdf}
 caption{label{Fig:StringSearch3}Correct interface design</p>
-<blockquote class="last">
-<div>removes the need for coordination between user and kernel
-threads.}</div></blockquote>
+<blockquote>
+<div><p>removes the need for coordination between user and kernel
+threads.}</p>
+</div></blockquote>
 </dd>
 </dl>
 <p>end{figure}</p>
@@ -226,11 +213,11 @@ populate it with the search strings, and pass a reference to this
 memory to the hardware accelerator which can then read the search
 strings directly from the host memory.</p>
 <blockquote>
-<div><dl class="docutils">
-<dt>begin{figure}[htb]</dt>
-<dd>centering
+<div><dl class="simple">
+<dt>begin{figure}[htb]</dt><dd><p>centering
 includegraphics[width=0.43textwidth]{data_accel_logical4.pdf}
-caption{label{Fig:StringSearch4}Connectal support for DMA.}</dd>
+caption{label{Fig:StringSearch4}Connectal support for DMA.}</p>
+</dd>
 </dl>
 <p>end{figure}</p>
 </div></blockquote>
@@ -263,7 +250,7 @@ of registers in both hardware and software.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Accelerating String Search</a><ul>
 <li><a class="reference internal" href="#initial-implementation">Initial Implementation</a></li>
@@ -283,23 +270,20 @@ of registers in both hardware and software.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/design/string-search.txt"
+      <li><a href="../_sources/design/string-search.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -319,13 +303,13 @@ of registers in both hardware and software.</p>
         <li class="right" >
           <a href="introduction.html" title="Introduction"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="design.html" >Connectal Design</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

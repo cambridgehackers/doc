@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>3. AxiStream Package &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>3. AxiStream Package &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal BSV Libraries" href="bsv.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. CtrlMux Package" href="ctrlmux.html" />
     <link rel="prev" title="2. Arith Package" href="arith.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="arith.html" title="2. Arith Package"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" accesskey="U">Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,35 +46,35 @@
           <div class="body" role="main">
             
   <div class="section" id="axistream-package">
-<h1>3. AxiStream Package<a class="headerlink" href="#axistream-package" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3. </span>AxiStream Package<a class="headerlink" href="#axistream-package" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="package-AxiStream"></span><div class="section" id="axi-stream-interfaces">
-<h2>3.1. AXI Stream Interfaces<a class="headerlink" href="#axi-stream-interfaces" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.1. </span>AXI Stream Interfaces<a class="headerlink" href="#axi-stream-interfaces" title="Permalink to this headline">¶</a></h2>
 <dl class="interface">
 <dt id="AxiStream::AxiStreamMaster">
-<em class="property">interface </em><code class="descclassname">AxiStream::</code><code class="descname">AxiStreamMaster</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamMaster" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">AxiStreamMaster</code><span class="sig-paren">(</span><em class="sig-param">numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamMaster" title="Permalink to this definition">¶</a></dt>
 <dd><p>AXI stream source with dataWidth data bits.</p>
 <blockquote>
 <div><dl class="method">
 <dt id="AxiStream::AxiStreamMaster.tdata">
-<code class="descname">tdata</code> &rarr; Bit#(dsz)<a class="headerlink" href="#AxiStream::AxiStreamMaster.tdata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tdata</code> &#x2192; Bit#(dsz)<a class="headerlink" href="#AxiStream::AxiStreamMaster.tdata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the data from this beat if tvalid is asserted, otherwise returns undefined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamMaster.    tkeep">
-<code class="descname">    tkeep</code> &rarr; Bit#(TDiv#(dsz,8))<a class="headerlink" href="#AxiStream::AxiStreamMaster.    tkeep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">    tkeep</code> &#x2192; Bit#(TDiv#(dsz,8))<a class="headerlink" href="#AxiStream::AxiStreamMaster.    tkeep" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the byte enables from this beat if tvalid is asserted, otherwise returns undefined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamMaster.              tlast">
-<code class="descname">              tlast</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.              tlast" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">              tlast</code> &#x2192; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.              tlast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates if this is the last data beat of this transaction tvalid is asserted, otherwise returns undefined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamMaster.                tready">
-<code class="descname">                tready</code><span class="sig-paren">(</span><em>Bit#(1) v</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamMaster.                tready" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">                tready</code><span class="sig-paren">(</span><em class="sig-param">Bit#(1) v</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#AxiStream::AxiStreamMaster.                tready" title="Permalink to this definition">¶</a></dt>
 <dd><p>When tvalid and tready are both asserted the current data is
 consumed. The value passed to tready may not depend on the output
 of tvalid.</p>
@@ -93,7 +82,7 @@ of tvalid.</p>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamMaster.               tvalid">
-<code class="descname">               tvalid</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.               tvalid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">               tvalid</code> &#x2192; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamMaster.               tvalid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Asserted when the data is valid.</p>
 </dd></dl>
 
@@ -102,30 +91,30 @@ of tvalid.</p>
 
 <dl class="interface">
 <dt id="AxiStream::AxiStreamSlave">
-<em class="property">interface </em><code class="descclassname">AxiStream::</code><code class="descname">AxiStreamSlave</code><span class="sig-paren">(</span><em>numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamSlave" title="Permalink to this definition">¶</a></dt>
+<em class="property">interface </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">AxiStreamSlave</code><span class="sig-paren">(</span><em class="sig-param">numeric type dataWidth</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::AxiStreamSlave" title="Permalink to this definition">¶</a></dt>
 <dd><p>AXI stream sink with dataWidth data bits.</p>
 <blockquote>
 <div><dl class="method">
 <dt id="AxiStream::AxiStreamSlave.tdata">
-<code class="descname">tdata</code><span class="sig-paren">(</span><em>Bit#(dsz) data</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tdata" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tdata</code><span class="sig-paren">(</span><em class="sig-param">Bit#(dsz) data</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tdata" title="Permalink to this definition">¶</a></dt>
 <dd><p>The data passed from the source if tvalid is asserted, otherwise undefined..</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamSlave.tkeep">
-<code class="descname">tkeep</code><span class="sig-paren">(</span><em>Bit#(TDiv#(dsz</em>, <em>8)) keep</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tkeep" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tkeep</code><span class="sig-paren">(</span><em class="sig-param">Bit#(TDiv#(dsz</em>, <em class="sig-param">8)) keep</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tkeep" title="Permalink to this definition">¶</a></dt>
 <dd><p>The byte enables passed from the source if tvalid is asserted, otherwise undefined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamSlave.tlast">
-<code class="descname">tlast</code><span class="sig-paren">(</span><em>Bit#(1) last</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tlast" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tlast</code><span class="sig-paren">(</span><em class="sig-param">Bit#(1) last</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tlast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates if this is the last data beat of this transaction tvalid is asserted, otherwise returns undefined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamSlave.tready">
-<code class="descname">tready</code> &rarr; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamSlave.tready" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tready</code> &#x2192; Bit#(1)<a class="headerlink" href="#AxiStream::AxiStreamSlave.tready" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return 1 if ready to receive data, 0 otherwise.</p>
 <p>When tvalid and tready are both asserted the current data is
 consumed. The value passed to tready may not depend on the output
@@ -134,7 +123,7 @@ of tvalid.</p>
 
 <dl class="method">
 <dt id="AxiStream::AxiStreamSlave.tvalid">
-<code class="descname">tvalid</code><span class="sig-paren">(</span><em>Bit#(1) v</em><span class="sig-paren">)</span> &rarr; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tvalid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">tvalid</code><span class="sig-paren">(</span><em class="sig-param">Bit#(1) v</em><span class="sig-paren">)</span> &#x2192; Action<a class="headerlink" href="#AxiStream::AxiStreamSlave.tvalid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicates the data from the source is valid.</p>
 </dd></dl>
 
@@ -143,31 +132,31 @@ of tvalid.</p>
 
 </div>
 <div class="section" id="connectable-type-instances">
-<h2>3.2. Connectable Type Instances<a class="headerlink" href="#connectable-type-instances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.2. </span>Connectable Type Instances<a class="headerlink" href="#connectable-type-instances" title="Permalink to this headline">¶</a></h2>
 <dl class="instance">
 <dt id="AxiStream::Connectable">
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">Connectable</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dataWidth)</em>, <em>AxiStreamSlave#(dataWidth)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::Connectable" title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">Connectable</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamMaster#(dataWidth)</em>, <em class="sig-param">AxiStreamSlave#(dataWidth)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::Connectable" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt id="AxiStream::ToGetM">
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">ToGetM</code><span class="sig-paren">(</span><em>AxiStreamMaster#(asz)</em>, <em>Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToGetM" title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">ToGetM</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamMaster#(asz)</em>, <em class="sig-param">Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToGetM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="instance">
 <dt id="AxiStream::ToPutM">
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">ToPutM</code><span class="sig-paren">(</span><em>AxiStreamSlave#(asz)</em>, <em>Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToPutM" title="Permalink to this definition">¶</a></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">ToPutM</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamSlave#(asz)</em>, <em class="sig-param">Bit#(asz)</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToPutM" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </div>
 <div class="section" id="axi-stream-type-classes-and-instances">
-<h2>3.3. AXI Stream Type Classes and Instances<a class="headerlink" href="#axi-stream-type-classes-and-instances" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.3. </span>AXI Stream Type Classes and Instances<a class="headerlink" href="#axi-stream-type-classes-and-instances" title="Permalink to this headline">¶</a></h2>
 <dl class="typeclass">
 <dt id="AxiStream::ToAxiStream">
-<em class="property">typeclass </em><code class="descclassname">AxiStream::</code><code class="descname">ToAxiStream</code><span class="sig-paren">(</span><em>type atype</em>, <em>type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToAxiStream" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">ToAxiStream</code><span class="sig-paren">(</span><em class="sig-param">type atype</em>, <em class="sig-param">type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::ToAxiStream" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="function">
 <dt id="AxiStream::ToAxiStream.toAxiStream">
-<em class="property">function </em><code class="descname">toAxiStream</code><span class="sig-paren">(</span><em>btype b</em><span class="sig-paren">)</span> &rarr; atype<a class="headerlink" href="#AxiStream::ToAxiStream.toAxiStream" title="Permalink to this definition">¶</a></dt>
+<em class="property">function </em><code class="sig-name descname">toAxiStream</code><span class="sig-paren">(</span><em class="sig-param">btype b</em><span class="sig-paren">)</span> &#x2192; atype<a class="headerlink" href="#AxiStream::ToAxiStream.toAxiStream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convert to an AXI stream interface.</p>
 </dd></dl>
 
@@ -175,10 +164,10 @@ of tvalid.</p>
 
 <dl class="typeclass">
 <dt id="AxiStream::MkAxiStream">
-<em class="property">typeclass </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>type atype</em>, <em>type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::MkAxiStream" title="Permalink to this definition">¶</a></dt>
+<em class="property">typeclass </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">type atype</em>, <em class="sig-param">type btype</em><span class="sig-paren">)</span><a class="headerlink" href="#AxiStream::MkAxiStream" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="module">
 <dt id="AxiStream::MkAxiStream.mkAxiStream">
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>btype b</em><span class="sig-paren">)</span> &rarr; (atype<a class="headerlink" href="#AxiStream::MkAxiStream.mkAxiStream" title="Permalink to this definition">¶</a></dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">btype b</em><span class="sig-paren">)</span> &#x2192; (atype<a class="headerlink" href="#AxiStream::MkAxiStream.mkAxiStream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a module with an AXI Stream interface.</p>
 </dd></dl>
 
@@ -186,10 +175,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamMaster#(dsize)</em>, <em class="sig-param">FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamMaster#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamMaster#(dsize))</dt>
 <dd></dd></dl>
 
 <p>Create an AXI Stream master from a FIFOF of bits</p>
@@ -197,10 +186,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamSlave#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamSlave#(dsize)</em>, <em class="sig-param">FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamSlave#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamSlave#(dsize))</dt>
 <dd><p>Create an AXI Stream slave from a FIFOF of bits</p>
 </dd></dl>
 
@@ -208,10 +197,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dsize)</em>, <em>FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamMaster#(dsize)</em>, <em class="sig-param">FIFOF#(Bit#(dsize))</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamMaster#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">FIFOF#(Bit#(dsize)) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamMaster#(dsize))</dt>
 <dd></dd></dl>
 
 <p>Create an AXI Stream master from a FIFOF of MemDataF</p>
@@ -219,10 +208,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamSlave#(dsize)</em>, <em>FIFOF#(MemDataF#(dsize))</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamSlave#(dsize)</em>, <em class="sig-param">FIFOF#(MemDataF#(dsize))</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>FIFOF#(MemDataF#(dsize)) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamSlave#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">FIFOF#(MemDataF#(dsize)) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamSlave#(dsize))</dt>
 <dd><p>Create an AXI Stream slave from a FIFOF of MemDataF</p>
 </dd></dl>
 
@@ -230,10 +219,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamMaster#(dsize)</em>, <em>PipeOut#(dtype)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamMaster#(dsize)</em>, <em class="sig-param">PipeOut#(dtype)</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>PipeOut#(dtype) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamMaster#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">PipeOut#(dtype) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamMaster#(dsize))</dt>
 <dd></dd></dl>
 
 <p>Create an AXI Stream master from a PipeOut#(dtype)</p>
@@ -241,10 +230,10 @@ of tvalid.</p>
 
 <dl class="instance">
 <dt>
-<em class="property">instance </em><code class="descclassname">AxiStream::</code><code class="descname">MkAxiStream</code><span class="sig-paren">(</span><em>AxiStreamSlave#(dsize)</em>, <em>FIFOF#(PipeIn#(dtype)</em><span class="sig-paren">)</span></dt>
+<em class="property">instance </em><code class="sig-prename descclassname">AxiStream::</code><code class="sig-name descname">MkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">AxiStreamSlave#(dsize)</em>, <em class="sig-param">FIFOF#(PipeIn#(dtype)</em><span class="sig-paren">)</span></dt>
 <dd><dl class="module">
 <dt>
-<em class="property">module </em><code class="descname">mkAxiStream</code><span class="sig-paren">(</span><em>PipeIn#(dtype) f</em><span class="sig-paren">)</span> &rarr; (AxiStreamSlave#(dsize))</dt>
+<em class="property">module </em><code class="sig-name descname">mkAxiStream</code><span class="sig-paren">(</span><em class="sig-param">PipeIn#(dtype) f</em><span class="sig-paren">)</span> &#x2192; (AxiStreamSlave#(dsize))</dt>
 <dd><p>Create an AXI Stream slave from a PipeIn#(dtype)</p>
 </dd></dl>
 
@@ -259,7 +248,7 @@ of tvalid.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">3. AxiStream Package</a><ul>
 <li><a class="reference internal" href="#axi-stream-interfaces">3.1. AXI Stream Interfaces</a></li>
@@ -271,30 +260,27 @@ of tvalid.</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="arith.html"
-                        title="previous chapter">2. Arith Package</a></p>
+                        title="previous chapter"><span class="section-number">2. </span>Arith Package</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ctrlmux.html"
-                        title="next chapter">4. CtrlMux Package</a></p>
+                        title="next chapter"><span class="section-number">4. </span>CtrlMux Package</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/bsv/axistream.txt"
+      <li><a href="../_sources/bsv/axistream.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -314,13 +300,13 @@ of tvalid.</p>
         <li class="right" >
           <a href="arith.html" title="2. Arith Package"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="bsv.html" >Connectal BSV Libraries</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

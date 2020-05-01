@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Compiling and Running Connectal Project &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Compiling and Running Connectal Project &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Clocking Your Design" href="clocks.html" />
     <link rel="prev" title="Connectal Project Structure" href="projectstructure.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="projectstructure.html" title="Connectal Project Structure"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -72,40 +61,40 @@ project must be in a publicly accessible git-hub repository, whose
 Repo location is entered beginning with <a class="reference external" href="git://">git://</a> as follows
 <a class="reference external" href="git://github.com/connectal-examples/leds.git">git://github.com/connectal-examples/leds.git</a>.  If the project
 makefile is not in the root directory of the repository, enter its
-relative path in the &#8216;Path&#8217; field of the form.  If a particular branch
+relative path in the ‘Path’ field of the form.  If a particular branch
 or revision number are desired, enter these as well.  Check the button
 to select the build target.  If you have selected a zynq-based
 platform and would like the tool-chain to automatically program the
 device and execute the design as its final step, then enter the IP
-address of your board. This works only because <code class="docutils literal"><span class="pre">adb</span></code> doesn&#8217;t
+address of your board. This works only because <code class="docutils literal notranslate"><span class="pre">adb</span></code> doesn’t
 require authentication. SSH keys required to run on PCIe-based
-platforms are not currently supported.  Finally, don&#8217;t forget to click
-&#8216;Add&#8217;. If the project name has already been used, you will be prompted
+platforms are not currently supported.  Finally, don’t forget to click
+‘Add’. If the project name has already been used, you will be prompted
 to enter a new one at this point.</p>
 </div>
 <div class="section" id="compiling-locally">
 <h2>Compiling Locally<a class="headerlink" href="#compiling-locally" title="Permalink to this headline">¶</a></h2>
 <p>Before compiling a project locally, you will need to install the
-toolchain.  After setting the <code class="docutils literal"><span class="pre">CONNECTALDIR</span></code> to the root of the
-connectal source tree, enter the command <code class="docutils literal"><span class="pre">make</span></code></p>
+toolchain.  After setting the <code class="docutils literal notranslate"><span class="pre">CONNECTALDIR</span></code> to the root of the
+connectal source tree, enter the command <code class="docutils literal notranslate"><span class="pre">make</span></code></p>
 </div>
 <div class="section" id="running-the-design">
 <h2>Running the Design<a class="headerlink" href="#running-the-design" title="Permalink to this headline">¶</a></h2>
 <p>When preparing a zedboard:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Following the directions in the zynq-boot git repo, create an Android boot SD card files.</li>
-<li>Write the SD card files into the first partition of an SD card (FAT format).</li>
-<li>Verify that the boot mode jumpers on the board are JP8/9/10 (MIO3/4/5) == 110 for booting from SD card.</li>
-<li>Verify that the PS_MIO0 pull-down jumper on the board JP6 is shorted.</li>
-<li>Connect a USB cable to the &#8216;UART&#8217; connector.  Use the &#8216;connectable&#8217; program from the connectable git repo to display linux console output.</li>
-<li>Connect an ethernet cable (linux uses DHCP to get an IP address during boot).</li>
+<li><p>Following the directions in the zynq-boot git repo, create an Android boot SD card files.</p></li>
+<li><p>Write the SD card files into the first partition of an SD card (FAT format).</p></li>
+<li><p>Verify that the boot mode jumpers on the board are JP8/9/10 (MIO3/4/5) == 110 for booting from SD card.</p></li>
+<li><p>Verify that the PS_MIO0 pull-down jumper on the board JP6 is shorted.</p></li>
+<li><p>Connect a USB cable to the ‘UART’ connector.  Use the ‘connectable’ program from the connectable git repo to display linux console output.</p></li>
+<li><p>Connect an ethernet cable (linux uses DHCP to get an IP address during boot).</p></li>
 </ul>
 </div></blockquote>
 <p>When preparing a PCIe board:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Attach a USB cable to the JTAG port</li>
+<li><p>Attach a USB cable to the JTAG port</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -117,7 +106,7 @@ connectal source tree, enter the command <code class="docutils literal"><span cl
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Compiling and Running Connectal Project</a><ul>
 <li><a class="reference internal" href="#compiling-on-connectalbuild">Compiling on ConnectalBuild</a></li>
@@ -136,23 +125,20 @@ connectal source tree, enter the command <code class="docutils literal"><span cl
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/devguide/compilingproject.txt"
+      <li><a href="../_sources/devguide/compilingproject.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -172,13 +158,13 @@ connectal source tree, enter the command <code class="docutils literal"><span cl
         <li class="right" >
           <a href="projectstructure.html" title="Connectal Project Structure"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

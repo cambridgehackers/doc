@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>4. Invocation of topgen.py &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>4. Invocation of topgen.py &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Tools" href="tools.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Connectal BSV Libraries" href="../bsv/bsv.html" />
     <link rel="prev" title="3. pcieflat" href="pcieflat.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="pcieflat.html" title="3. pcieflat"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" accesskey="U">Connectal Tools</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -57,72 +46,78 @@
           <div class="body" role="main">
             
   <div class="section" id="invocation-of-topgen-py">
-<h1>4. Invocation of topgen.py<a class="headerlink" href="#invocation-of-topgen-py" title="Permalink to this headline">¶</a></h1>
-<div class="highlight-python"><div class="highlight"><pre>usage: topgen [-h] [--project-dir PROJECT_DIR] [--filename FILENAME] [--topname TOPNAME] [--ifcnames IFCNAMES] [--pintype PINTYPE] [--interface INTERFACE]
-              [--portalclock PORTALCLOCK] [--importfiles IMPORTFILES] [--portname PORTNAME] [--wrapper WRAPPER] [--proxy PROXY] [--memread MEMREAD] [--memwrite MEMWRITE]
-              [--cnoc] [--integratedIndication]
+<h1><span class="section-number">4. </span>Invocation of topgen.py<a class="headerlink" href="#invocation-of-topgen-py" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">topgen</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">project</span><span class="o">-</span><span class="nb">dir</span> <span class="n">PROJECT_DIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">filename</span> <span class="n">FILENAME</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">topname</span> <span class="n">TOPNAME</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ifcnames</span> <span class="n">IFCNAMES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">pintype</span> <span class="n">PINTYPE</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">interface</span> <span class="n">INTERFACE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">portalclock</span> <span class="n">PORTALCLOCK</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">importfiles</span> <span class="n">IMPORTFILES</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">portname</span> <span class="n">PORTNAME</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">wrapper</span> <span class="n">WRAPPER</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">proxy</span> <span class="n">PROXY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">memread</span> <span class="n">MEMREAD</span><span class="p">]</span>
+              <span class="p">[</span><span class="o">--</span><span class="n">memwrite</span> <span class="n">MEMWRITE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cnoc</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">integratedIndication</span><span class="p">]</span>
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--project-dir</span></kbd></td>
-<td>project directory</td></tr>
-<tr><td class="option-group" colspan="2">
-<kbd><span class="option">--filename=Top.bsv</span></kbd></td>
-</tr>
-<tr><td>&nbsp;</td><td>name of generated file</td></tr>
-<tr><td class="option-group" colspan="2">
-<kbd><span class="option">--topname=mkConnectalTop</span></kbd></td>
-</tr>
-<tr><td>&nbsp;</td><td>name of generated module</td></tr>
-<tr><td class="option-group" colspan="2">
-<kbd><span class="option">--ifcnames=IfcNames</span></kbd></td>
-</tr>
-<tr><td>&nbsp;</td><td>name of interface names enum type and file</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--pintype=[]</span></kbd></td>
-<td>Type of pins interface</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--interface=[]</span></kbd></td>
-<td>exported interface declaration</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--portalclock</span></kbd></td>
-<td>Portal clock source</td></tr>
-<tr><td class="option-group" colspan="2">
-<kbd><span class="option">--importfiles=[]</span></kbd></td>
-</tr>
-<tr><td>&nbsp;</td><td>added imports</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--portname=[]</span></kbd></td>
-<td>added portal names to enum list</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--wrapper=[]</span></kbd></td>
-<td>exported wrapper interfaces</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--proxy=[]</span></kbd></td>
-<td>exported proxy interfaces</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--memread=[]</span></kbd></td>
-<td>memory read interfaces</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--memwrite=[]</span></kbd></td>
-<td>memory read interfaces</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--cnoc=False</span></kbd></td>
-<td>generate mkCnocTop</td></tr>
-<tr><td class="option-group" colspan="2">
-<kbd><span class="option">--integratedIndication=False</span></kbd></td>
-</tr>
-<tr><td>&nbsp;</td><td>indication pipes instantiated in user module</td></tr>
-</tbody>
-</table>
+<div class="section" id="Named Arguments">
+<h2><span class="section-number">4.1. </span>Named Arguments<a class="headerlink" href="#Named Arguments" title="Permalink to this headline">¶</a></h2>
+<dl class="option-list">
+<dt><kbd>--project-dir</kbd></dt>
+<dd><p>project directory</p>
+</dd>
+<dt><kbd>--filename</kbd></dt>
+<dd><p>name of generated file</p>
+<p>Default: “Top.bsv”</p>
+</dd>
+<dt><kbd>--topname</kbd></dt>
+<dd><p>name of generated module</p>
+<p>Default: “mkConnectalTop”</p>
+</dd>
+<dt><kbd>--ifcnames</kbd></dt>
+<dd><p>name of interface names enum type and file</p>
+<p>Default: “IfcNames”</p>
+</dd>
+<dt><kbd>--pintype</kbd></dt>
+<dd><p>Type of pins interface</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--interface</kbd></dt>
+<dd><p>exported interface declaration</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--portalclock</kbd></dt>
+<dd><p>Portal clock source</p>
+</dd>
+<dt><kbd>--importfiles</kbd></dt>
+<dd><p>added imports</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--portname</kbd></dt>
+<dd><p>added portal names to enum list</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--wrapper</kbd></dt>
+<dd><p>exported wrapper interfaces</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--proxy</kbd></dt>
+<dd><p>exported proxy interfaces</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--memread</kbd></dt>
+<dd><p>memory read interfaces</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--memwrite</kbd></dt>
+<dd><p>memory read interfaces</p>
+<p>Default: []</p>
+</dd>
+<dt><kbd>--cnoc</kbd></dt>
+<dd><p>generate mkCnocTop</p>
+<p>Default: False</p>
+</dd>
+<dt><kbd>--integratedIndication</kbd></dt>
+<dd><p>indication pipes instantiated in user module</p>
+<p>Default: False</p>
 </dd>
 </dl>
+</div>
 </div>
 
 
@@ -131,32 +126,37 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. Invocation of topgen.py</a><ul>
+<li><a class="reference internal" href="#Named Arguments">4.1. Named Arguments</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="pcieflat.html"
-                        title="previous chapter">3. pcieflat</a></p>
+                        title="previous chapter"><span class="section-number">3. </span>pcieflat</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="../bsv/bsv.html"
                         title="next chapter">Connectal BSV Libraries</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/tools/topgen.txt"
+      <li><a href="../_sources/tools/topgen.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -176,13 +176,13 @@
         <li class="right" >
           <a href="pcieflat.html" title="3. pcieflat"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="tools.html" >Connectal Tools</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

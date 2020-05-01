@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Connectal Project Structure &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Connectal Project Structure &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Compiling and Running Connectal Project" href="compilingproject.html" />
     <link rel="prev" title="Connectal Rationale" href="design.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="design.html" title="Connectal Rationale"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -72,34 +61,34 @@ defines parameters building and executing the project.  In its
 simplest form, it specifies the hardware and software source files,
 which Bluespec interfaces to use as interfaces (portals) between them,
 and the libraries to use for the hardware and software compilation:</p>
-<div class="highlight-python"><div class="highlight"><pre>INTERFACES = LedControllerRequest
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>INTERFACES = LedControllerRequest
 BSVFILES = LedController.bsv Top.bsv
 CPPFILES= testleds.cpp
 include \$(CONNECTALDIR)/Makefile.connectal
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">BSVFILES</span></code> is a list of bsv files containing interface
+<p><code class="docutils literal notranslate"><span class="pre">BSVFILES</span></code> is a list of bsv files containing interface
 definitions used to generate portals and module definitions used to
 generate HW components.  Connectal bsv libraries can be used without
 being listed explicitly.</p>
-<p><code class="docutils literal"><span class="pre">CPPFILES</span></code> is a list of C/C++ files containing software
-components and <code class="docutils literal"><span class="pre">main</span></code>.  The Connectal C/C++ libraries can be
+<p><code class="docutils literal notranslate"><span class="pre">CPPFILES</span></code> is a list of C/C++ files containing software
+components and <code class="docutils literal notranslate"><span class="pre">main</span></code>.  The Connectal C/C++ libraries can be
 used without being listed explicitly.</p>
-<p><code class="docutils literal"><span class="pre">INTERFACES</span></code> is a list of names of BSV interfaces which may be
+<p><code class="docutils literal notranslate"><span class="pre">INTERFACES</span></code> is a list of names of BSV interfaces which may be
 used to communicate between the HW and SW componentsy.  In addition to
 user-defined interfaces, there are a wide variety of interfaces
 defined in Connectal libraries which may be included in this list.</p>
-<p><code class="docutils literal"><span class="pre">NUMBER_OF_MASTERS</span></code> is used to designate the number of host
+<p><code class="docutils literal notranslate"><span class="pre">NUMBER_OF_MASTERS</span></code> is used to designate the number of host
 bus masters the hardware components will instantiate.  For PCIe-based
 platforms, this value can be set to 1, while on Zynq-based
 platforms values from 1 to 4 are valid.</p>
-<p><code class="docutils literal"><span class="pre">CONNECTALDIR</span></code> must be set so that the top-level Connectal
+<p><code class="docutils literal notranslate"><span class="pre">CONNECTALDIR</span></code> must be set so that the top-level Connectal
 makefile can be included, defining the makefile build targets for the project.
 This brings in the default definitions of
 all project build parameters as well as the Connectal hardware and
 software libraries.  When running the toolchain on AWS, this varible
 is set automatically in the build environment.
-(See <a class="reference internal" href="compilingproject.html#compiling-a-project"><span>Compiling and Running Connectal Project</span></a>)</p>
+(See <a class="reference internal" href="compilingproject.html#compiling-a-project"><span class="std std-ref">Compiling and Running Connectal Project</span></a>)</p>
 </div>
 <div class="section" id="project-source">
 <h2>Project Source<a class="headerlink" href="#project-source" title="Permalink to this headline">¶</a></h2>
@@ -107,45 +96,45 @@ is set automatically in the build environment.
 <h3>Interface Definitions<a class="headerlink" href="#interface-definitions" title="Permalink to this headline">¶</a></h3>
 <p>label{interface_definitions}</p>
 <p>When generating portals, the Connectal interface compiler searches the
-Connectal bsv libraries and the files listed in <code class="docutils literal"><span class="pre">BSVFILES</span></code> for
-definitions of the interfaces listed in <code class="docutils literal"><span class="pre">INTERFACES</span></code>.  If
+Connectal bsv libraries and the files listed in <code class="docutils literal notranslate"><span class="pre">BSVFILES</span></code> for
+definitions of the interfaces listed in <code class="docutils literal notranslate"><span class="pre">INTERFACES</span></code>.  If
 the definition of a listed interfaces is not found, an error is
 reported and the compilation aborts.  The interfaces in this list must
-be composed exclusively of <code class="docutils literal"><span class="pre">Action</span></code> methods.  Supported method
-argument types are <code class="docutils literal"><span class="pre">Bit\#(n)</span></code>, <code class="docutils literal"><span class="pre">Bool</span></code>,
-<code class="docutils literal"><span class="pre">Int\#(32)</span></code>, <code class="docutils literal"><span class="pre">UInt\#(32)</span></code>, <code class="docutils literal"><span class="pre">Float</span></code>,
-<code class="docutils literal"><span class="pre">Vector\#(t)</span></code>, <code class="docutils literal"><span class="pre">enum</span></code>, and <code class="docutils literal"><span class="pre">struct</span></code>.</p>
+be composed exclusively of <code class="docutils literal notranslate"><span class="pre">Action</span></code> methods.  Supported method
+argument types are <code class="docutils literal notranslate"><span class="pre">Bit\#(n)</span></code>, <code class="docutils literal notranslate"><span class="pre">Bool</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Int\#(32)</span></code>, <code class="docutils literal notranslate"><span class="pre">UInt\#(32)</span></code>, <code class="docutils literal notranslate"><span class="pre">Float</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Vector\#(t)</span></code>, <code class="docutils literal notranslate"><span class="pre">enum</span></code>, and <code class="docutils literal notranslate"><span class="pre">struct</span></code>.</p>
 </div>
 <div class="section" id="software">
 <h3>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h3>
 <p>The software in a Connectal project consists of at least one C++ file
 which instantiates the generated portal wrappers and proxies and
-implements <code class="docutils literal"><span class="pre">main()</span></code>.  The following source defines the SW
+implements <code class="docutils literal notranslate"><span class="pre">main()</span></code>.  The following source defines the SW
 component of the example, which simply toggles LEDs on the Zedboard
 (url{<a class="reference external" href="https://github.com/connectal-examples/leds/blob/master/testleds.cpp">https://github.com/connectal-examples/leds/blob/master/testleds.cpp</a>}):</p>
-<div class="highlight-python"><div class="highlight"><pre>#include &lt;unistd.h&gt;
-#include &quot;LedControllerRequest.h&quot;
-#include &quot;GeneratedTypes.h&quot;
-int main(int argc, const char **argv)
-{
-  LedControllerRequestProxy *device =
-    new LedControllerRequestProxy(IfcNames_LedControllerRequest);
-  for (int i = 0; i &lt; 20; i++) {
-    device-&gt;setLeds(10, 10000);
-    sleep(1);
-    device-&gt;setLeds(5, 10000);
-    sleep(1);
-  }
-}
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;unistd.h&gt;</span>
+<span class="c1">#include &quot;LedControllerRequest.h&quot;</span>
+<span class="c1">#include &quot;GeneratedTypes.h&quot;</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="nb">int</span> <span class="n">argc</span><span class="p">,</span> <span class="n">const</span> <span class="n">char</span> <span class="o">**</span><span class="n">argv</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">LedControllerRequestProxy</span> <span class="o">*</span><span class="n">device</span> <span class="o">=</span>
+    <span class="n">new</span> <span class="n">LedControllerRequestProxy</span><span class="p">(</span><span class="n">IfcNames_LedControllerRequest</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">device</span><span class="o">-&gt;</span><span class="n">setLeds</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">device</span><span class="o">-&gt;</span><span class="n">setLeds</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
-<p>The makefile listed <code class="docutils literal"><span class="pre">LedControllerRequest</span></code> as the only communication
+<p>The makefile listed <code class="docutils literal notranslate"><span class="pre">LedControllerRequest</span></code> as the only communication
 interface.  The generated proxies and wrappers for this interface are
-in <code class="docutils literal"><span class="pre">LedControllerRequest.h</span></code> which is included, along with C++
+in <code class="docutils literal notranslate"><span class="pre">LedControllerRequest.h</span></code> which is included, along with C++
 implementations of all additional interface types in
-<code class="docutils literal"><span class="pre">GeneratedTypes.h</span></code>. Line 9 instantiates the proxy through which
+<code class="docutils literal notranslate"><span class="pre">GeneratedTypes.h</span></code>. Line 9 instantiates the proxy through which
 the software invokes the hardware methods
-(See also <a class="reference internal" href="../design/flowcontrol.html#flow-control"><span>Flow Control</span></a>)</p>
+(See also <a class="reference internal" href="../design/flowcontrol.html#flow-control"><span class="std std-ref">Flow Control</span></a>)</p>
 <p>To support projects that will execute software inside the linux kernel
 (for example, to work in conjunction with filesystems or the network stack),
 connectal project software can also be written in C.</p>
@@ -158,7 +147,7 @@ interface declarations and module definitions.  The implementation of
 the interfaces and all supporting infrastructure is standard BSV.
 Interfaces being used as portals are subject to the type restrictions
 described earlier
-(See also <a class="reference internal" href="../design/interface_definitions.html#interface-definitions"><span>Interface Declarations</span></a>)</p>
+(See also <a class="reference internal" href="../design/interface_definitions.html#interface-definitions"><span class="std std-ref">Interface Declarations</span></a>)</p>
 <div class="section" id="top-bsv">
 <h3>Top.bsv<a class="headerlink" href="#top-bsv" title="Permalink to this headline">¶</a></h3>
 <p>In Top.bsv
@@ -169,33 +158,33 @@ to the generated wrappers and proxies.  To connect to the host
 processor bus, a parameterized standard interface is used, making it
 easy to synthesize the application for different CPUs or for
 simulation:</p>
-<div class="highlight-python"><div class="highlight"><pre>// Connectal Libraries
-import CtrlMux::*;
-import Portal::*;
-import Leds::*;
-import MemTypes::*;
-import MemPortal::*;
-import HostInterface::*;
-import LedControllerRequest::*;
-import LedController::*;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Connectal</span> <span class="n">Libraries</span>
+<span class="kn">import</span> <span class="nn">CtrlMux</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">Portal</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">Leds</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">MemTypes</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">MemPortal</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">HostInterface</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">LedControllerRequest</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">LedController</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 
-typedef enum {LedControllerRequestPortal} IfcNames deriving (Eq,Bits);
+<span class="n">typedef</span> <span class="n">enum</span> <span class="p">{</span><span class="n">LedControllerRequestPortal</span><span class="p">}</span> <span class="n">IfcNames</span> <span class="n">deriving</span> <span class="p">(</span><span class="n">Eq</span><span class="p">,</span><span class="n">Bits</span><span class="p">);</span>
 
-module mkConnectalTop(StdConnectalTop#(PhysAddrWidth));
-   LedController ledController &lt;- mkLedControllerRequest();
-   LedControllerRequestWrapper ledControllerRequestWrapper &lt;-
-      mkLedControllerRequestWrapper(LedControllerRequestPortal,
-      ledController.request);
+<span class="n">module</span> <span class="n">mkConnectalTop</span><span class="p">(</span><span class="n">StdConnectalTop</span><span class="c1">#(PhysAddrWidth));</span>
+   <span class="n">LedController</span> <span class="n">ledController</span> <span class="o">&lt;-</span> <span class="n">mkLedControllerRequest</span><span class="p">();</span>
+   <span class="n">LedControllerRequestWrapper</span> <span class="n">ledControllerRequestWrapper</span> <span class="o">&lt;-</span>
+      <span class="n">mkLedControllerRequestWrapper</span><span class="p">(</span><span class="n">LedControllerRequestPortal</span><span class="p">,</span>
+      <span class="n">ledController</span><span class="o">.</span><span class="n">request</span><span class="p">);</span>
 
-   Vector#(1,StdPortal) portals;
-   portals[0] = ledControllerRequestWrapper.portalIfc;
-   let ctrl_mux &lt;- mkSlaveMux(portals);
+   <span class="n">Vector</span><span class="c1">#(1,StdPortal) portals;</span>
+   <span class="n">portals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledControllerRequestWrapper</span><span class="o">.</span><span class="n">portalIfc</span><span class="p">;</span>
+   <span class="n">let</span> <span class="n">ctrl_mux</span> <span class="o">&lt;-</span> <span class="n">mkSlaveMux</span><span class="p">(</span><span class="n">portals</span><span class="p">);</span>
 
-   interface interrupt = getInterruptVector(portals);
-   interface slave = ctrl_mux;
-   interface masters = nil;
-   interface leds = ledController.leds;
-endmodule
+   <span class="n">interface</span> <span class="n">interrupt</span> <span class="o">=</span> <span class="n">getInterruptVector</span><span class="p">(</span><span class="n">portals</span><span class="p">);</span>
+   <span class="n">interface</span> <span class="n">slave</span> <span class="o">=</span> <span class="n">ctrl_mux</span><span class="p">;</span>
+   <span class="n">interface</span> <span class="n">masters</span> <span class="o">=</span> <span class="n">nil</span><span class="p">;</span>
+   <span class="n">interface</span> <span class="n">leds</span> <span class="o">=</span> <span class="n">ledController</span><span class="o">.</span><span class="n">leds</span><span class="p">;</span>
+<span class="n">endmodule</span>
 </pre></div>
 </div>
 <p>Like the SW components, the HW begins by importing the generated
@@ -203,22 +192,22 @@ wrappers and proxies corresponding to the interfaces listed in the
 project Makefile.  The user-defined implementation of the
 LedControllerRequest interface is instantiated on line 14, and wrapped
 on line 15.  This wrapped interface is connected to the bus using the
-library module <code class="docutils literal"><span class="pre">mkSlaveMux</span></code> on line 21 so it can be invoked
+library module <code class="docutils literal notranslate"><span class="pre">mkSlaveMux</span></code> on line 21 so it can be invoked
 from the software.  At the end of the module definition, the top-level
 interface elements must be connected.  A board-specific top-level
-module will include this file, instantiate <code class="docutils literal"><span class="pre">mkConnectalTop</span></code> and
+module will include this file, instantiate <code class="docutils literal notranslate"><span class="pre">mkConnectalTop</span></code> and
 connect the interfaces to the actual peripherals. The module
-<code class="docutils literal"><span class="pre">mkConnectalTop</span></code> must be defined in a file named
-<code class="docutils literal"><span class="pre">Top.bsv</span></code> in the user project.</p>
+<code class="docutils literal notranslate"><span class="pre">mkConnectalTop</span></code> must be defined in a file named
+<code class="docutils literal notranslate"><span class="pre">Top.bsv</span></code> in the user project.</p>
 <p>The Bluespec compiler generates a Verilog module from the top level
 BSV module, in which the methods of exposed interfaces are implemented
 as Verilog ports. Those ports are bound to physical pins on the
 FPGA using a physical constraints file. If CPU specific interface
 signals are needed by the design (for example, extra clocks that are
 generated by the PCIe core), then an optional CPU-specific HostInterface
-parameter to <code class="docutils literal"><span class="pre">mkConnectalTop</span></code> can also be used.  If the design uses
+parameter to <code class="docutils literal notranslate"><span class="pre">mkConnectalTop</span></code> can also be used.  If the design uses
 external pins on the FPGA, those connections are also made here by
-exporting a &#8216;Pins&#8217; interface
+exporting a ‘Pins’ interface
 (hyperref[host_interface]{Section~ref{host_interface}})
 and providing bindings in the constraints file.</p>
 </div>
@@ -231,7 +220,7 @@ and providing bindings in the constraints file.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Connectal Project Structure</a><ul>
 <li><a class="reference internal" href="#project-makefile">Project Makefile</a></li>
@@ -257,23 +246,20 @@ and providing bindings in the constraints file.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/devguide/projectstructure.txt"
+      <li><a href="../_sources/devguide/projectstructure.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -293,13 +279,13 @@ and providing bindings in the constraints file.</p>
         <li class="right" >
           <a href="design.html" title="Connectal Rationale"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

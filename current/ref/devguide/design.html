@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Connectal Rationale &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Connectal Rationale &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Connectal Project Structure" href="projectstructure.html" />
     <link rel="prev" title="Connectal Developer’s Guide" href="devguide.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="devguide.html" title="Connectal Developer’s Guide"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -61,7 +50,7 @@
 <p>Are you happy with the connection between software development and
 hardware development on your projects? Do you wish you had more
 flexible tools for developing test benches, drivers, and applications
-using your hardware? Do you wish you didn&#8217;t need a kernel driver?</p>
+using your hardware? Do you wish you didn’t need a kernel driver?</p>
 <p>Do you wish that you could use a common flow to drive your hardware
 development, across simulation, timing verification, FPGA
 implementation, and even the ASIC back end?</p>
@@ -77,10 +66,10 @@ development without compromising on the performance of the hardware.</p>
 <p>Connectal provides:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Seamless development environment with test benches and apps written in C/C++</li>
-<li>Streamlined application structure</li>
-<li>Faster builds and greater visibility simulating hardware in bluesim/modelsim/xsim</li>
-<li>Support for capture traces on interfaces and replaying them in test benches</li>
+<li><p>Seamless development environment with test benches and apps written in C/C++</p></li>
+<li><p>Streamlined application structure</p></li>
+<li><p>Faster builds and greater visibility simulating hardware in bluesim/modelsim/xsim</p></li>
+<li><p>Support for capture traces on interfaces and replaying them in test benches</p></li>
 </ul>
 </div></blockquote>
 </div>
@@ -93,30 +82,27 @@ development without compromising on the performance of the hardware.</p>
         <div class="sphinxsidebarwrapper">
   <h4>Previous topic</h4>
   <p class="topless"><a href="devguide.html"
-                        title="previous chapter">Connectal Developer&#8217;s Guide</a></p>
+                        title="previous chapter">Connectal Developer’s Guide</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="projectstructure.html"
                         title="next chapter">Connectal Project Structure</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/devguide/design.txt"
+      <li><a href="../_sources/devguide/design.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -136,13 +122,13 @@ development without compromising on the performance of the hardware.</p>
         <li class="right" >
           <a href="devguide.html" title="Connectal Developer’s Guide"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>

@@ -1,36 +1,25 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Clocking Your Design &mdash; connectal 16.11.1 documentation</title>
-    
+    <meta charset="utf-8" />
+    <title>Clocking Your Design &#8212; connectal 20.05.1 documentation</title>
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '16.11.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript" src="../_static/tracking.js"></script>
-    <link rel="top" title="connectal 16.11.1 documentation" href="../index.html" />
-    <link rel="up" title="Connectal Developer’s Guide" href="devguide.html" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/tracking.js"></script>
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Connectal Makefile Variables" href="../make.html" />
     <link rel="prev" title="Compiling and Running Connectal Project" href="compilingproject.html" /> 
-  </head>
-  <body role="document">
+  </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
@@ -46,8 +35,8 @@
         <li class="right" >
           <a href="compilingproject.html" title="Compiling and Running Connectal Project"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" accesskey="U">Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -59,13 +48,13 @@
   <div class="section" id="clocking-your-design">
 <span id="devguide-clocks"></span><h1>Clocking Your Design<a class="headerlink" href="#clocking-your-design" title="Permalink to this headline">¶</a></h1>
 <p>Every board has a main clock, which is the clock exposed by
-&#8220;exposeCurrentClock&#8221;. It has a default value, but that value can be
-overriden with CONNECTALFLAG &#8211;mainclockperiod, which is an integer
+“exposeCurrentClock”. It has a default value, but that value can be
+overriden with CONNECTALFLAG –mainclockperiod, which is an integer
 specified in nanoseconds.</p>
-<p>There is a second clock available, which I called &#8220;derivedClock&#8221;
+<p>There is a second clock available, which I called “derivedClock”
 because it was derived from the main clock. You can specify its clock
-period with &#8211;derivedclockperiod, which is a float specified in
-nanoseconds. I&#8217;m using an MMCM, which has one clock specified by a
+period with –derivedclockperiod, which is a float specified in
+nanoseconds. I’m using an MMCM, which has one clock specified by a
 fractional divisor.</p>
 <p>On PCIe-connected boards, the main clock frequency defaults to the
 PCIe user clock frequency (125MHz for gen1, 250MHz for gen2). But you
@@ -79,10 +68,12 @@ and derived clock domains.</p>
 <p>This is simpler, and preserves the synthesis boundary on mkConnectalTop. See examples/echoslow</p>
 <p>In the Makefile</p>
 <blockquote>
-<div>CONNECTALFLAGS += -D IMPORT_HOST_CLOCKS</div></blockquote>
-<p>Add &#8221;:host.derivedClock,host.derivedReset&#8221; to H2S_INTERFACES:</p>
+<div><p>CONNECTALFLAGS += -D IMPORT_HOST_CLOCKS</p>
+</div></blockquote>
+<p>Add “:host.derivedClock,host.derivedReset” to H2S_INTERFACES:</p>
 <blockquote>
-<div>H2S_INTERFACES = Echo:EchoIndication:host.derivedClock,host.derivedReset</div></blockquote>
+<div><p>H2S_INTERFACES = Echo:EchoIndication:host.derivedClock,host.derivedReset</p>
+</div></blockquote>
 <p>Or just pass in host.derivedClock and create a reset locally.</p>
 <p>Look at the generated &lt;board&gt;/generatedbsv/Top.bsv to see how this changed the generated code.</p>
 </div>
@@ -92,8 +83,9 @@ and derived clock domains.</p>
 interfaces and clocks that are not part of the standard portal
 interface, e.g., I2C.</p>
 <blockquote>
-<div>CONNECTALFLAGS += -D IMPORT_HOSTIF</div></blockquote>
-<p>Add &#8221;:host&#8221; to H2S_INTERFACES.</p>
+<div><p>CONNECTALFLAGS += -D IMPORT_HOSTIF</p>
+</div></blockquote>
+<p>Add “:host” to H2S_INTERFACES.</p>
 <p>See tests/test_sdio1 for an example of the use of IMPORT_HOSTIF, though it has a manually written Top.bsv.</p>
 </div>
 <div class="section" id="setting-zynq-clock-speeds">
@@ -101,7 +93,7 @@ interface, e.g., I2C.</p>
 </div>
 <div class="section" id="default-clock-speeds">
 <h2>Default Clock Speeds<a class="headerlink" href="#default-clock-speeds" title="Permalink to this headline">¶</a></h2>
-<p>The default values for &#8211;mainclockperiod and &#8211;derivedclockperiod for
+<p>The default values for –mainclockperiod and –derivedclockperiod for
 the each board are in the JSON files in the boardinfo directory.</p>
 </div>
 </div>
@@ -112,7 +104,7 @@ the each board are in the JSON files in the boardinfo directory.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <h3><a href="../index.html">Table of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Clocking Your Design</a><ul>
 <li><a class="reference internal" href="#import-host-clocks">IMPORT_HOST_CLOCKS</a></li>
@@ -132,23 +124,20 @@ the each board are in the JSON files in the boardinfo directory.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/devguide/clocks.txt"
+      <li><a href="../_sources/devguide/clocks.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
+    </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -168,13 +157,13 @@ the each board are in the JSON files in the boardinfo directory.</p>
         <li class="right" >
           <a href="compilingproject.html" title="Compiling and Running Connectal Project"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">connectal 16.11.1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer&#8217;s Guide</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">connectal 20.05.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="devguide.html" >Connectal Developer’s Guide</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2015, Jamey Hicks, Myron King, John Ankcorn.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.
+        &#169; Copyright 2015-2020, Jamey Hicks, Myron King, John Ankcorn.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.
     </div>
   </body>
 </html>
